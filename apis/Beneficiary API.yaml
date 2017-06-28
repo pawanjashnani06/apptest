@@ -1,0 +1,701 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Beneficiary API
+  x-ibm-name: beneficiary-api
+  description: ""
+basePath: /beneficiaries/v1
+parameters:
+  Authorization:
+    name: Authorization
+    type: string
+    required: true
+    in: header
+    description: ""
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- https
+securityDefinitions:
+  api-key:
+    type: apiKey
+    description: ""
+    in: header
+    name: X-IBM-Client-Id
+security:
+- api-key: []
+paths:
+  /groups:
+    get:
+      description: Get the beneficiary list (get profile number from session)
+      parameters:
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+    post:
+      description: create a beneficiary list (get profile number from session)
+      parameters:
+      - description: create a beneficiary list
+        in: body
+        name: MyBeneficiaryList
+        required: true
+        schema:
+          $ref: '#/definitions/BeneficiaryList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+    delete:
+      description: delete one or more beneficiary lists
+      parameters:
+      - description: delete beneficiary lists
+        name: BeneficiaryListID
+        in: query
+        required: true
+        type: array
+        items:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /groups/{beneficiarygroup_id}:
+    put:
+      description: update a beneficiary
+      parameters:
+      - description: This specifies the beneficiary ID
+        in: path
+        name: beneficiarygroup_id
+        type: string
+        required: true
+      - description: update one or more beneficiaries on the list
+        in: body
+        name: MyBeneficiaryList
+        required: true
+        schema:
+          $ref: '#/definitions/BeneficiaryList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+    delete:
+      description: delete one or more beneficiary lists
+      parameters:
+      - description: This specifies the beneficiary list ID
+        in: path
+        name: beneficiarygroup_id
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /beneficiariesdetails:
+    get:
+      description: Get a list of the saved beneficiaries (get profile number from
+        session)
+      parameters:
+      - description: This specifies to return either all (ALL); prepaids (PPD); or
+          beneficiaries (BNF); of beneficiaries saved on the profile (default returns
+          all)
+        in: query
+        name: beneficiarytypeid
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+    post:
+      description: save beneficiaries
+      parameters:
+      - description: this is required as Electricity is now part of contactcards and
+          has a validation call before meters can be added to beneficiaries
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: save a one or more beneficiaries
+        in: body
+        name: MyBeneficiaries
+        required: true
+        schema:
+          $ref: '#/definitions/Beneficiaries'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+    delete:
+      description: delete one or more beneficiaries. Front-end will have to make sure
+        BeneficiaryID & BeneficiaryType is the same sequece else it will create havoc
+      parameters:
+      - description: delete one or more beneficiaries
+        in: body
+        name: MyBeneficiaries
+        required: true
+        schema:
+          $ref: '#/definitions/Beneficiaries'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /beneficiary/{beneficiary_id}:
+    get:
+      description: Get individual saved beneficiary from cache
+      parameters:
+      - description: This specifies the beneficiary ID
+        in: path
+        name: beneficiary_id
+        type: string
+        required: true
+      - description: This specifies to return either all (ALL); prepaids (PPD); or
+          beneficiaries (BNF); of beneficiaries saved on the profile (default returns
+          all)
+        in: query
+        name: beneficiarytypeid
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+    put:
+      description: update a beneficiary
+      parameters:
+      - description: This specifies the beneficiary ID
+        in: path
+        name: beneficiary_id
+        type: string
+        required: true
+      - description: This specifies which beneficiary type to update as beneficiary
+          IDs can be duplicates across PPD, BNF etc. all (ALL); prepaids (PPD); or
+          beneficiaries (BNF); of beneficiaries saved on the profile (default returns
+          all). If not supplied it can update the wrong beneficiary as you can have
+          beneficiary IDs be the same between PPD & BNF etc.
+        in: query
+        name: beneficiarytypeid
+        type: string
+        required: true
+      - description: this is required as Electricity is now part of contactcards and
+          has a validation call before meters can be added to beneficiaries
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: save a one or more beneficiaries
+        in: body
+        name: MyBeneficiary
+        required: true
+        schema:
+          $ref: '#/definitions/BFDetails'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+    delete:
+      description: delete a beneficiary
+      parameters:
+      - description: This specifies the beneficiary ID
+        in: path
+        name: beneficiary_id
+        type: string
+        required: true
+      - description: BDF (bank approved beneficiary); EXT (External beneficiary);
+          INT (Internal Nedbank beneficiary); PEL(Prepaid Electricity meter); PPD
+          (Prepaids excluding Electricity); U0 (Unknown).
+        name: beneficiarytype
+        in: query
+        required: true
+        type: string
+        enum:
+        - BDF
+        - EXT
+        - INT
+        - PEL
+        - PPD
+        - U0
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiaryResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /beneficiary/{beneficiary_id}/groups:
+    get:
+      description: Get individual saved beneficiary's lists it belongs to (dont populate
+        the BFListMember items - only return BFListID & BFListName)
+      parameters:
+      - description: This specifies the beneficiary ID
+        in: path
+        name: beneficiary_id
+        type: string
+        required: true
+      - description: This specifies to return either all (ALL); prepaids (PPD); or
+          beneficiaries (BNF); of beneficiaries saved on the profile (default returns
+          all)
+        in: query
+        name: beneficiarytypeid
+        type: string
+        required: true
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BeneficiariesGroupResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+definitions:
+  BeneficiariesGroupResponse:
+    properties:
+      data:
+        $ref: '#/definitions/BeneficiaryList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  BeneficiariesResponse:
+    properties:
+      data:
+        $ref: '#/definitions/Beneficiaries'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  BeneficiaryResponse:
+    properties:
+      data:
+        $ref: '#/definitions/BFDetails'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  BeneficiaryList:
+    type: array
+    items:
+      $ref: '#/definitions/BFListDetail'
+  BFListDetail:
+    properties:
+      bfListID:
+        description: ID of the beneficiary list in the list collection
+        type: integer
+        format: int64
+      bfListName:
+        description: Name of the beneficiary list in the list collection
+        type: string
+      bfListMember:
+        $ref: '#/definitions/BFListMember'
+  BFListMember:
+    description: saved beneficiaries on the particular list
+    type: array
+    items:
+      $ref: '#/definitions/BFListMemberItem'
+  BFListMemberItem:
+    properties:
+      bfTypeID:
+        description: beneficiary type ID
+        type: string
+        enum:
+        - ALL
+        - BNF
+        - COL
+        - PPD
+        - U0
+      bfType:
+        description: beneficiary type
+        type: string
+        enum:
+        - BDF
+        - EXT
+        - INT
+        - PEL
+        - PPD
+        - U0
+      beneficiaryID:
+        description: beneficiary ID
+        type: string
+  Beneficiaries:
+    properties:
+      bfDetails:
+        $ref: '#/definitions/BFDetails'
+      bfSortOrder:
+        $ref: '#/definitions/SortOrder'
+  BFDetails:
+    description: beneficiary details
+    type: array
+    items:
+      $ref: '#/definitions/BFDetail'
+  BFDetail:
+    properties:
+      beneficiaryID:
+        description: beneficiary ID
+        type: integer
+        format: int64
+      bfTypeID:
+        description: ALL; BNF (Beneficiaries); COL (Collectees); PPD (Prepaids); U0
+          (Unknown)
+        type: string
+        enum:
+        - ALL
+        - BNF
+        - COL
+        - PPD
+        - U0
+      bfType:
+        description: REQUIRED field when deleteing. BDF (bank approved beneficiary);
+          EXT (External beneficiary); INT (Internal Nedbank beneficiary); PEL(Prepaid
+          Electricity meter); PPD (Prepaids excluding Electricity); U0 (Unknown)
+        type: string
+        enum:
+        - BDF
+        - EXT
+        - INT
+        - PEL
+        - PPD
+        - U0
+      bfState:
+        description: ACT (Active); CAP (Captured); EXP (Expired); PCA (Pending Client
+          Active); PDL (Pending Delete); PEA (Pending Client Active); U0 (Unknown);
+          UPA (Update pending active); UPB (Updated by bank); UPC (Updated by client)
+        type: string
+      bfName:
+        description: name of the saved beneficiary
+        type: string
+      bank:
+        description: bank of the beneficiary being created (used indirectly with auto
+          identifying account types when Bank=NEDBANK)
+        type: string
+      sortCode:
+        description: sortcode (branchcode)
+        type: string
+      acctType:
+        description: BD (Bank-approved beneficiary); CA (Current Account); CC (Credit
+          Card / Amex / Visa / Master); DS (Investment); HL (Homeloan); IS (Installment
+          Credit); NC (NedCredit); SA (Savings account); TD (Call Account); U0 (Unknown)
+        type: string
+      acctNumber:
+        description: beneficiary account number / or the destination number (cell/telephone
+          for prepaids or Electricity Meter Number)
+        type: string
+      defaultDrNarrative:
+        description: my statement description/reference
+        type: string
+      defaultCrNarrative:
+        description: beneficiary's statement description/reference
+        type: string
+      instantPayment:
+        description: indicates if the  beneficiary should be an instant payment or
+          normal beneficiary
+        type: boolean
+      creditCard:
+        description: indicates if the beneficiary is a credit card or not
+        type: boolean
+      notificationDetails:
+        $ref: '#/definitions/NotificationDetails'
+      bfRecentPayDetail:
+        $ref: '#/definitions/BFRecentPayDetails'
+      ElectricityMeterDetails:
+        $ref: '#/definitions/ElectricityMeterInfo'
+  NotificationDetails:
+    type: array
+    items:
+      $ref: '#/definitions/NotificationDetail'
+  NotificationDetail:
+    properties:
+      notificationId:
+        type: integer
+        format: int64
+      notificationType:
+        type: string
+      notificationAddress:
+        type: string
+      notificationDefaultInd:
+        type: boolean
+  BFRecentPayDetails:
+    type: array
+    items:
+      $ref: '#/definitions/BFRecentPayDetail'
+  BFRecentPayDetail:
+    properties:
+      paymentDate:
+        type: string
+        format: date
+      paymentAmount:
+        type: number
+        format: double
+      acctNumber:
+        type: string
+      paymentDRNarration:
+        type: string
+      paymentCRNarration:
+        type: string
+      execEngineRef:
+        type: string
+  ElectricityMeterInfo:
+    properties:
+      municipality:
+        description: used on prepaidmetervalidate response
+        type: string
+      customerName:
+        description: used on prepaidmetervalidate response
+        type: string
+      customerAddress:
+        description: used on prepaidmetervalidate response
+        type: string
+  SortOrder:
+    properties:
+      custPrefField:
+        description: type of sort order (prefernece type) i.e. BENF_NO (contract value
+          = CustPrefDetailFieldValue)
+        type: string
+      custPrefOrder:
+        description: type of sort order (preference type) i.e. ASC (contract value
+          = CustPrefDetailNameValue)
+        type: string
+  Metadata:
+    properties:
+      page:
+        description: current page number/location
+        type: integer
+        format: int32
+      pageSize:
+        description: the amount of records to be retrieved per page (is editable)
+        type: integer
+        format: int32
+      pageLimit:
+        description: the total amount of available records
+        type: integer
+        format: int32
+      resultSets:
+        $ref: '#/definitions/ResultSets'
+  ResultSets:
+    description: returns result code and description
+    type: array
+    items:
+      $ref: '#/definitions/ResultSet'
+  ResultSet:
+    properties:
+      batchID:
+        description: Used for now and futuredated
+        type: string
+      transactionID:
+        description: Used here for the 'match back' to front-end in order to display
+          status per transaction (now, futuredated, & recurring)
+        type: string
+      recInstrID:
+        description: Used for recurring instruction
+        type: string
+      resultDetails:
+        $ref: '#/definitions/ResultDetails'
+  ResultDetails:
+    description: There are instances where ONE transaction can include multiple API-to-BackEnd
+      calls (i.e. payment + notification + save as beneficiary + make favourite =
+      4-5 calls).
+    type: array
+    items:
+      $ref: '#/definitions/ResultDetail'
+  ResultDetail:
+    properties:
+      operationReference:
+        description: Indicates which operation this result is for on the current transaction
+          i.e. transfer successfull but adding favourite failed. Values can include
+          the following 'Transaction', 'Notification', 'Favourite', 'BeneficiarySaved'.
+          The 'Transaction' type are for any transaction i.e. payment, transfer, get
+          data etc.
+        type: string
+      result:
+        description: Can pass the error code here.
+        type: string
+      status:
+        description: Can pass the error description here.
+        type: string
+      reason:
+        description: Error description
+        type: string
+x-ibm-configuration:
+  enforced: true
+  testable: true
+  phase: realized
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+  - development
+...

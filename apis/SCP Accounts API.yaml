@@ -1,0 +1,1832 @@
+---
+swagger: "2.0"
+info:
+  version: 0.0.14
+  title: SCP Accounts API
+  x-ibm-name: scp-accounts-api
+  description: ""
+basePath: /clients
+paths:
+  /accounts/{accountnumber}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'AccountDetail' objects containing account details for a specific
+        account
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      - name: accountnumber
+        type: string
+        required: true
+        in: path
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/AccountDetail'
+          examples:
+            application/json:
+              AccountName: Current Account
+              AccountNickname: Current Account
+              CurrentBalance: 3410968.190000
+              AvailableBalance: 3410968.190000
+              AccountNumber: "1009427709"
+              AccountHolder: Mr William Jack Mitchell
+              AccountType: Current Account
+              AccountIcon: glyphicon-account_current
+              BranchCode: "198765"
+              SiteId: "16390"
+              ItemAccountId: "14281512"
+              LastUpdate: 2016-04-18 01:18:35 PM
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+  /accounts:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Container' objects containing client account information
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: Containers
+            type: array
+            items:
+              $ref: '#/definitions/AccountContainer'
+          examples:
+            application/json:
+            - ContainerName: Bank
+              Accounts:
+              - AccountName: Savings Account
+                Balance: 140854.970000
+                AvailableBalance: 140824.970000
+                AccountNumber: "2009852923"
+                AccountType: CHECKING
+                Status: "10"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Current Account
+                Balance: 170854.810000
+                AvailableBalance: 172854.810000
+                AccountNumber: "1009795481"
+                AccountType: CHECKING
+                Status: "10"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Current Account
+                Balance: 201397.900000
+                AvailableBalance: 201397.900000
+                AccountNumber: "1025310667"
+                AccountType: CHECKING
+                Status: "10"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Current Account
+                Balance: 1099657.410000
+                AvailableBalance: 1103657.410000
+                AccountNumber: "1028232942"
+                AccountType: CHECKING
+                Status: "0"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              ContainerIcon: glyphicon-account_current
+            - ContainerName: Card
+              Accounts:
+              - AccountName: Card
+                Balance: 0
+                AvailableBalance: 0
+                AccountNumber: "5898460760565622"
+                AccountType: CC
+                AccountIcon: glyphicon-account_credit_card
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Card
+                Balance: 0
+                AvailableBalance: 382388.760000
+                AccountNumber: "5898460760889527"
+                AccountType: CC
+                AccountIcon: glyphicon-account_credit_card
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              ContainerIcon: ""
+            - ContainerName: Loan
+              Accounts:
+              - AccountName: Loan
+                Balance: 0
+                AvailableBalance: 0
+                AccountNumber: "8966258895201"
+                AccountType: AUTO
+                AccountIcon: glyphicon-account_loans
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Loan
+                Balance: 0
+                AvailableBalance: 0
+                AccountNumber: "8907706400101"
+                AccountType: AUTO
+                AccountIcon: glyphicon-account_loans
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              ContainerIcon: ""
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+    post:
+      tags: []
+      summary: ""
+      description: Updates the client account details
+      parameters:
+      - schema:
+          $ref: '#/definitions/AccountDetail'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        201:
+          description: Created
+        400:
+          description: Invalid input
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/transactions:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Transaction' objects containing transaction details for all
+        accounts
+      parameters:
+      - description: end date for filter
+        name: EndDate
+        type: string
+        required: false
+        in: query
+      - description: start date for filter
+        name: StartDate
+        type: string
+        required: false
+        in: query
+      - description: numberOfTransactions for filter
+        name: numberOfTransactions
+        format: int32
+        type: integer
+        required: true
+        in: query
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: Transactions
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+          examples:
+            application/json:
+            - TransactionId: 058fd186-8f68-4f25-9ba8-b6dfd695fe2e
+              Description: INTEREST 26/03 - 07/04
+              Amount: "35,86"
+              RunningBalance: "201417,9"
+              Debit: false
+              Account: "1025310667"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 96
+              ChildTransactions: []
+              OriginalCategoryId: 96
+            - TransactionId: 276d44e2-5b76-4320-a7a5-8ec74e7c025e
+              Description: MAINTENANCE FEE
+              Amount: "-20"
+              RunningBalance: "201397,9"
+              Debit: true
+              Account: "1025310667"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 24
+              ChildTransactions: []
+              OriginalCategoryId: 24
+            - TransactionId: 161f4e56-b562-4007-9158-e7647d35611e
+              Description: INTEREST 26/03 - 07/04
+              Amount: "60,84"
+              RunningBalance: "170869,81"
+              Debit: false
+              Account: "1009795481"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 96
+              ChildTransactions: []
+              OriginalCategoryId: 96
+            - TransactionId: 4f9ee6a9-235f-49ec-94c9-489db85c8a16
+              Description: MAINTENANCE FEE
+              Amount: "-15"
+              RunningBalance: "170854,81"
+              Debit: true
+              Account: "1009795481"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 24
+              ChildTransactions: []
+              OriginalCategoryId: 24
+            - TransactionId: feb7d266-8ccc-497c-b543-cc1367dbb221
+              Description: SERVICE FEE*
+              Amount: "-50,88"
+              RunningBalance: "0"
+              Debit: true
+              Account: "5898460760889527"
+              PostedDate: 2016-04-05 12:00:00 AM
+              CategoryId: 0
+              ChildTransactions: []
+              OriginalCategoryId: 0
+            - TransactionId: 23f3dbce-d89c-4464-8903-41449e16016b
+              Description: VAT ON FEE
+              Amount: "-7,12"
+              RunningBalance: "0"
+              Debit: true
+              Account: "5898460760889527"
+              PostedDate: 2016-04-05 12:00:00 AM
+              CategoryId: 0
+              ChildTransactions: []
+              OriginalCategoryId: 0
+            - TransactionId: 389de5f1-7dcc-4999-9fdc-bdbe6a0dbd9d
+              Description: Simba Test
+              Amount: "-500"
+              RunningBalance: "1109709,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 1
+              ChildTransactions: []
+              OriginalCategoryId: 1
+            - TransactionId: c2a5e05f-eeda-4254-bec9-4ad49aa5a045
+              Description: FNB CC
+              Amount: "-360"
+              RunningBalance: "1109349,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 1
+              ChildTransactions: []
+              OriginalCategoryId: 1
+            - TransactionId: 0c725265-4032-4103-81f8-54715b9d7ea7
+              Description: TELKOM
+              Amount: "-250"
+              RunningBalance: "1109099,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 38
+              ChildTransactions: []
+              OriginalCategoryId: 38
+            - TransactionId: 349a4d74-3acb-41b1-96f2-8a0d8d2d8d2d
+              Description: TELKOM
+              Amount: "-10000"
+              RunningBalance: "1110409,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-01 12:00:00 AM
+              CategoryId: 38
+              ChildTransactions: []
+              OriginalCategoryId: 38
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+    post:
+      tags: []
+      summary: Updates transactions for a user
+      description: ""
+      parameters:
+      - schema:
+          title: Transactions
+          type: array
+          items:
+            $ref: '#/definitions/Transaction'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: ""
+          headers: []
+          examples:
+            application/json:
+            - TransactionId: ccd0c98c-3a4d-47e7-96e3-64a91ea7c4ec
+              Description: Paper Statement
+              Amount: "7"
+              Debit: true
+              Account: "1009427709"
+              PostedDate: 2016/04/15 12:00:00 AM
+              CategoryId: 112
+              ChildTransactions: []
+              OriginalCategoryId: 1
+          schema:
+            title: Transactions
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+        405:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+  /accounts/transactions/{accountnumber}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Transaction' objects containing transaction details for a
+        specific account
+      parameters:
+      - name: startdate
+        required: false
+        type: string
+        in: query
+      - name: numberoftransactions
+        required: false
+        type: string
+        in: query
+      - name: enddate
+        required: false
+        type: string
+        in: query
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      - name: accountnumber
+        type: string
+        required: true
+        in: path
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: Transactions
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+          examples:
+            application/json:
+            - TransactionId: 058fd186-8f68-4f25-9ba8-b6dfd695fe2e
+              Description: INTEREST 26/03 - 07/04
+              Amount: "35,86"
+              RunningBalance: "201417,9"
+              Debit: false
+              Account: "1025310667"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 96
+              ChildTransactions: []
+              OriginalCategoryId: 96
+            - TransactionId: 276d44e2-5b76-4320-a7a5-8ec74e7c025e
+              Description: MAINTENANCE FEE
+              Amount: "-20"
+              RunningBalance: "201397,9"
+              Debit: true
+              Account: "1025310667"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 24
+              ChildTransactions: []
+              OriginalCategoryId: 24
+            - TransactionId: 161f4e56-b562-4007-9158-e7647d35611e
+              Description: INTEREST 26/03 - 07/04
+              Amount: "60,84"
+              RunningBalance: "170869,81"
+              Debit: false
+              Account: "1009795481"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 96
+              ChildTransactions: []
+              OriginalCategoryId: 96
+            - TransactionId: 4f9ee6a9-235f-49ec-94c9-489db85c8a16
+              Description: MAINTENANCE FEE
+              Amount: "-15"
+              RunningBalance: "170854,81"
+              Debit: true
+              Account: "1009795481"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 24
+              ChildTransactions: []
+              OriginalCategoryId: 24
+            - TransactionId: feb7d266-8ccc-497c-b543-cc1367dbb221
+              Description: SERVICE FEE*
+              Amount: "-50,88"
+              RunningBalance: "0"
+              Debit: true
+              Account: "5898460760889527"
+              PostedDate: 2016-04-05 12:00:00 AM
+              CategoryId: 0
+              ChildTransactions: []
+              OriginalCategoryId: 0
+            - TransactionId: 23f3dbce-d89c-4464-8903-41449e16016b
+              Description: VAT ON FEE
+              Amount: "-7,12"
+              RunningBalance: "0"
+              Debit: true
+              Account: "5898460760889527"
+              PostedDate: 2016-04-05 12:00:00 AM
+              CategoryId: 0
+              ChildTransactions: []
+              OriginalCategoryId: 0
+            - TransactionId: 389de5f1-7dcc-4999-9fdc-bdbe6a0dbd9d
+              Description: Simba Test
+              Amount: "-500"
+              RunningBalance: "1109709,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 1
+              ChildTransactions: []
+              OriginalCategoryId: 1
+            - TransactionId: c2a5e05f-eeda-4254-bec9-4ad49aa5a045
+              Description: FNB CC
+              Amount: "-360"
+              RunningBalance: "1109349,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 1
+              ChildTransactions: []
+              OriginalCategoryId: 1
+            - TransactionId: 0c725265-4032-4103-81f8-54715b9d7ea7
+              Description: TELKOM
+              Amount: "-250"
+              RunningBalance: "1109099,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 38
+              ChildTransactions: []
+              OriginalCategoryId: 38
+            - TransactionId: 349a4d74-3acb-41b1-96f2-8a0d8d2d8d2d
+              Description: TELKOM
+              Amount: "-10000"
+              RunningBalance: "1110409,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-01 12:00:00 AM
+              CategoryId: 38
+              ChildTransactions: []
+              OriginalCategoryId: 38
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+  /accounts/metadata:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'AccountMetadata' objects containing account details for accounts
+      parameters:
+      - name: accountnumber
+        required: false
+        type: string
+        in: query
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: AccountMetadata
+            type: array
+            items:
+              $ref: '#/definitions/AccountMetadata'
+          examples:
+            application/json:
+            - AccountName: Current Account
+              AccountNumber: "1605085669"
+              IsOpen: true
+              ProductCode: CA
+              RelationshipCode: PRI
+              StatusCode: OPE
+              SubProductCode: A
+              ContainerId: 20445
+              ContainerName: NEDBank (SA)
+              IsIncluded: true
+              IsPlastic: false
+              AccountType: CurrentAccount
+              Nickname: MainAccount
+              SourceSystem: CASA
+              InterestRate: 0.5%
+              RepaymentAmount: 0
+              AccountHolder: John Doe
+              Actions: Pay,Transfer
+            - AccountName: Loan
+              AccountNumber: "122334800500075"
+              IsOpen: false
+              ProductCode: ND
+              RelationshipCode: PRI
+              StatusCode: CLO
+              SubProductCode: ""
+              ContainerId: 20448
+              ContainerName: NEDBank (SA) - Loan
+              IsIncluded: true
+              IsPlastic: false
+              AccountType: Loan
+              Nickname: MyLoan
+              SourceSystem: Siyeza
+              InterestRate: 8%
+              RepaymentAmount: 0
+              AccountHolder: John Doe
+              Actions: ""
+            - AccountName: Card
+              AccountNumber: "4341815100293142"
+              IsOpen: true
+              ProductCode: CRD
+              RelationshipCode: PRI
+              StatusCode: ACT
+              SubProductCode: ""
+              ContainerId: 20447
+              ContainerName: NEDBank (SA) - Credit Card
+              IsIncluded: true
+              IsPlastic: true
+              AccountType: Plastic
+              Nickname: MyCC
+              SourceSystem: CAMS
+              InterestRate: 10.5%
+              RepaymentAmount: 120.300000
+              AccountHolder: John Doe
+              Actions: Pay,Transfer
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+  /accounts/transactions/categories/{categoryId}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'CategoryTransactions' objects containing Transactions that
+        fall in the category criteria
+      parameters:
+      - name: startdate
+        required: false
+        type: string
+        in: query
+      - name: enddate
+        required: false
+        type: string
+        in: query
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      - description: CategoryID for filter
+        name: categoryId
+        format: int32
+        required: true
+        type: integer
+        in: path
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: ArrayOfTransactions
+            type: array
+            items:
+              title: Transactions
+              type: array
+              items:
+                $ref: '#/definitions/Transaction'
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/atmlimit/{accountnumber}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets the atm limit for the account
+      parameters:
+      - name: accountnumber
+        type: string
+        required: true
+        in: path
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          schema:
+            title: AtmLimit
+            type: number
+            format: double
+          description: OK
+      deprecated: false
+      security:
+      - API Key: []
+    put:
+      tags: []
+      summary: ""
+      description: ""
+      parameters:
+      - description: ""
+        name: accountnumber
+        required: true
+        type: string
+        in: path
+      - schema:
+          $ref: '#/definitions/AtmLimit'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/settlementletter:
+    get:
+      tags: []
+      summary: ""
+      description: Gets the email for the settlement letter
+      parameters:
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          schema:
+            title: email
+            type: string
+          description: OK
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/settlementletter/{accountnumber}:
+    put:
+      tags: []
+      summary: ""
+      description: ""
+      parameters:
+      - description: ""
+        name: accountnumber
+        required: true
+        type: string
+        in: path
+      - schema:
+          type: string
+        description: Alternative email address
+        name: email
+        in: body
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/debitorders/{itemaccountid}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'DebitOrder' objects for an account
+      parameters:
+      - name: itemaccountid
+        required: true
+        type: string
+        in: path
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+          schema:
+            title: DebitOrders
+            type: array
+            items:
+              $ref: '#/definitions/DebitOrder'
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/stoppayments/{itemaccountid}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Stoppayment' objects for an account
+      parameters:
+      - name: itemaccountid
+        required: true
+        type: string
+        in: path
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+          schema:
+            title: StopPayments
+            items:
+              $ref: '#/definitions/StopPayments'
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/stoppayments:
+    delete:
+      tags: []
+      summary: ""
+      description: Delete 'Stoppayment' objects for an account
+      parameters:
+      - name: AcctNumber
+        required: true
+        type: string
+        in: query
+      - name: TranDate
+        required: true
+        type: string
+        in: query
+      - name: TranCode
+        required: true
+        type: string
+        in: query
+      - name: Amount
+        required: true
+        type: number
+        format: decimal
+        in: query
+      - name: Narrative
+        required: true
+        type: string
+        in: query
+      - name: SequenceNumber
+        required: true
+        type: number
+        format: double
+        in: query
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        201:
+          description: ""
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+    post:
+      tags: []
+      summary: Add stop payments
+      description: ""
+      parameters:
+      - schema:
+          title: StopPayments
+          type: array
+          items:
+            $ref: '#/definitions/StopPayment'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: OK
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/disputedebitorder:
+    post:
+      tags: []
+      summary: Add debit order dispute
+      description: ""
+      parameters:
+      - schema:
+          title: DebitOrderDispute
+          type: object
+          items:
+            $ref: '#/definitions/DebitOrderDispute'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: OK
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/stoppaymentreasons:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Stop Payment Reasons' objects
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/debitorderdisputereasons:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Debit order disputes Reason' objects
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/accounttypes:
+    get:
+      tags: []
+      summary: ""
+      description: Gets account types
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: AccountTypes
+            type: array
+            items:
+              $ref: '#/definitions/AccountType'
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
+  /accounts/mandates:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Mandates' objects for an account
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+          schema:
+            title: Mandates
+            type: array
+            items:
+              $ref: '#/definitions/Mandates'
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/mandatedetails/{mandateidentifier}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets the details of a mandate
+      parameters:
+      - name: mandateidentifier
+        required: true
+        type: string
+        in: path
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: OK
+          schema:
+            title: MandateDetails
+            items:
+              $ref: '#/definitions/MandateDetail'
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/mandates/{mandateidentifier}/authorisations:
+    post:
+      tags: []
+      summary: Authorise a pending mandate
+      description: ""
+      parameters:
+      - name: mandateidentifier
+        required: true
+        type: string
+        in: path
+      - description: ""
+        name: autenticationStatusInd
+        required: true
+        type: string
+        in: query
+      - description: ""
+        name: rejectionReasonCode
+        required: false
+        type: string
+        in: query
+      - description: ""
+        name: mandateReferenceNumber
+        required: true
+        type: string
+        in: query
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: OK
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+  /accounts/mandates/{mandatereferencenumber}/suspensions:
+    post:
+      tags: []
+      summary: Suspend a pending mandate
+      description: ""
+      parameters:
+      - name: mandatereferencenumber
+        required: true
+        type: string
+        in: path
+      - description: ""
+        name: suspensionReasonCode
+        required: true
+        type: string
+        in: query
+      - description: ""
+        name: suspensionReasonDesc
+        required: true
+        type: string
+        in: query
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: OK
+        204:
+          description: ""
+          headers: []
+          examples: []
+      deprecated: false
+      security:
+      - API Key: []
+definitions:
+  AtmLimit:
+    properties:
+      AccountNumber:
+        type: string
+        description: Account number to be updated
+      AtmLimit:
+        type: number
+        format: double
+        description: New atm limit
+  AccountContainer:
+    properties:
+      ContainerName:
+        type: string
+        description: The name for this container
+      Accounts:
+        type: array
+        items:
+          $ref: '#/definitions/Account'
+      ContainerIcon:
+        type: string
+        description: The container icon
+  Account:
+    properties:
+      AccountName:
+        type: string
+        description: The name for this account
+      Balance:
+        type: number
+        format: double
+        description: The balance for this account
+      AvailableBalance:
+        type: number
+        format: double
+        description: The available balance for this account
+      AccountNumber:
+        type: string
+        description: The account number
+      AccountType:
+        type: string
+        description: The account type
+      Status:
+        type: string
+        description: The account status eg Active
+      AccountIcon:
+        type: string
+        description: The account icon
+      NewAccount:
+        type: boolean
+        description: This is set true if it is a newly added account
+      LastUpdate:
+        type: string
+        description: The date of the last update
+      InstitutionName:
+        type: string
+        description: ""
+      Currency:
+        type: string
+        description: The currency of the account
+      SiteId:
+        type: string
+        description: The site id for the account
+      SiteAccountId:
+        type: string
+        description: The site account id for the account
+      ItemAccountId:
+        type: string
+        description: The item account id for the account
+      MaxDailyLimit:
+        type: number
+        format: double
+        description: The MaxDailyLimit for the account
+      InterestRate:
+        type: number
+        format: double
+        description: The InterestRate for the account
+      CurrentBalanceStraight:
+        type: number
+        format: double
+        description: The CurrentBalanceStraight for the account
+      CurrentBalanceBudget:
+        type: number
+        format: double
+        description: The CurrentBalanceBudget for the account
+      CreditLimit:
+        type: number
+        format: double
+        description: The CreditLimit for the account
+      AmountDue:
+        type: number
+        format: double
+        description: The AmountDue for the account
+      DueDate:
+        type: string
+        description: The DueDate for the account
+  AccountDetail:
+    properties:
+      AccountName:
+        type: string
+        description: The name for this account
+      AccountNickname:
+        type: string
+        description: The friendly/nickname for this account
+      CurrentBalance:
+        type: number
+        format: double
+        description: The current balance for this account
+      AvailableBalance:
+        type: number
+        format: double
+        description: The available balance for this account
+      AccountNumber:
+        type: string
+        description: The account number
+      AccountHolder:
+        type: string
+        description: The account holder name if applicable
+      AccountType:
+        type: string
+        description: The account type
+      AccountIcon:
+        type: string
+        description: The account icon
+      BranchCode:
+        type: string
+        description: The branch code for the account
+      Bank:
+        type: string
+        description: The bank where this account originates
+      ProductType:
+        type: string
+        description: The product type
+      Status:
+        type: string
+        description: The account status eg Active
+      Statement:
+        type: string
+        description: The statement delivery option for this account
+      SubAcct:
+        type: string
+        description: For use by some account types, eg investment number
+      PositionArray:
+        type: array
+        items:
+          $ref: '#/definitions/Position'
+      BalanceHistoryArray:
+        type: array
+        items:
+          $ref: '#/definitions/BalanceHistory'
+      RefreshStatus:
+        type: string
+        description: The refresh status of the account
+      SiteId:
+        type: string
+        description: The site id for the account
+      SiteAccountId:
+        type: string
+        description: The site account id for the account
+      LastUpdate:
+        type: string
+        description: The date of the last update
+      InstitutionName:
+        type: string
+        description: ""
+      ContainerName:
+        type: string
+        description: The container name
+      Currency:
+        type: string
+        description: The currency of the account
+      MaxDailyLimit:
+        type: number
+        format: double
+        description: The maximum daily limit for this account
+      InterestRate:
+        type: number
+        format: double
+        description: The interest rate for this account
+      CurrentBalanceStraight:
+        type: number
+        format: double
+        description: ""
+      CurrentBalanceBudget:
+        type: number
+        format: double
+        description: ""
+      CreditLimit:
+        type: number
+        format: double
+        description: ""
+      AmountDue:
+        type: number
+        format: double
+        description: The amount due for the account
+      DueDate:
+        type: string
+        description: ""
+      LoanAmmount:
+        type: number
+        format: double
+        description: ""
+      OutstandingAmount:
+        type: number
+        format: double
+        description: ""
+      ItemAccountId:
+        type: string
+        description: The item account id for the account
+  Position:
+    properties:
+      PositionIdentifier:
+        type: string
+        description: A name or id for the investment position
+      PositionDate:
+        type: string
+        description: The date this data was updated
+      UnitPrice:
+        type: string
+        description: The current unit price for this item
+      UnitsHeld:
+        type: string
+        description: The count of units held by the client
+      MarketValue:
+        type: string
+        description: The market value of all units held
+      Allocation:
+        type: string
+        description: The percentage of the investment made out by this position
+  BalanceHistory:
+    properties:
+      BalanceAmount:
+        type: number
+        format: double
+        description: The balance amount on a specific date
+      BalanceDate:
+        type: string
+        description: The target date for this balance
+  Transaction:
+    properties:
+      TransactionId:
+        type: string
+        description: The unique identifier for the transaction
+      Description:
+        type: string
+        description: The statement description for the transaction
+      Amount:
+        type: string
+        description: The amount for the transaction
+      RunningBalance:
+        type: string
+        description: The running balance for the account
+      Debit:
+        type: boolean
+        description: indicates if this was a debit transaction
+      Account:
+        type: string
+        description: The account number related to this transaction
+      PostedDate:
+        type: string
+        description: The date the trasaction was posted
+      CategoryId:
+        type: integer
+        format: int32
+        description: The category Id
+      ChildTransactions:
+        type: array
+        items:
+          $ref: '#/definitions/Transaction'
+  AccountMetadata:
+    properties:
+      AccountName:
+        type: string
+        description: The account name
+      AccountNumber:
+        type: string
+        description: The account number
+      IsOpen:
+        type: boolean
+        description: indicates if the account is currently open
+      ProductCode:
+        type: string
+        description: The product code for this account
+      ProductDescription:
+        type: string
+        description: The product description for this account
+      RelationshipCode:
+        type: string
+        description: The relationship code for the client to this account
+      StatusCode:
+        type: string
+        description: The account number related to this transaction
+      SubProductCode:
+        type: string
+        description: The account status code
+      ContainerId:
+        type: integer
+        format: int32
+        description: The container id for this account
+      ContainerName:
+        type: string
+        description: The container name for this account
+      IsIncluded:
+        type: boolean
+        description: Indicates if the account is included
+      IsPlastic:
+        type: boolean
+        description: Indicated if this account is a plastic
+      AccountType:
+        type: string
+        description: The account type
+      Nickname:
+        type: string
+        description: The account nickname or description
+      SourceSystem:
+        type: string
+        description: The source system for the account details
+      InterestRate:
+        type: string
+        description: The current interest rate on the account
+      RepaymentAmount:
+        type: number
+        format: double
+        description: The repayment amount for the account
+      AccountHolder:
+        type: string
+        description: The account holder
+      Actions:
+        type: string
+        description: Actions that may be performed on the account
+      Transactions:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionMetadata'
+        description: List of transactions on the account
+      Currency:
+        type: string
+        description: The account currency
+      AvailableBalance:
+        type: number
+        format: decimal
+        description: The availablebalance amount for the account
+      CurrentBalance:
+        type: number
+        format: decimal
+        description: The CurrentBalance amount for the account
+      AmountDue:
+        type: number
+        format: decimal
+        description: The AmountDue amount for the account
+      DueDate:
+        type: string
+        description: The DueDate amount for the account
+      LoanAmmount:
+        type: number
+        format: double
+        description: The LoanAmmount amount for the account
+      OutstandingAmount:
+        type: number
+        format: double
+        description: The OutstandingAmount amount for the account
+      ProfileAccountState:
+        type: string
+        description: The state of the account
+      AccountLevel:
+        type: string
+        description: The level of the account
+      ViewAvailBal:
+        type: boolean
+        description: Can the Avail balance be viewed?
+      ViewStmnts:
+        type: boolean
+        description: Can the Statements be viewed?
+      IsRestricted:
+        type: boolean
+        description: Is the acc restricted?
+      ViewCurrBal:
+        type: boolean
+        description: Can the Curr balance be viewed?
+      ViewCredLim:
+        type: boolean
+        description: Can the Credit limit be viewed?
+      ViewMinAmtDue:
+        type: boolean
+        description: Can the min amount due be viewed?
+      IsAlternateAccount:
+        type: boolean
+        description: Is this the alternate acc?
+      AllowCredits:
+        type: boolean
+        description: Is credit transactions allowed?
+      AllowDebits:
+        type: boolean
+        description: Is debit transactions allowed?
+      AccountRules:
+        type: object
+        items:
+          $ref: '#/definitions/AccountRulesMetadata'
+        description: List of account rules
+  StopPayments:
+    type: array
+    items:
+      $ref: '#/definitions/StopPayment'
+  StopPayment:
+    properties:
+      AcctNumber:
+        type: string
+        description: The account number
+      TranDate:
+        type: string
+        description: The transaction date
+      TranCode:
+        type: string
+        description: The transaction code
+      Amount:
+        type: number
+        format: decimal
+        description: The transaction amount
+      Narrative:
+        type: string
+        description: The transaction description
+      StatementNumber:
+        type: string
+        description: The statement number
+      StatementLineNumber:
+        type: string
+        description: The statement line number
+      StatementDate:
+        type: string
+        description: The statement date
+      ReasonCode:
+        type: string
+        description: The reason code
+      MandateReferenceNo:
+        type: string
+        description: The mandate reference number
+      ChargeAmount:
+        type: number
+        format: decimal
+        description: The charge amount
+      SequenceNumber:
+        type: number
+        format: decimal
+        description: The sequence number
+  DebitOrder:
+    properties:
+      AcctNumber:
+        type: string
+        description: The account number
+      TranDate:
+        type: string
+        description: The transaction date
+      TranCode:
+        type: string
+        description: The transaction code
+      Amount:
+        type: number
+        format: decimal
+        description: The transaction amount
+      Narrative:
+        type: string
+        description: The transaction description
+      StatementNumber:
+        type: string
+        description: The statement number
+      StatementLineNumber:
+        type: string
+        description: The statement line number
+      StatementDate:
+        type: string
+        description: The statement date
+      MandateReferenceNo:
+        type: string
+        description: The mandate reference number
+      ChargeAmount:
+        type: number
+        format: decimal
+        description: The charge amount
+  DebitOrderDispute:
+    properties:
+      Title:
+        type: string
+        description: The client title
+      FirstName:
+        type: string
+        description: First Name
+      Surname:
+        type: string
+        description: Surname
+      AccountNumber:
+        type: string
+        description: The account number
+      AccountStatus:
+        type: string
+        description: The account status
+      TransactionReference:
+        type: string
+        description: The transaction reference
+      TransactionAmount:
+        type: string
+        description: The transaction amount
+      TransactionDate:
+        type: string
+        description: The transaction date
+      Reason:
+        type: string
+        description: 'The reason '
+      ContactNumber:
+        type: string
+        description: Contact number
+      EmailAddress:
+        type: string
+        description: Email address
+  AccountRulesMetadata:
+    properties:
+      InstantPayFrom:
+        type: boolean
+        description: Is instant payment from acc allowed?
+      OnceOffPayFrom:
+        type: boolean
+        description: Is onceoff payment from acc allowed?
+      FutureOnceOffPayFrom:
+        type: boolean
+        description: Is FutureOnceOffPayFrom acc allowed?
+      RecurringPayFrom:
+        type: boolean
+        description: Is RecurringPayFrom acc allowed?
+      RecurringBDFPayFrom:
+        type: boolean
+        description: Is RecurringBDFPayFrom acc allowed?
+      OnceOffTransferFrom:
+        type: boolean
+        description: Is OnceOffTransferFrom acc allowed?
+      OnceOffTransferTo:
+        type: boolean
+        description: Is OnceOffTransferTo acc allowed?
+      FutureTransferFrom:
+        type: boolean
+        description: Is FutureTransferFrom acc allowed?
+      FutureTransferTo:
+        type: boolean
+        description: Is FutureTransferTo acc allowed?
+      RecurringTransferFrom:
+        type: boolean
+        description: Is RecurringTransferFrom acc allowed?
+      RecurringTransferTo:
+        type: boolean
+        description: Is RecurringTransferTo acc allowed?
+      OnceOffPrepaidFrom:
+        type: boolean
+        description: Is OnceOffPrepaidFrom acc allowed?
+      FuturePrepaidFrom:
+        type: boolean
+        description: Is FuturePrepaidFrom acc allowed?
+      RecurringPrepaidFrom:
+        type: boolean
+        description: Is RecurringPrepaidFrom acc allowed?
+      OnceOffElectricityFrom:
+        type: boolean
+        description: Is OnceOffElectricityFrom acc allowed?
+      OnceOffLottoFrom:
+        type: boolean
+        description: Is OnceOffLottoFrom acc allowed?
+      OnceOffiMaliFrom:
+        type: boolean
+        description: Is OnceOffiMaliFrom acc allowed?
+  TransactionMetadata:
+    properties:
+      TransactionId:
+        type: string
+        description: The unique identifier for the transaction
+      Description:
+        type: string
+        description: The statement description for the transaction
+      Amount:
+        type: number
+        format: double
+        description: The amount for the transaction
+      RunningBalance:
+        type: number
+        format: double
+        description: The running balance for the account
+      Debit:
+        type: boolean
+        description: Indicates if this was a debit transaction
+      Account:
+        type: string
+        description: The account number related to this transaction
+      PostedDate:
+        type: string
+        description: The date the trasaction was posted
+      CategoryId:
+        type: integer
+        description: The category Id
+      ChildTransactions:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionMetadata'
+        description: Gets or Sets ChildTransactions
+      OriginalCategoryId:
+        type: integer
+        description: The original category Id
+  AccountType:
+    properties:
+      ContainerType:
+        type: string
+        description: The ContainerType for this account type e.g. Bank, Investment
+      AccountTypeIcon:
+        type: string
+        description: A class name corresponding to the account type icon
+      Description:
+        type: string
+        description: The Description for this account type
+  Mandates:
+    type: array
+    items:
+      $ref: '#/definitions/Mandate'
+  Mandate:
+    properties:
+      DebtorName:
+        type: string
+        description: Name of Debtor as per Bank Account
+      DebtorAccountNumber:
+        type: string
+        description: Debtor Account Number in Bank
+      DebtorAccountType:
+        type: string
+        description: Type of account
+      CreditorName:
+        type: string
+        description: Name of Creditor initiating Collection
+      MandateInitiationDate:
+        type: string
+        description: 'Mandate Initiation Date '
+      MandateStatus:
+        type: string
+        description: Status of Mandate
+      MandateReferenceNumber:
+        type: string
+        description: This is the original Mandate Reference Number , the unique mandate
+          identification. This number must be unique in the industry for lifetime
+          of mandate (including time in archives).
+      MaximumCollectionAmount:
+        type: number
+        format: double
+        description: Amount for Maximum Collection Instalment
+      MandateIdentifier:
+        type: string
+        description: A unique mandate request id by creditor bank
+      ContractReference:
+        type: string
+        description: This is the Creditor Contract number
+      InstalmentAmount:
+        type: number
+        format: double
+        description: Amount for Collection Instalment
+      InstalmentOccurrence:
+        type: string
+        description: 'Sequence Type: Once Off or Recurring'
+      MandateAuthenticationDate:
+        type: string
+        description: Date when Mandate authorized
+  MandateDetail:
+    properties:
+      DebitValueType:
+        type: string
+        description: 'Must contain: FIXED VARIABLE USAGE BASED'
+      FirstCollectionAmount:
+        type: number
+        format: double
+        description: Initial Amount, if different from Instalment Amount
+      FirstCollectionDate:
+        type: string
+        description: Date of first collection
+      InstalmentAmount:
+        type: number
+        format: double
+        description: Amount for Collection Instalment
+      MaximumCollectionAmount:
+        type: number
+        format: double
+        description: Amount for Maximum Collection Instalment
+      AdjustmentCategory:
+        type: string
+        description: This field may contain N, Q, A, B, R
+      AdjustmentRate:
+        type: number
+        format: double
+        description: Adjustment rate to increase or decrease by per Adjustment Category
+      AdjustmentAmount:
+        type: number
+        format: double
+        description: Adjustment Amount to increase by per Adjustment Category
+      CollectionDay:
+        type: string
+        description: Contains a number for the day of collection as per Frequency
+          selected
+      Frequency:
+        type: string
+        description: Frequency of debit
+      DateAdjustmentRuleIndicator:
+        type: string
+        description: This field may contain Y N
+      UltimateCreditorName:
+        type: string
+        description: Debtor Account Number in Bank
+      CreditorAbbreviatedShortName:
+        type: string
+        description: Abbreviated Short Name of Creditor
+      ContractReference:
+        type: string
+        description: This is the Creditor Contract number
+      DebtorAccountNumber:
+        type: string
+        description: Debtor Account Number in Bank
+      TrackingIndicator:
+        type: string
+        description: Indicate that tracking is required or not. Service level.
+      MandateStatus:
+        type: string
+        description: Status of Mandate
+      MandateReferenceNumber:
+        type: string
+        description: This is the original Mandate Reference Number , the unique mandate
+          identification. This number must be unique in the industry for lifetime
+          of mandate (including time in archives).
+schemes:
+- https
+tags: []
+securityDefinitions:
+  API Key:
+    type: apiKey
+    name: X-IBM-Client-Id
+    in: header
+    description: ""
+security:
+- API Key: []
+x-ibm-configuration:
+  enforced: true
+  phase: realized
+  testable: true
+  externalDocs: []
+  attachments: []
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+  - development
+...

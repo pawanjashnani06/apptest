@@ -1,0 +1,1523 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.1
+  title: Prepaids API
+  x-ibm-name: prepaids-api
+  description: ""
+basePath: /prepaids/v1
+parameters:
+  Authorization:
+    name: Authorization
+    type: string
+    required: true
+    in: header
+    description: ""
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- https
+securityDefinitions:
+  api-key:
+    type: apiKey
+    description: ""
+    in: header
+    name: X-IBM-Client-Id
+security:
+- api-key: []
+paths:
+  /accounts:
+    get:
+      description: Retrieves a list of accounts
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+  /transactions:
+    get:
+      description: Retrieves a prepaids list according to a profile number and optional
+        filtering parameters
+      parameters:
+      - description: This specifies the from account for which you want to retrieve
+          prepaids
+        in: query
+        name: fromacc
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          prepaids
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the service provider type (VDC; MTN; CLC; 8TA;
+          VGN TLK; BLT;; GDN; Mpesa; NED;)
+        in: query
+        name: serviceprovider
+        type: string
+        required: false
+      - description: This specifies the prepaid type (PEL; PAI (airtime); PBB (BigBonus);
+          PBS (BIS); PDA (DataBunde); PDB (DATA Bundle); PDW (WIFI Data Bundle); PSM
+          (SMS Bundle); PVB (PowerVoice Bundle); PFB (FreeData Baundle); PMS (moneySend
+          / iMali); PDN (Daily Bundle); PES (Mpesa); PLO (LOTTO); PCB (All in One);
+          )
+        in: query
+        name: prepaidtype
+        type: string
+        required: false
+      - description: This specifies the destination number (cell, telephone, electricity
+          meter)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          prepaids
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve prepaids
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the transaction type for which you want to retrieve
+          prepaids
+        in: query
+        name: transactiontype
+        type: string
+        required: false
+      - description: This specifies the frequency for which you want to retrieve prepaids
+          (weekly, monthly)
+        in: query
+        name: frequency
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    post:
+      description: make prepaid purchases
+      parameters:
+      - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
+          SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Single or list of transactions
+        in: body
+        name: Prepaids
+        required: true
+        schema:
+          $ref: '#/definitions/PrepaidList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    delete:
+      description: Delete list of transactions. Only for future-dated & recurring
+      parameters:
+      - description: only for future-dated & recurring
+        in: body
+        name: DeleteTransactions
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/DeleteItem'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /transactions/{transactionID}:
+    get:
+      description: Gets specified prepaid details
+      parameters:
+      - description: Specific prepaid to get for details
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: indicate future-dated or recurring
+        in: query
+        name: transactiontype
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+    put:
+      description: Update a specific future-dated or recurring transaction.
+      parameters:
+      - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
+          SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Implies that you can only update one at a time
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: Transaction details to be updated
+        in: body
+        name: Transaction
+        required: true
+        schema:
+          $ref: '#/definitions/Prepaid'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        204:
+          description: No Content. Nothing found to update
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+    delete:
+      description: Remove a single transaction.
+      parameters:
+      - description: Specific transaction to be deleted (transactionID or BatchID
+          goes here). (both arrays must be the same size)
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: ID for when deleteing recurring items
+        in: query
+        name: recinstrid
+        type: integer
+        format: int64
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        204:
+          description: No Content. Nothing found to delete
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /purchasehistory:
+    get:
+      description: Retrieves the purchase history for prepaids
+      parameters:
+      - description: This specifies the service provider type
+        in: query
+        name: serviceprovider
+        type: string
+        required: true
+      - description: This specifies the prepaid type
+        in: query
+        name: prepaidtype
+        type: string
+        required: true
+      - description: This specifies the destination number (cell, telephone, electricity
+          meter)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /electricitymetervouchers:
+    get:
+      description: Gets prepaid electricity transactions (PrepaidTxEnq & PrepaidFBEListEnq)
+      parameters:
+      - description: This specifies the from account for which you want to retrieve
+          prepaids
+        in: query
+        name: fromacc
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          prepaids
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the destination number (electricity meter number)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          prepaids
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve prepaids
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the status type for which you want to retrieve
+          electricity prepaid transactions
+        in: query
+        name: transactionstatus
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /electricitymetervouchers/{voucher_id}:
+    get:
+      description: Gets prepaid electricity voucher for specified batch id (PrepaidVoucherEnq)
+      parameters:
+      - description: This specifies the ID (in this case batch id) of the electricity
+          prepaid transaction you would like to retrive a voucher for
+        in: path
+        name: voucher_id
+        type: string
+        required: true
+      - description: This enables the API to understand when to send the batchID or
+          fbeID (free electricity) for the PrepaidVoucherEnq request (PEL or FBE).
+          In other words the ProductCode...
+        in: query
+        name: electricitytype
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ElectricityVoucherResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ElectricityVoucherResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ElectricityVoucherResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /electricitymeters/{meter_id}:
+    put:
+      description: Update a specific electricity meter
+      parameters:
+      - description: If 'false' then call ProfileBFAdd & ProfileBFNotificationMod
+          else if it is 'true' then call PrepaidMeterValidate
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: prepaid electricity meter beneficiary ID to update
+        in: path
+        name: meter_id
+        type: string
+        required: true
+      - description: Transaction details to be updated
+        in: body
+        name: Transaction
+        required: true
+        schema:
+          $ref: '#/definitions/PrePaidBFElecDetailItem'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ElectricityMeterResponse'
+        204:
+          description: No Content. Nothing found to update
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ElectricityMeterResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ElectricityMeterResponse'
+    delete:
+      description: delete a specific electricity meter
+      parameters:
+      - description: prepaid electricity meter beneficiary ID
+        in: path
+        name: meter_id
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ElectricityMeterResponse'
+        204:
+          description: No Content. Nothing found to delete
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ElectricityMeterResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ElectricityMeterResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /electricitymeters:
+    get:
+      description: Gets prepaid electricity saved beneficiaries (ProfileBFDetailEnq)
+      parameters:
+      - description: This specifies the destination number (electricity meter)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+    post:
+      description: Validate meter and save as beneficiary
+      parameters:
+      - description: If 'false' then call ProfileBFAdd & ProfileBFNotificationMod
+          else if it is 'true' then call PrepaidMeterValidate
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Single or list of transactions
+        in: body
+        name: Prepaids
+        required: true
+        schema:
+          $ref: '#/definitions/PrePaidElecBFDetailList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+    delete:
+      description: Delete registered meters
+      parameters:
+      - description: prepaid electricity meter beneficiary ID
+        in: query
+        name: meter_id
+        type: array
+        items:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ElectricityMetersResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /moneysend:
+    get:
+      description: USES [PrepaidTxEnq] - Retrieves  send-iMali; m-pesa & 'western
+        union' records according to a profile number and optional filtering parameters
+      parameters:
+      - description: This specifies the from account for which you want to retrieve
+          transactions
+        in: query
+        name: fromacc
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          transactions
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the destination number (cell, telephone, electricity
+          meter)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          transactions
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve transactions
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the transaction type for which you want to retrieve
+          transactions (valid values incl. mpesa; imali). If transactiontype=imali
+          then ServiceProvider=NED and ProductCode=PMS on API. If transactiontype=mpesa
+          then ServiceProvider=Mpesa and ProductCode=PES on API.
+        in: query
+        name: transactiontype
+        type: string
+        required: true
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    post:
+      description: USES [bankToStoreVAPartner] - send money
+      parameters:
+      - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
+          SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Single or list of transactions
+        in: body
+        name: MoneySend
+        required: true
+        schema:
+          $ref: '#/definitions/PrepaidList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /moneysend/history:
+    get:
+      description: USES [PrepaidHistEnq] - Retrieves  send-iMali; m-pesa & 'western
+        union' records according to a profile number and optional filtering parameters
+      parameters:
+      - description: This specifies the from account for which you want to retrieve
+          transactions
+        in: query
+        name: fromacc
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          transactions
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the destination number (cell, telephone, electricity
+          meter)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          transactions
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve transactions
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: USES [PrepaidHistEnq] - This specifies the transaction type for
+          which you want to retrieve transactions (valid values incl. mpesa; imali).
+          If transactiontype=imali then ServiceProvider=NED and ProductCode=PMS on
+          API. If transactiontype=mpesa then ServiceProvider=Mpesa and ProductCode=PES
+          on API.
+        in: query
+        name: transactiontype
+        type: string
+        required: true
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/MoneySendHistItems'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/MoneySendHistItems'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/MoneySendHistoryResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+definitions:
+  PrepaidResponse:
+    properties:
+      data:
+        $ref: '#/definitions/Prepaid'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  PrepaidListResponse:
+    properties:
+      data:
+        $ref: '#/definitions/PrepaidList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  ElectricityVoucherResponse:
+    properties:
+      data:
+        $ref: '#/definitions/ElectricityVoucherList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  ElectricityMeterResponse:
+    properties:
+      data:
+        $ref: '#/definitions/PrePaidBFElecDetailItem'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  ElectricityMetersResponse:
+    properties:
+      data:
+        $ref: '#/definitions/PrePaidElecBFDetailList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  MoneySendHistoryResponse:
+    properties:
+      data:
+        $ref: '#/definitions/MoneySendHistItems'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  PrepaidList:
+    description: list of prepais
+    type: array
+    items:
+      $ref: '#/definitions/Prepaid'
+  AccountsListResponse:
+    properties:
+      data:
+        $ref: '#/definitions/AccountList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  AccountList:
+    properties:
+      accounts:
+        description: list of accounts
+        type: array
+        items:
+          $ref: '#/definitions/Account'
+  Account:
+    properties:
+      accountName:
+        type: string
+        description: The account name
+      accountNumber:
+        type: string
+        description: The account number
+      isOpen:
+        type: boolean
+        description: indicates if the account is currently open
+      productCode:
+        type: string
+        description: The product code for this account
+      productDescription:
+        type: string
+        description: The product description for this account
+      relationshipCode:
+        type: string
+        description: The relationship code for the client to this account
+      statusCode:
+        type: string
+        description: The account number related to this transaction
+      subProductCode:
+        type: string
+        description: The account status code
+      containerId:
+        type: integer
+        format: int32
+        description: The container id for this account
+      containerName:
+        type: string
+        description: The container name for this account
+      isIncluded:
+        type: boolean
+        description: Indicates if the account is included
+      isPlastic:
+        type: boolean
+        description: Indicated if this account is a plastic
+      accountType:
+        type: string
+        description: The account type
+      nickname:
+        type: string
+        description: The account nickname or description
+      sourceSystem:
+        type: string
+        description: The source system for the account details
+      interestRate:
+        type: string
+        description: The current interest rate on the account
+      repaymentAmount:
+        type: number
+        format: double
+        description: The repayment amount for the account
+      accountHolder:
+        type: string
+        description: The account holder
+      actions:
+        type: string
+        description: Actions that may be performed on the account
+      transactions:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionMetadata'
+        description: List of transactions on the account
+      currency:
+        type: string
+        description: The account currency
+      availableBalance:
+        type: number
+        format: decimal
+        description: The availablebalance amount for the account
+      currentBalance:
+        type: number
+        format: decimal
+        description: The CurrentBalance amount for the account
+      amountDue:
+        type: number
+        format: decimal
+        description: The AmountDue amount for the account
+      dueDate:
+        type: string
+        description: The DueDate amount for the account
+      loanAmmount:
+        type: number
+        format: double
+        description: The LoanAmmount amount for the account
+      outstandingAmount:
+        type: number
+        format: double
+        description: The OutstandingAmount amount for the account
+      profileAccountState:
+        type: string
+        description: The state of the account
+      accountLevel:
+        type: string
+        description: The level of the account
+      viewAvailBal:
+        type: boolean
+        description: Can the Avail balance be viewed?
+      viewStmnts:
+        type: boolean
+        description: Can the Statements be viewed?
+      isRestricted:
+        type: boolean
+        description: Is the acc restricted?
+      viewCurrBal:
+        type: boolean
+        description: Can the Curr balance be viewed?
+      viewCredLim:
+        type: boolean
+        description: Can the Credit limit be viewed?
+      viewMinAmtDue:
+        type: boolean
+        description: Can the min amount due be viewed?
+      isAlternateAccount:
+        type: boolean
+        description: Is this the alternate acc?
+      allowCredits:
+        type: boolean
+        description: Is credit transactions allowed?
+      allowDebits:
+        type: boolean
+        description: Is debit transactions allowed?
+      accountRules:
+        type: object
+        items:
+          $ref: '#/definitions/AccountRulesMetadata'
+        description: List of account rules
+  AccountRulesMetadata:
+    properties:
+      instantPayFrom:
+        type: boolean
+        description: Is instant payment from acc allowed?
+      onceOffPayFrom:
+        type: boolean
+        description: Is onceoff payment from acc allowed?
+      futureOnceOffPayFrom:
+        type: boolean
+        description: Is FutureOnceOffPayFrom acc allowed?
+      recurringPayFrom:
+        type: boolean
+        description: Is RecurringPayFrom acc allowed?
+      recurringBDFPayFrom:
+        type: boolean
+        description: Is RecurringBDFPayFrom acc allowed?
+      onceOffTransferFrom:
+        type: boolean
+        description: Is OnceOffTransferFrom acc allowed?
+      onceOffTransferTo:
+        type: boolean
+        description: Is OnceOffTransferTo acc allowed?
+      futureTransferFrom:
+        type: boolean
+        description: Is FutureTransferFrom acc allowed?
+      futureTransferTo:
+        type: boolean
+        description: Is FutureTransferTo acc allowed?
+      recurringTransferFrom:
+        type: boolean
+        description: Is RecurringTransferFrom acc allowed?
+      recurringTransferTo:
+        type: boolean
+        description: Is RecurringTransferTo acc allowed?
+      onceOffPrepaidFrom:
+        type: boolean
+        description: Is OnceOffPrepaidFrom acc allowed?
+      futurePrepaidFrom:
+        type: boolean
+        description: Is FuturePrepaidFrom acc allowed?
+      recurringPrepaidFrom:
+        type: boolean
+        description: Is RecurringPrepaidFrom acc allowed?
+      onceOffElectricityFrom:
+        type: boolean
+        description: Is OnceOffElectricityFrom acc allowed?
+      onceOffLottoFrom:
+        type: boolean
+        description: Is OnceOffLottoFrom acc allowed?
+      onceOffiMaliFrom:
+        type: boolean
+        description: Is OnceOffiMaliFrom acc allowed?
+  TransactionMetadata:
+    properties:
+      transactionId:
+        type: string
+        description: The unique identifier for the transaction
+      description:
+        type: string
+        description: The statement description for the transaction
+      amount:
+        type: number
+        format: double
+        description: The amount for the transaction
+      runningBalance:
+        type: number
+        format: double
+        description: The running balance for the account
+      debit:
+        type: boolean
+        description: Indicates if this was a debit transaction
+      account:
+        type: string
+        description: The account number related to this transaction
+      postedDate:
+        type: string
+        description: The date the trasaction was posted
+      categoryId:
+        type: integer
+        description: The category Id
+      childTransactions:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionMetadata'
+        description: Gets or Sets ChildTransactions
+      originalCategoryId:
+        type: integer
+        description: The original category Id
+  Prepaid:
+    properties:
+      batchID:
+        description: Used for batch id (for update & delete). For recurring transactions
+          map with ReoccurrenceID. If FreeBasedElectricity this will be reused for
+          FbeID of the free electricity (FreeBasedElectricityID)
+        type: integer
+        format: int64
+      transactionID:
+        description: Used for transaction ID of once-off and fututredated OR for ReoccurrenceID
+          (for prepaids this can be PayInstrID)
+        type: integer
+        format: int64
+      capturedDate:
+        description: ONLY used on GET - on contract mapped to ClientRef
+        type: string
+        format: date
+      startDate:
+        description: Date the client want the transaction to take place - on contract
+          mapped to TrxRequestDate (or ReoccurrenceFromDate for recurring transactions).
+          For FBE map this to ValueDate
+        type: string
+        format: date
+      nextTransDate:
+        description: Date of the next transaction - on contract mapped to ValueDate
+          (not used for any front-end controls (except FBE electricity) but required
+          for API validate true and false sequence so that the correct value is recieved
+          from host on validate = true and sent back on validate = false). Also used
+          for FBE electricity.
+        type: string
+        format: date
+      beneficiaryID:
+        description: ID of the saved beneficiary
+        type: integer
+        format: int64
+      bfName:
+        description: name of the beneficiary (map to meter name if Electricity). IF
+          FBE, then look up BF name against the PrepaidTxEnq results by using the
+          meter number
+        format: string
+      myDescription:
+        description: my transaction description. IF FBE, hardcode 'Free Based Electricity'
+        format: string
+      fromAccount:
+        $ref: '#/definitions/Account'
+      destinationNumber:
+        description: cell, telephone or municipality number (if this has an asterix
+          (*) in it we know by default this is a PrepaidOwnNum=Y else PrepaidOwnNum=N)
+        type: string
+      serviceProvider:
+        description: BLT, VDC, MTN etc..
+        type: string
+      productCode:
+        description: PAI (Prepaid Airtime); PBB (Prepaid Big Bonus Voucher); PBS (Prepaid
+          Blackberry Service); PCB (all in one); PDA (Prepaid Data Bundle); PEL (Prepaid
+          Electricity); PMC (MTN Chat); PMI (MTN internetExplore); PML (MTNSmartphonelite);
+          PNM (SocailNetworking); PMP (smartphoneplus); PLO (Lotto); PSM (prepaid
+          sms bundle); PMS (Money Send); PVC (Prepaid SMS Bundle); PWA (Prepaid Without
+          Airtime); PDB (power DATA bundle); PDW (WIFI Data bundle); PVB (Power voice
+          bundle); ALL; U0 (Undefined); FBE (Free Based Electricity);
+        type: string
+      amount:
+        description: IF FBE, hardcode '0.00'
+        type: integer
+        format: double
+      isVoucherAmount:
+        type: boolean
+      reoccurrenceItem:
+        $ref: '#/definitions/ReoccurrenceItem'
+      notificationDetails:
+        $ref: '#/definitions/NotificationDetails'
+      prepaidStatus:
+        description: used with electricity & imali GET. Gets the status of the transaction
+          (ALL - All, PEN - Pending, PRC - Processed, PRJ - Failed, U0 - Undefined)
+        type: string
+      electricityAmountInArrears:
+        description: in use with electricity for amount in arrears (still owning the
+          municipality)
+        type: integer
+        format: double
+      purchaseReferenceNumber:
+        description: in use with electricity for Purchase reference number (ValueDate/NEDBANK/ExecEngineRef;
+          i.e. '20160613/NEDBANK/000000489023992664'). For FBE (ValueDate/NEDBANK/FbeID;
+          i.e. '20160613/NEDBANK/873')
+        type: string
+      unitsInBundle:
+        description: units in the bundle (not rand value). BundleValue + BundleUnit
+          from the contract i.e. '12 Megabytes'
+        type: string
+      favourite:
+        description: Only for saved beneficiary transactions (and when save happens
+          first). On POST if 'true' call FavouriteTxAdd.
+        type: boolean
+  ReoccurrenceItem:
+    properties:
+      reoccurrenceFrequency:
+        description: Weekly or Monthly
+        type: string
+      recInstrID:
+        description: Used for Reoccurrence instruction ID
+        type: integer
+        format: int64
+      reoccurrenceOccur:
+        description: How many occurrences was requested
+        type: integer
+        format: int64
+      reoccOccurrencesLeft:
+        description: Occurrences left
+        type: integer
+        format: int64
+      reoccurrenceToDate:
+        description: Reoccurence end date
+        type: string
+        format: Date
+      reoccSubFreqType:
+        description: Day of the *
+        type: string
+      reoccSubFreqVal:
+        description: Day NUMBER or monthDay NUMBER i.e. '1' OR '18'. Had to change
+          to string due to reference data having "Last Day". Developers can convert
+          to int64 (long) for service call.
+        type: string
+  NotificationDetail:
+    properties:
+      notificationId:
+        type: integer
+        format: int64
+      notificationType:
+        description: NONE; SMS; FAX; EMAIL, SecureInbox
+        type: string
+        enum:
+        - NONE
+        - SMS
+        - FAX
+        - EMAIL
+        - SecureInbox
+      notificationAddress:
+        description: mobile number; email address etc
+        type: string
+      notificationDefaultInd:
+        description: only used for adding/maintianing an electricity meter
+        type: boolean
+  PrePaidElecBFDetailList:
+    description: list of beneficiary details
+    type: array
+    items:
+      $ref: '#/definitions/PrePaidBFElecDetailItem'
+  PrePaidBFElecDetailItem:
+    properties:
+      destinationNumber:
+        description: Mobile or meter-number of the beneficiary being added
+        type: string
+      beneficiaryName:
+        description: name of beneficiary being added (MeterName for electricity)
+        type: string
+      myDescription:
+        description: my statement description for the transaction
+        format: string
+      beneficiaryID:
+        description: beneficiary ID
+        type: integer
+        format: int64
+      municipality:
+        description: used on prepaidmetervalidate response
+        type: string
+      customerName:
+        description: used on prepaidmetervalidate response
+        type: string
+      customerAddress:
+        description: used on prepaidmetervalidate response
+        type: string
+      notificationDetails:
+        $ref: '#/definitions/NotificationDetails'
+      recentPayList:
+        $ref: '#/definitions/ElecBFRecentPayDetails'
+  ElecBFRecentPayDetails:
+    description: recent pay details for the beneficiary
+    type: array
+    items:
+      $ref: '#/definitions/ElecBFRecentPayDetail'
+  ElecBFRecentPayDetail:
+    properties:
+      bfPaymentDate:
+        description: payment date of recent transaction
+        type: string
+      bfPaymentAmount:
+        description: amount paid/purchased
+        type: integer
+        format: double
+      bfAcctNumber:
+        description: account nnumber of the service provider (for electricity this
+          is same as meter number)
+        type: string
+      bfMyDescription:
+        description: my statement description (PaymentDRNarration)
+        type: string
+      bfPurchaseReferenceNumber:
+        description: API to generate this by using the following from the response
+          obj from host. BFRecentPayDetail.PaymentDate + Nedbank + ExecEngineRef and
+          must look like this '20160617/NEDBANK/000000489024021736'
+        type: string
+  ElectricityVoucherList:
+    type: array
+    items:
+      $ref: '#/definitions/ElectricityVoucherDetail'
+  ElectricityVoucherDetail:
+    properties:
+      myDescription:
+        description: PLS SEE WHAT value current IB usses to map here
+        type: string
+      purchaseDate:
+        description: PLS SEE WHAT value current IB usses to map here
+        type: string
+        format: date
+      fromAcctDetails:
+        description: PLS SEE WHAT value current IB usses to map here
+        type: string
+      meterNumber:
+        description: meter number
+        type: string
+      distributor:
+        description: mapped to Utility on contract
+        type: string
+      customerName:
+        description: customer name
+        type: string
+      customerAddress:
+        description: customer address
+        type: string
+      serviceProvider:
+        description: service provider full name
+        type: string
+      nedbankReferenceNr:
+        description: combination of the following valuedate/NEDBANK/ExecEngineRef
+        type: string
+      amount:
+        description: amount purchashed
+        type: integer
+        format: double
+      globalReceiptNr:
+        description: global receipt number
+        type: string
+      taxInvoiceNr:
+        description: tax invoice number
+        type: string
+      supplyGroupCode:
+        description: suppluy group code
+        type: integer
+        format: int64
+      keyRevisionNr:
+        description: key revision number
+        type: integer
+        format: int64
+      tarrifIndexCode:
+        description: tarrif index code
+        type: integer
+        format: int64
+      algorithmCode:
+        description: algorithm code
+        type: integer
+        format: int64
+      tokenTechnologyCode:
+        description: Token tech code
+        type: integer
+        format: int64
+      tokenDetail:
+        $ref: '#/definitions/TokenDetailItems'
+      enquiries:
+        description: contact info
+        type: string
+  TokenDetailItems:
+    description: token details
+    type: array
+    items:
+      $ref: '#/definitions/TokenDetailItem'
+  TokenDetailItem:
+    properties:
+      normalSaleToken:
+        description: token number
+        type: string
+      electricityAmount:
+        description: electricity amount inn ZAR
+        type: integer
+        format: double
+      vat:
+        description: vat information - PLS SEE WHAT current IB does
+        type: string
+      electricityUnits:
+        description: amount of electricity units
+        type: integer
+        format: double
+      receipt:
+        description: receipt
+        type: string
+      tarrif:
+        $ref: '#/definitions/TarrifItems'
+  TarrifItems:
+    description: tarrif information
+    type: array
+    items:
+      $ref: '#/definitions/TarrifItem'
+  TarrifItem:
+    properties:
+      amount:
+        type: integer
+        format: double
+      unitCost:
+        type: integer
+        format: double
+      units:
+        description: units in kWh
+        type: string
+  MoneySendHistItems:
+    description: MoneySendHist items
+    type: array
+    items:
+      $ref: '#/definitions/MoneySendHistItem'
+  MoneySendHistItem:
+    properties:
+      batchID:
+        type: integer
+        format: int64
+      startDate:
+        description: Date the client want the transaction to take place - on contract
+          mapped to TrxRequestDate (or ReoccurrenceFromDate for recurring transactions)
+        type: string
+        format: date
+      nextTransDate:
+        description: Date of the next transaction - on contract mapped to ValueDate
+          (not used for any front-end controls but required for API validate true
+          and false sequence so that the correct value is recieved from host on validate
+          = true and sent back on validate = false)
+        type: string
+        format: date
+      myDescription:
+        description: my transaction description
+        format: string
+      destinationNumber:
+        description: cellnumber
+        type: string
+      isOwnNumber:
+        description: API needs to check this number comming back from response against
+          number on profile and if the same set to true else false
+        type: boolean
+      fromAccount:
+        type: string
+      amount:
+        type: integer
+        format: double
+      notificationDetails:
+        $ref: '#/definitions/NotificationDetails'
+      purchaseReferenceNumber:
+        description: in use with electricity for Purchase reference number (ValueDate/NEDBANK/ExecEngineRef;
+          i.e. '20160613/NEDBANK/000000489023992664')
+        type: string
+  NotificationDetails:
+    description: notification details
+    type: array
+    items:
+      $ref: '#/definitions/NotificationDetail'
+  Metadata:
+    properties:
+      page:
+        description: current page number/location
+        type: integer
+        format: int32
+      pageSize:
+        description: the amount of records to be retrieved per page (is editable)
+        type: integer
+        format: int32
+      pageLimit:
+        description: the total amount of available records
+        type: integer
+        format: int32
+      resultData:
+        $ref: '#/definitions/ResultSets'
+  ResultSets:
+    description: returns result code and description
+    type: array
+    items:
+      $ref: '#/definitions/ResultSet'
+  ResultSet:
+    properties:
+      batchID:
+        description: Used for now and futuredated
+        type: string
+      transactionID:
+        description: Used here for the 'match back' to front-end in order to display
+          status per transaction (now, futuredated, & recurring)
+        type: string
+      recInstrID:
+        description: Used for recurring instruction
+        type: string
+      resultDetail:
+        $ref: '#/definitions/ResultDetails'
+      execEngineRef:
+        description: Executing engine (host) reference number
+        type: string
+  ResultDetails:
+    description: There are instances where ONE transaction can include multiple API-to-BackEnd
+      calls (i.e. payment + notification + save as beneficiary + make favourite =
+      4-5 calls).
+    type: array
+    items:
+      $ref: '#/definitions/ResultDetail'
+  ResultDetail:
+    properties:
+      operationReference:
+        description: Indicates which operation this result is for on the current transaction
+          i.e. transfer successfull but adding favourite failed. Values can include
+          the following 'Transaction', 'Notification - NotificationAddress (082...)',
+          'Favourite', 'BeneficiarySaved'. The 'Transaction' type are for any transaction
+          i.e. payment, transfer, get, delete etc.
+        type: string
+      result:
+        description: Can pass the error code here.
+        type: string
+      status:
+        description: Can pass the error description here.
+        type: string
+      reason:
+        description: Error description
+        type: string
+  DeleteItem:
+    properties:
+      batchID:
+        type: integer
+        format: int64
+      transactionID:
+        type: integer
+        format: int64
+      recInstrID:
+        type: integer
+        format: int64
+x-ibm-configuration:
+  enforced: true
+  testable: true
+  phase: realized
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+  - development
+...

@@ -1,0 +1,880 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: ReferenceData API
+  x-ibm-name: referencedata-api
+  description: ""
+basePath: /referencedata/v1
+parameters:
+  Authorization:
+    name: Authorization
+    type: string
+    required: true
+    in: header
+    description: ""
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- https
+securityDefinitions:
+  api-key:
+    type: apiKey
+    description: ""
+    in: header
+    name: X-IBM-Client-Id
+security:
+- api-key: []
+paths:
+  /banks:
+    get:
+      description: Retrieves list of banks including universal branch code and instant
+        payment indicator (RTC). Order should be ABSA Bank; Bidvest Bank; Capitec
+        Bank; First National Bank; Investec bank Limited; Standard Bank of South Africa;
+        rest of banks are sorted alphabetically
+      parameters:
+      - description: This specifies to return only banks that allow instant payments
+          (real time clearance = RTC)
+        in: query
+        name: rtc
+        type: boolean
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BanksResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BanksResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BanksResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /banks/{bankcode}/branches:
+    get:
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      parameters:
+      - description: unique bank identifier
+        in: path
+        name: bankcode
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /bankdefinedbeneficiaries:
+    get:
+      description: Retrieves the BDF list. Alphabetically ordered
+      parameters:
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BDFResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BDFResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BDFResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /notificationtypes:
+    get:
+      description: Retrieves the notification types (prevuously hardcoded on front-end)
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/NotificationTypesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/NotificationTypesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/NotificationTypesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /serviceproviders:
+    get:
+      description: Retrieves the available service providers
+      parameters:
+      - description: This specifies the service provider type to be retrieved (providertype=prepaids;
+          anything future related that will be defined later)
+        in: query
+        name: providertype
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProvidersResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProvidersResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProvidersResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /serviceproviders/{serviceprovidercode}/products:
+    get:
+      description: Retrieves the products for the specified serviceprovider
+      parameters:
+      - description: service provider code
+        in: path
+        name: serviceprovidercode
+        type: integer
+        format: int64
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /frequency:
+    get:
+      description: Retrieves the frequency data used with recurring transactions (Monthly,
+        '1-31' or Last Day etc)
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/FrequencyResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/FrequencyResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/FrequencyResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /lotto/drawresults:
+    get:
+      description: USES [MongoDB] - Retrieves the lotto draw results
+      parameters:
+      - description: valid values incl. lotto; lottoplus; powerball; powerballplus
+          - defualt returns all four
+        in: query
+        name: gametype
+        type: integer
+        format: int64
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/DrawDetailsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/DrawDetailsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/DrawDetailsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /lotto/jacpot:
+    get:
+      description: USES [MongoDB] - Retrieves the lotto jackpot info
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/JackpotResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/JackpotResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/JackpotResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /lotto/metadata:
+    get:
+      description: USES [MongoDB] - Retrieves the lotto rules/metadata (used for validation
+        of purchase)
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LottoMetadataResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LottoMetadataResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LottoMetadataResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /stoppaymentreasons:
+    get:
+      description: Retrieves list of reasons with their associated codes that can
+        be used to provide when stopping a payment.
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/DisputeReasonsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/DisputeReasonsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/DisputeReasonsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /disputedebitorderreasons:
+    get:
+      description: Retrieves list of reasons with their associated codes that can
+        be used to provide when disputing a debit order.
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/DisputeReasonsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/DisputeReasonsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/DisputeReasonsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+definitions:
+  BanksResponse:
+    properties:
+      data:
+        $ref: '#/definitions/Banks'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  BranchesResponse:
+    properties:
+      data:
+        $ref: '#/definitions/Branch'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  BDFResponse:
+    properties:
+      data:
+        $ref: '#/definitions/BDFList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  NotificationTypesResponse:
+    properties:
+      data:
+        $ref: '#/definitions/NotificationTypes'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  ServiceProvidersResponse:
+    properties:
+      data:
+        $ref: '#/definitions/ServiceProviders'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  ServiceProviderProductsResponse:
+    properties:
+      data:
+        $ref: '#/definitions/ServiceProviderProducts'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  FrequencyResponse:
+    properties:
+      data:
+        $ref: '#/definitions/ReoccFreqList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  DrawDetailsResponse:
+    properties:
+      data:
+        $ref: '#/definitions/DrawDetails'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  JackpotResponse:
+    properties:
+      data:
+        $ref: '#/definitions/JackpotDetails'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  LottoMetadataResponse:
+    properties:
+      data:
+        $ref: '#/definitions/LottoMetadata'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  DisputeReasonsResponse:
+    properties:
+      data:
+        $ref: '#/definitions/DisputeReasons'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  BDFList:
+    properties:
+      bDFID:
+        description: this is the BDF ID (account number value on the contract). Host
+          sends this ID through on the account number field (they have a seperate
+          mapping table on back-end for the real account numbers)
+        type: string
+      bDFName:
+        description: Name of the Bank Defined Beneficiary
+        type: string
+      sortCode:
+        description: This sort code is used by back-end with processing of the account,
+          like a branch code - BUT this is NOT always a branch code.  (sort codes
+          are something like branch codes but not '100%'. You get financial branches
+          and domicile branch etc. (there are more branches))
+        type: integer
+        format: int64
+  NotificationTypes:
+    properties:
+      notificationType:
+        description: Type of notification (FAX; SMS; EMAIL; SecureInbox)
+        type: string
+  Banks:
+    description: bank details
+    type: array
+    items:
+      $ref: '#/definitions/BankDetail'
+  BankDetail:
+    properties:
+      bankCode:
+        description: bank code
+        type: string
+      bankName:
+        description: Name of the bank
+        type: string
+      universalCode:
+        description: Universal branch code of the bank (if branch codes does not have
+          more than one brance for this bank then use that particular code else leave
+          this empty and populate the branchcodes)
+        type: string
+      rTC:
+        description: Instant payment indicator - if the bank is RTC participating
+        type: boolean
+      branchCodes:
+        $ref: '#/definitions/Branches'
+  Branches:
+    description: branch codes of the particular bank if more than one from aggregated
+      data (hostdownloads)
+    type: array
+    items:
+      $ref: '#/definitions/Branch'
+  Branch:
+    properties:
+      branchName:
+        type: string
+      branchCode:
+        type: string
+  ServiceProviders:
+    description: returns a list of service provider's details
+    type: array
+    items:
+      $ref: '#/definitions/ServiceProviderDetail'
+  ServiceProviderDetail:
+    properties:
+      serviceProviderCode:
+        description: service provider short ID (VDC = Vodacom etc)
+        type: string
+      serviceProviderName:
+        description: Name of the service provider
+        type: string
+      accountInfo:
+        $ref: '#/definitions/AccountDetails'
+  ServiceProviderProducts:
+    properties:
+      productCode:
+        description: product type in short (PAI = Prepaid Airtime)
+        type: string
+      productDescription:
+        description: is it airtime or date etc...
+        type: string
+      minAmount:
+        description: minimum amount that can be purchased
+        type: number
+        format: double
+      maxAmount:
+        description: maximum amount that can be purchased
+        type: number
+        format: double
+      allowPurchaseNow:
+        description: is purchace now enabled for this product
+        type: boolean
+      allowFutureDated:
+        description: is future-dated purchases enabled for this product
+        type: boolean
+      allowRecurring:
+        description: is recurring purchases enbaled for this product
+        type: boolean
+      voucherTopupInstructions:
+        description: instructions for voucer top ups
+        type: string
+      productDetails:
+        $ref: '#/definitions/ProductDetails'
+  ProductDetails:
+    description: list of related Product values
+    type: array
+    items:
+      $ref: '#/definitions/ProductDetail'
+  ProductDetail:
+    properties:
+      amountValue:
+        description: ZAR amount that it cost for the product
+        type: number
+        format: double
+      bundleList:
+        description: Name of the bundle type i.e. Minutes, Megabytes, Gigabytes, SMS
+          etc
+        type: string
+      bundleValue:
+        description: value you get for the ZAR amount (i.e. 'R10' = '2mb' of data)
+        type: number
+        format: double
+  AccountDetails:
+    properties:
+      accountType:
+        description: i.e. Current, BDF etc
+        type: string
+      accountNumber:
+        description: account number (not used with municipalities)
+        type: string
+      sortCode:
+        description: sort code (like branch code)
+        type: string
+      chargeAccountNr:
+        description: charge account number
+        type: string
+      chargeAccountType:
+        description: charge account type like current, DBF etc
+        type: string
+      chargeSortCode:
+        description: charge sort code (like branch code)
+        type: string
+      supportContactNr:
+        description: contact number for support of service provider
+        type: string
+  ReoccFreqList:
+    properties:
+      reoccurrenceFrequency:
+        description: frequency type i.e. MONTHLY or WEEKLY
+        type: string
+      reoccFreqLimPeriod:
+        description: frequency max limit of occurrences (MONTHLY or WEEKLY)
+        type: integer
+        format: int64
+      recValidWeekList:
+        $ref: '#/definitions/RecValWeekListItems'
+      recValidMonthItems:
+        $ref: '#/definitions/RecValMonthListItems'
+  RecValWeekListItems:
+    description: WEEKLY detail
+    type: array
+    items:
+      $ref: '#/definitions/RecValWeekListItem'
+  RecValWeekListItem:
+    properties:
+      recDayName:
+        description: Name of the weekday
+        type: string
+      recDayNum:
+        description: Number of the weekday (start at '1' - '7')
+        type: string
+      recDayType:
+        description: type of day (Sunday = S the rest = B)
+        type: string
+  RecValMonthListItems:
+    description: MONTHLY detail
+    type: array
+    items:
+      $ref: '#/definitions/RecValMonthListItem'
+  RecValMonthListItem:
+    properties:
+      recValDays:
+        description: day of the month i.e. '04' OR 'Last Day'
+        type: string
+  DisputeReasons:
+    description: StopPayment and DebitDispute Reasons
+    type: array
+    items:
+      $ref: '#/definitions/Reason'
+  Reason:
+    properties:
+      channelTechType:
+        type: string
+      code:
+        type: string
+      description:
+        type: string
+  DrawDetails:
+    properties:
+      drawName:
+        type: string
+      drawDate:
+        type: string
+        format: date
+      nextDrawDate:
+        type: string
+        format: date
+      drawNumber:
+        description: drawidentifier on contract
+        type: integer
+        format: int64
+      ballDetails:
+        $ref: '#/definitions/BallDetails'
+      winnerDetails:
+        $ref: '#/definitions/WinnerDetails'
+      rolloverAmount:
+        type: integer
+        format: double
+      rolloverNumber:
+        type: integer
+        format: int64
+      totalPrizePoolAmount:
+        type: integer
+        format: double
+      totalSalesAmount:
+        type: integer
+        format: double
+      estimatedJackpotAmount:
+        type: integer
+        format: double
+      guaranteedJackpotAmount:
+        type: integer
+        format: double
+      drawMachineName:
+        type: string
+      ballSetNumber:
+        type: string
+      powerBallDrawMachineName:
+        type: string
+      powerballSetNumber:
+        type: string
+      provincialWinners:
+        items:
+          $ref: '#/definitions/ProvincialWinnerDetail'
+  BallDetails:
+    description: list of the ball numbers
+    type: array
+    items:
+      $ref: '#/definitions/BallDetail'
+  BallDetail:
+    properties:
+      sequenceNumber:
+        description: needs to be string cause you can have "BonusBall" in this field
+        type: string
+      ballNumber:
+        type: integer
+        format: int64
+  WinnerDetails:
+    description: list of the winnder details per division
+    type: array
+    items:
+      $ref: '#/definitions/WinnerDetail'
+  WinnerDetail:
+    properties:
+      divisionNumber:
+        description: devitionidentifier on contract
+        type: integer
+        format: int32
+      payoutAmount:
+        type: integer
+        format: double
+      numberOfWinners:
+        type: integer
+        format: int64
+  ProvincialWinnerDetail:
+    properties:
+      gPWinners:
+        description: gauteng winners
+        type: integer
+        format: int64
+      wCWinners:
+        description: western cape winners
+        type: integer
+        format: int64
+      nCWinners:
+        description: northern cape winners
+        type: integer
+        format: int64
+      eCWinners:
+        description: eastern cape winners
+        type: integer
+        format: int64
+      mPWinners:
+        description: mpumalanga winners
+        type: integer
+        format: int64
+      lPWinners:
+        description: limpopo winners
+        type: integer
+        format: int64
+      fSWinners:
+        description: freestate winners
+        type: integer
+        format: int64
+      kZNWinners:
+        description: kwazulu-natal winners
+        type: integer
+        format: int64
+      nWWinners:
+        description: north west winners
+        type: integer
+        format: int64
+  JackpotDetails:
+    type: array
+    items:
+      $ref: '#/definitions/JackpotDetail'
+  JackpotDetail:
+    properties:
+      game:
+        description: Lotto; Lotto Plus; PowerBall; PowerBall Plus
+        type: string
+      nextDrawDate:
+        type: string
+        format: date
+      drawNumber:
+        description: drawidentifier on contract
+        type: integer
+        format: int64
+      jackpotAmount:
+        type: integer
+        format: double
+  LottoMetadata:
+    properties:
+      gameType:
+        type: integer
+        format: int32
+      gameTypeName:
+        description: API to convert the GameType indicator to user friendly name -
+          "1 = Lotto; 2 = PowerBall"
+        type: string
+      startTime:
+        type: string
+      cutOffTimes:
+        $ref: '#/definitions/LottoCutoffTimes'
+      drawDays:
+        $ref: '#/definitions/LottoDrawDays'
+      postponed:
+        type: boolean
+      boardPrice:
+        type: integer
+        format: double
+      lottoPlusPrice:
+        type: integer
+        format: double
+      maxNumberOfBoardsAllowed:
+        type: integer
+        format: int32
+      maxNumberOfDrawsAllowed:
+        type: integer
+        format: int32
+      minimumNumberOfBoardsAllowed:
+        type: integer
+        format: int32
+      minimumNumberOfDrawsAllowed:
+        type: integer
+        format: int32
+  LottoCutoffTimes:
+    type: array
+    items:
+      $ref: '#/definitions/LottoCutoffTime'
+  LottoDrawDays:
+    type: array
+    items:
+      $ref: '#/definitions/LottoDrawDay'
+  LottoCutoffTime:
+    properties:
+      dayNumber:
+        description: This is the number of the day in the week - "1 = Monday; 7 =
+          Sunday"
+        type: integer
+        format: int32
+      dayName:
+        description: API to convert to user friendly name. This is the name of the
+          day in the week - "1 = Monday; 7 = Sunday"
+        type: string
+      time:
+        type: string
+  LottoDrawDay:
+    properties:
+      drawDayNumber:
+        description: This is the number of the day in the week - "1 = Monday; 7 =
+          Sunday"
+        type: integer
+        format: int32
+      drawDayName:
+        description: API to convert to user friendly name. This is the name of the
+          day in the week - "1 = Monday; 7 = Sunday"
+        type: string
+  Metadata:
+    properties:
+      page:
+        description: current page number/location
+        type: integer
+        format: int32
+      pageSize:
+        description: the amount of records to be retrieved per page (is editable)
+        type: integer
+        format: int32
+      pageLimit:
+        description: the total amount of available records
+        type: integer
+        format: int32
+      resultData:
+        $ref: '#/definitions/ResultSets'
+  ResultSets:
+    description: returns result code and description
+    type: array
+    items:
+      $ref: '#/definitions/ResultSet'
+  ResultSet:
+    properties:
+      batchID:
+        description: Used for now and futuredated
+        type: string
+      transactionID:
+        description: Used here for the 'match back' to front-end in order to display
+          status per transaction (now, futuredated, & recurring)
+        type: string
+      recInstrID:
+        description: Used for recurring instruction
+        type: string
+      resultDetail:
+        $ref: '#/definitions/ResultDetails'
+  ResultDetails:
+    description: There are instances where ONE transaction can include multiple API-to-BackEnd
+      calls (i.e. payment + notification + save as beneficiary + make favourite =
+      4-5 calls).
+    type: array
+    items:
+      $ref: '#/definitions/ResultDetail'
+  ResultDetail:
+    properties:
+      operationReference:
+        description: Indicates which operation this result is for on the current transaction
+          i.e. transfer successfull but adding favourite failed. Values can include
+          the following 'Transaction', 'Notification', 'Favourite', 'BeneficiarySaved'.
+          The 'Transaction' type are for any transaction i.e. payment, transfer, get
+          data etc.
+        type: string
+      result:
+        description: Can pass the error code here.
+        type: string
+      status:
+        description: Can pass the error description here.
+        type: string
+      reason:
+        description: Error description
+        type: string
+x-ibm-configuration:
+  enforced: true
+  testable: true
+  phase: realized
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+  - development
+...
