@@ -17,7 +17,7 @@ This is a node project with the following structure;
 1. Clone the repo locally:
 ```
 git clone
-git@github.com:utu-ai/betterbots-botkit.git
+git@github.com:greenbank60days/banking-api-mocks.gi
 ```
 2. Update NPM dependencies:
 ```
