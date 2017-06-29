@@ -17,16 +17,16 @@ This is a node project with the following structure;
 1. Clone the repo locally:
 ```
 git clone
-git@github.com:greenbank60days/banking-api-mocks.gi
+git@github.com:greenbank60days/banking-api-mocks.git
 ```
 2. Update NPM dependencies:
 ```
-cd banking-app-stubs
+cd banking-app-mocks
 npm i
 ```
 3. Start the application
 ```
-node server.js
+npm start
 ```
 
 ## Interractions
@@ -49,6 +49,5 @@ http://localhost:8000/api/<service-name>/..
 
 ## TODO
 
-* Create Docker container
 * Add swagger-ui
 
