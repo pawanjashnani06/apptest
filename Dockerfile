@@ -1,4 +1,6 @@
-FROM node:latest
+FROM schickling/swagger-ui:latest
+
+ENV SWAGGER_JSON "/usr/src/app/combined.yaml"
 
 EXPOSE 8000
 
