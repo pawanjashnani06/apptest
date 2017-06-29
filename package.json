@@ -6,7 +6,8 @@
   "dependencies": {
     "express": "^4.15.3",
     "swagger-combine": "^0.9.1",
-    "swagger-express-middleware": "^1.0.0-alpha.12"
+    "swagger-express-middleware": "^1.0.0-alpha.12",
+    "write-yaml": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
