@@ -17,11 +17,11 @@ This is a node project with the following structure;
 1. Clone the repo locally:
 ```
 git clone
-git@github.com:greenbank60days/banking-api-mocks.git
+git@github.com:greenbank60days/banking-api-stubs.git
 ```
 2. Update NPM dependencies:
 ```
-cd banking-app-mocks
+cd banking-app-stubs
 npm i
 ```
 3. Start the application

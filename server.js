@@ -26,7 +26,7 @@ catch(error => console.log('an error occured: ' + error)
 
 function passIntoMiddleWare(combined) {
 
-    yaml.sync('combined.yaml', combined);
+    yaml.sync('output/combined.yaml', combined);
 
     middleware(combined, app, function (err, middleware) {
 
