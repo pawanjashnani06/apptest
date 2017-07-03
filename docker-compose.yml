@@ -1,9 +1,0 @@
-version: "3"
-services:
-  swagger-ui:
-    build:
-      context: ./../swagger-ui/
-    ports:
-      - "80:8080"
-    volumes:
-      - ./apis:/usr/share/nginx/html/apis
