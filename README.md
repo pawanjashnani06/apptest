@@ -16,7 +16,7 @@ docker build -t <your-username>/test .
 ```
 3. Start the application
 ```
-docker run -p 10010:10010 <your-username>/test
+docker run -p 10010:10010 -p 10011:10011 <your-username>/test
 ```
 
 4. Call application
@@ -50,6 +50,12 @@ Response;
     }
 ]
 ```
+
+5. View documentation on
+```
+locahost:10011
+```
+
 ## Running locally
 ### Dependencies
  - latest version of node.js
@@ -70,11 +76,6 @@ Response;
 3. Start application
 ```
 > swagger project start -m
-```
-
-* API
-```
-http://localhost:8000/api/<service-name>/..
 ```
 
 ## Updates

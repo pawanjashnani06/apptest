@@ -1,6 +1,7 @@
 FROM rowanto/docker-java8-mvn-nodejs-npm:latest
 
 EXPOSE 10010
+EXPOSE 10011
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

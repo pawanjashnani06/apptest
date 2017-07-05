@@ -2,6 +2,7 @@ swagger: '2.0'
 info: {version: 0.0.1, title: FicaMyself API, description: Provides a RESTful Interface proxy for the NedbankID v6 Service.,
   x-ibm-name: nedbankid}
 basePath: /api/services/v1
+host: localhost:10010
 consumes: [application/json]
 produces: [application/json]
 schemes: [http, https]
