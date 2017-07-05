@@ -1,0 +1,264 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Terms & Conditions API
+  x-ibm-name: terms--conditions-api
+  description: ""
+basePath: /termsandconditions/v1
+parameters:
+  Authorization:
+    name: Authorization
+    type: string
+    required: true
+    in: header
+    description: ""
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- https
+security:
+- API Key: []
+paths:
+  /termsandconditionsitems:
+    get:
+      description: Get all 'T&Cs' for the current profile
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TermsAndConditionsListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/TermsAndConditionsListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TermsAndConditionsListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /termandcoindition/{noticeType}:
+    get:
+      description: Check to see if there is an un-accepted 'T&C' and if so return
+        that 'T&C'
+      parameters:
+      - description: IPN, MNS, FAI, EST, ACC, PPE, LTO, EPM, EBPP, ENT
+        in: path
+        name: noticeType
+        type: string
+        required: true
+      - description: to retrive the latest (non-accepted) or current (accepted) 'T&C'
+          '(versioncontent="latest" OR versioncontent="accepted" respectively)'
+        in: query
+        name: versioncontent
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TermsAndConditionsResponse'
+        204:
+          description: No Content
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TermsAndConditionsResponse'
+    put:
+      description: Update the acceptance status of the 'T&C' in hand
+      parameters:
+      - description: IPN, MNS, FAI, EST, ACC, PPE, LTO, EPM, EBPP, ENT
+        in: path
+        name: noticeType
+        type: string
+        required: true
+      - description: TermAndCondition to be updated with acceptance
+        in: body
+        name: TermAndCondition
+        required: true
+        schema:
+          $ref: '#/definitions/TermAndCondition'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TermsAndConditionsResponse'
+        204:
+          description: No Content
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TermsAndConditionsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+definitions:
+  TermsAndConditionsResponse:
+    properties:
+      data:
+        $ref: '#/definitions/TermAndCondition'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  TermsAndConditionsListResponse:
+    properties:
+      data:
+        $ref: '#/definitions/TermsAndConditionsList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  TermsAndConditionsList:
+    description: brings back a consolidated list for terms and conditions
+    type: array
+    items:
+      $ref: '#/definitions/ConsolidatedListItem'
+  ConsolidatedListItem:
+    properties:
+      noticeTitle:
+        description: Notice description
+        type: string
+      versionNumber:
+        description: Notice version number in decmial format
+        type: integer
+        format: double
+      acceptedDateTime:
+        description: Notice accepted date and time
+        type: string
+        format: DateTime
+      versionDate:
+        description: Notice version date (when this notice was created)
+        type: string
+        format: DateTime
+      noticeEffectiveDate:
+        description: Notice date that it should take effect from
+        type: string
+        format: DateTime
+      channelID:
+        description: Channel ID where the notice was accepted
+        type: integer
+        format: int64
+      noticeType:
+        description: Notice type - see below in TermAndCondition for current available
+          values...
+        type: string
+      newVersionNumber:
+        description: Notice version number if there is a newer version
+        type: integer
+        format: double
+      noticeDetails:
+        $ref: '#/definitions/NoticeContents'
+  TermAndCondition:
+    properties:
+      noticeType:
+        description: current allowed values incl. 'IPN' - Instant payment (indemnity);
+          'MNS'- Send Imali; 'FAI' - Open Investment (indemnity); 'EST' - Statement
+          Delivery (indemnity); 'ACC' - Nedbank Accounting Solution; 'PPE' - Register
+          Metre (Indemnity); 'LTO' - Lotto (indemnity); 'EPM' - Electronic Payments
+          (indemnity); 'EBPP' - eBills --> Subscribe (indemnity); 'ENT' - eNotes
+        type: string
+      versionNumber:
+        description: Notice version number
+        type: string
+      acceptedDateTime:
+        description: Notice accepted date and time
+        type: string
+        format: DateTime
+      noticeDetails:
+        $ref: '#/definitions/NoticeContents'
+  NoticeContents:
+    properties:
+      versionDate:
+        description: Notice version date latest or current depending on where you
+          come from
+        type: string
+        format: DateTime
+      PresentationTemplateType:
+        description: Notice presentation template type. valid values. 'DH' - Display
+          HTML; 'PH' - Printer HTML
+        type: string
+      noticePresentationTemplate:
+        description: Notice presentation template
+        type: string
+      noticeContent:
+        description: Notice content
+        type: string
+      channelID:
+        description: Channel ID (can contain the channel ID for the unaccepted 'T&C')
+        type: integer
+        format: int64
+  Metadata:
+    properties:
+      page:
+        description: current page number/location
+        type: integer
+        format: int32
+      pageSize:
+        description: the amount of records to be retrieved per page (is editable)
+        type: integer
+        format: int32
+      pageLimit:
+        description: the total amount of available records
+        type: integer
+        format: int32
+      resultData:
+        $ref: '#/definitions/ResultSets'
+  ResultSets:
+    description: There are instances where ONE transaction can include multiple API-to-BackEnd
+      calls (i.e. payment + notification + save as beneficiary + make favourite =
+      4-5 calls).
+    type: array
+    items:
+      $ref: '#/definitions/ResultSet'
+  ResultSet:
+    properties:
+      batchID:
+        description: Used for now and futuredated
+        type: string
+      transactionID:
+        description: Used here for the 'match back' to front-end in order to display
+          status per transaction (now, futuredated, & recurring)
+        type: string
+      recInstrID:
+        description: Used for recurring instruction
+        type: string
+      resultDetail:
+        $ref: '#/definitions/ResultDetails'
+  ResultDetails:
+    description: There are instances where ONE transaction can include multiple API-to-BackEnd
+      calls (i.e. payment + notification + save as beneficiary + make favourite =
+      4-5 calls).
+    type: array
+    items:
+      $ref: '#/definitions/ResultDetail'
+  ResultDetail:
+    properties:
+      operationReference:
+        description: Indicates which operation this result is for on the current transaction
+          i.e. transfer successfull but adding favourite failed. Values can include
+          the following 'Transaction', 'Notification', 'Favourite', 'BeneficiarySaved'.
+          The 'Transaction' type are for any transaction i.e. payment, transfer, get
+          data etc.
+        type: string
+      result:
+        description: Can pass the error code here.
+        type: string
+      status:
+        description: Can pass the error description here.
+        type: string
+      reason:
+        description: Error description
+        type: string
+x-ibm-configuration:
+  enforced: true
+  testable: true
+  phase: realized
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+...

@@ -1,0 +1,187 @@
+---
+swagger: "2.0"
+info:
+  version: 0.0.1-rev6
+  title: SCP Goals API
+  x-ibm-name: scp-goals-api
+  description: ""
+basePath: /clients
+schemes:
+- https
+x-ibm-configuration:
+  enforced: true
+  phase: realized
+  testable: true
+  externalDocs: []
+  attachments: []
+tags: []
+definitions:
+  GoalItem:
+    properties:
+      GoalIdentifier:
+        type: string
+        description: A unique identifier for the goal
+      GoalTypeId:
+        type: string
+        description: The goal id for this goal type
+      GoalName:
+        type: string
+        description: A name field for the goal
+      GoalPicture:
+        type: string
+        description: A text field to identify the goal image
+      TargetAmount:
+        type: number
+        format: double
+        description: The target value for the goal
+      CurrentAmount:
+        type: number
+        format: double
+        description: The current value for the account
+      ContributionAmount:
+        type: number
+        format: double
+        description: The contribution value for the account
+      TargetDate:
+        type: string
+        description: The target date for this goal
+      GoalAccount:
+        type: string
+        description: The target account for the goal
+  GoalTypeItem:
+    properties:
+      GoalTypeId:
+        type: string
+        description: The goal id for this goal type
+      GoalTypeDescription:
+        type: string
+        description: The goal description for this goal type
+      GoalIconClass:
+        type: string
+        description: A class name corresponding to the goal icon
+      GoalCategoryImageTag:
+        type: string
+        description: The goal category image tag
+      GoalDefaultImageTag:
+        type: string
+        description: The goal default image tag
+paths:
+  /goals:
+    get:
+      description: Gets 'GoalItem' objects containing relevant goal items for the
+        client
+      tags: []
+      parameters:
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: ArrayOfGoalItems
+            type: array
+            items:
+              title: Goals
+              type: array
+              items:
+                $ref: '#/definitions/GoalItem'
+      summary: ""
+    post:
+      description: ""
+      tags: []
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      - schema:
+          example: |-
+            {
+               "GoalIdentifier": "",
+               "GoalTypeId": "1",
+               "TargetAmount": 5000,
+               "TargetDate": "2016-08-10",
+               "ContributionAmount": 0,
+               "GoalAccount": "1009427709",
+               "GoalName": "Laptop",
+               "GoalPicture": "/content/dam/nedbank-scp/site-assets/goals/laptop.jpg"
+            }
+          $ref: '#/definitions/GoalItem'
+        description: Goal object that needs to be added or updated for the specific
+          user
+        name: body
+        required: true
+        in: body
+      responses:
+        201:
+          description: Created
+          examples:
+            application/json:
+              GoalIdentifier: ""
+              GoalTypeId: "1"
+              TargetAmount: 5000
+              TargetDate: "2016-08-10"
+              ContributionAmount: 0
+              GoalAccount: "1009427709"
+              GoalName: Laptop
+              GoalPicture: /content/dam/nedbank-scp/site-assets/goals/laptop.jpg
+          schema:
+            $ref: '#/definitions/GoalItem'
+        405:
+          description: Invalid input
+      summary: Adds or updates a goal for a user
+  /goals/goaltypes:
+    get:
+      description: Gets 'GoalTypeItems' objects containing all goal types
+      tags: []
+      parameters:
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: ArrayOfGoalTypes
+            type: array
+            items:
+              title: GoalTypes
+              type: array
+              items:
+                $ref: '#/definitions/GoalTypeItem'
+      summary: ""
+  /goals/{goalid}:
+    delete:
+      description: ""
+      tags: []
+      parameters:
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      - name: goalid
+        required: true
+        type: string
+        in: path
+        description: ""
+      responses:
+        200:
+          description: Successful response
+        204:
+          description: No Content. Nothing found to delete
+      summary: Removes the specified goal for the user
+security:
+- API Key: []
+- API Key (Query): []
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+...

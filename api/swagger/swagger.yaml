@@ -1,0 +1,325 @@
+swagger: '2.0'
+info: {version: 0.0.1, title: FicaMyself API, description: Provides a RESTful Interface proxy for the NedbankID v6 Service.,
+  x-ibm-name: nedbankid}
+basePath: /api/services/v1
+consumes: [application/json]
+produces: [application/json]
+schemes: [http, https]
+paths:
+  /test:
+    get:
+      description: This endpoint returns all todos available in the database
+      operationId: Test
+      x-swagger-router-controller: Test
+      parameters: []
+      responses:
+        200:
+          description: An array of todos
+          schema:
+            type: array
+            items: {$ref: '#/definitions/Todo'}
+  /users/renew/token:
+    get:
+      operationId: RenewToken
+      x-swagger-router-controller: RenewToken
+      summary: 'Checks if token in header is valid and issues a new JWT token. Note:
+        the token will be issued for X number of times and the lifetime of token will
+        decrease as each renewal is done. Consumer must check token claim for number
+        of times that they can request a renewal.'
+      parameters:
+      - {description: Json web token, name: Authorization, required: true, type: string,
+        in: header}
+      tags: [Secure User]
+      responses:
+        '200':
+          description: Request has been successfully executed and the alias has been updated. The metadata.code must be R00.
+          schema:
+            type: object
+            properties:
+              data: {type: string}
+              metadata: {$ref: '#/definitions/ErrorDescription'}
+        default:
+          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+          schema: {$ref: '#/definitions/ErrorDescription'}
+  /id-verification/v2/parties/{partyId}/IDOCRExtractions:
+    x-swagger-router-controller: customers
+    post:
+      operationId: idDocument
+      description: Get customer details from identity document image (passport, ID Card or ID Book)
+      parameters:
+      - {name: partyId, in: path, required: true, type: string}
+      - name: request
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            frontImage: {type: string}
+            rearImage: {type: string}
+            idType: {type: string}
+      responses:
+        '200':
+          description: success
+          schema:
+            type: object
+            properties:
+              firstname: {type: string}
+              middlename: {type: string}
+              lastname: {type: string}
+              idNumber: {type: string}
+              timestamp: {type: string}
+  /address-verification/v2/parties/address-document:
+    post:
+      description: Mines for the customer address from the vendor
+      consumes: [application/json]
+      produces: [application/json]
+      parameters:
+      - name: request
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            partyId: {type: string}
+            document: {type: string}
+            documentType: {type: string}
+      responses:
+        '200':
+          description: success
+          schema:
+            type: object
+            properties:
+              responseMessage: {type: string}
+  /address-verification/v2/parties/match-address:
+    post:
+      operationId: address
+      description: OCRs the address document and returns the address
+      consumes: [application/json]
+      produces: [application/json]
+      parameters:
+      - name: request
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            address: {type: string}
+            partyId: {type: string}
+            surname: {type: string}
+            idNumber: {type: string}
+            passport: {type: string}
+      responses:
+        '200':
+          description: success
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  confidenceLevel: {type: string}
+                  addressConfirmed: {type: string}
+  /id-verification/v2/parties/{partyId}/facialRecognitionProfiles:
+    post:
+      description: Compares an image of a face with an ID document or passport
+      consumes: [application/json]
+      produces: [application/json]
+      parameters:
+      - {name: partyId, in: path, required: true, type: string}
+      - name: request
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            facialImage: {type: string}
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              isMatch: {type: boolean}
+              error: {type: string}
+  /swagger: {x-swagger-pipe: swagger_raw}
+definitions:
+  Todo:
+    type: object
+    properties:
+      todo_id: {type: integer, description: Id for the todo}
+      todo: {type: string, description: The todo item}
+      datecreated: {type: string, format: date-time, description: Timestamp when the Todo was created. Set by server}
+      author: {type: string, description: Creator or owner of the todo}
+      duedate: {type: string, format: date-time, description: When the todo is due}
+      completed: {type: boolean, description: Indicates if the todo has been completed or not}
+  UserDetails:
+    type: object
+    properties:
+      UniqueUserID: {type: integer, format: int64, description: The user's unique idntification number.}
+      Username: {type: string, description: The user's username}
+      IdDetails: {$ref: '#/definitions/IdentificationDetails'}
+      FirstName: {type: string, description: First Name'}
+      Surname: {type: string, description: Last name'}
+      MobileNumber: {type: string, description: Mobile Number}
+      EmailAddress: {type: string, description: Email Address}
+      Title: {type: string, description: Title}
+      Gender: {type: string, description: Gender}
+      DateOfBirth: {type: string, description: Date of Birth}
+  SupportedPartners:
+    type: array
+    items:
+      type: object
+      properties:
+        PartnerID: {type: integer, format: int64}
+        PartnerName: {type: string}
+        PartnerURL: {type: string}
+        ChannelID: {type: integer, format: int64}
+        MatchBaseURL: {type: string}
+        CustomToken: {type: string}
+        FederationID: {type: string}
+  ProfileCredentials:
+    type: object
+    properties:
+      Profile: {type: string, description: Profile number of the user}
+      PIN: {type: string, description: Encrypted Pin of the user}
+      Password: {type: string, description: Encrypted Password of the user}
+  ProfileAliasDetails:
+    type: object
+    properties:
+      Action:
+        type: string
+        enum: [Link, Delink]
+      ProfileInfo: {$ref: '#/definitions/ProfileCredentials'}
+      ApproveItInfo: {$ref: '#/definitions/ApproveITInfo'}
+  UpdateDetails:
+    type: object
+    properties:
+      action:
+        type: string
+        enum: [ChangePassword, ChangeUsername, UserUpdate]
+      NewPassword: {type: string, description: 'Used for ''ChangePassword'' in conjunction
+          with ''action=Change Password'', and for ''ResetPassword'' in conjunction
+          with ''action=Reset Password'''}
+      OldPassword: {type: string, description: Used in ChangePassword in conjunction with action=Change Password}
+      NewUsername: {type: string, description: Used in 'ChangeUsername' in conjunction with 'action=Change Username'}
+      Username: {type: string, description: Used in 'ResetPassword' in conjunction with 'action=Reset Password'}
+      GeneralUpdateDetails: {$ref: '#/definitions/UserGeneralInfo'}
+  ApproveITInfo:
+    description: Used in PUT /users for action='ApproveTemporaryUser' and for action='ResetPassword'
+    type: object
+    properties:
+      ApproveITMethod: {type: string}
+      ApproveITVerificationID: {type: integer, format: int64}
+      OTP: {type: integer, format: int64}
+  UserGeneralInfo:
+    type: object
+    properties:
+      FirstName: {type: string}
+      Surname: {type: string}
+      MobileNumber: {type: string}
+      EmailAddress: {type: string}
+      Title: {type: string}
+      Gender: {type: string}
+      EnterpriseCustomerNumber: {type: integer, format: int64}
+      Password: {type: string}
+      Username: {type: string}
+  EnterpriseUserDetails:
+    type: object
+    properties:
+      ProfileNumber: {type: string, format: int64, description: The user's unique customer number in Nedbank's customer information system. Maps to 'RetrieveUserDetailsRs.SecurityDetails.EnterpriseCustomerNumber'}
+      IdentificationDetails: {$ref: '#/definitions/IdentificationDetails'}
+  IdentificationDetails:
+    type: object
+    properties:
+      IdNumber: {type: string, description: The identification number corresponding to the identification type. Must be used in conjunction with IDType. Maps to 'RetrieveUserDetailsRs.SecurityDetails.IdentificationDetail.IdentificationNumber'}
+      IdType: {type: string, description: 'The type of the user''s identification,
+          e.g. SA ID Passport, etc. Must be used in conjunction with IDNumber. Maps
+          to ''RetrieveUserDetailsRs.SecurityDetails.IdentificationDetail.IdentificationType'''}
+      CountryCode: {type: string, description: Used in conjunction with IDType and IDNumber in the case where the identification type is passport to indicate the country of issue for the passport. Maps to 'RetrieveUserDetailsRs.SecurityDetails.IdentificationDetail.CountryCode'}
+  AddUserDetails:
+    type: object
+    properties:
+      GeneralInfo: {$ref: '#/definitions/UserGeneralInfo'}
+      IdDetails: {$ref: '#/definitions/IdentificationDetails'}
+      TermsAndConditionsAccepted: {type: boolean}
+  RecoverUserDetails:
+    type: object
+    properties:
+      MobileNumber: {type: string}
+      IdDetails: {$ref: '#/definitions/IdentificationDetails'}
+  RecoverPasswordDetails:
+    type: object
+    properties:
+      MobileNumber: {type: string}
+      Username: {type: string}
+      ApproveItInfo: {$ref: '#/definitions/ApproveITInfo'}
+  ApproveUserDetails:
+    type: object
+    properties:
+      TemporaryID: {type: integer, format: int64}
+      ApproveITInfo: {$ref: '#/definitions/ApproveITInfo'}
+  TemporaryUserDetails:
+    type: object
+    properties:
+      TemporaryID: {type: integer, format: int64}
+      GeneralInfo: {$ref: '#/definitions/UserGeneralInfo'}
+      IdDetails: {$ref: '#/definitions/IdentificationDetails'}
+      TermsAndConditionsAccepted: {type: boolean}
+  NewUserDetails:
+    type: object
+    properties:
+      TemporaryID: {type: integer, format: int64}
+      SecurityInfo: {$ref: '#/definitions/SecurityInformation'}
+  SecurityInformation:
+    type: object
+    properties:
+      SecurityRequestID: {type: string}
+      MobileNumber: {type: string}
+  CheckUsername:
+    type: object
+    properties:
+      username: {type: string}
+  RolesList:
+    type: array
+    items:
+      type: object
+      properties:
+        RoleName: {type: string}
+        RoleNamespace: {type: string}
+  ResponseDescription:
+    type: object
+    properties:
+      code: {type: string}
+      desription: {type: string}
+      InvalidFieldsList:
+        type: array
+        items:
+          type: object
+          properties:
+            invalidFieldField: {type: string}
+            invalidFieldMessageField: {type: string}
+  ErrorDescription:
+    type: object
+    properties:
+      data: {type: object}
+      metadata: {$ref: '#/definitions/ResponseDescription'}
+  TemporaryUserInfo:
+    type: object
+    properties:
+      TemporaryID: {type: integer, format: int64}
+      MobileNumber: {type: string}
+security:
+- API Key: []
+x-ibm-configuration:
+  enforced: true
+  phase: realized
+  testable: true
+  externalDocs: []
+  attachments: []
+tags: []
+securityDefinitions:
+  API Key: {type: apiKey, name: X-IBM-Client-Id, in: header, description: ''}
+x-ibm-endpoints:
+- {endpointUrl: 'https://api-e.nedsecure.co.za/nedbankext', description: Base Gateway API Endpoint,
+  type: null}
+

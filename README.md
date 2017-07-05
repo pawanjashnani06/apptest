@@ -1,53 +1,100 @@
 # Stub server
 
-The purpose of this project is to provide a server that can be used during development and for automated testing of the banking application. It contains all known swagger contracts and uses swagger-mock to create and serve stubs.
-
-## Repo Overview
-
-This is a node project with the following structure;
-
-* **/docs** = swagger-combine settings file. All yaml contracts referenced here. Only swagger.yaml should be in here
-* **/contract** = all swagger contract file added here
-* **server.json** = main node file
-* **package.json** = manages dependencies
-* **README.md** = start here
+The purpose of this project is to provide a server that can be used during development and for automated testing of the banking application. It contains all known swagger contracts and uses swagger to mock api calls.
+It is based on the swagger cli tool.
 
 ## Getting Started
 
 1. Clone the repo locally:
 ```
-git clone
-git@github.com:greenbank60days/banking-api-stubs.git
+git clone git@github.com:greenbank60days/banking-app-stubs.git
 ```
-2. Update NPM dependencies:
+2. Update dependencies:
 ```
 cd banking-app-stubs
-npm i
+docker build -t <your-username>/test .
 ```
 3. Start the application
 ```
-npm start
+docker run -p 10010:10010 <your-username>/test
 ```
 
-## Interractions
+4. Call application
+```
+Request;
+Open postman;
+url: GET http://localhost:10010/api/services/v1/test
+headers;    Authorization: test
+            X-IBM-Client-Id: 1234
+            RoleName: test
+then send in postman
 
-* To view combined contract
+Response;
+
+[
+    {
+        "todo_id": 0,
+        "todo": "Get some milk",
+        "author": "Luke Angel",
+        "createddate": "2016-11-01T23:15:00.000Z",
+        "duedate": "2016-11-08T08:00:00.000Z",
+        "completed": false
+    },
+    {
+        "todo_id": 1,
+        "todo": "Get some cereal",
+        "author": "Austin",
+        "createddate": "2016-11-01T23:15:00.000Z",
+        "duedate": "2016-11-08T08:00:00.000Z",
+        "completed": false
+    }
+]
 ```
-http://localhost:8000/swagger.yaml
+## Running locally
+### Dependencies
+ - latest version of node.js
+ - Swagger cli please run 'npm install -g swagger'
+ - latest version of java and maven
+
+1. Go To folder and update dependencies
 ```
+> cd banking-app-stubs
+> npm i
+```
+
+2. Run shell script
+```
+> ./run.sh
+```
+
+3. Start application
+```
+> swagger project start -m
+```
+
 * API
 ```
 http://localhost:8000/api/<service-name>/..
 ```
 
-## Known Issues
+## Updates
 
-* (RangeError: Maximum call stack size exceeded) thrown when application starts as a result of supporting library
-    but app should still start up regardless.
+To mock service;
 
+ - Add swagger contract to api/swagger/contracts
+ - Reference contract in run.sh (in the merge-yaml part)
 
-
-## TODO
-
-* Add swagger-ui
-
+To mock endpoint;
+ 
+ - Make sure swagger yaml file does not contain headers (basePath: /api/services/v1
+                                                         consumes:
+                                                         - application/json
+                                                         produces:
+                                                         - application/json
+                                                         schemes:
+                                                         - http
+                                                         - https)
+ - Add headers to swagger yaml ( operationId: "SuperMock" and x-swagger-router-controller: "SuperMock") 
+ - Create file "SuperMock.js" inside api/mocks directory, this file is referenced by the operatioId header above
+ 
+## Happy mocking!

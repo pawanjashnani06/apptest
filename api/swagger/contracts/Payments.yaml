@@ -1,0 +1,761 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.1
+  title: Payments API
+  x-ibm-name: payments-api
+  description: ""
+basePath: /payments/v1
+parameters:
+  Authorization:
+    name: Authorization
+    type: string
+    required: true
+    in: header
+    description: ""
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- https
+paths:
+  /paymenttransactions:
+    get:
+      description: Retrieves a payments list according to a profile number and optional
+        filtering parameters. Use with GET /payments?transactiontype='' and GET /payments?fromdate=''
+        & todate='' & transactiontype='' etc
+      parameters:
+      - description: This specifies the from account for which you want to retrieve
+          paymentss
+        in: query
+        name: fromacc
+        type: string
+        required: false
+      - description: This specifies the to account for which you want to retrieve
+          paymentss
+        in: query
+        name: toacc
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          paymentss
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          paymentss
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve paymentss
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the beneficiary list for which you want to retrieve
+          paymentss
+        in: query
+        name: beneficiarylist
+        type: string
+        required: false
+      - description: This specifies the beneficiary ID for which you want to retrieve
+          paymentss
+        in: query
+        name: beneficiaryid
+        type: string
+        required: false
+      - description: If transactiontype=futuredated retrieve tomorrow+ (tomorrow onwards);
+          If transactiontype=recurrinng retrieve tomorrow+; If transactiontype=scheduled
+          retrieve futuredated, recurring & tax (govenrment payments) from tomorrow+;
+          If transactiontype=tax (govenrment payments) retrieve tomorrow+; If transactiontype
+          is omitted retrieve now (once-off), futuredated, recurring & tax (govenrment
+          payments) transactions with default "90 days back and up until today" rule;
+          NOTE for tax BatchSubType = EBP
+        in: query
+        name: transactiontype
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+    post:
+      description: Use with POST /payments
+      parameters:
+      - description: If null/'false' SubmitForValImmed = 'false' else if it is 'true'
+          then SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: false
+      - description: Single or list of transactions
+        in: body
+        name: Payments
+        required: true
+        schema:
+          $ref: '#/definitions/PaymentList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+    delete:
+      description: Delete list of transactions. Use with DELETE /Transfers
+      parameters:
+      - description: only for future-dated & recurring
+        in: body
+        name: DeleteTransactions
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/DeleteItem'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PaymentListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /paymenttransaction/{transactionID}:
+    get:
+      description: Gets specified payment details. Use with GET /payments/{transactionID}?transactiontype=''
+      parameters:
+      - description: Specific payment to get for details
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: indicate future-dated or recurring
+        in: query
+        name: transactiontype
+        type: string
+        required: true
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+    put:
+      description: (Duplicate PUT) Update a specific future-dated or recurring transaction.
+        Use with PUT /payments/{transactionID}
+      parameters:
+      - description: If null/'false' SubmitForValImmed = 'false' else if it is 'true'
+          then SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: false
+      - description: Implies that you can only update one at a time
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: Transaction details to be updated
+        in: body
+        name: Transaction
+        required: true
+        schema:
+          $ref: '#/definitions/Payment'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+        204:
+          description: No Content. Nothing found to update
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+    delete:
+      description: Remove a single transaction. Use with DELETE /payments/{transactionID}?recinstrid=""
+      parameters:
+      - description: Specific transaction to be deleted (transactionID or BatchID
+          goes here). (both arrays must be the same size)
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: ID for when deleteing recurring items
+        in: query
+        name: recinstrid
+        type: integer
+        format: int64
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+        204:
+          description: No Content. Nothing found to delete
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PaymentResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /accounts:
+    get:
+      description: Retrieves a list of accounts
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+definitions:
+  PaymentResponse:
+    properties:
+      data:
+        $ref: '#/definitions/Payment'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  PaymentListResponse:
+    properties:
+      data:
+        $ref: '#/definitions/PaymentList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  PaymentList:
+    properties:
+      Payments:
+        description: list of payments
+        type: array
+        items:
+          $ref: '#/definitions/Payment'
+  Payment:
+    properties:
+      batchID:
+        description: Used for batch id (for update & delete). For recurring transactions
+          map with ReoccurrenceID
+        type: integer
+        format: int64
+      transactionID:
+        description: Used for transaction ID of once-off and fututredated OR for ReoccurrenceID
+        type: integer
+        format: int64
+      capturedDate:
+        description: ONLY used on GET - on contract mapped to ClientRef
+        type: string
+        format: date
+      startDate:
+        description: Date the client want the transaction to take place - on contract
+          mapped to TrxRequestDate (or ReoccurrenceFromDate for recurring transactions)
+        type: string
+        format: date
+      nextTransDate:
+        description: Date of the next transaction - on contract mapped to ValueDate
+          (not used for any front-end controls but required for API validate true
+          and false sequence so that the correct value is recieved from host on validate
+          = true and sent back on validate = false)
+        type: string
+        format: date
+      beneficiaryID:
+        description: ID of the saved beneficiary
+        type: integer
+        format: int64
+      sortCode:
+        description: This sort code is used by back-end with processing of the account,
+          like a branch code - BUT this is NOT always a branch code.  (sort codes
+          are something like branch codes but not 100%. You get financial branches
+          and domicile branch etc. (there are more branches))
+        type: string
+      bFName:
+        description: name of the beneficiary
+        format: string
+      bFType:
+        description: BDF (bank approved beneficiary); EXT (External beneficiary);
+          INT (Internal Nedbank beneficiary); PEL(Prepaid Electricity meter); PPD
+          (Prepaids excluding Electricity); U0 (Unknown)
+        type: string
+      bank:
+        description: bank name (only used for API logic to determine if BFType is
+          EXT or INT for host RQ for ONCE-OFF transactions ONLY for SaveBeneficiary).
+          If bank=NEDBANK it is INT). If this field contains nothing API assumes this
+          is not a once-off transaction
+        type: string
+      myDescription:
+        description: my transaction description
+        format: string
+      beneficiaryDescription:
+        description: beneficiary transaction description
+        format: string
+      fromAccount:
+        $ref: '#/definitions/Account'
+      toAccount:
+        $ref: '#/definitions/Account'
+      amount:
+        type: integer
+        format: double
+      reoccurrenceItem:
+        $ref: '#/definitions/ReoccurrenceItem'
+      notificationDetail:
+        $ref: '#/definitions/NotificationDetail'
+      instantPayment:
+        description: indicates if the cuurrent transactions should be an instant payment
+        type: boolean
+      saveBeneficiary:
+        description: indicator stating to save as beneficiary or not
+        type: boolean
+      favourite:
+        description: Only for saved beneficiary transactions (and when save happens
+          first). On POST if 'true' call FavouriteTxAdd.
+        type: boolean
+  ReoccurrenceItem:
+    properties:
+      reoccurrenceFrequency:
+        description: Weekly or Monthly
+        type: string
+      recInstrID:
+        description: Used for Reoccurrence instruction ID
+        type: integer
+        format: int64
+      reoccurrenceOccur:
+        description: How many occurrences was requested
+        type: integer
+        format: int64
+      reoccOccurrencesLeft:
+        description: Occurrences left
+        type: integer
+        format: int64
+      reoccurrenceToDate:
+        description: Reoccurence end date
+        type: string
+        format: Date
+      reoccSubFreqType:
+        description: Day of the *
+        type: string
+      reoccSubFreqVal:
+        description: Day NUMBER or monthDay NUMBER i.e. '1' OR '18'. Had to change
+          to string due to reference data having "Last Day". Developers can convert
+          to int64 (long) for service call.
+        type: string
+  NotificationDetail:
+    properties:
+      notificationType:
+        description: NONE; SMS; FAX; EMAIL, SecureInbox
+        type: string
+        enum:
+        - NONE
+        - SMS
+        - FAX
+        - EMAIL
+        - SecureInbox
+      notificationAddress:
+        description: mobile number; email address etc
+        type: string
+  Metadata:
+    properties:
+      page:
+        description: current page number/location
+        type: integer
+        format: int32
+      pageSize:
+        description: the amount of records to be retrieved per page (is editable)
+        type: integer
+        format: int32
+      pageLimit:
+        description: the total amount of available records
+        type: integer
+        format: int32
+      resultData:
+        $ref: '#/definitions/ResultSets'
+  ResultSets:
+    description: returns result code and description
+    type: array
+    items:
+      $ref: '#/definitions/ResultSet'
+  ResultSet:
+    properties:
+      batchID:
+        description: Used for now and futuredated
+        type: string
+      transactionID:
+        description: Used here for the 'match back' to front-end in order to display
+          status per transaction (now, futuredated, & recurring)
+        type: string
+      recInstrID:
+        description: Used for recurring instruction
+        type: string
+      resultDetail:
+        $ref: '#/definitions/ResultDetails'
+      execEngineRef:
+        description: Executing engine (host) reference number
+        type: string
+  ResultDetails:
+    description: There are instances where ONE transaction can include multiple API-to-BackEnd
+      calls (i.e. payment + notification + save as beneficiary + make favourite =
+      4-5 calls).
+    type: array
+    items:
+      $ref: '#/definitions/ResultDetail'
+  ResultDetail:
+    properties:
+      operationReference:
+        description: Indicates which operation this result is for on the current transaction
+          i.e. transfer successfull but adding favourite failed. Values can include
+          the following 'Transaction', 'Notification - NotificationAddress (082...)',
+          'Favourite', 'BeneficiarySaved'. The 'Transaction' type are for any transaction
+          i.e. payment, transfer, get, delete etc.
+        type: string
+      result:
+        description: Can pass the error code here.
+        type: string
+      status:
+        description: Can pass the error description here.
+        type: string
+      reason:
+        description: Error description
+        type: string
+  AccountsListResponse:
+    properties:
+      data:
+        $ref: '#/definitions/AccountList'
+      metadata:
+        $ref: '#/definitions/Metadata'
+  AccountList:
+    properties:
+      accounts:
+        description: list of accounts
+        type: array
+        items:
+          $ref: '#/definitions/Account'
+  Account:
+    properties:
+      accountName:
+        type: string
+        description: The account name
+      accountNumber:
+        type: string
+        description: The account number
+      isOpen:
+        type: boolean
+        description: indicates if the account is currently open
+      productCode:
+        type: string
+        description: The product code for this account
+      productDescription:
+        type: string
+        description: The product description for this account
+      relationshipCode:
+        type: string
+        description: The relationship code for the client to this account
+      statusCode:
+        type: string
+        description: The account number related to this transaction
+      subProductCode:
+        type: string
+        description: The account status code
+      containerId:
+        type: integer
+        format: int32
+        description: The container id for this account
+      containerName:
+        type: string
+        description: The container name for this account
+      isIncluded:
+        type: boolean
+        description: Indicates if the account is included
+      isPlastic:
+        type: boolean
+        description: Indicated if this account is a plastic
+      accountType:
+        type: string
+        description: The account type
+      nickname:
+        type: string
+        description: The account nickname or description
+      sourceSystem:
+        type: string
+        description: The source system for the account details
+      interestRate:
+        type: string
+        description: The current interest rate on the account
+      repaymentAmount:
+        type: number
+        format: double
+        description: The repayment amount for the account
+      accountHolder:
+        type: string
+        description: The account holder
+      actions:
+        type: string
+        description: Actions that may be performed on the account
+      transactions:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionMetadata'
+        description: List of transactions on the account
+      currency:
+        type: string
+        description: The account currency
+      availableBalance:
+        type: number
+        format: decimal
+        description: The availablebalance amount for the account
+      currentBalance:
+        type: number
+        format: decimal
+        description: The CurrentBalance amount for the account
+      amountDue:
+        type: number
+        format: decimal
+        description: The AmountDue amount for the account
+      dueDate:
+        type: string
+        description: The DueDate amount for the account
+      loanAmmount:
+        type: number
+        format: double
+        description: The LoanAmmount amount for the account
+      outstandingAmount:
+        type: number
+        format: double
+        description: The OutstandingAmount amount for the account
+      profileAccountState:
+        type: string
+        description: The state of the account
+      accountLevel:
+        type: string
+        description: The level of the account
+      viewAvailBal:
+        type: boolean
+        description: Can the Avail balance be viewed?
+      viewStmnts:
+        type: boolean
+        description: Can the Statements be viewed?
+      isRestricted:
+        type: boolean
+        description: Is the acc restricted?
+      viewCurrBal:
+        type: boolean
+        description: Can the Curr balance be viewed?
+      viewCredLim:
+        type: boolean
+        description: Can the Credit limit be viewed?
+      viewMinAmtDue:
+        type: boolean
+        description: Can the min amount due be viewed?
+      isAlternateAccount:
+        type: boolean
+        description: Is this the alternate acc?
+      allowCredits:
+        type: boolean
+        description: Is credit transactions allowed?
+      allowDebits:
+        type: boolean
+        description: Is debit transactions allowed?
+      accountRules:
+        type: object
+        items:
+          $ref: '#/definitions/AccountRulesMetadata'
+        description: List of account rules
+  AccountRulesMetadata:
+    properties:
+      instantPayFrom:
+        type: boolean
+        description: Is instant payment from acc allowed?
+      onceOffPayFrom:
+        type: boolean
+        description: Is onceoff payment from acc allowed?
+      futureOnceOffPayFrom:
+        type: boolean
+        description: Is FutureOnceOffPayFrom acc allowed?
+      recurringPayFrom:
+        type: boolean
+        description: Is RecurringPayFrom acc allowed?
+      recurringBDFPayFrom:
+        type: boolean
+        description: Is RecurringBDFPayFrom acc allowed?
+      onceOffTransferFrom:
+        type: boolean
+        description: Is OnceOffTransferFrom acc allowed?
+      onceOffTransferTo:
+        type: boolean
+        description: Is OnceOffTransferTo acc allowed?
+      futureTransferFrom:
+        type: boolean
+        description: Is FutureTransferFrom acc allowed?
+      futureTransferTo:
+        type: boolean
+        description: Is FutureTransferTo acc allowed?
+      recurringTransferFrom:
+        type: boolean
+        description: Is RecurringTransferFrom acc allowed?
+      recurringTransferTo:
+        type: boolean
+        description: Is RecurringTransferTo acc allowed?
+      onceOffPrepaidFrom:
+        type: boolean
+        description: Is OnceOffPrepaidFrom acc allowed?
+      futurePrepaidFrom:
+        type: boolean
+        description: Is FuturePrepaidFrom acc allowed?
+      recurringPrepaidFrom:
+        type: boolean
+        description: Is RecurringPrepaidFrom acc allowed?
+      onceOffElectricityFrom:
+        type: boolean
+        description: Is OnceOffElectricityFrom acc allowed?
+      onceOffLottoFrom:
+        type: boolean
+        description: Is OnceOffLottoFrom acc allowed?
+      onceOffiMaliFrom:
+        type: boolean
+        description: Is OnceOffiMaliFrom acc allowed?
+  TransactionMetadata:
+    properties:
+      transactionId:
+        type: string
+        description: The unique identifier for the transaction
+      description:
+        type: string
+        description: The statement description for the transaction
+      amount:
+        type: number
+        format: double
+        description: The amount for the transaction
+      runningBalance:
+        type: number
+        format: double
+        description: The running balance for the account
+      debit:
+        type: boolean
+        description: Indicates if this was a debit transaction
+      account:
+        type: string
+        description: The account number related to this transaction
+      postedDate:
+        type: string
+        description: The date the trasaction was posted
+      categoryId:
+        type: integer
+        description: The category Id
+      childTransactions:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionMetadata'
+        description: Gets or Sets ChildTransactions
+      originalCategoryId:
+        type: integer
+        description: The original category Id
+  DeleteItem:
+    properties:
+      batchID:
+        type: integer
+        format: int64
+      transactionID:
+        type: integer
+        format: int64
+      recInstrID:
+        type: integer
+        format: int64
+x-ibm-configuration:
+  enforced: true
+  testable: true
+  phase: realized
+x-ibm-endpoints:
+- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
+  description: Base Gateway API Endpoint
+  type:
+...
