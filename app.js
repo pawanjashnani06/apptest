@@ -12,7 +12,6 @@ module.exports = app; // for testing
         swaggerSecurityHandlers: {
             'API Key': function (req, authOrSecDef, scopesOrApiKey, cb) {
                 // your security code
-                console.log('inside '+scopesOrApiKey);
                 if ('1234' === scopesOrApiKey) {
                     cb(null);
                 } else {
