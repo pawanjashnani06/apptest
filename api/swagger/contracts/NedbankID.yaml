@@ -305,512 +305,512 @@ securityDefinitions:
     in: header
     description: ''
 paths:
-  /users/usernames:
-    post:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/CheckUsername'
-          description: The new user's information
-          name: CheckUsername
-          required: true
-          in: body
-        - name: Authorization
-          type: string
-          required: true
-          in: header
-      responses:
-        '200':
-          description: Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: ''
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: CheckUsernameAvailability
-      summary: Check if the username is available
-  '/users/securitystatus/{securityrequestid}':
-    get:
-      description: ''
-      tags:
-        - Anonymous
-        - Secure User
-      parameters:
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-        - description: A unique identifier that identifies the partner
-          name: securityrequestid
-          format: int64
-          required: true
-          type: integer
-          in: path
-      responses:
-        '200':
-          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00 which means user accepted ussd. R10 means request is still pending, R14 means fall back to OTP method, R15 means user rejected USSD ApproveIT, R17 means device unabailable/unreachable '
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: ''
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: CheckSecurityApprovalStatus
-      summary: Checks the status of the aproveIT verificationID
-  /users:
-    post:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/AddUserDetails'
-          description: The new user's information
-          name: NewUser
-          required: true
-          in: body
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00, after which you must call users/securitystatus/{securityrequestid} to poll for Approve-it status'
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/NewUserDetails'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: AddUser
-      summary: Add a New User
-    get:
-      description: ''
-      tags:
-        - Secure User
-      parameters:
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: Request has been successfully executed and the user's details are returned. The RetrieveUserDetailsRs.ResultSet.ResultCode must be R00
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/UserDetails'
-              metadata:
-                $ref: '#/definitions/ResponseDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RetrieveUsersDetails
-      summary: Retrieves logged in user's details
-    put:
-      description: ''
-      tags:
-        - Secure User
-      parameters:
-        - schema:
-            $ref: '#/definitions/UpdateDetails'
-          description: For descriptions on the parameters see the '/definitions/UpdateDetails' object
-          name: UpdateDetails
-          required: true
-          in: body
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: Request has been successfully executed and the metadata.code must be R00.
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: ''
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: UpdateUser
-      summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
-  /users/alias/profile:
-    post:
-      operationId: MaintainAliasProfile
-      summary: Used for link/de-link user profile alias
-      parameters:
-        - name: ProfileAliasDetails
-          in: body
-          schema:
-            $ref: '#/definitions/ProfileAliasDetails'
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      tags:
-        - Secure User
-      responses:
-        '200':
-          description: Request has been successfully executed and the alias has been updated. The metadata.code must be R00.
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/SecurityInformation'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-  /users/approvals:
-    post:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/ApproveUserDetails'
-          name: ApproveUser
-          in: body
-          description: ''
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00. R10 code means request is still pending '
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/SecurityInformation'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: ApproveTempUser
-      summary: Approves temporary user created with POST on /users
-  /users/roles:
-    get:
-      description: ''
-      tags:
-        - Secure User
-        - Partner Only
-      parameters:
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-        - name: RoleName
-          required: true
-          type: string
-          in: query
-          description: ''
-        - name: RoleNamespace
-          required: false
-          type: string
-          in: query
-          description: ''
-      responses:
-        '200':
-          description: Request has been successfully executed and a list of a Person's details according to the specific business context is returned
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/RolesList'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RetrieveUserRoles
-      summary: Get the Roles for a User
-  /users/recoveries/password:
-    post:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/RecoverPasswordDetails'
-          name: RecoverUser
-          in: body
-          description: ''
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00. R10 means request is still pending '
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/SecurityInformation'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RecoverPassword
-      summary: Reset forgotten password
-  /users/recoveries/username:
-    post:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/RecoverUserDetails'
-          name: RecoverUser
-          in: body
-          description: ''
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00. R10 code means request is still pending '
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/SecurityInformation'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RecoverUsername
-      summary: Recover forgotten username
-  '/partners/{partnerid}':
-    get:
-      description: Retrieve partner details
-      tags:
-        - Partner Only
-        - Anonymous
-      parameters:
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-        - description: A unique identifier that identifies the partner
-          name: partnerid
-          format: int64
-          required: true
-          type: integer
-          in: path
-      responses:
-        '200':
-          description: Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/SupportedPartners'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RetrievePartner
-      summary: Retrieve supported Partner
-  /partners:
-    get:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - description: ''
-          name: Authorization
-          type: string
-          required: true
-          in: header
-      responses:
-        '200':
-          description: Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/SupportedPartners'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RetrievePartners
-      summary: Retrieve supported Partners
-  /users/enterprise:
-    post:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/EnterpriseUserDetails'
-          name: EnterpriseUserDetails
-          required: true
-          in: body
-          description: ''
-        - description: ''
-          name: Authorization
-          required: false
-          type: string
-          in: header
-      responses:
-        '200':
-          description: Request has been successfully executed and the user's CIS number is returned. R00 is metadata.code
-          schema:
-            type: object
-            properties:
-              data:
-                type: object
-                properties:
-                  EnterpriseCustomerNumber:
-                    type: integer
-                    format: int64
-              metadata:
-                $ref: '#/definitions/ResponseDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: CheckEnterpriseUserExists
-      summary: Tests if user is known already by enterprise values such as RSA IDPassport
-  '/partners/partnerauthn/{partnerid}':
-    get:
-      description: ''
-      tags:
-        - Partner Only
-        - Anonymous
-      parameters:
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-        - description: A unique identifier that identifies the partner
-          name: partnerid
-          format: int64
-          required: true
-          type: integer
-          in: path
-      responses:
-        '200':
-          description: Request has been successfully executed and authn request is created. The metadata.code must be R00
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: ''
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: RetrievePartnerAuthN
-      summary: Retrieve supported Partner Authn Request
-  /users/verify/profile:
-    post:
-      operationId: VerifyProfile
-      summary: 'Authenticates the profile, pin and password and checks if NedbankID exists. If not a temporary ID is created with profile client details and returned.'
-      parameters:
-        - name: ProfileAliasDetails
-          in: body
-          schema:
-            $ref: '#/definitions/ProfileCredentials'
-      tags:
-        - Anonymous
-      responses:
-        '200':
-          description: Request has been successfully executed and profile authenticated. The metadata.code must be R00
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/TemporaryUserInfo'
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-  /users/temporary:
-    put:
-      description: ''
-      tags:
-        - Anonymous
-      parameters:
-        - schema:
-            $ref: '#/definitions/TemporaryUserDetails'
-          description: For descriptions on the parameters see the '/definitions/TemporaryUserDetails' object
-          name: TemporaryUserDetails
-          required: true
-          in: body
-      responses:
-        '200':
-          description: 'Request has been successfully executed, the metadata.code must be R00.'
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: ''
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: UpdateTemporaryUser
-      summary: 'Used for update username, password and T&Cs on temporary user'
+#  /users/usernames:
+#    post:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/CheckUsername'
+#          description: The new user's information
+#          name: CheckUsername
+#          required: true
+#          in: body
+#        - name: Authorization
+#          type: string
+#          required: true
+#          in: header
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: ''
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: CheckUsernameAvailability
+#      summary: Check if the username is available
+#  '/users/securitystatus/{securityrequestid}':
+#    get:
+#      description: ''
+#      tags:
+#        - Anonymous
+#        - Secure User
+#      parameters:
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#        - description: A unique identifier that identifies the partner
+#          name: securityrequestid
+#          format: int64
+#          required: true
+#          type: integer
+#          in: path
+#      responses:
+#        '200':
+#          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00 which means user accepted ussd. R10 means request is still pending, R14 means fall back to OTP method, R15 means user rejected USSD ApproveIT, R17 means device unabailable/unreachable '
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: ''
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: CheckSecurityApprovalStatus
+#      summary: Checks the status of the aproveIT verificationID
+#  /users:
+#    post:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/AddUserDetails'
+#          description: The new user's information
+#          name: NewUser
+#          required: true
+#          in: body
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00, after which you must call users/securitystatus/{securityrequestid} to poll for Approve-it status'
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/NewUserDetails'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: AddUser
+#      summary: Add a New User
+#    get:
+#      description: ''
+#      tags:
+#        - Secure User
+#      parameters:
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the user's details are returned. The RetrieveUserDetailsRs.ResultSet.ResultCode must be R00
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/UserDetails'
+#              metadata:
+#                $ref: '#/definitions/ResponseDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RetrieveUsersDetails
+#      summary: Retrieves logged in user's details
+#    put:
+#      description: ''
+#      tags:
+#        - Secure User
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/UpdateDetails'
+#          description: For descriptions on the parameters see the '/definitions/UpdateDetails' object
+#          name: UpdateDetails
+#          required: true
+#          in: body
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the metadata.code must be R00.
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: ''
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: UpdateUser
+#      summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
+#  /users/alias/profile:
+#    post:
+#      operationId: MaintainAliasProfile
+#      summary: Used for link/de-link user profile alias
+#      parameters:
+#        - name: ProfileAliasDetails
+#          in: body
+#          schema:
+#            $ref: '#/definitions/ProfileAliasDetails'
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      tags:
+#        - Secure User
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the alias has been updated. The metadata.code must be R00.
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/SecurityInformation'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#  /users/approvals:
+#    post:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/ApproveUserDetails'
+#          name: ApproveUser
+#          in: body
+#          description: ''
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00. R10 code means request is still pending '
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/SecurityInformation'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: ApproveTempUser
+#      summary: Approves temporary user created with POST on /users
+#  /users/roles:
+#    get:
+#      description: ''
+#      tags:
+#        - Secure User
+#        - Partner Only
+#      parameters:
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#        - name: RoleName
+#          required: true
+#          type: string
+#          in: query
+#          description: ''
+#        - name: RoleNamespace
+#          required: false
+#          type: string
+#          in: query
+#          description: ''
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and a list of a Person's details according to the specific business context is returned
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/RolesList'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RetrieveUserRoles
+#      summary: Get the Roles for a User
+#  /users/recoveries/password:
+#    post:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/RecoverPasswordDetails'
+#          name: RecoverUser
+#          in: body
+#          description: ''
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00. R10 means request is still pending '
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/SecurityInformation'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RecoverPassword
+#      summary: Reset forgotten password
+#  /users/recoveries/username:
+#    post:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/RecoverUserDetails'
+#          name: RecoverUser
+#          in: body
+#          description: ''
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00. R10 code means request is still pending '
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/SecurityInformation'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RecoverUsername
+#      summary: Recover forgotten username
+#  '/partners/{partnerid}':
+#    get:
+#      description: Retrieve partner details
+#      tags:
+#        - Partner Only
+#        - Anonymous
+#      parameters:
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#        - description: A unique identifier that identifies the partner
+#          name: partnerid
+#          format: int64
+#          required: true
+#          type: integer
+#          in: path
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/SupportedPartners'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RetrievePartner
+#      summary: Retrieve supported Partner
+#  /partners:
+#    get:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - description: ''
+#          name: Authorization
+#          type: string
+#          required: true
+#          in: header
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/SupportedPartners'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RetrievePartners
+#      summary: Retrieve supported Partners
+#  /users/enterprise:
+#    post:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/EnterpriseUserDetails'
+#          name: EnterpriseUserDetails
+#          required: true
+#          in: body
+#          description: ''
+#        - description: ''
+#          name: Authorization
+#          required: false
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the user's CIS number is returned. R00 is metadata.code
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                type: object
+#                properties:
+#                  EnterpriseCustomerNumber:
+#                    type: integer
+#                    format: int64
+#              metadata:
+#                $ref: '#/definitions/ResponseDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: CheckEnterpriseUserExists
+#      summary: Tests if user is known already by enterprise values such as RSA IDPassport
+#  '/partners/partnerauthn/{partnerid}':
+#    get:
+#      description: ''
+#      tags:
+#        - Partner Only
+#        - Anonymous
+#      parameters:
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#        - description: A unique identifier that identifies the partner
+#          name: partnerid
+#          format: int64
+#          required: true
+#          type: integer
+#          in: path
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and authn request is created. The metadata.code must be R00
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: ''
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: RetrievePartnerAuthN
+#      summary: Retrieve supported Partner Authn Request
+#  /users/verify/profile:
+#    post:
+#      operationId: VerifyProfile
+#      summary: 'Authenticates the profile, pin and password and checks if NedbankID exists. If not a temporary ID is created with profile client details and returned.'
+#      parameters:
+#        - name: ProfileAliasDetails
+#          in: body
+#          schema:
+#            $ref: '#/definitions/ProfileCredentials'
+#      tags:
+#        - Anonymous
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and profile authenticated. The metadata.code must be R00
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: '#/definitions/TemporaryUserInfo'
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#  /users/temporary:
+#    put:
+#      description: ''
+#      tags:
+#        - Anonymous
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/TemporaryUserDetails'
+#          description: For descriptions on the parameters see the '/definitions/TemporaryUserDetails' object
+#          name: TemporaryUserDetails
+#          required: true
+#          in: body
+#      responses:
+#        '200':
+#          description: 'Request has been successfully executed, the metadata.code must be R00.'
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: ''
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: UpdateTemporaryUser
+#      summary: 'Used for update username, password and T&Cs on temporary user'
   /users/renew/token:
     get:
       operationId: RenewToken
