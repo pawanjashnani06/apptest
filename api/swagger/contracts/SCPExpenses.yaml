@@ -5,9 +5,6 @@ info:
   title: SCP Expenses API
   x-ibm-name: scp-expenses-api
   description: ""
-basePath: /clients
-schemes:
-- https
 x-ibm-configuration:
   enforced: true
   phase: realized
@@ -45,6 +42,8 @@ paths:
   /expenses/monthly:
     get:
       description: Gets 'MonthlySpend' objects containing categorised transactions
+      operationId: MonthlyExpenses
+      x-swagger-router-controller: MonthlyExpenses
       tags: []
       parameters:
       - description: ""
@@ -67,6 +66,8 @@ paths:
   /expenses/categoryspend:
     get:
       description: Gets 'CategorySpend' objects containing categorised transactions
+      operationId: CategoryExpenses
+      x-swagger-router-controller: CategoryExpenses
       tags: []
       parameters:
       - description: ""
@@ -86,11 +87,4 @@ paths:
               items:
                 $ref: '#/definitions/CategorySpend'
       summary: ""
-security:
-- API Key: []
-- API Key (Query): []
-x-ibm-endpoints:
-- endpointUrl: https://api-e.nedsecure.co.za/nedbankext
-  description: Base Gateway API Endpoint
-  type:
 ...
