@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-    Test : Test
+    todo : todo
 }
 
-function Test(req, res, next) {
+function todo(req, res, next) {
     res.json([
         {
             todo_id: 0,

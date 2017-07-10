@@ -1,0 +1,53 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Test API
+  description: Test API service
+basePath: /api/services/v1
+host: localhost:10010
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- http
+- https
+paths:
+  /test:
+    get:
+      description: "This endpoint returns all todos available in the database"
+      x-swagger-router-controller: "todo"
+      operationId: "todo"
+      parameters: []
+      responses:
+        200:
+          description: "An array of todos"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Todo"
+definitions:
+  Todo:
+    type: object
+    properties:
+      todo_id:
+        type: integer
+        description: Id for the todo
+      todo:
+        type: string
+        description: The todo item
+      datecreated:
+        type: string
+        format: date-time
+        description: Timestamp when the Todo was created. Set by server
+      author:
+        type: string
+        description: Creator or owner of the todo
+      duedate:
+        type: string
+        format: date-time
+        description: When the todo is due
+      completed:
+        type: boolean
+        description: Indicates if the todo has been completed or not
