@@ -1,4 +1,4 @@
-# Stub server
+# Stub server [![CircleCI](https://circleci.com/gh/greenbank60days/banking-app-stubs/tree/master.svg?style=svg&circle-token=b73f1e6cf40c2149f30c5c9af5b089d61050950c)](https://circleci.com/gh/greenbank60days/banking-app-stubs/tree/master)
 
 The purpose of this project is to provide a server that can be used during development and for automated testing of the banking application. It contains all known swagger contracts and uses swagger to mock api calls.
 It is based on the swagger cli tool.
