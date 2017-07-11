@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 module.exports = {
-  todo : todo
-};
+  todo: todo
+}
 
-function todo(req, res, next) {
+function todo (req, res, next) {
   res.json([{
-    todo: "Get some milk production",
-  }]);
+    todo: 'Get some milk production'
+  }])
 }
