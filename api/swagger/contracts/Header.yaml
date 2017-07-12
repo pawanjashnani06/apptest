@@ -1,0 +1,14 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: NedBank API
+  description: NedBank API services
+basePath: /api/services/v1
+host: localhost:10010
+consumes:
+- application/json
+produces:
+- application/json
+schemes:
+- http
+- https
