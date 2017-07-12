@@ -5,4 +5,5 @@
   api/swagger/contracts/FicaMe.yaml \
   api/swagger/contracts/SCPExpenses.yaml \
   api/swagger/contracts/Header.yaml \
+  api/swagger/contracts/SCPBudgets.yaml \
 > api/swagger/swagger.yaml
