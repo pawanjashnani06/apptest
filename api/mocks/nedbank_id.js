@@ -16,31 +16,31 @@ function updateUser (req, res, next) {
 
 function retrieveUserDetails (req, res, next) {
   res.json({
-      "data": {
-          "UniqueUserID": 1,
-          "Username": "Sample text",
-          "IdDetails": {
-              "IdNumber": "Sample text",
-              "IdType": "Sample text",
-              "CountryCode": "Sample text"
-          },
-          "FirstName": "Sample text",
-          "Surname": "Sample text",
-          "MobileNumber": "Sample text",
-          "EmailAddress": "Sample text",
-          "Title": "Sample text",
-          "Gender": "Sample text",
-          "DateOfBirth": "Sample text"
+    'data': {
+      'UniqueUserID': 1,
+      'Username': 'Sample text',
+      'IdDetails': {
+        'IdNumber': 'Sample text',
+        'IdType': 'Sample text',
+        'CountryCode': 'Sample text'
       },
-      "metadata": {
-          "code": "Sample text",
-          "desription": "Sample text",
-          "InvalidFieldsList": [
-              {
-                  "invalidFieldField": "Sample text",
-                  "invalidFieldMessageField": "Sample text"
-              }
-          ]
-      }
+      'FirstName': 'Sample text',
+      'Surname': 'Sample text',
+      'MobileNumber': 'Sample text',
+      'EmailAddress': 'Sample text',
+      'Title': 'Sample text',
+      'Gender': 'Sample text',
+      'DateOfBirth': 'Sample text'
+    },
+    'metadata': {
+      'code': 'Sample text',
+      'desription': 'Sample text',
+      'InvalidFieldsList': [
+        {
+          'invalidFieldField': 'Sample text',
+          'invalidFieldMessageField': 'Sample text'
+        }
+      ]
+    }
   })
 }
