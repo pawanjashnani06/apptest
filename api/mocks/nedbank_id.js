@@ -1,65 +1,19 @@
-'use strict';
+'use strict'
 
 module.exports = {
-    update_user: update_user,
-    retrieve_user_details: retrieve_user_details,
-    add_user: add_user
+  // updateUser: updateUser,
+  retrieveUserDetails: retrieveUserDetails,
+  addUser: addUser
 }
 
-function add_user(req, res, next) {
-    res.json({
-        "data": "Sample text1",
-        "metadata": {
-            "data": {},
-            "metadata": {
-                "code": "Sample text2",
-                "desription": "Sample text2",
-                "InvalidFieldsList": [
-                    {
-                        "invalidFieldField": "Sample text2",
-                        "invalidFieldMessageField": "Sample text2"
-                    }
-                ]
-            }
-        }
-    })
+function addUser (req, res, next) {
+  res.json({response: 'addUser'})
 }
 
+// function updateUser (req, res, next) {
+//   res.json({response: 'updateUser'})
+// }
 
-function update_user(req, res, next) {
-    res.json({
-        "data": "Sample text1",
-        "metadata": {
-            "data": {},
-            "metadata": {
-                "code": "Sample text2",
-                "desription": "Sample text2",
-                "InvalidFieldsList": [
-                    {
-                        "invalidFieldField": "Sample text2",
-                        "invalidFieldMessageField": "Sample text2"
-                    }
-                ]
-            }
-        }
-    })
-}
-
-function retrieve_user_details(req, res, next) {
-    res.json({
-        "data": "Sample text1",
-        "metadata": {
-            "data": {},
-            "metadata": {
-                "code": "Sample text2",
-                "desription": "Sample text2",
-                "InvalidFieldsList": [
-                    {
-                        "invalidFieldField": "Sample text2",
-                        "invalidFieldMessageField": "Sample text2"
-                    }
-                ]
-            }
-        }
-    })
+function retrieveUserDetails (req, res, next) {
+  res.json({response: 'retrieveUserDetails'})
 }

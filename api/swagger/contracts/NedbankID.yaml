@@ -379,7 +379,7 @@ paths:
           description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
           schema:
             $ref: '#/definitions/ErrorDescription'
-      operationId: add_user
+      operationId: addUser
       x-swagger-router-controller: nedbank_id
       summary: Add a New User
     get:
@@ -406,42 +406,42 @@ paths:
           description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
           schema:
             $ref: '#/definitions/ErrorDescription'
-      operationId: retrieve_user_details
+      operationId: retrieveUserDetails
       x-swagger-router-controller: nedbank_id
       summary: Retrieves logged in user's details
-    put:
-      description: ''
-      tags:
-        - Secure User
-      parameters:
-        - schema:
-            $ref: '#/definitions/UpdateDetails'
-          description: For descriptions on the parameters see the '/definitions/UpdateDetails' object
-          name: UpdateDetails
-          required: true
-          in: body
-        - description: ''
-          name: Authorization
-          required: true
-          type: string
-          in: header
-      responses:
-        '200':
-          description: Request has been successfully executed and the metadata.code must be R00.
-          schema:
-            type: object
-            properties:
-              data:
-                $ref: ''
-              metadata:
-                $ref: '#/definitions/ErrorDescription'
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
-      operationId: update_user
-      x-swagger-router-controller: nedbank_id
-      summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
+#    put:
+#      description: ''
+#      tags:
+#        - Secure User
+#      parameters:
+#        - schema:
+#            $ref: '#/definitions/UpdateDetails'
+#          description: For descriptions on the parameters see the '/definitions/UpdateDetails' object
+#          name: UpdateDetails
+#          required: true
+#          in: body
+#        - description: ''
+#          name: Authorization
+#          required: true
+#          type: string
+#          in: header
+#      responses:
+#        '200':
+#          description: Request has been successfully executed and the metadata.code must be R00.
+#          schema:
+#            type: object
+#            properties:
+#              data:
+#                $ref: ''
+#              metadata:
+#                $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
+#      operationId: updateUser
+#      x-swagger-router-controller: nedbank_id
+#      summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
 #  /users/alias/profile:
 #    post:
 #      operationId: MaintainAliasProfile
