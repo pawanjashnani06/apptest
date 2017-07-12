@@ -7,6 +7,11 @@
   "author": "",
   "license": "",
   "main": "app.js",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
   "dependencies": {
     "cors": "^2.8.3",
     "express": "^4.12.3",
@@ -14,10 +19,15 @@
   },
   "devDependencies": {
     "should": "^7.1.0",
-    "supertest": "^1.0.0"
+    "supertest": "^1.0.0",
+    "standard": "*"
   },
   "scripts": {
     "start": "node --max_old_space_size=2000 app.js",
-    "test": "swagger project test"
+    "test": "standard"
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
   }
 }
