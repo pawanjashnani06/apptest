@@ -348,97 +348,100 @@ paths:
 #            $ref: '#/definitions/ErrorDescription'
 #      operationId: CheckSecurityApprovalStatus
 #      summary: Checks the status of the aproveIT verificationID
-#  /users:
-#    post:
-#      description: ''
-#      tags:
-#        - Anonymous
-#      parameters:
-#        - schema:
-#            $ref: '#/definitions/AddUserDetails'
-#          description: The new user's information
-#          name: NewUser
-#          required: true
-#          in: body
-#        - description: ''
-#          name: Authorization
-#          required: true
-#          type: string
-#          in: header
-#      responses:
-#        '200':
-#          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00, after which you must call users/securitystatus/{securityrequestid} to poll for Approve-it status'
-#          schema:
-#            type: object
-#            properties:
-#              data:
-#                $ref: '#/definitions/NewUserDetails'
-#              metadata:
-#                $ref: '#/definitions/ErrorDescription'
-#        default:
-#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-#          schema:
-#            $ref: '#/definitions/ErrorDescription'
-#      operationId: AddUser
-#      summary: Add a New User
-#    get:
-#      description: ''
-#      tags:
-#        - Secure User
-#      parameters:
-#        - description: ''
-#          name: Authorization
-#          required: true
-#          type: string
-#          in: header
-#      responses:
-#        '200':
-#          description: Request has been successfully executed and the user's details are returned. The RetrieveUserDetailsRs.ResultSet.ResultCode must be R00
-#          schema:
-#            type: object
-#            properties:
-#              data:
-#                $ref: '#/definitions/UserDetails'
-#              metadata:
-#                $ref: '#/definitions/ResponseDescription'
-#        default:
-#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-#          schema:
-#            $ref: '#/definitions/ErrorDescription'
-#      operationId: RetrieveUsersDetails
-#      summary: Retrieves logged in user's details
-#    put:
-#      description: ''
-#      tags:
-#        - Secure User
-#      parameters:
-#        - schema:
-#            $ref: '#/definitions/UpdateDetails'
-#          description: For descriptions on the parameters see the '/definitions/UpdateDetails' object
-#          name: UpdateDetails
-#          required: true
-#          in: body
-#        - description: ''
-#          name: Authorization
-#          required: true
-#          type: string
-#          in: header
-#      responses:
-#        '200':
-#          description: Request has been successfully executed and the metadata.code must be R00.
-#          schema:
-#            type: object
-#            properties:
-#              data:
-#                $ref: ''
-#              metadata:
-#                $ref: '#/definitions/ErrorDescription'
-#        default:
-#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-#          schema:
-#            $ref: '#/definitions/ErrorDescription'
-#      operationId: UpdateUser
-#      summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
+  /users:
+    post:
+      description: ''
+      tags:
+        - Anonymous
+      parameters:
+        - schema:
+            $ref: '#/definitions/AddUserDetails'
+          description: The new user's information
+          name: NewUser
+          required: true
+          in: body
+        - description: ''
+          name: Authorization
+          required: true
+          type: string
+          in: header
+      responses:
+        '200':
+          description: 'Request has been successfully executed and the information notice has been accepted. The metadata.code must be R00, after which you must call users/securitystatus/{securityrequestid} to poll for Approve-it status'
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/definitions/NewUserDetails'
+              metadata:
+                $ref: '#/definitions/ErrorDescription'
+        default:
+          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+          schema:
+            $ref: '#/definitions/ErrorDescription'
+      operationId: add_user
+      x-swagger-router-controller: nedbank_id
+      summary: Add a New User
+    get:
+      description: ''
+      tags:
+        - Secure User
+      parameters:
+        - description: ''
+          name: Authorization
+          required: true
+          type: string
+          in: header
+      responses:
+        '200':
+          description: Request has been successfully executed and the user's details are returned. The RetrieveUserDetailsRs.ResultSet.ResultCode must be R00
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/definitions/UserDetails'
+              metadata:
+                $ref: '#/definitions/ResponseDescription'
+        default:
+          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+          schema:
+            $ref: '#/definitions/ErrorDescription'
+      operationId: retrieve_user_details
+      x-swagger-router-controller: nedbank_id
+      summary: Retrieves logged in user's details
+    put:
+      description: ''
+      tags:
+        - Secure User
+      parameters:
+        - schema:
+            $ref: '#/definitions/UpdateDetails'
+          description: For descriptions on the parameters see the '/definitions/UpdateDetails' object
+          name: UpdateDetails
+          required: true
+          in: body
+        - description: ''
+          name: Authorization
+          required: true
+          type: string
+          in: header
+      responses:
+        '200':
+          description: Request has been successfully executed and the metadata.code must be R00.
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: ''
+              metadata:
+                $ref: '#/definitions/ErrorDescription'
+        default:
+          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+          schema:
+            $ref: '#/definitions/ErrorDescription'
+      operationId: update_user
+      x-swagger-router-controller: nedbank_id
+      summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
 #  /users/alias/profile:
 #    post:
 #      operationId: MaintainAliasProfile
