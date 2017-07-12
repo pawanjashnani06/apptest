@@ -793,8 +793,8 @@ paths:
 #      summary: 'Used for update username, password and T&Cs on temporary user'
   /users/renew/token:
     get:
-      operationId: RenewToken
-      x-swagger-router-controller: RenewToken
+      x-swagger-router-controller: nedbank_id
+      operationId: renewToken
       summary: 'Checks if token in header is valid and issues a new JWT token. Note: the token will be issued for X number of times and the lifetime of token will decrease as each renewal is done. Consumer must check token claim for number of times that they can request a renewal.'
       parameters:
         - description: Json web token
