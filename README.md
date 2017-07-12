@@ -9,14 +9,14 @@ It is based on the swagger cli tool.
 ```
 git clone git@github.com:greenbank60days/banking-app-stubs.git
 ```
-2. Update dependencies:
+2. Build docker image:
 ```
 cd banking-app-stubs
-docker build -t <your-username>/test .
+docker build -t greenbank60days/banking-app-stubs .
 ```
 3. Start the application
 ```
-docker run -p 10010:10010 -p 10011:10011 <your-username>/test
+docker run -p 10010:10010 greenbank60days/banking-app-stubs
 ```
 
 4. Call application
@@ -51,13 +51,11 @@ Response;
 ]
 ```
 
-5. View documentation on
-```
-locahost:10011
-```
+## Development
 
-## Running locally
-### Dependencies
+### Running locally
+
+Dependencies:
  - latest version of node.js
  - Swagger cli please run 'npm install -g swagger'
  - latest version of java and maven
@@ -78,31 +76,45 @@ locahost:10011
 > swagger project start -m
 ```
 
-## Updates
+### Updates
 
-To mock service;
-
+To mock service:
  - Add swagger contract to api/swagger/contracts
  - Reference contract in run.sh (in the merge-yaml part)
 
-To mock endpoint;
+To mock endpoint:
+ - Make sure swagger yaml file does not contain headers:
+    ```
+    basePath: /api/services/v1
+    host: localhost:10010
+    consumes:
+    - application/json
+    produces:
+    - application/json
+    schemes:
+    - http
+    - https
+    ```
 
- - Make sure swagger yaml file does not contain headers (basePath: /api/services/v1
-                                                         consumes:
-                                                         - application/json
-                                                         produces:
-                                                         - application/json
-                                                         schemes:
-                                                         - http
-                                                         - https)
- - Add headers to swagger yaml ( operationId: "SuperMock" and x-swagger-router-controller: "SuperMock")
- - Create file "SuperMock.js" inside api/mocks directory, this file is referenced by the operatioId header above
+ - Add HTTP headers to swagger yaml:
+    ```
+    x-swagger-router-controller: "mock_controller_name"
+    operationId: "mockFunctionToCall"
+    ```
 
- ## Development
+ - Create file `mock_controller_name.js` inside `api/mocks` directory. Exported functions from this controller are referenced by the `operationId` header above.
 
- We are using [standardjs.com](https://standardjs.com/) for linting.
+### Code style standard
 
- Linting is done during `test`.
+ We are using [standardjs.com](https://standardjs.com/) as js code style.
+
+ Linting is done during `test` by:
+
+ ```
+ npm test
+ ```
+
+ It is also run by CI.
 
  To fix Your code against standardjs just run:
 
