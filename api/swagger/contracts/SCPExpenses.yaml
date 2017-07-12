@@ -42,8 +42,8 @@ paths:
   /expenses/monthly:
     get:
       description: Gets 'MonthlySpend' objects containing categorised transactions
-      operationId: MonthlyExpenses
-      x-swagger-router-controller: MonthlyExpenses
+      x-swagger-router-controller: scp_expenses
+      operationId: monthlyExpenses
       tags: []
       parameters:
       - description: ""
@@ -66,8 +66,8 @@ paths:
   /expenses/categoryspend:
     get:
       description: Gets 'CategorySpend' objects containing categorised transactions
-      operationId: CategoryExpenses
-      x-swagger-router-controller: CategoryExpenses
+      x-swagger-router-controller: scp_expenses
+      operationId: categoryExpenses
       tags: []
       parameters:
       - description: ""
