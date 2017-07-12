@@ -24,6 +24,6 @@
   },
   "scripts": {
     "start": "node --max_old_space_size=2000 app.js",
-    "test": "standard && swagger project test"
+    "test": "standard"
   }
 }
