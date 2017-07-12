@@ -86,7 +86,7 @@ To mock service;
  - Reference contract in run.sh (in the merge-yaml part)
 
 To mock endpoint;
- 
+
  - Make sure swagger yaml file does not contain headers (basePath: /api/services/v1
                                                          consumes:
                                                          - application/json
@@ -95,7 +95,21 @@ To mock endpoint;
                                                          schemes:
                                                          - http
                                                          - https)
- - Add headers to swagger yaml ( operationId: "SuperMock" and x-swagger-router-controller: "SuperMock") 
+ - Add headers to swagger yaml ( operationId: "SuperMock" and x-swagger-router-controller: "SuperMock")
  - Create file "SuperMock.js" inside api/mocks directory, this file is referenced by the operatioId header above
- 
+
+ ## Development
+
+ We are using [standardjs.com](https://standardjs.com/) for linting.
+
+ Linting is done during `test`.
+
+ To fix Your code against standardjs just run:
+
+ ```
+ standard --fix
+ ```
+
+ or configure IDE to do it for You.
+
 ## Happy mocking!
