@@ -1,21 +1,18 @@
-FROM rowanto/docker-java8-mvn-nodejs-npm:latest
+FROM node:alpine
 
-EXPOSE 10010
-EXPOSE 10011
-
+# Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/
-
+# Install app dependencies
+COPY package.json .
 RUN npm install
-
 RUN npm install -g swagger
 
-COPY . /usr/src/app/
+# Bundle app source
+COPY app.js .
+COPY api/ api/
+COPY config/ config/
 
-ADD run.sh /usr/src/app/
-RUN /bin/bash -c "source run.sh"
-
-RUN ./run.sh
+EXPOSE 10010
 CMD ["swagger", "project", "start", "-m"]
