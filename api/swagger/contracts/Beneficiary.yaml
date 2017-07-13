@@ -5,7 +5,7 @@ info:
   title: Beneficiary API
   x-ibm-name: beneficiary-api
   description: ""
-basePath: /beneficiaries/v1
+#basePath: /beneficiaries/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,15 +13,17 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- http
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - http
 paths:
-  /groups:
+  /beneficiaries/groups:
     get:
+      operationId: beneficiariesGroupsGet
+      x-swagger-router-controller: beneficiaries
       description: Get the beneficiary list (get profile number from session)
       parameters:
       - description: This specifies the page to view
@@ -51,6 +53,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiariesGroupResponse'
     post:
+      operationId: beneficiariesGroupsPost
+      x-swagger-router-controller: beneficiaries
       description: create a beneficiary list (get profile number from session)
       parameters:
       - description: create a beneficiary list
@@ -76,6 +80,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiariesGroupResponse'
     delete:
+      operationId: beneficiariesGroupsDelete
+      x-swagger-router-controller: beneficiaries
       description: delete one or more beneficiary lists
       parameters:
       - description: delete beneficiary lists
@@ -104,8 +110,10 @@ paths:
             $ref: '#/definitions/BeneficiariesGroupResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /groups/{beneficiarygroup_id}:
+  /beneficiaries/groups/{beneficiarygroup_id}:
     put:
+      operationId: beneficiariesGroupPut
+      x-swagger-router-controller: beneficiaries
       description: update a beneficiary
       parameters:
       - description: This specifies the beneficiary ID
@@ -136,6 +144,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiariesGroupResponse'
     delete:
+      operationId: beneficiariesGroup_delete
+      x-swagger-router-controller: beneficiaries
       description: delete one or more beneficiary lists
       parameters:
       - description: This specifies the beneficiary list ID
@@ -161,8 +171,10 @@ paths:
             $ref: '#/definitions/BeneficiariesGroupResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /beneficiariesdetails:
+  /beneficiaries/beneficiariesdetails:
     get:
+      operationId: beneficiariesDetailsGet
+      x-swagger-router-controller: beneficiaries
       description: Get a list of the saved beneficiaries (get profile number from
         session)
       parameters:
@@ -200,6 +212,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiariesResponse'
     post:
+      operationId: beneficiariesDetailsPost
+      x-swagger-router-controller: beneficiaries
       description: save beneficiaries
       parameters:
       - description: this is required as Electricity is now part of contactcards and
@@ -231,6 +245,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiariesResponse'
     delete:
+      operationId: beneficiariesDetailsDelete
+      x-swagger-router-controller: beneficiaries
       description: delete one or more beneficiaries. Front-end will have to make sure
         BeneficiaryID & BeneficiaryType is the same sequece else it will create havoc
       parameters:
@@ -258,8 +274,10 @@ paths:
             $ref: '#/definitions/BeneficiariesResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /beneficiary/{beneficiary_id}:
+  /beneficiaries/beneficiary/{beneficiary_id}:
     get:
+      operationId: beneficiaryGet
+      x-swagger-router-controller: beneficiaries
       description: Get individual saved beneficiary from cache
       parameters:
       - description: This specifies the beneficiary ID
@@ -291,6 +309,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiaryResponse'
     put:
+      operationId: beneficiaryPut
+      x-swagger-router-controller: beneficiaries
       description: update a beneficiary
       parameters:
       - description: This specifies the beneficiary ID
@@ -336,6 +356,8 @@ paths:
           schema:
             $ref: '#/definitions/BeneficiaryResponse'
     delete:
+      operationId: beneficiaryDelete
+      x-swagger-router-controller: beneficiaries
       description: delete a beneficiary
       parameters:
       - description: This specifies the beneficiary ID
@@ -375,8 +397,10 @@ paths:
             $ref: '#/definitions/BeneficiaryResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /beneficiary/{beneficiary_id}/groups:
+  /beneficiaries/beneficiary/{beneficiary_id}/groups:
     get:
+      operationId: beneficiaryGroupGet
+      x-swagger-router-controller: beneficiaries
       description: Get individual saved beneficiary's lists it belongs to (dont populate
         the BFListMember items - only return BFListID & BFListName)
       parameters:

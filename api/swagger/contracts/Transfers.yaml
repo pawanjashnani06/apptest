@@ -5,7 +5,7 @@ info:
   title: Transfers API
   x-ibm-name: transfers-api
   description: ""
-basePath: /transfers/v1
+#basePath: /transfers/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,17 +13,19 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- https
-security:
-- API Key: []
+#consumes:
+#- application/json
+#produces:
+#- application/json
+#schemes:
+#- https
+#security:
+#- API Key: []
 paths:
-  /transactions:
+  /transfers/transactions:
     get:
+      operationId: transfersTransactionsGet
+      x-swagger-router-controller: transfers
       description: Retrieves a transfers list according to a profile number and optional
         filtering parameters. Use with GET /Transfers?transactiontype='' and GET /Transfers?fromdate=''
         & todate='' & transactiontype=''
@@ -96,6 +98,8 @@ paths:
           schema:
             $ref: '#/definitions/TransferListResponse'
     post:
+      operationId: transfersTransactionsPost
+      x-swagger-router-controller: transfers
       description: Create a transfer list. Use with POST /Transfers
       parameters:
       - description: If null/'false' SubmitForValImmed = 'false' else if it is 'true'
@@ -127,6 +131,8 @@ paths:
           schema:
             $ref: '#/definitions/TransferListResponse'
     delete:
+      operationId: transfersTransactionsDelete
+      x-swagger-router-controller: transfers
       description: Delete list of transfers. Use with DELETE /Transfers
       parameters:
       - description: only for future-dated & recurring transfers
@@ -155,8 +161,10 @@ paths:
             $ref: '#/definitions/TransferListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /transactions/{transferID}:
+  /transfers/transactions/{transferID}:
     get:
+      operationId: transfersTransactionGet
+      x-swagger-router-controller: transfers
       description: Gets specified transfer details. Use with GET /Transfers/{transferID}?transactiontype=''
       parameters:
       - description: Specific tansfer to get for details
@@ -187,6 +195,8 @@ paths:
           schema:
             $ref: '#/definitions/TransferResponse'
     put:
+      operationId: transfersTransactionPut
+      x-swagger-router-controller: transfers
       description: (Duplicate PUT) Update a specific future-dated or recurring transfer.
         Use with PUT /Transfers/{transferID}
       parameters:
@@ -225,6 +235,8 @@ paths:
           schema:
             $ref: '#/definitions/TransferResponse'
     delete:
+      operationId: transfersTransactionDelete
+      x-swagger-router-controller: transfers
       description: Remove a single transfer. Use with DELETE /Transfers/{id}?recinstrid=""
       parameters:
       - description: Specific transaction to be deleted (transactionID or BatchID
@@ -258,8 +270,10 @@ paths:
             $ref: '#/definitions/TransferResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /accounts:
+  /transfers/accounts:
     get:
+      operationId: transfersAccountsGet
+      x-swagger-router-controller: transfers
       description: Retrieves a list of accounts
       responses:
         200:

@@ -5,7 +5,7 @@ info:
   title: ReferenceData API
   x-ibm-name: referencedata-api
   description: ""
-basePath: /referencedata/v1
+#basePath: /referencedata/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,17 +13,19 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- https
-security:
-- API Key: []
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - https
+# security:
+# - API Key: []
 paths:
-  /banks:
+  /referencedata/banks:
     get:
+      operationId: banks
+      x-swagger-router-controller: banks
       description: Retrieves list of banks including universal branch code and instant
         payment indicator (RTC). Order should be ABSA Bank; Bidvest Bank; Capitec
         Bank; First National Bank; Investec bank Limited; Standard Bank of South Africa;
@@ -63,8 +65,10 @@ paths:
             $ref: '#/definitions/BanksResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /banks/{bankcode}/branches:
+  /referencedata/banks/{bankcode}/branches:
     get:
+      operationId: branches
+      x-swagger-router-controller: branches
       description: Retrieves the banks branchcodes if there is not a universal one
         available. Should be order by branch name
       parameters:
@@ -91,8 +95,10 @@ paths:
             $ref: '#/definitions/BranchesResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /bankdefinedbeneficiaries:
+  /referencedata/bankdefinedbeneficiaries:
     get:
+      operationId: bankdefinedbeneficiaries
+      x-swagger-router-controller: bankdefinedbeneficiaries
       description: Retrieves the BDF list. Alphabetically ordered
       parameters:
       - description: This specifies the page to view
@@ -123,8 +129,10 @@ paths:
             $ref: '#/definitions/BDFResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /notificationtypes:
+  /referencedata/notificationtypes:
     get:
+      operationId: notificationtypes
+      x-swagger-router-controller: notificationtypes
       description: Retrieves the notification types (prevuously hardcoded on front-end)
       responses:
         200:
@@ -144,7 +152,7 @@ paths:
             $ref: '#/definitions/NotificationTypesResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /serviceproviders:
+  /referencedata/serviceproviders:
     get:
       description: Retrieves the available service providers
       parameters:
@@ -172,7 +180,7 @@ paths:
             $ref: '#/definitions/ServiceProvidersResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /serviceproviders/{serviceprovidercode}/products:
+  /referencedata/serviceproviders/{serviceprovidercode}/products:
     get:
       description: Retrieves the products for the specified serviceprovider
       parameters:
@@ -200,7 +208,7 @@ paths:
             $ref: '#/definitions/ServiceProviderProductsResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /frequency:
+  /referencedata/frequency:
     get:
       description: Retrieves the frequency data used with recurring transactions (Monthly,
         '1-31' or Last Day etc)
@@ -222,7 +230,7 @@ paths:
             $ref: '#/definitions/FrequencyResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /lotto/drawresults:
+  /referencedata/lotto/drawresults:
     get:
       description: USES [MongoDB] - Retrieves the lotto draw results
       parameters:
@@ -251,7 +259,7 @@ paths:
             $ref: '#/definitions/DrawDetailsResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /lotto/jacpot:
+  /referencedata/lotto/jacpot:
     get:
       description: USES [MongoDB] - Retrieves the lotto jackpot info
       responses:
@@ -272,7 +280,7 @@ paths:
             $ref: '#/definitions/JackpotResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /lotto/metadata:
+  /referencedata/lotto/metadata:
     get:
       description: USES [MongoDB] - Retrieves the lotto rules/metadata (used for validation
         of purchase)
@@ -294,7 +302,7 @@ paths:
             $ref: '#/definitions/LottoMetadataResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /stoppaymentreasons:
+  /referencedata/stoppaymentreasons:
     get:
       description: Retrieves list of reasons with their associated codes that can
         be used to provide when stopping a payment.
@@ -316,7 +324,7 @@ paths:
             $ref: '#/definitions/DisputeReasonsResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /disputedebitorderreasons:
+  /referencedata/disputedebitorderreasons:
     get:
       description: Retrieves list of reasons with their associated codes that can
         be used to provide when disputing a debit order.

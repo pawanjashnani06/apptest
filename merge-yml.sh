@@ -1,5 +1,10 @@
 #!/bin/bash
 ./merge-yml/bin/merge-yml.sh \
+  api/swagger/contracts/Transfers.yaml \
+  api/swagger/contracts/ReferenceData.yaml \
+  api/swagger/contracts/Prepaids.yaml \
+  api/swagger/contracts/Payments.yaml \
+  api/swagger/contracts/Beneficiary.yaml \
   api/swagger/contracts/Test.yaml \
   api/swagger/contracts/NedbankID.yaml \
   api/swagger/contracts/FicaMe.yaml \

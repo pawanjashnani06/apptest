@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "should": "^7.1.0",
-    "supertest": "^1.0.0",
-    "standard": "*"
+    "standard": "^10.0.2",
+    "supertest": "^1.0.0"
   },
   "scripts": {
     "start": "node --max_old_space_size=2000 app.js",

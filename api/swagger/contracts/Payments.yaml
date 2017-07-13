@@ -5,7 +5,7 @@ info:
   title: Payments API
   x-ibm-name: payments-api
   description: ""
-basePath: /payments/v1
+#basePath: /payments/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,15 +13,17 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- https
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - https
 paths:
-  /paymenttransactions:
+  /payments/paymenttransactions:
     get:
+      operationId: paymenttransactionsGet
+      x-swagger-router-controller: payment
       description: Retrieves a payments list according to a profile number and optional
         filtering parameters. Use with GET /payments?transactiontype='' and GET /payments?fromdate=''
         & todate='' & transactiontype='' etc
@@ -114,6 +116,8 @@ paths:
           schema:
             $ref: '#/definitions/PaymentListResponse'
     post:
+      operationId: paymenttransactionsPost
+      x-swagger-router-controller: payment
       description: Use with POST /payments
       parameters:
       - description: If null/'false' SubmitForValImmed = 'false' else if it is 'true'
@@ -143,6 +147,8 @@ paths:
           schema:
             $ref: '#/definitions/PaymentListResponse'
     delete:
+      operationId: paymenttransactionsDelete
+      x-swagger-router-controller: payment
       description: Delete list of transactions. Use with DELETE /Transfers
       parameters:
       - description: only for future-dated & recurring
@@ -171,8 +177,10 @@ paths:
             $ref: '#/definitions/PaymentListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /paymenttransaction/{transactionID}:
+  /payments/paymenttransaction/{transactionID}:
     get:
+      operationId: paymenttransactionGet
+      x-swagger-router-controller: payment
       description: Gets specified payment details. Use with GET /payments/{transactionID}?transactiontype=''
       parameters:
       - description: Specific payment to get for details
@@ -213,6 +221,8 @@ paths:
           schema:
             $ref: '#/definitions/PaymentResponse'
     put:
+      operationId: paymenttransactionPut
+      x-swagger-router-controller: payment
       description: (Duplicate PUT) Update a specific future-dated or recurring transaction.
         Use with PUT /payments/{transactionID}
       parameters:
@@ -251,6 +261,8 @@ paths:
           schema:
             $ref: '#/definitions/PaymentResponse'
     delete:
+      operationId: paymenttransactionDelete
+      x-swagger-router-controller: payment
       description: Remove a single transaction. Use with DELETE /payments/{transactionID}?recinstrid=""
       parameters:
       - description: Specific transaction to be deleted (transactionID or BatchID
@@ -284,8 +296,10 @@ paths:
             $ref: '#/definitions/PaymentResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /accounts:
+  /payments/accounts:
     get:
+      operationId: paymentaccountsGet
+      x-swagger-router-controller: payment
       description: Retrieves a list of accounts
       responses:
         200:

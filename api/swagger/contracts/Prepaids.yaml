@@ -5,7 +5,7 @@ info:
   title: Prepaids API
   x-ibm-name: prepaids-api
   description: ""
-basePath: /prepaids/v1
+#basePath: /prepaids/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,34 +13,38 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- https
-security:
-- API Key: []
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - https
+# security:
+# - API Key: []
 paths:
-  /accounts:
+  /prepaids/accounts:
     get:
+      operationId: prepaidAccountsGet
+      x-swagger-router-controller: prepaid
       description: Retrieves a list of accounts
       responses:
         200:
           description: Request successful
           schema:
-            $ref: '#/definitions/AccountsListResponse'
+            $ref: '#/definitions/PrepaidAccountsListResponse'
         207:
           description: Partial success
           schema:
-            $ref: '#/definitions/AccountsListResponse'
+            $ref: '#/definitions/PrepaidAccountsListResponse'
         default:
           description: Returns an error that has not been specified in the implementation.
             Additional information may be contained in the Metadata object
           schema:
-            $ref: '#/definitions/AccountsListResponse'
-  /transactions:
+            $ref: '#/definitions/PrepaidAccountsListResponse'
+  /prepaids/transactions:
     get:
+      operationId: prepaidTransactionsGet
+      x-swagger-router-controller: prepaid
       description: Retrieves a prepaids list according to a profile number and optional
         filtering parameters
       parameters:
@@ -136,6 +140,8 @@ paths:
           schema:
             $ref: '#/definitions/PrepaidListResponse'
     post:
+      operationId: prepaidTransactionsPost
+      x-swagger-router-controller: prepaid
       description: make prepaid purchases
       parameters:
       - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
@@ -165,6 +171,8 @@ paths:
           schema:
             $ref: '#/definitions/PrepaidListResponse'
     delete:
+      operationId: prepaidTransactionsDelete
+      x-swagger-router-controller: prepaid
       description: Delete list of transactions. Only for future-dated & recurring
       parameters:
       - description: only for future-dated & recurring
@@ -193,8 +201,10 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /transactions/{transactionID}:
+  /prepaids/transactions/{transactionID}:
     get:
+      operationId: prepaidTransactionGet
+      x-swagger-router-controller: prepaid
       description: Gets specified prepaid details
       parameters:
       - description: Specific prepaid to get for details
@@ -225,6 +235,8 @@ paths:
           schema:
             $ref: '#/definitions/PrepaidResponse'
     put:
+      operationId: prepaidTransactionPut
+      x-swagger-router-controller: prepaid
       description: Update a specific future-dated or recurring transaction.
       parameters:
       - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
@@ -262,6 +274,8 @@ paths:
           schema:
             $ref: '#/definitions/PrepaidResponse'
     delete:
+      operationId: prepaidTransactionDelete
+      x-swagger-router-controller: prepaid
       description: Remove a single transaction.
       parameters:
       - description: Specific transaction to be deleted (transactionID or BatchID
@@ -295,8 +309,10 @@ paths:
             $ref: '#/definitions/PrepaidResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /purchasehistory:
+  /prepaids/purchasehistory:
     get:
+      operationId: prepaidPurchaseGet
+      x-swagger-router-controller: prepaid
       description: Retrieves the purchase history for prepaids
       parameters:
       - description: This specifies the service provider type
@@ -343,8 +359,10 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /electricitymetervouchers:
+  /prepaids/electricitymetervouchers:
     get:
+      operationId: prepaidElectricitymetervouchersGet
+      x-swagger-router-controller: prepaid
       description: Gets prepaid electricity transactions (PrepaidTxEnq & PrepaidFBEListEnq)
       parameters:
       - description: This specifies the from account for which you want to retrieve
@@ -418,8 +436,10 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /electricitymetervouchers/{voucher_id}:
+  /prepaids/electricitymetervouchers/{voucher_id}:
     get:
+      operationId: prepaidElectricitymetervoucherGet
+      x-swagger-router-controller: prepaid
       description: Gets prepaid electricity voucher for specified batch id (PrepaidVoucherEnq)
       parameters:
       - description: This specifies the ID (in this case batch id) of the electricity
@@ -453,8 +473,10 @@ paths:
             $ref: '#/definitions/ElectricityVoucherResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /electricitymeters/{meter_id}:
+  /prepaids/electricitymeters/{meter_id}:
     put:
+      operationId: prepaidElectricitymeterPut
+      x-swagger-router-controller: prepaid
       description: Update a specific electricity meter
       parameters:
       - description: If 'false' then call ProfileBFAdd & ProfileBFNotificationMod
@@ -491,6 +513,8 @@ paths:
           schema:
             $ref: '#/definitions/ElectricityMeterResponse'
     delete:
+      operationId: prepaidElectricitymeterDelete
+      x-swagger-router-controller: prepaid
       description: delete a specific electricity meter
       parameters:
       - description: prepaid electricity meter beneficiary ID
@@ -516,8 +540,10 @@ paths:
             $ref: '#/definitions/ElectricityMeterResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /electricitymeters:
+  /prepaids/electricitymeters:
     get:
+      operationId: prepaidElectricitymetersGet
+      x-swagger-router-controller: prepaid
       description: Gets prepaid electricity saved beneficiaries (ProfileBFDetailEnq)
       parameters:
       - description: This specifies the destination number (electricity meter)
@@ -552,6 +578,8 @@ paths:
           schema:
             $ref: '#/definitions/ElectricityMetersResponse'
     post:
+      operationId: prepaidElectricitymetersPost
+      x-swagger-router-controller: prepaid
       description: Validate meter and save as beneficiary
       parameters:
       - description: If 'false' then call ProfileBFAdd & ProfileBFNotificationMod
@@ -581,6 +609,8 @@ paths:
           schema:
             $ref: '#/definitions/ElectricityMetersResponse'
     delete:
+      operationId: prepaidElectricitymetersDelete
+      x-swagger-router-controller: prepaid
       description: Delete registered meters
       parameters:
       - description: prepaid electricity meter beneficiary ID
@@ -609,8 +639,10 @@ paths:
             $ref: '#/definitions/ElectricityMetersResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /moneysend:
+  /prepaids/moneysend:
     get:
+      operationId: prepaidMoneySendGet
+      x-swagger-router-controller: prepaid
       description: USES [PrepaidTxEnq] - Retrieves  send-iMali; m-pesa & 'western
         union' records according to a profile number and optional filtering parameters
       parameters:
@@ -687,6 +719,8 @@ paths:
           schema:
             $ref: '#/definitions/PrepaidListResponse'
     post:
+      operationId: prepaidMoneySendPost
+      x-swagger-router-controller: prepaid
       description: USES [bankToStoreVAPartner] - send money
       parameters:
       - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
@@ -717,8 +751,10 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /moneysend/history:
+  /prepaids/moneysend/history:
     get:
+      operationId: prepaidMoneySendHistoryGet
+      x-swagger-router-controller: prepaid
       description: USES [PrepaidHistEnq] - Retrieves  send-iMali; m-pesa & 'western
         union' records according to a profile number and optional filtering parameters
       parameters:
@@ -839,20 +875,20 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/Prepaid'
-  AccountsListResponse:
+  PrepaidAccountsListResponse:
     properties:
       data:
-        $ref: '#/definitions/AccountList'
+        $ref: '#/definitions/PrepaidAccountList'
       metadata:
         $ref: '#/definitions/Metadata'
-  AccountList:
+  PrepaidAccountList:
     properties:
       accounts:
         description: list of accounts
         type: array
         items:
-          $ref: '#/definitions/Account'
-  Account:
+          $ref: '#/definitions/PrepaidAccount'
+  PrepaidAccount:
     properties:
       accountName:
         type: string
@@ -916,7 +952,7 @@ definitions:
       transactions:
         type: array
         items:
-          $ref: '#/definitions/TransactionMetadata'
+          $ref: '#/definitions/PrepaidTransactionMetadata'
         description: List of transactions on the account
       currency:
         type: string
@@ -980,9 +1016,9 @@ definitions:
       accountRules:
         type: object
         items:
-          $ref: '#/definitions/AccountRulesMetadata'
+          $ref: '#/definitions/PrepaidAccountRulesMetadata'
         description: List of account rules
-  AccountRulesMetadata:
+  PrepaidAccountRulesMetadata:
     properties:
       instantPayFrom:
         type: boolean
@@ -1035,7 +1071,7 @@ definitions:
       onceOffiMaliFrom:
         type: boolean
         description: Is OnceOffiMaliFrom acc allowed?
-  TransactionMetadata:
+  PrepaidTransactionMetadata:
     properties:
       transactionId:
         type: string
@@ -1066,7 +1102,7 @@ definitions:
       childTransactions:
         type: array
         items:
-          $ref: '#/definitions/TransactionMetadata'
+          $ref: '#/definitions/PrepaidTransactionMetadata'
         description: Gets or Sets ChildTransactions
       originalCategoryId:
         type: integer
@@ -1139,9 +1175,9 @@ definitions:
       isVoucherAmount:
         type: boolean
       reoccurrenceItem:
-        $ref: '#/definitions/ReoccurrenceItem'
+        $ref: '#/definitions/PrepaidReoccurrenceItem'
       notificationDetails:
-        $ref: '#/definitions/NotificationDetails'
+        $ref: '#/definitions/PrepaidNotificationDetails'
       prepaidStatus:
         description: used with electricity & imali GET. Gets the status of the transaction
           (ALL - All, PEN - Pending, PRC - Processed, PRJ - Failed, U0 - Undefined)
@@ -1164,7 +1200,7 @@ definitions:
         description: Only for saved beneficiary transactions (and when save happens
           first). On POST if 'true' call FavouriteTxAdd.
         type: boolean
-  ReoccurrenceItem:
+  PrepaidReoccurrenceItem:
     properties:
       reoccurrenceFrequency:
         description: Weekly or Monthly
@@ -1193,7 +1229,7 @@ definitions:
           to string due to reference data having "Last Day". Developers can convert
           to int64 (long) for service call.
         type: string
-  NotificationDetail:
+  PrepaidNotificationDetail:
     properties:
       notificationId:
         type: integer
@@ -1243,7 +1279,7 @@ definitions:
         description: used on prepaidmetervalidate response
         type: string
       notificationDetails:
-        $ref: '#/definitions/NotificationDetails'
+        $ref: '#/definitions/PrepaidNotificationDetails'
       recentPayList:
         $ref: '#/definitions/ElecBFRecentPayDetails'
   ElecBFRecentPayDetails:
@@ -1421,16 +1457,16 @@ definitions:
         type: integer
         format: double
       notificationDetails:
-        $ref: '#/definitions/NotificationDetails'
+        $ref: '#/definitions/PrepaidNotificationDetails'
       purchaseReferenceNumber:
         description: in use with electricity for Purchase reference number (ValueDate/NEDBANK/ExecEngineRef;
           i.e. '20160613/NEDBANK/000000489023992664')
         type: string
-  NotificationDetails:
+  PrepaidNotificationDetails:
     description: notification details
     type: array
     items:
-      $ref: '#/definitions/NotificationDetail'
+      $ref: '#/definitions/PrepaidNotificationDetail'
   Metadata:
     properties:
       page:
