@@ -5,7 +5,7 @@ info:
   title: Enquiries API
   x-ibm-name: enquiries-api
   description: ""
-basePath: /transactions/v1
+#basePath: /transactions/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,15 +13,17 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- http
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - http
 paths:
   /transactionsenquiry:
     get:
+      operationId: transactionsEnquiry
+      x-swagger-router-controller: enquiries
       description: Retrieves transactions on enquiries (failed/successful)
       parameters:
       - description: This specifies the from account for which you want to retrieve
