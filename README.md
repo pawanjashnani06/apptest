@@ -5,51 +5,51 @@ It is based on the swagger cli tool.
 
 ## Getting Started
 
-1. Clone the repo locally:
-```
-git clone git@github.com:greenbank60days/banking-app-stubs.git
-```
-2. Build docker image:
-```
-cd banking-app-stubs
-docker build -t greenbank60days/banking-app-stubs .
-```
-3. Start the application
-```
-docker run -p 10010:10010 greenbank60days/banking-app-stubs
-```
-
+1. Clone this repo locally:
+  ```
+  $ git clone git@github.com:greenbank60days/banking-app-stubs.git
+  ```
+2. Build project & docker image:
+  ```
+  $ cd banking-app-stubs
+  $ ./build.sh
+  $ docker build -t greenbank60days/banking-app-stubs .
+  ```
+3. Run docker image with the application
+  ```
+  $ docker run -p 10010:10010 greenbank60days/banking-app-stubs
+  ```
 4. Call application
-```
-Request;
-Open postman;
-url: GET http://localhost:10010/api/services/v1/test
-headers;    Authorization: test
-            X-IBM-Client-Id: 1234
-            RoleName: test
-then send in postman
+  ```
+  Request;
+  Open postman;
+  url: GET http://localhost:10010/api/services/v1/test
+  headers;    Authorization: test
+              X-IBM-Client-Id: 1234
+              RoleName: test
+  then send in postman
 
-Response;
+  Response;
 
-[
-    {
-        "todo_id": 0,
-        "todo": "Get some milk",
-        "author": "Luke Angel",
-        "createddate": "2016-11-01T23:15:00.000Z",
-        "duedate": "2016-11-08T08:00:00.000Z",
-        "completed": false
-    },
-    {
-        "todo_id": 1,
-        "todo": "Get some cereal",
-        "author": "Austin",
-        "createddate": "2016-11-01T23:15:00.000Z",
-        "duedate": "2016-11-08T08:00:00.000Z",
-        "completed": false
-    }
-]
-```
+  [
+      {
+          "todo_id": 0,
+          "todo": "Get some milk",
+          "author": "Luke Angel",
+          "createddate": "2016-11-01T23:15:00.000Z",
+          "duedate": "2016-11-08T08:00:00.000Z",
+          "completed": false
+      },
+      {
+          "todo_id": 1,
+          "todo": "Get some cereal",
+          "author": "Austin",
+          "createddate": "2016-11-01T23:15:00.000Z",
+          "duedate": "2016-11-08T08:00:00.000Z",
+          "completed": false
+      }
+  ]
+  ```
 
 ## Development
 
@@ -57,24 +57,26 @@ Response;
 
 Dependencies:
  - latest version of node.js
- - Swagger cli please run 'npm install -g swagger'
- - latest version of java and maven
+ - docker
 
-1. Go To folder and update dependencies
-```
-> cd banking-app-stubs
-> npm i
-```
-
-2. Run shell script
-```
-> ./run.sh
-```
-
-3. Start application
-```
-> swagger project start -m
-```
+1. Go To folder and install project dependencies:
+  ```
+  $ cd banking-app-stubs
+  $ npm i
+  $ npm i -g swagger
+  ```
+2. Build `merge-yml` library and use it to build project:
+  ```
+  $ ./build.sh
+  ```
+3. Run swagger in edit mode on port `10011`
+  ```
+  $ swagger project edit -p 10011
+  ```
+4. Start application in mock mode on port `10010`
+  ```
+  $ swagger project start -m
+  ```
 
 ### Updates
 
@@ -111,7 +113,7 @@ To mock endpoint:
  Linting is done during `test` by:
 
  ```
- npm test
+ $ npm test
  ```
 
  It is also run by CI.
@@ -119,7 +121,7 @@ To mock endpoint:
  To fix Your code against standardjs just run:
 
  ```
- standard --fix
+ $ standard --fix
  ```
 
  or configure IDE to do it for You.
