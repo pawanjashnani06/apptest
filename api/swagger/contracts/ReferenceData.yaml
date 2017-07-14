@@ -24,8 +24,8 @@ parameters:
 paths:
   /referencedata/banks:
     get:
-      operationId: banks
-      x-swagger-router-controller: banks
+      operationId: getBankDetails
+      x-swagger-router-controller: reference_data
       description: Retrieves list of banks including universal branch code and instant
         payment indicator (RTC). Order should be ABSA Bank; Bidvest Bank; Capitec
         Bank; First National Bank; Investec bank Limited; Standard Bank of South Africa;
@@ -67,8 +67,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/banks/{bankcode}/branches:
     get:
-      operationId: branches
-      x-swagger-router-controller: branches
+      operationId: getBranches
+      x-swagger-router-controller: reference_data
       description: Retrieves the banks branchcodes if there is not a universal one
         available. Should be order by branch name
       parameters:
@@ -97,8 +97,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/bankdefinedbeneficiaries:
     get:
-      operationId: bankdefinedbeneficiaries
-      x-swagger-router-controller: bankdefinedbeneficiaries
+      operationId: getBankDefinedBeneficiaries
+      x-swagger-router-controller: reference_data
       description: Retrieves the BDF list. Alphabetically ordered
       parameters:
       - description: This specifies the page to view
@@ -131,8 +131,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/notificationtypes:
     get:
-      operationId: notificationtypes
-      x-swagger-router-controller: notificationtypes
+      operationId: getNotificationTypes
+      x-swagger-router-controller: reference_data
       description: Retrieves the notification types (prevuously hardcoded on front-end)
       responses:
         200:
@@ -154,6 +154,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/serviceproviders:
     get:
+      operationId: getServiceProviders
+      x-swagger-router-controller: reference_data
       description: Retrieves the available service providers
       parameters:
       - description: This specifies the service provider type to be retrieved (providertype=prepaids;
@@ -182,6 +184,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/serviceproviders/{serviceprovidercode}/products:
     get:
+      operationId: getServiceProviderProducts
+      x-swagger-router-controller: reference_data
       description: Retrieves the products for the specified serviceprovider
       parameters:
       - description: service provider code
@@ -210,6 +214,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/frequency:
     get:
+      operationId: getFrequency
+      x-swagger-router-controller: reference_data
       description: Retrieves the frequency data used with recurring transactions (Monthly,
         '1-31' or Last Day etc)
       responses:
@@ -232,6 +238,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/lotto/drawresults:
     get:
+      operationId: getDrawResults
+      x-swagger-router-controller: reference_data
       description: USES [MongoDB] - Retrieves the lotto draw results
       parameters:
       - description: valid values incl. lotto; lottoplus; powerball; powerballplus
@@ -261,6 +269,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/lotto/jacpot:
     get:
+      operationId: getLottoJackpot
+      x-swagger-router-controller: reference_data
       description: USES [MongoDB] - Retrieves the lotto jackpot info
       responses:
         200:
@@ -282,6 +292,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/lotto/metadata:
     get:
+      operationId: getLottoMetadata
+      x-swagger-router-controller: reference_data
       description: USES [MongoDB] - Retrieves the lotto rules/metadata (used for validation
         of purchase)
       responses:
@@ -304,6 +316,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/stoppaymentreasons:
     get:
+      operationId: getStopPaymentReasons
+      x-swagger-router-controller: reference_data
       description: Retrieves list of reasons with their associated codes that can
         be used to provide when stopping a payment.
       responses:
@@ -326,6 +340,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /referencedata/disputedebitorderreasons:
     get:
+      operationId: getDisputeDebitOrderReasons
+      x-swagger-router-controller: reference_data
       description: Retrieves list of reasons with their associated codes that can
         be used to provide when disputing a debit order.
       responses:
