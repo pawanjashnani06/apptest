@@ -1,5 +1,6 @@
 #!/bin/bash
 ./merge-yml/bin/merge-yml.sh \
+  api/swagger/contracts/SCPAccounts.yaml \
   api/swagger/contracts/Enquiries.yaml \
   api/swagger/contracts/ContactCards.yaml \
   api/swagger/contracts/Transfers.yaml \
