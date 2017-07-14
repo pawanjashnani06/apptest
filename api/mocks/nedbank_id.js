@@ -4,7 +4,8 @@ module.exports = {
   updateUser: updateUser,
   retrieveUserDetails: retrieveUserDetails,
   addUser: addUser,
-  renewToken: renewToken
+  renewToken: renewToken,
+  usersVerifyProfile: verifyUserProfile
 }
 
 function addUser (req, res, next) {
@@ -63,4 +64,27 @@ function renewToken (req, res, next) {
       }
     }
   })
+}
+
+function verifyUserProfile (req, res) {
+  res.json(
+    {
+      'data': {
+        'TemporaryID': 1,
+        'MobileNumber': 'string'
+      },
+      'metadata': {
+        'metadata': {
+          'code': 'string',
+          'desription': 'string',
+          'InvalidFieldsList': [
+            {
+              'invalidFieldField': 'string',
+              'invalidFieldMessageField': 'string'
+            }
+          ]
+        }
+      }
+    }
+  )
 }
