@@ -107,53 +107,59 @@ paths:
 #      deprecated: false
 #      security:
 #      - API Key: []
-#  /admincard:
-#    get:
-#      tags: []
-#      summary: ""
-#      description: Gets admin cards
-#      parameters:
-#      - description: ""
-#        name: Authorization
-#        type: string
-#        required: true
-#        in: header
-#      responses:
-#        200:
-#          schema:
-#            title: ' ArrayOfCards'
-#            type: array
-#            items:
-#              $ref: '#/definitions/Card'
-#          description: ""
-#      deprecated: false
-#      security:
-#      - API Key: []
-#    post:
-#      tags: []
-#      summary: ""
-#      description: Updates the admin card
-#      parameters:
-#      - schema:
-#          $ref: '#/definitions/Card'
-#        description: ""
-#        name: body
-#        in: body
-#      - description: ""
-#        name: Authorization
-#        type: string
-#        required: true
-#        in: header
-#      responses:
-#        201:
-#          description: Created
-#        400:
-#          description: Invalid input
-#      deprecated: false
-#      security:
-#      - API Key: []
-#      consumes:
-#      - application/json
+  /clients/admincard:
+    get:
+      tags: []
+      summary: ""
+      description: Gets admin cards
+      parameters:
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          schema:
+            title: ' ArrayOfCards'
+            type: array
+            items:
+              $ref: '#/definitions/Card'
+          description: ""
+      operationId: getClientsCards
+      x-swagger-router-controller: scp_clients
+      deprecated: false
+      security:
+      - API Key: []
+    post:
+      tags: []
+      summary: ""
+      description: Updates the admin card
+      parameters:
+      - schema:
+          $ref: '#/definitions/Card'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        201:
+          description: Created
+          schema:
+            type: object
+        400:
+          description: Invalid input
+      operationId: updateClientsCards
+      x-swagger-router-controller: scp_clients
+      deprecated: false
+      security:
+      - API Key: []
+      consumes:
+      - application/json
 #  /checklogin:
 #    get:
 #      tags: []

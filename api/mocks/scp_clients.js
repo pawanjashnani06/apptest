@@ -2,7 +2,9 @@
 
 module.exports = {
   clientDetails: clientDetails,
-  updateClientDetails: updateClientDetails
+  updateClientDetails: updateClientDetails,
+  updateClientsCards: updateClientsCards,
+  getClientsCards: getClientsCards
 }
 
 function clientDetails (req, res, next) {
@@ -46,4 +48,19 @@ function updateClientDetails (req, res, next) {
     'CellNumber': '+27993663906',
     'EmailAddress': 'test@test.co.za'
   })
+}
+
+function getClientsCards (req, res, next) {
+  res.json([
+    {
+      'Template': 'Sample text',
+      'Title': 'Sample text',
+      'Heading': 'Sample text',
+      'CardData': {}
+    }
+  ])
+}
+
+function updateClientsCards (req, res, next) {
+  res.json({})
 }
