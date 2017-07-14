@@ -5,14 +5,14 @@ info:
   title: SCP Accounts API
   x-ibm-name: scp-accounts-api
   description: ""
-basePath: /clients
 paths:
-  /accounts/{accountnumber}:
+  /scp/accounts/{accountnumber}:
     get:
       tags: []
       summary: ""
-      description: Gets 'AccountDetail' objects containing account details for a specific
-        account
+      description: Gets 'AccountDetail' objects containing account details for a specific account
+      x-swagger-router-controller: scp_accounts
+      operationId: accountNumber
       parameters:
       - description: ""
         name: Authorization
@@ -43,15 +43,13 @@ paths:
               ItemAccountId: "14281512"
               LastUpdate: 2016-04-18 01:18:35 PM
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
-  /accounts:
+  /scp/accounts:
     get:
       tags: []
       summary: ""
       description: Gets 'Container' objects containing client account information
+      x-swagger-router-controller: scp_accounts
+      operationId: accounts
       parameters:
       - description: ""
         name: Authorization
@@ -146,14 +144,11 @@ paths:
                 LastUpdate: 4/11/2016 4:48:42 PM
               ContainerIcon: ""
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
     post:
       tags: []
       summary: ""
       description: Updates the client account details
+      x-swagger-router-controller: scp_account_post
       parameters:
       - schema:
           $ref: '#/definitions/AccountDetail'
@@ -171,9 +166,7 @@ paths:
         400:
           description: Invalid input
       deprecated: false
-      security:
-      - API Key: []
-  /accounts/transactions:
+  /scp/accounts/transactions:
     get:
       tags: []
       summary: ""
@@ -312,8 +305,6 @@ paths:
               ChildTransactions: []
               OriginalCategoryId: 38
       deprecated: false
-      security:
-      - API Key: []
       produces:
       - application/json
     post:
@@ -356,8 +347,6 @@ paths:
         405:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
       produces:
       - application/json
   /accounts/transactions/{accountnumber}:
@@ -499,15 +488,13 @@ paths:
               ChildTransactions: []
               OriginalCategoryId: 38
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
-  /accounts/metadata:
+  /scp/accounts/metadata:
     get:
       tags: []
       summary: ""
       description: Gets 'AccountMetadata' objects containing account details for accounts
+      x-swagger-router-controller: scp_accounts
+      operationId: accountMetadata
       parameters:
       - name: accountnumber
         required: false
@@ -583,16 +570,13 @@ paths:
               AccountHolder: John Doe
               Actions: Pay,Transfer
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
   /accounts/transactions/categories/{categoryId}:
     get:
       tags: []
       summary: ""
-      description: Gets 'CategoryTransactions' objects containing Transactions that
-        fall in the category criteria
+      description: Gets 'CategoryTransactions' objects containing Transactions that fall in the category criteria
+      x-swagger-router-controller: scp_accounts
+      operationId: categoryTransaction
       parameters:
       - name: startdate
         required: false
@@ -625,8 +609,6 @@ paths:
               items:
                 $ref: '#/definitions/Transaction'
       deprecated: false
-      security:
-      - API Key: []
   /accounts/atmlimit/{accountnumber}:
     get:
       tags: []
@@ -650,8 +632,6 @@ paths:
             format: double
           description: OK
       deprecated: false
-      security:
-      - API Key: []
     put:
       tags: []
       summary: ""
@@ -676,8 +656,6 @@ paths:
         200:
           description: OK
       deprecated: false
-      security:
-      - API Key: []
   /accounts/settlementletter:
     get:
       tags: []
@@ -696,8 +674,6 @@ paths:
             type: string
           description: OK
       deprecated: false
-      security:
-      - API Key: []
   /accounts/settlementletter/{accountnumber}:
     put:
       tags: []
@@ -723,8 +699,6 @@ paths:
         200:
           description: OK
       deprecated: false
-      security:
-      - API Key: []
   /accounts/debitorders/{itemaccountid}:
     get:
       tags: []
@@ -751,8 +725,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/stoppayments/{itemaccountid}:
     get:
       tags: []
@@ -778,8 +750,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/stoppayments:
     delete:
       tags: []
@@ -823,8 +793,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
     post:
       tags: []
       summary: Add stop payments
@@ -849,8 +817,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/disputedebitorder:
     post:
       tags: []
@@ -876,8 +842,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/stoppaymentreasons:
     get:
       tags: []
@@ -893,8 +857,6 @@ paths:
         200:
           description: OK
       deprecated: false
-      security:
-      - API Key: []
   /accounts/debitorderdisputereasons:
     get:
       tags: []
@@ -910,8 +872,6 @@ paths:
         200:
           description: OK
       deprecated: false
-      security:
-      - API Key: []
   /accounts/accounttypes:
     get:
       tags: []
@@ -932,10 +892,6 @@ paths:
             items:
               $ref: '#/definitions/AccountType'
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
   /accounts/mandates:
     get:
       tags: []
@@ -958,8 +914,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/mandatedetails/{mandateidentifier}:
     get:
       tags: []
@@ -985,8 +939,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/mandates/{mandateidentifier}/authorisations:
     post:
       tags: []
@@ -1023,8 +975,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
   /accounts/mandates/{mandatereferencenumber}/suspensions:
     post:
       tags: []
@@ -1056,8 +1006,6 @@ paths:
         204:
           description: ""
       deprecated: false
-      security:
-      - API Key: []
 definitions:
   AtmLimit:
     properties:
@@ -1783,11 +1731,7 @@ definitions:
         description: This is the original Mandate Reference Number , the unique mandate
           identification. This number must be unique in the industry for lifetime
           of mandate (including time in archives).
-schemes:
-- https
 tags: []
-security:
-- API Key: []
 x-ibm-configuration:
   enforced: true
   phase: realized
