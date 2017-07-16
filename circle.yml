@@ -1,0 +1,15 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - ./build.sh
+    - docker info
+    - docker build --rm=false -t greenbankstub .
+
+deployment:
+  dev:
+    branch: chore/ci-build
+    commands:
+      - ./deploy.sh
