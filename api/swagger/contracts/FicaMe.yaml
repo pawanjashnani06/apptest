@@ -5,9 +5,9 @@ info:
 # during dev, should point to your local machine
 paths:
   /id-verification/v2/parties/{partyId}/IDOCRExtractions:
-    x-swagger-router-controller: customers
     post:
       operationId: idDocument
+      x-swagger-router-controller: fica_me
       description: Get customer details from identity document image (passport, ID Card or ID Book)
       parameters:
         - name: partyId
@@ -46,9 +46,11 @@ paths:
   
   /address-verification/v2/parties/address-document:
     post:
+      operationId: addressDocument
+      x-swagger-router-controller: fica_me
       description: Mines for the customer address from the vendor
-      consumes: [application/json]
-      produces: [application/json]
+      #consumes: [application/json]
+      #produces: [application/json]
       parameters:
         - name: request
           in: body
@@ -74,6 +76,7 @@ paths:
   /address-verification/v2/parties/match-address:
     post:
       operationId: address
+      x-swagger-router-controller: fica_me
       description: OCRs the address document and returns the address
       consumes: [application/json]
       produces: [application/json]
@@ -113,6 +116,8 @@ paths:
             
   /id-verification/v2/parties/{partyId}/facialRecognitionProfiles:
     post:
+      operationId: profiles
+      x-swagger-router-controller: fica_me
       description: Compares an image of a face with an ID document or passport
       consumes: [application/json]
       produces: [application/json]

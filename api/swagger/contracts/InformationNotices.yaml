@@ -5,19 +5,20 @@ info:
   description: ""
   version: 1.0.1
   x-ibm-name: information-notices
-schemes:
-- https
-basePath: /interactionenablers/v1
-consumes:
-- application/json
-- application/xml
-produces:
-- application/json
-- application/xml
+# schemes:
+# - https
+# basePath: /interactionenablers/v1
+# consumes:
+# - application/json
+# - application/xml
+# produces:
+# - application/json
+# - application/xml
 paths:
   /infonotices/channels/{channelid}/brands/{brandid}/types/{typeof}/users/{userid}:
     put:
-      operationId: AcceptInformationNotice
+      operationId: acceptInformationNotice
+      x-swagger-router-controller: information_notices
       summary: Accept Information Notice
       parameters:
       - $ref: '#/parameters/channelid'
@@ -95,7 +96,8 @@ paths:
           schema:
             $ref: '#/definitions/ErrorDescription'
     get:
-      operationId: GetInformationNotice
+      operationId: getInformationNotice
+      x-swagger-router-controller: information_notices
       summary: Get Information Notice
       parameters:
       - $ref: '#/parameters/channelid'
@@ -174,7 +176,8 @@ paths:
             $ref: '#/definitions/ErrorDescription'
   /infonotices/channels/{channelid}/brands/{brandid}/types/{typeof}/users/{userid}/summary:
     get:
-      operationId: CheckForNotice
+      operationId: checkForNotice
+      x-swagger-router-controller: information_notices
       summary: Retrieve A List of Notices for a Specific User
       parameters:
       - $ref: '#/parameters/channelid'
@@ -248,7 +251,8 @@ paths:
             $ref: '#/definitions/ErrorDescription'
   /infonotices/channels/{channelid}/brands/{brandid}/types/{typeof}:
     get:
-      operationId: GetLatestNoticeVersion
+      operationId: getLatestNoticeVersion
+      x-swagger-router-controller: information_notices
       summary: Retrieve the Latest Version of a Notice
       parameters:
       - $ref: '#/parameters/channelid'

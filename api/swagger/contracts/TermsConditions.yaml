@@ -5,7 +5,7 @@ info:
   title: Terms & Conditions API
   x-ibm-name: terms--conditions-api
   description: ""
-basePath: /termsandconditions/v1
+#basePath: /termsandconditions/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,17 +13,19 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- https
-security:
-- API Key: []
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - https
+# security:
+# - API Key: []
 paths:
   /termsandconditionsitems:
     get:
+      operationId: getItems
+      x-swagger-router-controller: terms_conditions
       description: Get all 'T&Cs' for the current profile
       responses:
         200:
@@ -45,6 +47,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /termandcoindition/{noticeType}:
     get:
+      operationId: getNoticeTypeItem
+      x-swagger-router-controller: terms_conditions
       description: Check to see if there is an un-accepted 'T&C' and if so return
         that 'T&C'
       parameters:
@@ -72,6 +76,8 @@ paths:
           schema:
             $ref: '#/definitions/TermsAndConditionsResponse'
     put:
+      operationId: updateNoticeTypeItem
+      x-swagger-router-controller: terms_conditions
       description: Update the acceptance status of the 'T&C' in hand
       parameters:
       - description: IPN, MNS, FAI, EST, ACC, PPE, LTO, EPM, EBPP, ENT

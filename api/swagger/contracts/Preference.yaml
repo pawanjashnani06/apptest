@@ -5,7 +5,7 @@ info:
   title: Preference API
   x-ibm-name: preference-api
   description: ""
-basePath: /preferences/v1
+#basePath: /preferences/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,17 +13,19 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- https
-security:
-- API Key: []
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - https
+# security:
+# - API Key: []
 paths:
   /limits:
     get:
+      operationId: getLimits
+      x-swagger-router-controller: preference
       description: Retrieves the profile's transaction limits
       responses:
         200:
@@ -43,6 +45,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /sortorder/{ordertype}:
     get:
+      operationId: getSortOrder
+      x-swagger-router-controller: preference
       description: Retrieves sort order for the specified CustomerPreferenceSubType
       parameters:
       - description: CustomerPreferenceSubType values = BENEFICIARYSORTORDER; ACCTSORTORDER;

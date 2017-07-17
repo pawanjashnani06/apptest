@@ -5,7 +5,7 @@ info:
   title: LOTTO API
   x-ibm-name: lotto-api
   description: ""
-basePath: /lotto/v1
+#basePath: /lotto/v1
 parameters:
   Authorization:
     name: Authorization
@@ -13,15 +13,17 @@ parameters:
     required: true
     in: header
     description: ""
-consumes:
-- application/json
-produces:
-- application/json
-schemes:
-- http
+# consumes:
+# - application/json
+# produces:
+# - application/json
+# schemes:
+# - http
 paths:
   /lottolists:
     get:
+      operationId: getLottoLists
+      x-swagger-router-controller: lotto
       description: Retrieves a prepaids list according to a profile number and optional
         filtering parameters
       parameters:
@@ -96,6 +98,8 @@ paths:
           schema:
             $ref: '#/definitions/LottoListResponse'
     post:
+      operationId: createLottoLists
+      x-swagger-router-controller: lotto
       description: make prepaid purchases
       parameters:
       - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
@@ -128,6 +132,8 @@ paths:
     - $ref: '#/parameters/Authorization'
   /lottobatches/{batchID}:
     get:
+      operationId: getLottoBatches
+      x-swagger-router-controller: lotto
       description: Gets specified lotto transaction details
       parameters:
       - description: Specific lotto batch ID to get details of
@@ -212,7 +218,7 @@ definitions:
         type: integer
         format: double
       notificationDetails:
-        $ref: '#/definitions/NotificationDetails'
+        $ref: '#/definitions/LottoNotificationDetails'
       game:
         description: LTO; PWB
         type: string
@@ -249,11 +255,11 @@ definitions:
       favourite:
         description: On POST if 'true' call FavouriteTxAdd.
         type: boolean
-  NotificationDetails:
+  LottoNotificationDetails:
     type: array
     items:
-      $ref: '#/definitions/NotificationDetail'
-  NotificationDetail:
+      $ref: '#/definitions/LottoNotificationDetail'
+  LottoNotificationDetail:
     properties:
       notificationType:
         description: NONE; SMS; FAX; EMAIL, SecureInbox
