@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM mhart/alpine-node:8.1
 
 # Create app directory
 RUN mkdir -p /usr/src/app
