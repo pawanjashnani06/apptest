@@ -10,6 +10,6 @@ dependencies:
 
 deployment:
   dev:
-    branch: chore/ci-build
+    branch: master
     commands:
       - ./deploy.sh
