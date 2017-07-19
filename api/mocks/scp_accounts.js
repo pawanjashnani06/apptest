@@ -66,70 +66,102 @@ function accounts (req, res, next) {
       'Accounts': [
         {
           'AccountName': 'Savings Account',
-          'Balance': 140854.970000,
-          'AvailableBalance': 140824.970000,
+          'Balance': 140854.97,
+          'AvailableBalance': 140824.97,
           'AccountNumber': '2009852923',
           'AccountType': 'CHECKING',
           'Status': '10',
           'AccountIcon': 'glyphicon-account_current',
           'NewAccount': false,
-          'LastUpdate': '4/11/2016 4:48:42 PM',
-          'InstitutionName': 'Sample text',
-          'Currency': 'Dollar',
-          'SiteId': '16390',
-          'SiteAccountId': '16390',
-          'ItemAccountId': '14281512',
-          'MaxDailyLimit': 1,
-          'InterestRate': 1,
-          'CurrentBalanceStraight': 1,
-          'CurrentBalanceBudget': 1,
-          'CreditLimit': 1,
-          'AmountDue': 1,
-          'DueDate': '4/11/2016 4:48:42 PM',
-          'accountName': 'Current Account',
-          'accountNumber': '2009852923',
-          'isOpen': true,
-          'productCode': 'CA',
-          'productDescription': 'This is a CA Product',
-          'relationshipCode': 'PRI',
-          'statusCode': 'OPE',
-          'subProductCode': 'A',
-          'containerId': 1,
-          'containerName': 'NEDBank (SA)',
-          'isIncluded': true,
-          'isPlastic': true,
-          'accountType': 'Loan',
-          'nickname': 'chris',
-          'sourceSystem': 'Siyeza',
-          'interestRate': 1,
-          'repaymentAmount': 100,
-          'accountHolder': 'John Doe',
-          'actions': 'Pay,Transfer',
-          'transactions': [
-            {}
-          ],
-          'currency': 'Dollar',
-          'availableBalance': 1,
-          'currentBalance': 1,
-          'amountDue': 1,
-          'dueDate': 'Sample text',
-          'loanAmmount': 1,
-          'outstandingAmount': 1,
-          'profileAccountState': 'Sample text',
-          'accountLevel': 'The level of the account',
-          'viewAvailBal': true,
-          'viewStmnts': true,
-          'isRestricted': true,
-          'viewCurrBal': true,
-          'viewCredLim': true,
-          'viewMinAmtDue': true,
-          'isAlternateAccount': true,
-          'allowCredits': true,
-          'allowDebits': true,
-          'accountRules': {}
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        },
+        {
+          'AccountName': 'Current Account',
+          'Balance': 170854.81,
+          'AvailableBalance': 172854.81,
+          'AccountNumber': '1009795481',
+          'AccountType': 'CHECKING',
+          'Status': '10',
+          'AccountIcon': 'glyphicon-account_current',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        },
+        {
+          'AccountName': 'Current Account',
+          'Balance': 201397.9,
+          'AvailableBalance': 201397.9,
+          'AccountNumber': '1025310667',
+          'AccountType': 'CHECKING',
+          'Status': '10',
+          'AccountIcon': 'glyphicon-account_current',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        },
+        {
+          'AccountName': 'Current Account',
+          'Balance': 1099657.41,
+          'AvailableBalance': 1103657.41,
+          'AccountNumber': '1028232942',
+          'AccountType': 'CHECKING',
+          'Status': '0',
+          'AccountIcon': 'glyphicon-account_current',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
         }
       ],
       'ContainerIcon': 'glyphicon-account_current'
+    },
+    {
+      'ContainerName': 'Card',
+      'Accounts': [
+        {
+          'AccountName': 'Card',
+          'Balance': 0,
+          'AvailableBalance': 0,
+          'AccountNumber': '5898460760565622',
+          'AccountType': 'CC',
+          'AccountIcon': 'glyphicon-account_credit_card',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        },
+        {
+          'AccountName': 'Card',
+          'Balance': 0,
+          'AvailableBalance': 382388.76,
+          'AccountNumber': '5898460760889527',
+          'AccountType': 'CC',
+          'AccountIcon': 'glyphicon-account_credit_card',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        }
+      ],
+      'ContainerIcon': ''
+    },
+    {
+      'ContainerName': 'Loan',
+      'Accounts': [
+        {
+          'AccountName': 'Loan',
+          'Balance': 0,
+          'AvailableBalance': 0,
+          'AccountNumber': '8966258895201',
+          'AccountType': 'AUTO',
+          'AccountIcon': 'glyphicon-account_loans',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        },
+        {
+          'AccountName': 'Loan',
+          'Balance': 0,
+          'AvailableBalance': 0,
+          'AccountNumber': '8907706400101',
+          'AccountType': 'AUTO',
+          'AccountIcon': 'glyphicon-account_loans',
+          'NewAccount': false,
+          'LastUpdate': '4/11/2016 4:48:42 PM'
+        }
+      ],
+      'ContainerIcon': ''
     }
   ])
 }
