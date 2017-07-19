@@ -61,3 +61,20 @@ typings/
 ### git template
 .git/
 .gitignore
+
+### Project specific files
+# merge-yml library
+merge-yml/
+
+# helper scripts
+*.sh
+
+# IntelliJ IDEA config
+.idea/
+
+# Circle CI config
+circle.yml
+
+# other
+README.md
+*.xlsx
