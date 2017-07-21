@@ -171,119 +171,162 @@ function accounts (req, res, next) {
 
 function categoryTransaction (req, res, next) {
   res.json([
-    [
-      {
-        'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-        'Description': 'Travel 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
-        'Debit': false,
-        'Account': '1025310667',
-        'PostedDate': '2016-04-08 12:00:00 AM',
-        'CategoryId': 100,
-        ChildTransactions: [
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'INDIGO 26 / 01 - 07 / 17',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-01 12:00:00 AM',
-            'CategoryId': 91
-          },
+    {
+      'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+      'Description': 'Travel 26 / 03 - 07 / 04',
+      'Amount': '3586',
+      'RunningBalance': '2014179',
+      'Debit': false,
+      'Account': '1025310667',
+      'PostedDate': '2016-04-08 12:00:00 AM',
+      'CategoryId': 100,
+      ChildTransactions: [
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INDIGO 26 / 01 - 07 / 17',
+          'Amount': '35867',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-01 12:00:00 AM',
+          'CategoryId': 91
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2d',
-            'Description': 'Uber Bills 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '20117,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-06 12:00:00 AM',
-            'CategoryId': 92
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2d',
+          'Description': 'Uber Bills 26 / 03 - 07 / 04',
+          'Amount': '13586',
+          'RunningBalance': '201179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-06 12:00:00 AM',
+          'CategoryId': 92
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2c',
-            'Description': 'VW Finance 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '301417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-12 12:00:00 AM',
-            'CategoryId': 93
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2c',
+          'Description': 'VW Finance 26 / 03 - 07 / 04',
+          'Amount': '35086',
+          'RunningBalance': '3014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-12 12:00:00 AM',
+          'CategoryId': 93
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'Car Insurance 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-18 12:00:00 AM',
-            'CategoryId': 94
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'Car Insurance 26 / 03 - 07 / 04',
+          'Amount': '35836',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-18 12:00:00 AM',
+          'CategoryId': 94
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'INTEREST 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-20 12:00:00 AM',
-            'CategoryId': 95
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '23586',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-20 12:00:00 AM',
+          'CategoryId': 95
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'INTEREST 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-26 12:00:00 AM',
-            'CategoryId': 96
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '39996',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-26 12:00:00 AM',
+          'CategoryId': 96
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'INTEREST 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-30 12:00:00 AM',
-            'CategoryId': 97
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '783637',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-07-30 12:00:00 AM',
+          'CategoryId': 97
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'INTEREST 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2016 - 04 - 08 12:00:00 AM',
-            'CategoryId': 98
-          },
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '39876',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2016-05-08 12:00:00 AM',
+          'CategoryId': 98
+        },
 
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-            'Description': 'INTEREST 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2016 - 04 - 08 12:00:00 AM',
-            'CategoryId': 99
-          }
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '358600',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-04-08 12:00:00 AM',
+          'CategoryId': 99
+        },
 
-        ]
-      }
-    ]
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '286',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-03-08 12:00:00 AM',
+          'CategoryId': 99
+        },
+
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '30086',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-02-10 12:00:00 AM',
+          'CategoryId': 99
+        },
+
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '3986',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-05-08 12:00:00 AM',
+          'CategoryId': 99
+        },
+
+        {
+          'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
+          'Description': 'INTEREST 26 / 03 - 07 / 04',
+          'Amount': '437686',
+          'RunningBalance': '2014179',
+          'Debit': false,
+          'Account': '1025310667',
+          'PostedDate': '2017-06-08 12:00:00 AM',
+          'CategoryId': 99
+        }
+
+      ]
+    }
+
   ])
 }
 
@@ -313,8 +356,8 @@ function accountMetadata (req, res, next) {
         {
           'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
           'Description': 'INTEREST 26 / 03 - 07 / 04',
-          'Amount': '35,86',
-          'RunningBalance': '201417,9',
+          'Amount': '3586',
+          'RunningBalance': '2014179',
           'Debit': false,
           'Account': '1025310667',
           'PostedDate': '2016 - 04 - 08 12:00:00 AM',
@@ -350,8 +393,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
         'Description': 'Travel 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016-04-08 12:00:00 AM',
@@ -360,8 +403,8 @@ function accountsTransactions (req, res, next) {
           {
             'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
             'Description': 'INDIGO 26 / 01 - 07 / 17',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
+            'Amount': '3586',
+            'RunningBalance': '2014179',
             'Debit': false,
             'Account': '1025310667',
             'PostedDate': '2017-07-01 12:00:00 AM',
@@ -371,7 +414,7 @@ function accountsTransactions (req, res, next) {
           {
             'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2d',
             'Description': 'Uber Bills 26 / 03 - 07 / 04',
-            'Amount': '35,86',
+            'Amount': '3586',
             'RunningBalance': '20117,9',
             'Debit': false,
             'Account': '1025310667',
@@ -384,7 +427,7 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2c',
         'Description': 'VW Finance 26 / 03 - 07 / 04',
-        'Amount': '35,86',
+        'Amount': '3586',
         'RunningBalance': '301417,9',
         'Debit': false,
         'Account': '1025310667',
@@ -395,8 +438,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
         'Description': 'Car Insurance 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-18 12:00:00 AM',
@@ -406,8 +449,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2k',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-20 12:00:00 AM',
@@ -417,8 +460,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2t',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-26 12:00:00 AM',
@@ -428,8 +471,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2y',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-30 12:00:00 AM',
@@ -439,8 +482,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2v',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016 - 04 - 08 12:00:00 AM',
@@ -450,8 +493,8 @@ function accountsTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2q',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016 - 04 - 08 12:00:00 AM',
@@ -468,8 +511,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
         'Description': 'Travel 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016-04-08 12:00:00 AM',
@@ -478,8 +521,8 @@ function accountsTransactionsForPost (req, res, next) {
           {
             'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
             'Description': 'INDIGO 26 / 01 - 07 / 17',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
+            'Amount': '3586',
+            'RunningBalance': '2014179',
             'Debit': false,
             'Account': '1025310667',
             'PostedDate': '2017-07-01 12:00:00 AM',
@@ -489,7 +532,7 @@ function accountsTransactionsForPost (req, res, next) {
           {
             'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2d',
             'Description': 'Uber Bills 26 / 03 - 07 / 04',
-            'Amount': '35,86',
+            'Amount': '3586',
             'RunningBalance': '20117,9',
             'Debit': false,
             'Account': '1025310667',
@@ -502,7 +545,7 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2c',
         'Description': 'VW Finance 26 / 03 - 07 / 04',
-        'Amount': '35,86',
+        'Amount': '3586',
         'RunningBalance': '301417,9',
         'Debit': false,
         'Account': '1025310667',
@@ -513,8 +556,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
         'Description': 'Car Insurance 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-18 12:00:00 AM',
@@ -524,8 +567,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2k',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-20 12:00:00 AM',
@@ -535,8 +578,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2t',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-26 12:00:00 AM',
@@ -546,8 +589,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2y',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2017-07-30 12:00:00 AM',
@@ -557,8 +600,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2v',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016 - 04 - 08 12:00:00 AM',
@@ -568,8 +611,8 @@ function accountsTransactionsForPost (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2q',
         'Description': 'INTEREST 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016 - 04 - 08 12:00:00 AM',
@@ -586,8 +629,8 @@ function accountNumberTransactions (req, res, next) {
       {
         'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
         'Description': 'Travel 26 / 03 - 07 / 04',
-        'Amount': '35,86',
-        'RunningBalance': '201417,9',
+        'Amount': '3586',
+        'RunningBalance': '2014179',
         'Debit': false,
         'Account': '1025310667',
         'PostedDate': '2016-04-08 12:00:00 AM',
@@ -596,8 +639,8 @@ function accountNumberTransactions (req, res, next) {
           {
             'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2k',
             'Description': 'INDIGO 26 / 01 - 07 / 17',
-            'Amount': '35,86',
-            'RunningBalance': '201417,9',
+            'Amount': '3586',
+            'RunningBalance': '2014179',
             'Debit': false,
             'Account': '1025310667',
             'PostedDate': '2017-07-01 12:00:00 AM',
@@ -607,8 +650,8 @@ function accountNumberTransactions (req, res, next) {
           {
             'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2d',
             'Description': 'Uber Bills 26 / 03 - 07 / 04',
-            'Amount': '35,86',
-            'RunningBalance': '20117,9',
+            'Amount': '3586',
+            'RunningBalance': '201179',
             'Debit': false,
             'Account': '1025310667',
             'PostedDate': '2017-07-06 12:00:00 AM',
