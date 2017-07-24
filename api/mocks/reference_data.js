@@ -160,13 +160,43 @@ function getBankDefinedBeneficiaries (req, res, next) {
         },
         {
           'bDFID': '792010293472',
-          'bDFName': 'N Bank',
-          'sortCode': 1
+          'bDFName': 'Steve Muller',
+          'sortCode': 2
         },
         {
-          'bDFID': '792010293473',
-          'bDFName': 'Sample Bank',
-          'sortCode': 1
+          'bDFID': '920326934730',
+          'bDFName': 'Park Steven',
+          'sortCode': 3
+        },
+        {
+          'bDFID': '972890363232',
+          'bDFName': 'Barb Oliver',
+          'sortCode': 4
+        },
+        {
+          'bDFID': '132010290213',
+          'bDFName': 'Jack Balmer',
+          'sortCode': 5
+        },
+        {
+          'bDFID': '819379173209',
+          'bDFName': 'Charlie Harper',
+          'sortCode': 6
+        },
+        {
+          'bDFID': '671010317829',
+          'bDFName': 'Steve Gibson',
+          'sortCode': 7
+        },
+        {
+          'bDFID': '662010386973',
+          'bDFName': 'Mathew Marvel',
+          'sortCode': 8
+        },
+        {
+          'bDFID': '912011386970',
+          'bDFName': 'John Dow',
+          'sortCode': 9
         }
       ],
       'metadata': {
