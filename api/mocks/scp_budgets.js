@@ -113,7 +113,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 0,
       'CategoryTypeId': 0,
-      'Name': 'Travel',
+      'Name': 'Housing',
       'CategoryColour': 'red',
       'CategoryImage': 'string',
       'Spend': 132000,
@@ -122,7 +122,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 1,
       'CategoryTypeId': 0,
-      'Name': 'Rent',
+      'Name': 'Health & Fitness',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 41000,
@@ -131,7 +131,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 2,
       'CategoryTypeId': 0,
-      'Name': 'Groceries',
+      'Name': 'Insurance',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 30000,
@@ -140,7 +140,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 3,
       'CategoryTypeId': 0,
-      'Name': 'ATM and cash',
+      'Name': 'Personal & Family',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 29000,
@@ -149,7 +149,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 4,
       'CategoryTypeId': 0,
-      'Name': 'Healthcare',
+      'Name': 'Office Expenses',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 18000,
@@ -158,7 +158,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 5,
       'CategoryTypeId': 0,
-      'Name': 'Entertainment',
+      'Name': 'Bills & Utilities',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 17000,
@@ -167,7 +167,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 6,
       'CategoryTypeId': 0,
-      'Name': 'Electronics',
+      'Name': 'Other Expenses',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 16000,
@@ -176,7 +176,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 7,
       'CategoryTypeId': 0,
-      'Name': 'Manufacturing',
+      'Name': 'Education',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 15000,
@@ -185,7 +185,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 8,
       'CategoryTypeId': 0,
-      'Name': 'Banking',
+      'Name': 'Food & Dining',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 14000,
@@ -194,7 +194,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 9,
       'CategoryTypeId': 0,
-      'Name': 'Insurance',
+      'Name': 'Travel & Entertainment',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 13000,
@@ -203,7 +203,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 10,
       'CategoryTypeId': 0,
-      'Name': 'Car Insurance',
+      'Name': 'Mobility',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 4000,
@@ -212,7 +212,7 @@ function Categories (req, res, next) {
     {
       'CategoryId': 11,
       'CategoryTypeId': 0,
-      'Name': 'Medical',
+      'Name': 'Investments',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 110,
@@ -221,7 +221,25 @@ function Categories (req, res, next) {
     {
       'CategoryId': 12,
       'CategoryTypeId': 0,
-      'Name': 'Uncategorized',
+      'Name': 'Gifts & Donations',
+      'CategoryColour': 'blue',
+      'CategoryImage': 'string',
+      'Spend': 10,
+      'User': true
+    },
+    {
+      'CategoryId': 13,
+      'CategoryTypeId': 0,
+      'Name': 'Loans & Credit Card',
+      'CategoryColour': 'blue',
+      'CategoryImage': 'string',
+      'Spend': 10,
+      'User': true
+    },
+    {
+      'CategoryId': 14,
+      'CategoryTypeId': 0,
+      'Name': 'UnCategorized',
       'CategoryColour': 'blue',
       'CategoryImage': 'string',
       'Spend': 10,
