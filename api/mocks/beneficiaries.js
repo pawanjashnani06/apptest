@@ -92,19 +92,19 @@ function beneficiariesDetailsGet (req, res, next) {
           }
         },
         {
-          'beneficiaryID': 3,
-          'bfTypeID': 'ALL',
-          'bfType': 'BDF',
+          'beneficiaryID': 561820990120,
+          'bfTypeID': 'PPD',
+          'bfType': 'PPD',
           'bfState': 'ACT',
           'bfName': 'Mark Twain',
-          'bank': 'Green Bank',
-          'sortCode': '001101',
-          'acctType': 'BD',
-          'acctNumber': '787970102030',
+          'bank': '',
+          'sortCode': '',
+          'acctType': 'TD',
+          'acctNumber': '9012318910',
           'defaultDrNarrative': 'My Statement Details',
           'defaultCrNarrative': 'My Beneficiary Statements',
           'instantPayment': true,
-          'creditCard': true,
+          'creditCard': false,
           'notificationDetails': [
             {
               'notificationType': 'NONE',
@@ -130,7 +130,7 @@ function beneficiariesDetailsGet (req, res, next) {
           }
         },
         {
-          'beneficiaryID': 3,
+          'beneficiaryID': 164819391010,
           'bfTypeID': 'ALL',
           'bfType': 'BDF',
           'bfState': 'ACT',
@@ -168,19 +168,19 @@ function beneficiariesDetailsGet (req, res, next) {
           }
         },
         {
-          'beneficiaryID': 3,
-          'bfTypeID': 'ALL',
-          'bfType': 'BDF',
+          'beneficiaryID': 810938183910,
+          'bfTypeID': 'PPD',
+          'bfType': 'PPD',
           'bfState': 'ACT',
           'bfName': 'AA Smith',
-          'bank': 'Green Bank',
-          'sortCode': '001101',
-          'acctType': 'BD',
-          'acctNumber': '787970102030',
+          'bank': '',
+          'sortCode': '',
+          'acctType': 'TD',
+          'acctNumber': '8719371908',
           'defaultDrNarrative': 'My Statement Details',
           'defaultCrNarrative': 'My Beneficiary Statements',
           'instantPayment': true,
-          'creditCard': true,
+          'creditCard': false,
           'notificationDetails': [
             {
               'notificationType': 'NONE',
@@ -206,7 +206,7 @@ function beneficiariesDetailsGet (req, res, next) {
           }
         },
         {
-          'beneficiaryID': 3,
+          'beneficiaryID': 381204910271,
           'bfTypeID': 'ALL',
           'bfType': 'BDF',
           'bfState': 'ACT',
@@ -244,19 +244,19 @@ function beneficiariesDetailsGet (req, res, next) {
           }
         },
         {
-          'beneficiaryID': 3,
-          'bfTypeID': 'ALL',
-          'bfType': 'BDF',
+          'beneficiaryID': 291038192391,
+          'bfTypeID': 'PPD',
+          'bfType': 'PPD',
           'bfState': 'ACT',
           'bfName': 'Bane',
-          'bank': 'Green Bank',
-          'sortCode': '001101',
-          'acctType': 'BD',
-          'acctNumber': '787970102030',
-          'defaultDrNarrative': 'My Statement Details',
-          'defaultCrNarrative': 'My Beneficiary Statements',
+          'bank': '',
+          'sortCode': '',
+          'acctType': 'TD',
+          'acctNumber': '7970102030',
+          'defaultDrNarrative': 'Debit statement for mobile account',
+          'defaultCrNarrative': 'Credit beneficiary details',
           'instantPayment': true,
-          'creditCard': true,
+          'creditCard': false,
           'notificationDetails': [
             {
               'notificationType': 'NONE',
