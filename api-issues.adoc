@@ -1,0 +1,19 @@
+# Nedbank REST API issues
+
+* `FicaMe.yml`
+
+[cols="3", options="header"]
+|===
+|`API` path
+|`HTTP` method
+|Issue description
+
+|`/id-verification/v2/parties/{partyId}/IDOCRExtractions`
+|`POST`
+a|
+* `partyId` seems to be a resource identifier. According to the `API` it must be provided by the client but it is not clear how it should be obtained.
+|`/id-verification/v2/parties/{partyId}/facialRecognitionProfiles`
+|`POST`
+a|
+* Same issue as for `OCR` endpoint - `partyId` seems to be a resource identifier provided by the client, but it is unclear how it should be obtained.
+|===
