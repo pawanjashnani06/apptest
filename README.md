@@ -128,6 +128,6 @@ To mock endpoint:
  
 ### `API` issues
 
-Any `API` ambiguities should be reported within [issues file](api-issues.adoc). 
+Any `API` ambiguities should be reported within [issues file](docs/api-issues.adoc). 
 
 ## Happy mocking!

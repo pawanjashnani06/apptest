@@ -77,4 +77,6 @@ circle.yml
 
 # other
 README.md
-*.xlsx
+
+# docs
+docs/
