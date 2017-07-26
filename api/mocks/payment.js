@@ -55,6 +55,7 @@ function paymentaccountsGet (req, res, next) {
           'dueDate': '2015-07-20',
           'loanAmmount': 1000,
           'outstandingAmount': 1000,
+          'safeToSpendAmount': 2500,
           'profileAccountState': 'Active',
           'accountLevel': 'internal',
           'viewAvailBal': true,

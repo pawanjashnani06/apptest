@@ -19,14 +19,86 @@ function getBankDetails (req, res, next) {
   res.json({
     'data': [
       {
-        'bankCode': 'GB211100',
-        'bankName': 'Green Bank',
-        'universalCode': '211100',
+        'bankCode': 'NBL211113',
+        'bankName': 'Nedbank Limited',
+        'universalCode': '211113',
         'rTC': true,
         'branchCodes': [
           {
             'branchName': 'New Town',
-            'branchCode': 'GB211120'
+            'branchCode': 'NBL21315'
+          }
+        ]
+      },
+      {
+        'bankCode': 'IBL211171',
+        'bankName': 'Investec bank Limited',
+        'universalCode': '211171',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Old City',
+            'branchCode': 'IBL223178'
+          }
+        ]
+      },
+      {
+        'bankCode': 'SB217192',
+        'bankName': 'Standard Bank',
+        'universalCode': '217192',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Baker Street',
+            'branchCode': 'SB211101'
+          }
+        ]
+      },
+      {
+        'bankCode': 'AB213421',
+        'bankName': 'African Bank',
+        'universalCode': '213421',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Malibu Town',
+            'branchCode': 'AB211845'
+          }
+        ]
+      },
+      {
+        'bankCode': 'FB219876',
+        'bankName': 'First National Bank',
+        'universalCode': '219876',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Old Gallery',
+            'branchCode': 'FB219891'
+          }
+        ]
+      },
+      {
+        'bankCode': 'BB210130',
+        'bankName': 'Bidvest Bank',
+        'universalCode': '210130',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Green Park',
+            'branchCode': 'BB211122'
+          }
+        ]
+      },
+      {
+        'bankCode': 'TB214488',
+        'bankName': 'Teba Bank',
+        'universalCode': '214488',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'New Town',
+            'branchCode': 'TB214400'
           }
         ]
       }

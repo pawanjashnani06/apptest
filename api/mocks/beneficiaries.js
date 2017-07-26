@@ -16,13 +16,13 @@ function beneficiariesDetailsGet (req, res, next) {
     'data': {
       'bfDetails': [
         {
-          'beneficiaryID': 1,
+          'beneficiaryID': 819201932819,
           'bfTypeID': 'ALL',
           'bfType': 'BDF',
           'bfState': 'ACT',
           'bfName': 'Mark Twain',
           'bank': 'Green Bank',
-          'sortCode': '001101',
+          'sortCode': 'GB001101',
           'acctType': 'BD',
           'acctNumber': '787970102030',
           'defaultDrNarrative': 'My Statement Details',
@@ -54,15 +54,53 @@ function beneficiariesDetailsGet (req, res, next) {
           }
         },
         {
-          'beneficiaryID': 2,
+          'beneficiaryID': 719281932800,
           'bfTypeID': 'ALL',
           'bfType': 'BDF',
           'bfState': 'ACT',
-          'bfName': 'Mark Twain',
-          'bank': 'Green Bank',
-          'sortCode': '001101',
+          'bfName': 'Charlie Harper',
+          'bank': 'Standard Bank',
+          'sortCode': 'SB211101',
           'acctType': 'BD',
-          'acctNumber': '787970102030',
+          'acctNumber': '719281932800',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 997971112131,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Andre Istvan',
+          'bank': 'African Bank',
+          'sortCode': '',
+          'acctType': 'BD',
+          'acctNumber': '997971112131',
           'defaultDrNarrative': 'My Statement Details',
           'defaultCrNarrative': 'My Beneficiary Statements',
           'instantPayment': true,
@@ -96,7 +134,7 @@ function beneficiariesDetailsGet (req, res, next) {
           'bfTypeID': 'PPD',
           'bfType': 'PPD',
           'bfState': 'ACT',
-          'bfName': 'Mark Twain',
+          'bfName': 'Jason Bourne',
           'bank': '',
           'sortCode': '',
           'acctType': 'TD',
@@ -136,9 +174,9 @@ function beneficiariesDetailsGet (req, res, next) {
           'bfState': 'ACT',
           'bfName': 'Adam Sandler',
           'bank': 'Green Bank',
-          'sortCode': '001101',
+          'sortCode': '',
           'acctType': 'BD',
-          'acctNumber': '787970102030',
+          'acctNumber': '164819391010',
           'defaultDrNarrative': 'My Statement Details',
           'defaultCrNarrative': 'My Beneficiary Statements',
           'instantPayment': true,
@@ -211,10 +249,10 @@ function beneficiariesDetailsGet (req, res, next) {
           'bfType': 'BDF',
           'bfState': 'ACT',
           'bfName': 'Black Stone',
-          'bank': 'Green Bank',
-          'sortCode': '001101',
+          'bank': 'African Bank',
+          'sortCode': 'AB211845',
           'acctType': 'BD',
-          'acctNumber': '787970102030',
+          'acctNumber': '381204910271',
           'defaultDrNarrative': 'My Statement Details',
           'defaultCrNarrative': 'My Beneficiary Statements',
           'instantPayment': true,
@@ -253,6 +291,120 @@ function beneficiariesDetailsGet (req, res, next) {
           'sortCode': '',
           'acctType': 'TD',
           'acctNumber': '7970102030',
+          'defaultDrNarrative': 'Debit statement for mobile account',
+          'defaultCrNarrative': 'Credit beneficiary details',
+          'instantPayment': true,
+          'creditCard': false,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 530918900198,
+          'bfTypeID': 'PPD',
+          'bfType': 'PPD',
+          'bfState': 'ACT',
+          'bfName': 'Jake Jones',
+          'bank': '',
+          'sortCode': '',
+          'acctType': 'TD',
+          'acctNumber': '8719371908',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': false,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 661294917281,
+          'bfTypeID': 'ALL',
+          'bfType': 'BDF',
+          'bfState': 'ACT',
+          'bfName': 'Berta Hudson',
+          'bank': 'African Bank',
+          'sortCode': 'AB211845',
+          'acctType': 'BD',
+          'acctNumber': '661294917281',
+          'defaultDrNarrative': 'My Statement Details',
+          'defaultCrNarrative': 'My Beneficiary Statements',
+          'instantPayment': true,
+          'creditCard': true,
+          'notificationDetails': [
+            {
+              'notificationType': 'NONE',
+              'notificationAddress': '',
+              'notificationId': 1,
+              'notificationDefaultInd': true
+            }
+          ],
+          'bfRecentPayDetail': [
+            {
+              'paymentDate': '2017-07-11',
+              'paymentAmount': 1,
+              'acctNumber': '787970102030',
+              'paymentDRNarration': 'Debit statement',
+              'paymentCRNarration': 'Credit statement',
+              'execEngineRef': ''
+            }
+          ],
+          'ElectricityMeterDetails': {
+            'municipality': 'Area Code',
+            'customerName': 'John Dow',
+            'customerAddress': 'Address Details'
+          }
+        },
+        {
+          'beneficiaryID': 188665109195,
+          'bfTypeID': 'PPD',
+          'bfType': 'PPD',
+          'bfState': 'ACT',
+          'bfName': 'Christopher',
+          'bank': '',
+          'sortCode': '',
+          'acctType': 'TD',
+          'acctNumber': '8866510919',
           'defaultDrNarrative': 'Debit statement for mobile account',
           'defaultCrNarrative': 'Credit beneficiary details',
           'instantPayment': true,
