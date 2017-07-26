@@ -125,5 +125,9 @@ To mock endpoint:
  ```
 
  or configure IDE to do it for You.
+ 
+### `API` issues
+
+Any `API` ambiguities should be reported within [issues file](api-issues.adoc). 
 
 ## Happy mocking!
