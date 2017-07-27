@@ -20,4 +20,110 @@ a|
 
 * Same issue as for `OCR` endpoint - `partyId` seems to be a resource identifier provided by the client, but it is unclear how it should be obtained.
 
+|`/address-verification/v2/parties/address-document`
+|`POST`
+a|
+
+* Service requires following request:
++
+[source,json]
+----
+{
+  "partyId": "string",
+  "document": "string",
+  "documentType": "string"
+}
+----
++
+** How `partyId` should be obtained? It's the common issue (see `id-verification` endpoints issues).
+** `document` value is encrypted and sent to the 3rd party `API`. What values are expected within `document`?
+** What values are expected within `documentType`?
+* Endpoint path declared within documentation is different than defined by the service
+** Path declared by the documentation: `/address-verification/v2/parties/address-document`
+** Path defined by the service: `/address-verification/v2/parties/match-address-document`
+* Swagger documentation claims that the service returns customer address obtained from the vendor:
++
+____
+Mines for the customer address from the vendor
+____
++
+According to source code customer address is not being retrieved and service response contains some unclear values instead (either `SUCCESS` or `FAILURE`).
+* According to source code service response can contain some additional fields not mentioned by the documentation - `firstName` and `documentIssueDate`. Example responses:
++
+[source,json]
+----
+{
+    "firstName": "(...)",
+    "responseMessage": "SUCCESS",
+    "documentIssueDate": "(...)"
+}
+----
++
+[source,json]
+----
+{
+    "responseMessage": "FAILURE",
+    "documentIssueDate": "(...)"
+}
+----
+* External `API` is used to `OCR` document provided by the client. Looks like it's response does not contain required address details.
+
+|`/address-verification/v2/parties/match-address`
+|`POST`
+a|
+
+* Request defined by the documentation does not match the one expected by the service:
+** Request declared by the documentation:
++
+[source,json]
+----
+{
+    "address": "string",
+    "partyId": "string",
+    "surname": "string",
+    "idNumber": "string",
+    "passport": "string"
+}
+----
++
+** Request expected by the service (according to source code):
++
+[source,json]
+----
+{
+    "confirmedResidentialAddress": "string",
+    "partyId": "string"
+}
+----
+* How `confirmedResidentialAddress` value should be obtained?
+* How `partyId` should be obtained? It's the common issue (see `id-verification` endpoints issues).
+* According to source code `partyId` is used for customer information retrieval. This data is hardcoded.
+* Actual service response has more fields than declared within the documentation.
+** Response declared by the documentation:
++
+[source,json]
+----
+{
+    "data": {
+        "confidenceLevel": "string",
+        "addressConfirmed": "string"
+    }
+}
+----
++
+** Actual response:
++
+[source,json]
+----
+{
+    "data": {
+        "confidenceLevel": "string",
+        "addressConfirmed": "string",
+        "responseMessage": "string",
+        "address": "string"
+    },
+    "responseMessage": "string"
+}
+----
+
 |===
