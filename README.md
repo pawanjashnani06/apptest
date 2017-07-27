@@ -57,6 +57,8 @@ It is based on the swagger cli tool.
 
 Dependencies:
  - latest version of node.js
+ - jdk 1.8
+ - maven 3.5
  - docker
 
 1. Go To folder and install project dependencies:
