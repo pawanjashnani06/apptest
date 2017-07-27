@@ -68,4 +68,62 @@ According to source code customer address is not being retrieved and service res
 ----
 * External `API` is used to `OCR` document provided by the client. Looks like it's response does not contain required address details.
 
+|`/address-verification/v2/parties/match-address`
+|`POST`
+a|
+
+* Request defined by the documentation does not match the one expected by the service:
+** Request declared by the documentation:
++
+[source,json]
+----
+{
+    "address": "string",
+    "partyId": "string",
+    "surname": "string",
+    "idNumber": "string",
+    "passport": "string"
+}
+----
++
+** Request expected by the service (according to source code):
++
+[source,json]
+----
+{
+    "confirmedResidentialAddress": "string",
+    "partyId": "string"
+}
+----
+* How `confirmedResidentialAddress` value should be obtained?
+* How `partyId` should be obtained? It's the common issue (see `id-verification` endpoints issues).
+* According to source code `partyId` is used for customer information retrieval. This data is hardcoded.
+* Actual service response has more fields than declared within the documentation.
+** Response declared by the documentation:
++
+[source,json]
+----
+{
+    "data": {
+        "confidenceLevel": "string",
+        "addressConfirmed": "string"
+    }
+}
+----
++
+** Actual response:
++
+[source,json]
+----
+{
+    "data": {
+        "confidenceLevel": "string",
+        "addressConfirmed": "string",
+        "responseMessage": "string"
+        "address": "string"
+    },
+    "responseMessage": "string"
+}
+----
+
 |===
