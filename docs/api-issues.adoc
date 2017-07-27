@@ -119,7 +119,7 @@ a|
     "data": {
         "confidenceLevel": "string",
         "addressConfirmed": "string",
-        "responseMessage": "string"
+        "responseMessage": "string",
         "address": "string"
     },
     "responseMessage": "string"
