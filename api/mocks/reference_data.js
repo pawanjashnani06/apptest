@@ -26,7 +26,7 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'New Town',
-            'branchCode': 'NBL21315'
+            'branchCode': '213157'
           }
         ]
       },
@@ -38,7 +38,7 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'Old City',
-            'branchCode': 'IBL223178'
+            'branchCode': '223178'
           }
         ]
       },
@@ -50,7 +50,7 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'Baker Street',
-            'branchCode': 'SB211101'
+            'branchCode': '211101'
           }
         ]
       },
@@ -62,7 +62,7 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'Malibu Town',
-            'branchCode': 'AB211845'
+            'branchCode': '211845'
           }
         ]
       },
@@ -74,7 +74,7 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'Old Gallery',
-            'branchCode': 'FB219891'
+            'branchCode': '219891'
           }
         ]
       },
@@ -86,7 +86,7 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'Green Park',
-            'branchCode': 'BB211122'
+            'branchCode': '211122'
           }
         ]
       },
@@ -98,7 +98,31 @@ function getBankDetails (req, res, next) {
         'branchCodes': [
           {
             'branchName': 'New Town',
-            'branchCode': 'TB214400'
+            'branchCode': '214400'
+          }
+        ]
+      },
+      {
+        'bankCode': 'NL891301',
+        'bankName': 'National Bank Limited',
+        'universalCode': '891301',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Aztec',
+            'branchCode': '891399'
+          }
+        ]
+      },
+      {
+        'bankCode': 'NR661032',
+        'bankName': 'National Reserve Bank',
+        'universalCode': '661032',
+        'rTC': true,
+        'branchCodes': [
+          {
+            'branchName': 'Downtown',
+            'branchCode': '661991'
           }
         ]
       }
