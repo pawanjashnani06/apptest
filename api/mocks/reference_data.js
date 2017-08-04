@@ -456,16 +456,68 @@ function getServiceProviders (req, res, next) {
   res.json({
     'data': [
       {
-        'serviceProviderCode': '231247829011',
+        'serviceProviderCode': 'MTN',
         'serviceProviderName': 'MTN',
         'accountInfo': {
           'accountType': 'Current',
           'accountNumber': '784567912056',
-          'sortCode': '1',
-          'chargeAccountNr': '114567912067',
+          'sortCode': '110110',
+          'chargeAccountNr': '784567912056',
           'chargeAccountType': 'current',
           'chargeSortCode': '110110',
           'supportContactNr': '9812785678'
+        }
+      },
+      {
+        'serviceProviderCode': 'VCD',
+        'serviceProviderName': 'Vodacom',
+        'accountInfo': {
+          'accountType': 'BDF',
+          'accountNumber': '891199190192',
+          'sortCode': '210210',
+          'chargeAccountNr': '891199190192',
+          'chargeAccountType': 'BDF',
+          'chargeSortCode': '210210',
+          'supportContactNr': '9980102010'
+        }
+      },
+      {
+        'serviceProviderCode': 'TKM',
+        'serviceProviderName': 'Telkom',
+        'accountInfo': {
+          'accountType': 'Current',
+          'accountNumber': '916710018199',
+          'sortCode': '310310',
+          'chargeAccountNr': '916710018199',
+          'chargeAccountType': 'current',
+          'chargeSortCode': '310310',
+          'supportContactNr': '8910293089'
+        }
+      },
+      {
+        'serviceProviderCode': 'CEC',
+        'serviceProviderName': 'Cell C',
+        'accountInfo': {
+          'accountType': 'BDF',
+          'accountNumber': '453219023890',
+          'sortCode': '410410',
+          'chargeAccountNr': '453219023890',
+          'chargeAccountType': 'BDF',
+          'chargeSortCode': '410410',
+          'supportContactNr': '8910382190'
+        }
+      },
+      {
+        'serviceProviderCode': 'VGM',
+        'serviceProviderName': 'Virgin Mobile',
+        'accountInfo': {
+          'accountType': 'Current',
+          'accountNumber': '781290187650',
+          'sortCode': '510510',
+          'chargeAccountNr': '781290187650',
+          'chargeAccountType': 'current',
+          'chargeSortCode': '510510',
+          'supportContactNr': '9081927649'
         }
       }
     ],
