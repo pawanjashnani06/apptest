@@ -835,7 +835,7 @@ function paymenttransactionsGet (req, res, next) {
 }
 
 function paymenttransactionsPost (req, res, next) {
-  res.json([{
+  res.json({
     'data': {
       'Payments': [
         {
@@ -1004,5 +1004,5 @@ function paymenttransactionsPost (req, res, next) {
         }
       ]
     }
-  }])
+  })
 }
