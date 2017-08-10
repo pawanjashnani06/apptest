@@ -5,7 +5,8 @@ module.exports = {
   transfersTransactionGet: transfersTransactionGet,
   transfersTransactionPut: transfersTransactionPut,
   transfersTransactionsGet: transfersTransactionsGet,
-  transfersTransactionsPost: transfersTransactionsPost
+  transfersTransactionsPost: transfersTransactionsPost,
+  latestTransferTransactionResponse: latestTransferTransactionResponse
 }
 
 function transfersAccountsGet (req, res, next) {
@@ -945,6 +946,43 @@ function transfersTransactionsPost (req, res, next) {
             }
           ],
           'execEngineRef': ''
+        }
+      ]
+    }
+  })
+}
+
+function latestTransferTransactionResponse (req, res, next) {
+  res.json({
+    'data': [
+      {
+        'startDate': '2017-08-10',
+        'nextTransDate': '2017-08-10',
+        'fromAccount': {
+          'accountNumber': '1001005570',
+          'accountType': 'CA',
+          'accountName': 'Mr. Oberoi'
+        },
+        'toAccount': {
+          'accountNumber': '1001004345',
+          'accountType': 'CA',
+          'accountName': 'Mr. Oberoi'
+        },
+        'amount': 1,
+        'favourite': true
+      }
+    ],
+    'metadata': {
+      'resultData': [
+        {
+          'transactionID': '1867519021392',
+          'resultDetail': [
+            {
+              'operationReference': 'TRANSACTION',
+              'result': 'OK',
+              'status': 'SUCCESS'
+            }
+          ]
         }
       ]
     }
