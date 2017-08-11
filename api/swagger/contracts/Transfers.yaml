@@ -291,6 +291,41 @@ paths:
             $ref: '#/definitions/AccountsListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+
+  /transfers/transactions/latest:
+    post:
+      operationId: latestTransferTransactionResponse
+      x-swagger-router-controller: transfers
+      description: Create a transfer list. Use with POST /Transfers
+      parameters:
+      - description: If null/'false' SubmitForValImmed = 'false' else if it is 'true'
+          then SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Transfer details to be created
+        in: body
+        name: Transfers
+        required: true
+        schema:
+          $ref: '#/definitions/TransferList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TransferListResponse'
 definitions:
   TransferListResponse:
     properties:
@@ -298,6 +333,7 @@ definitions:
         $ref: '#/definitions/TransferList'
       metadata:
         $ref: '#/definitions/Metadata'
+
   TransferResponse:
     properties:
       data:
@@ -309,6 +345,7 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/Transfer'
+
   AccountsListResponse:
     properties:
       data:
@@ -580,6 +617,7 @@ definitions:
       favourite:
         description: Only for once-off transfers. On POST if 'true' call FavouriteTxAdd.
         type: boolean
+
   ReoccurrenceItem:
     properties:
       reoccurrenceFrequency:
@@ -625,53 +663,58 @@ definitions:
         format: int32
       resultData:
         $ref: '#/definitions/ResultSets'
+
   ResultSets:
-    description: returns result code and description
-    type: array
-    items:
-      $ref: '#/definitions/ResultSet'
+      description: returns result code and description
+      type: array
+      items:
+        $ref: '#/definitions/ResultSet'
+
   ResultSet:
-    properties:
-      batchID:
-        description: Used with now and futuredated
-        type: string
-      transactionID:
-        description: Used here with the 'match back' to front-end in order to display
-          status per transaction (now, futuredated, & recurring)
-        type: string
-      recInstrID:
-        description: Used with recurring instruction
-        type: string
-      resultDetail:
-        $ref: '#/definitions/ResultDetails'
-      execEngineRef:
-        description: Executing engine (host) reference number
-        type: string
+      properties:
+        batchID:
+          description: Used with now and futuredated
+          type: string
+        transactionID:
+          description: Used here with the 'match back' to front-end in order to display
+            status per transaction (now, futuredated, & recurring)
+          type: string
+        recInstrID:
+          description: Used with recurring instruction
+          type: string
+        resultDetail:
+          $ref: '#/definitions/ResultDetails'
+        execEngineRef:
+          description: Executing engine (host) reference number
+          type: string
+
   ResultDetails:
-    description: There are instances where ONE transaction can include multiple API-to-BackEnd
-      calls (i.e. payment + notification + save as beneficiary + make favourite =
-      4-5 calls).
-    type: array
-    items:
-      $ref: '#/definitions/ResultDetail'
+      description: There are instances where ONE transaction can include multiple API-to-BackEnd
+        calls (i.e. payment + notification + save as beneficiary + make favourite =
+        4-5 calls).
+      type: array
+      items:
+        $ref: '#/definitions/ResultDetail'
+
   ResultDetail:
-    properties:
-      operationReference:
-        description: Indicates which operation this result is for on the current transaction
-          i.e. transfer successfull but adding favourite failed. Values can include
-          the following 'Transaction', 'Notification - NotificationAddress (082...)',
-          'Favourite', 'BeneficiarySaved'. The 'Transaction' type are for any transaction
-          i.e. payment, transfer, get, delete etc.
-        type: string
-      result:
-        description: Can pass the error code here.
-        type: string
-      status:
-        description: Can pass the error description here.
-        type: string
-      reason:
-        description: Error description
-        type: string
+      properties:
+        operationReference:
+          description: Indicates which operation this result is for on the current transaction
+            i.e. transfer successfull but adding favourite failed. Values can include
+            the following 'Transaction', 'Notification - NotificationAddress (082...)',
+            'Favourite', 'BeneficiarySaved'. The 'Transaction' type are for any transaction
+            i.e. payment, transfer, get, delete etc.
+          type: string
+        result:
+          description: Can pass the error code here.
+          type: string
+        status:
+          description: Can pass the error description here.
+          type: string
+        reason:
+          description: Error description
+          type: string
+
   DeleteItem:
     properties:
       batchID:
