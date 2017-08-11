@@ -65,6 +65,49 @@ paths:
             $ref: '#/definitions/BanksResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /referencedata/banks/latest:
+    get:
+      operationId: getBankDetailsLatest
+      x-swagger-router-controller: reference_data
+      description: Retrieves list of banks including universal branch code and instant
+        payment indicator (RTC). Order should be ABSA Bank; Bidvest Bank; Capitec
+        Bank; First National Bank; Investec bank Limited; Standard Bank of South Africa;
+        rest of banks are sorted alphabetically
+      parameters:
+      - description: This specifies to return only banks that allow instant payments
+          (real time clearance = RTC)
+        in: query
+        name: rtc
+        type: boolean
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BanksResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BanksResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BanksResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'  
   /referencedata/banks/{bankcode}/branches:
     get:
       operationId: getBranches
@@ -95,6 +138,30 @@ paths:
             $ref: '#/definitions/BranchesResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /referencedata/banks/008/branches:
+    get:
+      operationId: getFNBBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'  
   /referencedata/bankdefinedbeneficiaries:
     get:
       operationId: getBankDefinedBeneficiaries
@@ -182,18 +249,195 @@ paths:
             $ref: '#/definitions/ServiceProvidersResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /referencedata/serviceproviders/{serviceprovidercode}/products:
+  /referencedata/serviceproviders/BLT/products:
     get:
-      operationId: getServiceProviderProducts
+      operationId: getBLTServiceProviderProducts
       x-swagger-router-controller: reference_data
       description: Retrieves the products for the specified serviceprovider
-      parameters:
-      - description: service provider code
-        in: path
-        name: serviceprovidercode
-        type: integer
-        format: int64
-        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/CLC/products:
+    get:
+      operationId: getCLCServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/GDN/products:
+    get:
+      operationId: getGDNServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/MTN/products:
+    get:
+      operationId: getMTNServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/NED/products:
+    get:
+      operationId: getNEDServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/TLK/products:
+    get:
+      operationId: getTLKServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/VDC/products:
+    get:
+      operationId: getVDCServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/VGN/products:
+    get:
+      operationId: getVGNServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/ServiceProviderProductsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/serviceproviders/8TA/products:
+    get:
+      operationId: get8TAServiceProviderProducts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the products for the specified serviceprovider
       responses:
         200:
           description: Request successful

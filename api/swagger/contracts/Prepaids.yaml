@@ -1146,10 +1146,10 @@ definitions:
         description: name of the beneficiary (map to meter name if Electricity). IF
           FBE, then look up BF name against the PrepaidTxEnq results by using the
           meter number
-        format: string
+        type: string
       myDescription:
         description: my transaction description. IF FBE, hardcode 'Free Based Electricity'
-        format: string
+        type: string
       fromAccount:
         $ref: '#/definitions/Account'
       destinationNumber:

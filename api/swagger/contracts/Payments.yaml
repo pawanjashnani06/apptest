@@ -317,6 +317,27 @@ paths:
             $ref: '#/definitions/AccountsListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /payments/accounts/latest:
+    get:
+      operationId: paymentaccountsGetLatest
+      x-swagger-router-controller: payment
+      description: Retrieves a list of accounts
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/AccountsListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'  
 definitions:
   PaymentResponse:
     properties:
