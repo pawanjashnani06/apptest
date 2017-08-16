@@ -76,4 +76,3 @@ function getClientPreferences (req, res, next) {
     ]
   ])
 }
-
