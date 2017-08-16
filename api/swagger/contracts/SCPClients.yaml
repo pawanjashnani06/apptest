@@ -5,7 +5,6 @@ info:
   title: SCP Clients API
   x-ibm-name: scp-clients-api
   description: ""
-basePath: /clients
 paths:
 #  /cards:
 #    get:
@@ -206,62 +205,66 @@ paths:
 #      - application/json
 #      produces:
 #      - application/json
-#  /clientpreferences:
-#    get:
-#      tags: []
-#      summary: ""
-#      description: Gets an array of 'UserPreference' objects containing prefernces
-#        for the client
-#      parameters:
-#      - description: ""
-#        name: Authorization
-#        type: string
-#        required: true
-#        in: header
-#      responses:
-#        200:
-#          description: Successful response
-#          schema:
-#            title: ArrayOfPreferences
-#            type: array
-#            items:
-#              title: Preferences
-#              type: array
-#              items:
-#                $ref: '#/definitions/UserPreference'
-#      deprecated: false
-#      security:
-#      - API Key: []
-#    post:
-#      tags: []
-#      summary: Updates the preferences for a user
-#      description: ""
-#      parameters:
-#      - schema:
-#          title: Preferences
-#          type: array
-#          items:
-#            $ref: '#/definitions/UserPreference'
-#        description: UserPreference array that needs to be updated for the specific
-#          user
-#        name: body
-#        required: true
-#        in: body
-#      - description: ""
-#        name: Authorization
-#        type: string
-#        required: true
-#        in: header
-#      responses:
-#        201:
-#          description: Created
-#        405:
-#          description: Invalid input
-#      deprecated: false
-#      security:
-#      - API Key: []
-#      produces:
-#      - application/json
+  /clientpreferences:
+    get:
+      tags: []
+      summary: ""
+      description: Gets an array of 'UserPreference' objects containing prefernces
+        for the client
+      operationId: getClientPreferences
+      x-swagger-router-controller: scp_clients
+      parameters:
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: ArrayOfPreferences
+            type: array
+            items:
+              title: Preferences
+              type: array
+              items:
+                $ref: '#/definitions/UserPreference'
+      deprecated: false
+      security:
+      - API Key: []
+    post:
+      tags: []
+      summary: Updates the preferences for a user
+      description: ""
+      operationId: getClientPreferences
+      x-swagger-router-controller: scp_clients
+      parameters:
+      - schema:
+          title: Preferences
+          type: array
+          items:
+            $ref: '#/definitions/UserPreference'
+        description: UserPreference array that needs to be updated for the specific
+          user
+        name: body
+        required: true
+        in: body
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        201:
+          description: Created
+        405:
+          description: Invalid input
+      deprecated: false
+      security:
+      - API Key: []
+      produces:
+      - application/json
 #  /yodleelogin/{siteid}:
 #    get:
 #      tags: []
