@@ -4,7 +4,8 @@ module.exports = {
   clientDetails: clientDetails,
   updateClientDetails: updateClientDetails,
   updateClientsCards: updateClientsCards,
-  getClientsCards: getClientsCards
+  getClientsCards: getClientsCards,
+  getClientPreferences: getClientPreferences
 }
 
 function clientDetails (req, res, next) {
@@ -64,3 +65,15 @@ function getClientsCards (req, res, next) {
 function updateClientsCards (req, res, next) {
   res.json({})
 }
+
+function getClientPreferences (req, res, next) {
+  res.json([
+    [
+      {
+        'PreferenceKey': '1234',
+        'PreferenceValue': '1234'
+      }
+    ]
+  ])
+}
+
