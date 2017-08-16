@@ -70,8 +70,8 @@ function getClientPreferences (req, res, next) {
   res.json([
     [
       {
-        'PreferenceKey': '1234',
-        'PreferenceValue': '1234'
+        'PreferenceKey': 'Default Account',
+        'PreferenceValue': '4'
       }
     ]
   ])
