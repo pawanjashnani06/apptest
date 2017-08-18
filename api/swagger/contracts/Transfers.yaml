@@ -314,7 +314,7 @@ paths:
       - $ref: '#/parameters/Authorization'
   /transfers/transactions/latest:
     post:
-      operationId: latestTransferTransactionResponse
+      operationId: transfersTransactionsPostLatest
       x-swagger-router-controller: transfers
       description: Create a transfer list. Use with POST /Transfers
       parameters:
@@ -346,6 +346,166 @@ paths:
             Additional information may be contained in the Metadata object
           schema:
             $ref: '#/definitions/TransferListResponse'
+  /transfers/v1/transactions:
+    get:
+      operationId: transfersTransactionsGetLatest
+      x-swagger-router-controller: transfers
+      description: Retrieves a transfers list according to a profile number and optional
+        filtering parameters. Use with GET /Transfers?transactiontype='' and GET /Transfers?fromdate=''
+        & todate='' & transactiontype=''
+      parameters:
+      - description: This specifies the from account number for which you want to
+          retrieve transfers
+        in: query
+        name: accountNo
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          transfers
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          transfers
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve transfers
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: If transactiontype=futuredated retrieve tomorrow+ (tomorrow onwards);
+          If transactiontype=recurrinng retrieve tomorrow+; If transactiontype=scheduled
+          retrieve futuredated & recurring from tomorrow+; If transactiontype is omitted
+          retrieve now (once-off), futuredated & recurring transactions with default
+          "90 days back and up until today" rule
+        in: query
+        name: transactiontype
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+    post:
+      operationId: transfersTransactionsPostLatest
+      x-swagger-router-controller: transfers
+      description: Create a transfer list. Use with POST /Transfers
+      parameters:
+      - description: If null/'false' SubmitForValImmed = 'false' else if it is 'true'
+          then SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: false
+      - description: Transfer details to be created
+        in: body
+        name: Transfers
+        required: true
+        schema:
+          $ref: '#/definitions/TransferList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+    delete:
+      operationId: transfersTransactionsDelete
+      x-swagger-router-controller: transfers
+      description: Delete list of transfers. Use with DELETE /Transfers
+      parameters:
+      - description: only for future-dated & recurring transfers
+        in: body
+        name: DeleteTransfers
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/DeleteItem'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        204:
+          description: No Content. Nothing found to delete
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/TransferListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /transfers/v1/accounts:
+      get:
+        operationId: accountsTransferGetLatest
+        x-swagger-router-controller: transfers
+        description: Retrieves a list of accounts
+        responses:
+          200:
+            description: Request successful
+            schema:
+              $ref: '#/definitions/AccountsListResponse'
+          207:
+            description: Partial success
+            schema:
+              $ref: '#/definitions/AccountsListResponse'
+          default:
+            description: Returns an error that has not been specified in the implementation.
+              Additional information may be contained in the Metadata object
+            schema:
+              $ref: '#/definitions/AccountsListResponse'
+      parameters:
+      - $ref: '#/parameters/Authorization'  
 definitions:
   TransferListResponse:
     properties:

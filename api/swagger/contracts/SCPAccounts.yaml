@@ -1009,6 +1009,129 @@ paths:
         204:
           description: ""
       deprecated: false
+  /clients/accounts:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Container' objects containing client account information
+      x-swagger-router-controller: scp_accounts
+      operationId: accountsLatest
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: Containers
+            type: array
+            items:
+              $ref: '#/definitions/AccountContainer'
+          examples:
+            application/json:
+            - ContainerName: Bank
+              Accounts:
+              - AccountName: Savings Account
+                Balance: 140854.970000
+                AvailableBalance: 140824.970000
+                AccountNumber: "2009852923"
+                AccountType: CHECKING
+                Status: "10"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Current Account
+                Balance: 170854.810000
+                AvailableBalance: 172854.810000
+                AccountNumber: "1009795481"
+                AccountType: CHECKING
+                Status: "10"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Current Account
+                Balance: 201397.900000
+                AvailableBalance: 201397.900000
+                AccountNumber: "1025310667"
+                AccountType: CHECKING
+                Status: "10"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Current Account
+                Balance: 1099657.410000
+                AvailableBalance: 1103657.410000
+                AccountNumber: "1028232942"
+                AccountType: CHECKING
+                Status: "0"
+                AccountIcon: glyphicon-account_current
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              ContainerIcon: glyphicon-account_current
+            - ContainerName: Card
+              Accounts:
+              - AccountName: Card
+                Balance: 0
+                AvailableBalance: 0
+                AccountNumber: "5898460760565622"
+                AccountType: CC
+                AccountIcon: glyphicon-account_credit_card
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Card
+                Balance: 0
+                AvailableBalance: 382388.760000
+                AccountNumber: "5898460760889527"
+                AccountType: CC
+                AccountIcon: glyphicon-account_credit_card
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              ContainerIcon: ""
+            - ContainerName: Loan
+              Accounts:
+              - AccountName: Loan
+                Balance: 0
+                AvailableBalance: 0
+                AccountNumber: "8966258895201"
+                AccountType: AUTO
+                AccountIcon: glyphicon-account_loans
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              - AccountName: Loan
+                Balance: 0
+                AvailableBalance: 0
+                AccountNumber: "8907706400101"
+                AccountType: AUTO
+                AccountIcon: glyphicon-account_loans
+                NewAccount: false
+                LastUpdate: 4/11/2016 4:48:42 PM
+              ContainerIcon: ""
+      deprecated: false
+    post:
+      tags: []
+      summary: ""
+      description: Updates the client account details
+      x-swagger-router-controller: scp_account_post
+      parameters:
+      - schema:
+          $ref: '#/definitions/AccountDetail'
+        description: ""
+        name: body
+        in: body
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        201:
+          description: Created
+        400:
+          description: Invalid input
+      deprecated: false    
 definitions:
   AtmLimit:
     properties:

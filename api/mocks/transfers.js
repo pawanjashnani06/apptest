@@ -7,7 +7,8 @@ module.exports = {
   transfersTransactionsGet: transfersTransactionsGet,
   transfersTransactionsPost: transfersTransactionsPost,
   accountsTransferGetLatest: accountsTransferGetLatest,
-  latestTransferTransactionResponse: latestTransferTransactionResponse
+  transfersTransactionsPostLatest: transfersTransactionsPostLatest,
+  transfersTransactionsGetLatest: transfersTransactionsGetLatest
 }
 
 function transfersAccountsGet (req, res, next) {
@@ -1719,7 +1720,7 @@ function accountsTransferGetLatest (req, res, next) {
   })
 }
 
-function latestTransferTransactionResponse (req, res, next) {
+function transfersTransactionsPostLatest (req, res, next) {
   res.json({
     'data': [
       {
@@ -1752,6 +1753,319 @@ function latestTransferTransactionResponse (req, res, next) {
           ]
         }
       ]
+    }
+  })
+}
+
+function transfersTransactionsGetLatest (req, res, next) {
+  res.json({
+    'data': [
+      {
+        'batchID': 1879284,
+        'transactionID': 28222325,
+        'capturedDate': '2016-08-18T00:00:00',
+        'startDate': '2016-08-18T00:00:00',
+        'nextTransDate': '2017-08-18T00:00:00',
+        'fromAccount': {
+          'accountNumber': '2955006092'
+        },
+        'toAccount': {
+          'accountNumber': '100995-9941'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170818/NEDBANK/000000489025474788'
+      },
+      {
+        'batchID': 1879283,
+        'transactionID': 28222324,
+        'capturedDate': '2016-08-18T00:00:00',
+        'startDate': '2016-08-18T00:00:00',
+        'nextTransDate': '2017-08-18T00:00:00',
+        'fromAccount': {
+          'accountNumber': '2955006092'
+        },
+        'toAccount': {
+          'accountNumber': '100995-9941'
+        },
+        'amount': 120,
+        'purchaseReferenceNumber': '20170818/NEDBANK/000000489025474787'
+      },
+      {
+        'batchID': 2050073,
+        'transactionID': 28942815,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-25T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 40,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042673194'
+      },
+      {
+        'batchID': 2050320,
+        'transactionID': 28943314,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-28T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042678678'
+      },
+      {
+        'batchID': 2050307,
+        'transactionID': 28943202,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-28T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042678668'
+      },
+      {
+        'batchID': 2050261,
+        'transactionID': 28943092,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-28T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042678380'
+      },
+      {
+        'batchID': 2050206,
+        'transactionID': 28943022,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-28T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042678289'
+      },
+      {
+        'batchID': 2050090,
+        'transactionID': 28942861,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-28T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042677039'
+      },
+      {
+        'batchID': 2050087,
+        'transactionID': 28942829,
+        'capturedDate': '2017-07-28T00:00:00',
+        'startDate': '2017-07-28T00:00:00',
+        'nextTransDate': '2017-07-28T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170728/NEDBANK/000000489042677037'
+      },
+      {
+        'batchID': 2050530,
+        'transactionID': 28943539,
+        'capturedDate': '2017-07-29T00:00:00',
+        'startDate': '2017-07-29T00:00:00',
+        'nextTransDate': '2017-07-29T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 200,
+        'purchaseReferenceNumber': '20170729/NEDBANK/000000489042679689'
+      },
+      {
+        'batchID': 2050704,
+        'transactionID': 28943818,
+        'capturedDate': '2017-07-31T00:00:00',
+        'startDate': '2017-07-31T00:00:00',
+        'nextTransDate': '2017-07-31T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009006967'
+        },
+        'amount': 20,
+        'purchaseReferenceNumber': '20170731/NEDBANK/000000489042723960'
+      },
+      {
+        'batchID': 2050688,
+        'transactionID': 28943802,
+        'capturedDate': '2017-07-31T00:00:00',
+        'startDate': '2017-07-31T00:00:00',
+        'nextTransDate': '2017-07-31T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170731/NEDBANK/000000489042723943'
+      },
+      {
+        'batchID': 2050675,
+        'transactionID': 28943764,
+        'capturedDate': '2017-07-31T00:00:00',
+        'startDate': '2017-07-31T00:00:00',
+        'nextTransDate': '2017-07-31T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170731/NEDBANK/000000489042722585'
+      },
+      {
+        'batchID': 2050980,
+        'transactionID': 28944185,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009035940'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042763358'
+      },
+      {
+        'batchID': 2050896,
+        'transactionID': 28944098,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042762873'
+      },
+      {
+        'batchID': 2050862,
+        'transactionID': 28944063,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042762830'
+      },
+      {
+        'batchID': 2050857,
+        'transactionID': 28944058,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '1009087231'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042761684'
+      },
+      {
+        'batchID': 2050829,
+        'transactionID': 28944029,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1061400077'
+        },
+        'toAccount': {
+          'accountNumber': '1631024043'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042761577'
+      },
+      {
+        'batchID': 2050828,
+        'transactionID': 28944028,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '1061400077'
+        },
+        'toAccount': {
+          'accountNumber': '1631024043'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042761578'
+      },
+      {
+        'batchID': 2050827,
+        'transactionID': 28944027,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'fromAccount': {
+          'accountNumber': '037955500520-0001'
+        },
+        'toAccount': {
+          'accountNumber': '1061400077'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042761579'
+      }
+    ],
+    'metadata': {
+      'page': 1,
+      'pageSize': 20,
+      'pageLimit': 3,
+      'resultData': []
     }
   })
 }

@@ -92,6 +92,27 @@ paths:
             $ref: '#/definitions/SortOrderResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits:
+    get:
+      operationId: getLimitsLatest
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'  
 definitions:
   LimitsResponse:
     properties:

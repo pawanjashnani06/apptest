@@ -215,6 +215,201 @@ paths:
             $ref: '#/definitions/ContactCardResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /contactcards/v1/contactcardsdetails:
+    get:
+      operationId: contactCardsDetailsGet
+      x-swagger-router-controller: contact_cards
+      description: Get a list of the saved multi-dimentional beneficiaries
+      parameters:
+      - description: ALL; PPD; BNF; PEL; BDF. For PEL and BDF API will have to do
+          some filtering before sending response back to front-end (default is all)
+        in: query
+        name: beneficiarytype
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ContactMultipleCardsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ContactMultipleCardsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ContactMultipleCardsResponse'
+    post:
+      operationId: contactCardsDetailsPost
+      x-swagger-router-controller: contact_cards
+      description: create a multi-dimentional beneficiary
+      parameters:
+      - description: save one or more multi-dimentional beneficiaries
+        in: body
+        name: BeneficiaryContactCard
+        required: true
+        schema:
+          $ref: '#/definitions/ContactCard'
+      - description: this is required as Electricity is now part of contactcards and
+          has a validation call before meters can be added to beneficiaries
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+    delete:
+      operationId: contactCardsDetailsDelete
+      x-swagger-router-controller: contact_cards
+      description: delete a multi-dimentional beneficiary
+      parameters:
+      - description: delete one or more multi-dimentional beneficiaries
+        in: query
+        name: ContactCardID
+        required: true
+        type: array
+        items:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ContactMultipleCardsResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ContactMultipleCardsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ContactMultipleCardsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /contactcards/v1/contactcard/{contactcardID}:
+    get:
+      operationId: contactCardGet
+      x-swagger-router-controller: contact_cards
+      description: Get a single saved multi-dimentional beneficiary
+      parameters:
+      - description: contact card ID
+        in: path
+        name: contactcardID
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+    put:
+      operationId: contactCardPut
+      x-swagger-router-controller: contact_cards
+      description: update a multi-dimentional beneficiary
+      parameters:
+      - description: this is required as Electricity is now part of contactcards and
+          has a validation call before meters can be added to beneficiaries
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: contact card ID
+        in: path
+        name: contactcardID
+        type: string
+        required: true
+      - description: save one or more multi-dimentional beneficiaries
+        in: body
+        name: BeneficiaryContactCard
+        required: true
+        schema:
+          $ref: '#/definitions/ContactCard'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+    delete:
+      operationId: contactCardDelete
+      x-swagger-router-controller: contact_cards
+      description: delete a multi-dimentional beneficiary
+      parameters:
+      - description: contact card ID
+        in: path
+        name: contactcardID
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/ContactCardResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
 definitions:
   ContactCardResponse:
     properties:

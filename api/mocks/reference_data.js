@@ -6,7 +6,7 @@ module.exports = {
   getBranches: getBranches,
   getFNBBranches: getFNBBranches,
   getBankDefinedBeneficiaries: getBankDefinedBeneficiaries,
-  getNotificationTypes: getNotificationTypes,
+  getNotificationTypesLatest: getNotificationTypesLatest,
   getServiceProviders: getServiceProviders,
   getBLTServiceProviderProducts: getBLTServiceProviderProducts,
   getCLCServiceProviderProducts: getCLCServiceProviderProducts,
@@ -7511,103 +7511,22 @@ function getBankDefinedBeneficiaries (req, res, next) {
   )
 }
 
-function getNotificationTypes (req, res, next) {
+function getNotificationTypesLatest (req, res, next) {
   res.json({
-    'data': {
-      'notificationType': 'EMAIL'
-    },
-    'metadata': {
-      'Page': 1,
-      'PageSize': 1,
-      'PageLimit': 1,
-      'ResultData': [
-        {
-          'BatchID': 'Sample text',
-          'TransactionID': 'Sample text',
-          'RecInstrID': 'Sample text',
-          'ResultDetail': [
-            {
-              'OperationReference': 'Sample text',
-              'Result': 'Sample text',
-              'Status': 'Sample text',
-              'Reason': 'Sample text',
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ],
-          'ExecEngineRef': 'Sample text'
-        }
-      ],
-      'page': 1,
-      'pageSize': 1,
-      'pageLimit': 1,
-      'resultData': [
-        {
-          'batchID': 'Sample text',
-          'transactionID': 'Sample text',
-          'recInstrID': 'Sample text',
-          'resultDetail': [
-            {
-              'OperationReference': 'Sample text',
-              'Result': 'Sample text',
-              'Status': 'Sample text',
-              'Reason': 'Sample text',
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ],
-          'execEngineRef': 'Sample text',
-          'resultDetails': [
-            {
-              'OperationReference': 'Sample text',
-              'Result': 'Sample text',
-              'Status': 'Sample text',
-              'Reason': 'Sample text',
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ]
-        }
-      ],
-      'resultSets': [
-        {
-          'batchID': 'Sample text',
-          'transactionID': 'Sample text',
-          'recInstrID': 'Sample text',
-          'resultDetail': [
-            {
-              'OperationReference': 'Sample text',
-              'Result': 'Sample text',
-              'Status': 'Sample text',
-              'Reason': 'Sample text',
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ],
-          'execEngineRef': 'Sample text',
-          'resultDetails': [
-            {
-              'OperationReference': 'Sample text',
-              'Result': 'Sample text',
-              'Status': 'Sample text',
-              'Reason': 'Sample text',
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ]
-        }
-      ]
-    }
+    'data': [
+      {
+        'notificationType': 'SMS'
+      },
+      {
+        'notificationType': 'EMAIL'
+      },
+      {
+        'notificationType': 'FAX'
+      },
+      {
+        'notificationType': 'SecureInbox'
+      }
+    ]
   })
 }
 

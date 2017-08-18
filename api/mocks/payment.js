@@ -6,7 +6,9 @@ module.exports = {
   paymenttransactionGet: paymenttransactionGet,
   paymenttransactionPut: paymenttransactionPut,
   paymenttransactionsGet: paymenttransactionsGet,
-  paymenttransactionsPost: paymenttransactionsPost
+  paymenttransactionsGetLatest: paymenttransactionsGetLatest,
+  paymenttransactionsPost: paymenttransactionsPost,
+  paymenttransactionsPostLatest: paymenttransactionsPostLatest
 }
 
 function paymentaccountsGet (req, res, next) {
@@ -1768,6 +1770,493 @@ function paymenttransactionsPost (req, res, next) {
             }
           ],
           'execEngineRef': 'Sample text'
+        }
+      ]
+    }
+  })
+}
+
+function paymenttransactionsGetLatest (req, res, next) {
+  res.json({
+    'data': [
+      {
+        'batchID': 2042706,
+        'transactionID': 28935034,
+        'capturedDate': '2017-07-13T00:00:00',
+        'startDate': '2017-07-13T00:00:00',
+        'nextTransDate': '2017-07-13T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '250655',
+        'bFName': '20Jan17',
+        'myDescription': 'WesHein',
+        'beneficiaryDescription': 'WESHein',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '62003019503',
+          'accountType': 'CA'
+        },
+        'amount': 55.6,
+        'instantPayment': true,
+        'purchaseReferenceNumber': '20170713/NEDBANK/ '
+      },
+      {
+        'batchID': 2042701,
+        'transactionID': 28935029,
+        'capturedDate': '2017-07-13T00:00:00',
+        'startDate': '2017-07-13T00:00:00',
+        'nextTransDate': '2017-07-13T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '250655',
+        'bFName': '20Jan17',
+        'myDescription': 'hgsf',
+        'beneficiaryDescription': 'khydfk',
+        'fromAccount': {
+          'accountNumber': '1012108910'
+        },
+        'toAccount': {
+          'accountNumber': '62003019503',
+          'accountType': 'CA'
+        },
+        'amount': 55.6,
+        'instantPayment': true,
+        'purchaseReferenceNumber': '20170713/NEDBANK/ '
+      },
+      {
+        'batchID': 2050650,
+        'transactionID': 28943731,
+        'capturedDate': '2017-07-31T00:00:00',
+        'startDate': '2017-07-31T00:00:00',
+        'nextTransDate': '2017-07-31T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'instantPayment': true,
+        'purchaseReferenceNumber': '20170731/NEDBANK/ '
+      },
+      {
+        'batchID': 2050687,
+        'transactionID': 28943793,
+        'capturedDate': '2017-07-31T00:00:00',
+        'startDate': '2017-07-31T00:00:00',
+        'nextTransDate': '2017-07-31T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170731/NEDBANK/000000489042723942'
+      },
+      {
+        'batchID': 2050674,
+        'transactionID': 28943763,
+        'capturedDate': '2017-07-31T00:00:00',
+        'startDate': '2017-07-31T00:00:00',
+        'nextTransDate': '2017-07-31T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170731/NEDBANK/000000489042722584'
+      },
+      {
+        'batchID': 2051035,
+        'transactionID': 28944241,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'asdf',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007326'
+      },
+      {
+        'batchID': 2051034,
+        'transactionID': 28944240,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'asdf',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007325'
+      },
+      {
+        'batchID': 2051033,
+        'transactionID': 28944239,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'wetwrt',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007324'
+      },
+      {
+        'batchID': 2051032,
+        'transactionID': 28944238,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'wert',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007323'
+      },
+      {
+        'batchID': 2051031,
+        'transactionID': 28944237,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'wert',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007322'
+      },
+      {
+        'batchID': 2051030,
+        'transactionID': 28944236,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'asfd',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007320'
+      },
+      {
+        'batchID': 2051029,
+        'transactionID': 28944235,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'sdfg',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007319'
+      },
+      {
+        'batchID': 2051028,
+        'transactionID': 28944234,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'sdf',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007318'
+      },
+      {
+        'batchID': 2051027,
+        'transactionID': 28944233,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 5221001013983879',
+        'beneficiaryDescription': 'asdf',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '5221001013983879',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043007317'
+      },
+      {
+        'batchID': 2051026,
+        'transactionID': 28944232,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '000000',
+        'bFName': 'UNKNOWN',
+        'myDescription': 'Payment to 4314620000216422',
+        'beneficiaryDescription': 'CC',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4314620000216422',
+          'accountType': 'CC'
+        },
+        'amount': 100,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489043007316'
+      },
+      {
+        'batchID': 2051025,
+        'transactionID': 28944231,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 0,
+        'sortCode': '250655',
+        'bFName': '20Jan17',
+        'myDescription': 'WesHein',
+        'beneficiaryDescription': 'WESHein',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '62003019503',
+          'accountType': 'CA'
+        },
+        'amount': 55.6,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489042763533'
+      },
+      {
+        'batchID': 2050895,
+        'transactionID': 28944097,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042762871'
+      },
+      {
+        'batchID': 2050861,
+        'transactionID': 28944062,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042762827'
+      },
+      {
+        'batchID': 2050856,
+        'transactionID': 28944057,
+        'capturedDate': '2017-08-01T00:00:00',
+        'startDate': '2017-08-01T00:00:00',
+        'nextTransDate': '2017-08-01T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170801/NEDBANK/000000489042761683'
+      },
+      {
+        'batchID': 2051174,
+        'transactionID': 28944707,
+        'capturedDate': '2017-08-02T00:00:00',
+        'startDate': '2017-08-02T00:00:00',
+        'nextTransDate': '2017-08-02T00:00:00',
+        'beneficiaryID': 54,
+        'sortCode': '632005',
+        'bFName': 'ABSA_Benef',
+        'myDescription': 'onceoff_pay_ext',
+        'beneficiaryDescription': 'onceoff_pay_ext',
+        'fromAccount': {
+          'accountNumber': '1009000675'
+        },
+        'toAccount': {
+          'accountNumber': '4047050967',
+          'accountType': 'CA'
+        },
+        'amount': 50,
+        'purchaseReferenceNumber': '20170802/NEDBANK/000000489043013371'
+      }
+    ],
+    'metadata': {
+      'page': 1,
+      'pageSize': 20,
+      'pageLimit': 2,
+      'resultData': []
+    }
+  })
+}
+
+function paymenttransactionsPostLatest (req, res, next) {
+  res.json({
+    'data': [
+      {
+        'startDate': '2017-08-18T00:00:00',
+        'nextTransDate': '2017-08-18T00:00:00',
+        'bank': 'First National Bank',
+        'beneficiaryID': 2,
+        'sortCode': '250655',
+        'bFName': 'Calvin Nedbank',
+        'bFType': 'BnfExt',
+        'myDescription': 'WesHein',
+        'beneficiaryDescription': 'WESHein',
+        'fromAccount': {
+          'accountName': 'STOP CHEQU',
+          'accountNumber': '1009000675',
+          'productDescription': 'CA',
+          'accountType': 'CA'
+        },
+        'toAccount': {
+          'accountNumber': '62003019503',
+          'accountType': 'U0'
+        },
+        'amount': 55.6,
+        'instantPayment': false,
+        'saveBeneficiary': true
+      }
+    ],
+    'metadata': {
+      'resultData': [
+        {
+          'batchID': '0',
+          'transactionID': '0',
+          'resultDetail': [
+            {
+              'operationReference': 'BENEFICIARYSAVED',
+              'result': 'R00',
+              'status': 'SUCCESS'
+            },
+            {
+              'operationReference': 'TRANSACTION',
+              'result': 'SOK',
+              'status': 'SUCCESS'
+            }
+          ]
         }
       ]
     }

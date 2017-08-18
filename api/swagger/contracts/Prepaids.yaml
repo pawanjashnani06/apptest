@@ -833,6 +833,293 @@ paths:
             $ref: '#/definitions/MoneySendHistoryResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /prepaids/v1/accounts:
+    get:
+      operationId: prepaidAccountsGet
+      x-swagger-router-controller: prepaid
+      description: Retrieves a list of accounts
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidAccountsListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidAccountsListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidAccountsListResponse'
+  /prepaids/v1/transactions:
+    get:
+      operationId: prepaidTransactionsGet
+      x-swagger-router-controller: prepaid
+      description: Retrieves a prepaids list according to a profile number and optional
+        filtering parameters
+      parameters:
+      - description: This specifies the from account for which you want to retrieve
+          prepaids
+        in: query
+        name: fromacc
+        type: string
+        required: false
+      - description: This specifies the period in months for which you want to retrieve
+          prepaids
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the service provider type (VDC; MTN; CLC; 8TA;
+          VGN TLK; BLT;; GDN; Mpesa; NED;)
+        in: query
+        name: serviceprovider
+        type: string
+        required: false
+      - description: This specifies the prepaid type (PEL; PAI (airtime); PBB (BigBonus);
+          PBS (BIS); PDA (DataBunde); PDB (DATA Bundle); PDW (WIFI Data Bundle); PSM
+          (SMS Bundle); PVB (PowerVoice Bundle); PFB (FreeData Baundle); PMS (moneySend
+          / iMali); PDN (Daily Bundle); PES (Mpesa); PLO (LOTTO); PCB (All in One);
+          )
+        in: query
+        name: prepaidtype
+        type: string
+        required: false
+      - description: This specifies the destination number (cell, telephone, electricity
+          meter)
+        in: query
+        name: destinationnumber
+        type: string
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          prepaids
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve prepaids
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the transaction type for which you want to retrieve
+          prepaids
+        in: query
+        name: transactiontype
+        type: string
+        required: false
+      - description: This specifies the frequency for which you want to retrieve prepaids
+          (weekly, monthly)
+        in: query
+        name: frequency
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    post:
+      operationId: prepaidTransactionsPost
+      x-swagger-router-controller: prepaid
+      description: make prepaid purchases
+      parameters:
+      - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
+          SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Single or list of transactions
+        in: body
+        name: Prepaids
+        required: true
+        schema:
+          $ref: '#/definitions/PrepaidList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    delete:
+      operationId: prepaidTransactionsDelete
+      x-swagger-router-controller: prepaid
+      description: Delete list of transactions. Only for future-dated & recurring
+      parameters:
+      - description: only for future-dated & recurring
+        in: body
+        name: DeleteTransactions
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/DeleteItem'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /prepaids/v1/transactions/{transactionID}:
+    get:
+      operationId: prepaidTransactionGet
+      x-swagger-router-controller: prepaid
+      description: Gets specified prepaid details
+      parameters:
+      - description: Specific prepaid to get for details
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: indicate future-dated or recurring
+        in: query
+        name: transactiontype
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+    put:
+      operationId: prepaidTransactionPut
+      x-swagger-router-controller: prepaid
+      description: Update a specific future-dated or recurring transaction.
+      parameters:
+      - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
+          SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Implies that you can only update one at a time
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: Transaction details to be updated
+        in: body
+        name: Transaction
+        required: true
+        schema:
+          $ref: '#/definitions/Prepaid'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        204:
+          description: No Content. Nothing found to update
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+    delete:
+      operationId: prepaidTransactionDelete
+      x-swagger-router-controller: prepaid
+      description: Remove a single transaction.
+      parameters:
+      - description: Specific transaction to be deleted (transactionID or BatchID
+          goes here). (both arrays must be the same size)
+        in: path
+        name: transactionID
+        type: integer
+        format: int64
+        required: true
+      - description: ID for when deleteing recurring items
+        in: query
+        name: recinstrid
+        type: integer
+        format: int64
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        204:
+          description: No Content. Nothing found to delete
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/PrepaidResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'    
 definitions:
   PrepaidResponse:
     properties:

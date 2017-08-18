@@ -68,11 +68,21 @@ function updateClientsCards (req, res, next) {
 
 function getClientPreferences (req, res, next) {
   res.json([
-    [
-      {
-        'PreferenceKey': 'Default Account',
-        'PreferenceValue': '4'
-      }
-    ]
+    {
+      'PreferenceKey': 'LayoutView',
+      'PreferenceValue': 'default'
+    },
+    {
+      'PreferenceKey': 'PreferredName',
+      'PreferenceValue': 'Heineken'
+    },
+    {
+      'PreferenceKey': 'DefaultAccount',
+      'PreferenceValue': '1'
+    },
+    {
+      'PreferenceKey': 'FirstRunFinished',
+      'PreferenceValue': 'true'
+    }
   ])
 }

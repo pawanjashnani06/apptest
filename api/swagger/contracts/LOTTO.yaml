@@ -130,6 +130,116 @@ paths:
             $ref: '#/definitions/LottoListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /lotto/v1/lottolists:
+    get:
+      operationId: getLottoLists
+      x-swagger-router-controller: lotto
+      description: Retrieves a prepaids list according to a profile number and optional
+        filtering parameters
+      parameters:
+      - description: This specifies the period in months for which you want to retrieve
+          prepaids
+        in: query
+        name: fromdate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the to date of the enquiry
+        in: query
+        name: todate
+        type: string
+        format: date
+        required: false
+      - description: This specifies the from amount for which you want to retrieve
+          prepaids
+        in: query
+        name: fromamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the to amount for which you want to retrieve prepaids
+        in: query
+        name: toamount
+        type: integer
+        format: double
+        required: false
+      - description: This specifies the game for which you want to retrieve records
+          (ALL; LTO; PWB)
+        in: query
+        name: game
+        type: string
+        required: false
+      - description: This specifies the game type type for which you want to retrieve
+          records (ALL; OWN; QPK)
+        in: query
+        name: gametyoe
+        type: string
+        required: false
+      - description: This specifies the ticketstatus for which you want to retrieve
+          records of (ALL; PEN; PRC; PPF)
+        in: query
+        name: ticketstatus
+        type: string
+        required: false
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LottoListResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LottoListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LottoListResponse'
+    post:
+      operationId: createLottoLists
+      x-swagger-router-controller: lotto
+      description: make prepaid purchases
+      parameters:
+      - description: If 'false' SubmitForValImmed = 'false' else if it is 'true' then
+          SubmitForValImmed = 'true'
+        in: query
+        name: validate
+        type: boolean
+        required: true
+      - description: Single or list of transactions
+        in: body
+        name: LottoTransactions
+        required: true
+        schema:
+          $ref: '#/definitions/LottoList'
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LottoListResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LottoListResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LottoListResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'  
   /lottobatches/{batchID}:
     get:
       operationId: getLottoBatches
@@ -160,6 +270,36 @@ paths:
             $ref: '#/definitions/LottoResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
+  /lotto/v1/lottobatches/{batchID}:
+    get:
+      operationId: getLottoBatches
+      x-swagger-router-controller: lotto
+      description: Gets specified lotto transaction details
+      parameters:
+      - description: Specific lotto batch ID to get details of
+        in: path
+        name: batchID
+        type: integer
+        format: int64
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LottoResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LottoResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LottoResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'  
 definitions:
   LottoResponse:
     properties:
