@@ -22,7 +22,8 @@ module.exports = {
   getLottoJackpot: getLottoJackpot,
   getLottoMetadata: getLottoMetadata,
   getStopPaymentReasons: getStopPaymentReasons,
-  getDisputeDebitOrderReasons: getDisputeDebitOrderReasons
+  getDisputeDebitOrderReasons: getDisputeDebitOrderReasons,
+  getBankDefinedBeneficiariesLatest: getBankDefinedBeneficiariesLatest
 }
 
 function getBankDetails (req, res, next) {
@@ -9713,6 +9714,2333 @@ function getDisputeDebitOrderReasons (req, res, next) {
           ]
         }
       ]
+    }
+  })
+}
+
+function getBankDefinedBeneficiariesLatest (req, res, next) {
+  res.json({
+    'data': [
+      {
+        'bDFID': '0000000010',
+        'bDFName': 'STANDARD BANK CARD DIVISION',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000000013',
+        'bDFName': 'GREATERMANS/STUTTAFORDS SUB',
+        'sortCode': 516705
+      },
+      {
+        'bDFID': '0000000014',
+        'bDFName': 'EDGARS',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000000025',
+        'bDFName': 'TRUWORTHS',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000000026',
+        'bDFName': 'MULTICHOICE AFRICA (PTY) LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000000028',
+        'bDFName': 'TELKOM SA LTD',
+        'sortCode': 323345,
+        'existing': true
+      },
+      {
+        'bDFID': '0000000029',
+        'bDFName': 'FNB CARD DIVISION',
+        'sortCode': 258905
+      },
+      {
+        'bDFID': '0000000030',
+        'bDFName': 'FOSCHINI',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000031',
+        'bDFName': 'TOPICS',
+        'sortCode': 201409
+      },
+      {
+        'bDFID': '0000000032',
+        'bDFName': 'TELJOY TV',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000000033',
+        'bDFName': 'SALES HOUSE',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000000034',
+        'bDFName': 'MUNICIPALITY BEDFORDVIEW',
+        'sortCode': 334542
+      },
+      {
+        'bDFID': '0000000035',
+        'bDFName': 'I KUPER AND COMPANY',
+        'sortCode': 190605
+      },
+      {
+        'bDFID': '0000000036',
+        'bDFName': 'EKURHULENI METRO - BRAKPAN',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000037',
+        'bDFName': 'STERNS JEWELLERS',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000038',
+        'bDFName': 'MATCH FASHION STORES',
+        'sortCode': 19205
+      },
+      {
+        'bDFID': '0000000039',
+        'bDFName': 'ELECTRONIC MEDIA NETWORK',
+        'sortCode': 334405
+      },
+      {
+        'bDFID': '0000000041',
+        'bDFName': 'EKURHULENI METRO - GERMISTON',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000042',
+        'bDFName': 'MUNICIPALITY KWA DUKUZA',
+        'sortCode': 220129
+      },
+      {
+        'bDFID': '0000000044',
+        'bDFName': 'WOOLWORTHS',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000000048',
+        'bDFName': 'MOGALE CITY LOCAL MUNICIPALITY',
+        'sortCode': 15841
+      },
+      {
+        'bDFID': '0000000049',
+        'bDFName': 'AMERICAN SWISS',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000050',
+        'bDFName': 'MARKHAMS',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000051',
+        'bDFName': 'PAGES',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000053',
+        'bDFName': 'MUNICIPALITY RANDFONTEIN',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000000055',
+        'bDFName': 'ARTHUR KAPLAN JEWELLERS',
+        'sortCode': 251445
+      },
+      {
+        'bDFID': '0000000059',
+        'bDFName': 'MORKELS',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000000064',
+        'bDFName': 'ABC SHOE (PTY) LTD',
+        'sortCode': 251405,
+        'existing': true
+      },
+      {
+        'bDFID': '0000000065',
+        'bDFName': 'BARNES SHOES (PTY) LTD',
+        'sortCode': 196105
+      },
+      {
+        'bDFID': '0000000066',
+        'bDFName': 'CUTHBERTS (PTY) LTD',
+        'sortCode': 251405
+      },
+      {
+        'bDFID': '0000000067',
+        'bDFName': 'LEISURE BOOKS',
+        'sortCode': 506009
+      },
+      {
+        'bDFID': '0000000068',
+        'bDFName': 'LESERSKRING',
+        'sortCode': 506009
+      },
+      {
+        'bDFID': '0000000070',
+        'bDFName': 'CITY OF TSHWANE METROPOLITAN M',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000000074',
+        'bDFName': 'FOSCHINI CONTROL OFFICE',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000077',
+        'bDFName': "LAMBERT'S",
+        'sortCode': 15941
+      },
+      {
+        'bDFID': '0000000079',
+        'bDFName': 'EKURHULENI METRO - ALBERTON',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000080',
+        'bDFName': 'EKURHULENI METRO - BOKSBURG',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000081',
+        'bDFName': 'MUNICIPALITY KOUGA',
+        'sortCode': 210515
+      },
+      {
+        'bDFID': '0000000082',
+        'bDFName': 'EKURHULENI METRO - BENONI',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000085',
+        'bDFName': 'EKURHULENI METRO - EDENVALE',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000086',
+        'bDFName': 'EKURHULENI METRO -KEMPTON PARK',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000089',
+        'bDFName': 'RAND REALTY',
+        'sortCode': 251305
+      },
+      {
+        'bDFID': '0000000091',
+        'bDFName': 'EKURHULENI METRO - NIGEL',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000000092',
+        'bDFName': 'RELYANT RETAIL T/A FURNITURE C',
+        'sortCode': 355
+      },
+      {
+        'bDFID': '0000000093',
+        'bDFName': 'MUNICIPALITY ACASIA',
+        'sortCode': 10145
+      },
+      {
+        'bDFID': '0000000096',
+        'bDFName': 'MUNICIPALITY MSUNDUZI',
+        'sortCode': 257355
+      },
+      {
+        'bDFID': '0000000097',
+        'bDFName': 'HUB STORES',
+        'sortCode': 194905
+      },
+      {
+        'bDFID': '0000000102',
+        'bDFName': 'CITY GIRL',
+        'sortCode': 220626
+      },
+      {
+        'bDFID': '0000000103',
+        'bDFName': 'PRETORIUM TRUST',
+        'sortCode': 323445
+      },
+      {
+        'bDFID': '0000000104',
+        'bDFName': 'MUNICIPALITY MUSUKALIGWA',
+        'sortCode': 52844
+      },
+      {
+        'bDFID': '0000000105',
+        'bDFName': 'KNYSNA MUNICIPALITY',
+        'sortCode': 162645
+      },
+      {
+        'bDFID': '0000000106',
+        'bDFName': 'OK BAZAARS HIRE PURCHASE',
+        'sortCode': 1305
+      },
+      {
+        'bDFID': '0000000107',
+        'bDFName': 'HYPERAMA HIRE PURCHASE',
+        'sortCode': 1305
+      },
+      {
+        'bDFID': '0000000110',
+        'bDFName': 'JOHN SCOTT',
+        'sortCode': 196005
+      },
+      {
+        'bDFID': '0000000113',
+        'bDFName': 'MUNICIPALITY UMHLATHUZE',
+        'sortCode': 334230
+      },
+      {
+        'bDFID': '0000000119',
+        'bDFName': 'CONSUMER CREDIT CORPORATION',
+        'sortCode': 130526
+      },
+      {
+        'bDFID': '0000000120',
+        'bDFName': 'MUNICIPALITY PORT ALFRED',
+        'sortCode': 210917
+      },
+      {
+        'bDFID': '0000000124',
+        'bDFName': "MILADY'S",
+        'sortCode': 40026
+      },
+      {
+        'bDFID': '0000000126',
+        'bDFName': 'DINERS CLUB',
+        'sortCode': 1805
+      },
+      {
+        'bDFID': '0000000127',
+        'bDFName': 'J H ISAACS TRANSVAAL',
+        'sortCode': 4305
+      },
+      {
+        'bDFID': '0000000290',
+        'bDFName': 'MUNICIPALITY DESPATCH',
+        'sortCode': 334516
+      },
+      {
+        'bDFID': '0000000549',
+        'bDFName': 'METSIMAHOLA LOCAL COUNCIL',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000000574',
+        'bDFName': 'MUNICIPALITY WARMBATHS',
+        'sortCode': 334447
+      },
+      {
+        'bDFID': '0000000682',
+        'bDFName': 'MATJHABENG LOCAL MUNICIPALITY',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000000685',
+        'bDFName': 'CAPE CONSUMERS',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000000706',
+        'bDFName': 'BITOU MUNICIPALITY',
+        'sortCode': 128505
+      },
+      {
+        'bDFID': '0000000715',
+        'bDFName': 'MUNICIPALITY RICHARDS BAY',
+        'sortCode': 334230
+      },
+      {
+        'bDFID': '0000000717',
+        'bDFName': 'ETHEKWINI MUNICIPALITY',
+        'sortCode': 40026
+      },
+      {
+        'bDFID': '0000000718',
+        'bDFName': 'MUNICIPALITY UGU DISTRICT',
+        'sortCode': 220228
+      },
+      {
+        'bDFID': '0000000735',
+        'bDFName': 'BIBLE SOCIETY',
+        'sortCode': 334642
+      },
+      {
+        'bDFID': '0000000736',
+        'bDFName': 'BYBELGENOOTSKAP (TVL)',
+        'sortCode': 334642
+      },
+      {
+        'bDFID': '0000000755',
+        'bDFName': 'EMFULENI LOCAL MUNICIPALITY',
+        'sortCode': 630237
+      },
+      {
+        'bDFID': '0000000789',
+        'bDFName': 'DIHLABENG LOCAL MUNICIPALITY',
+        'sortCode': 502233
+      },
+      {
+        'bDFID': '0000000790',
+        'bDFName': 'MUNICIPALITY VANDERBIJL',
+        'sortCode': 630237
+      },
+      {
+        'bDFID': '0000000875',
+        'bDFName': 'RUSSELLS',
+        'sortCode': 502905
+      },
+      {
+        'bDFID': '0000000927',
+        'bDFName': 'J H ISAACS NATAL',
+        'sortCode': 221426
+      },
+      {
+        'bDFID': '0000001140',
+        'bDFName': 'EKURHULENI METRO - SPRINGS',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000001226',
+        'bDFName': 'MUNICIPALITY GEORGE',
+        'sortCode': 509814
+      },
+      {
+        'bDFID': '0000001375',
+        'bDFName': 'MUNICIPALITY WITBANK',
+        'sortCode': 334450
+      },
+      {
+        'bDFID': '0000001404',
+        'bDFName': 'MUNICIPALITY KEETMANSHOOP',
+        'sortCode': 460371
+      },
+      {
+        'bDFID': '0000001597',
+        'bDFName': 'MUNICIPALITY WINDHOEK',
+        'sortCode': 280172
+      },
+      {
+        'bDFID': '0000001666',
+        'bDFName': 'MUNICIPALITY KLERKSDORP',
+        'sortCode': 501738
+      },
+      {
+        'bDFID': '0000001688',
+        'bDFName': 'UMNGENI MUNICIPALITY',
+        'sortCode': 634926
+      },
+      {
+        'bDFID': '0000001697',
+        'bDFName': 'MUNICIPALITY HEIDELBERG',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000001767',
+        'bDFName': 'SOUTH CAPE REGIONAL SERVICES',
+        'sortCode': 210114
+      },
+      {
+        'bDFID': '0000001801',
+        'bDFName': 'ESKOM',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000001987',
+        'bDFName': 'MANGAUNG LOCAL MUNICIPALITY',
+        'sortCode': 334134
+      },
+      {
+        'bDFID': '0000001999',
+        'bDFName': 'MUNICIPALITY ELLISRAS',
+        'sortCode': 334547
+      },
+      {
+        'bDFID': '0000002053',
+        'bDFName': 'MUNICIPALITY KIMBERLEY',
+        'sortCode': 50002
+      },
+      {
+        'bDFID': '0000002128',
+        'bDFName': 'LEADING CONCEPTS',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000002139',
+        'bDFName': 'IEMAS',
+        'sortCode': 251445
+      },
+      {
+        'bDFID': '0000002264',
+        'bDFName': 'MUNICIPALITY BEACON BAY',
+        'sortCode': 210121
+      },
+      {
+        'bDFID': '0000002313',
+        'bDFName': 'MUNICIPALITY WALVIS BAY',
+        'sortCode': 82272
+      },
+      {
+        'bDFID': '0000002315',
+        'bDFName': 'NICTUS',
+        'sortCode': 280172
+      },
+      {
+        'bDFID': '0000002316',
+        'bDFName': 'ALFA KOOPERATIEWE HANDELS',
+        'sortCode': 481972
+      },
+      {
+        'bDFID': '0000002409',
+        'bDFName': 'TELECOM NAMIBIA',
+        'sortCode': 82372
+      },
+      {
+        'bDFID': '0000002458',
+        'bDFName': 'MUNICIPALITY SWAKOPMUND',
+        'sortCode': 481772
+      },
+      {
+        'bDFID': '0000002467',
+        'bDFName': 'MAXPROP HOLDINGS',
+        'sortCode': 45626
+      },
+      {
+        'bDFID': '0000002468',
+        'bDFName': 'MUNICIPALITY HILTON',
+        'sortCode': 220725
+      },
+      {
+        'bDFID': '0000002469',
+        'bDFName': 'MIDVAAL LOCAL MUNICIPALITY',
+        'sortCode': 334137
+      },
+      {
+        'bDFID': '0000002470',
+        'bDFName': 'MUNICIPALITY POTCHEFSTROOM',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000003158',
+        'bDFName': 'CDM MUSIC CLUB',
+        'sortCode': 312209
+      },
+      {
+        'bDFID': '0000003164',
+        'bDFName': 'NEDTEL CELLULAR E/B',
+        'sortCode': 198605
+      },
+      {
+        'bDFID': '0000003171',
+        'bDFName': 'MUNICIPALITY PRINCE ALBERT',
+        'sortCode': 334708
+      },
+      {
+        'bDFID': '0000003280',
+        'bDFName': 'MUNICIPALITY PIETERSBURG',
+        'sortCode': 52548
+      },
+      {
+        'bDFID': '0000003322',
+        'bDFName': 'NEWCASTLE LOCAL COUNCIL',
+        'sortCode': 270324
+      },
+      {
+        'bDFID': '0000003389',
+        'bDFName': 'MUNICIPALITY WORCESTER',
+        'sortCode': 503107
+      },
+      {
+        'bDFID': '0000003551',
+        'bDFName': 'CNA GOODIE CARD',
+        'sortCode': 194905
+      },
+      {
+        'bDFID': '0000003563',
+        'bDFName': 'RADIOSPOOR CELLULAR',
+        'sortCode': 168642
+      },
+      {
+        'bDFID': '0000003564',
+        'bDFName': 'AUTOPAGE  CELLULAR',
+        'sortCode': 159805
+      },
+      {
+        'bDFID': '0000003565',
+        'bDFName': 'TOTAL SPORTS',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000003566',
+        'bDFName': 'LINK PHARMACY',
+        'sortCode': 250805
+      },
+      {
+        'bDFID': '0000003578',
+        'bDFName': 'TRANSTEL CELLULAR',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000003627',
+        'bDFName': 'GAME CARD',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000003628',
+        'bDFName': 'MEDICARD',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000003672',
+        'bDFName': 'MIDAS',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000003746',
+        'bDFName': 'ANIMAL ANTI CRUELTY LEAGUE',
+        'sortCode': 630705
+      },
+      {
+        'bDFID': '0000003765',
+        'bDFName': 'HOME CHOICE',
+        'sortCode': 261150
+      },
+      {
+        'bDFID': '0000003777',
+        'bDFName': 'MUNICIPALITY NELSPRUIT',
+        'sortCode': 334252
+      },
+      {
+        'bDFID': '0000003789',
+        'bDFName': 'APPLIANCE  CITY',
+        'sortCode': 355
+      },
+      {
+        'bDFID': '0000003796',
+        'bDFName': 'TAFELBERG FURNITURE STORES',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000003800',
+        'bDFName': 'PEERLESS GROUP/SLEEPY JOE',
+        'sortCode': 130526
+      },
+      {
+        'bDFID': '0000004276',
+        'bDFName': 'OK BAZAAR CARD',
+        'sortCode': 250805
+      },
+      {
+        'bDFID': '0000004643',
+        'bDFName': 'JET CLOTHING',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000006241',
+        'bDFName': 'TRADE CENTRE',
+        'sortCode': 250805
+      },
+      {
+        'bDFID': '0000007027',
+        'bDFName': 'ABSA CARD',
+        'sortCode': 632005,
+        'existing': true
+      },
+      {
+        'bDFID': '0000007142',
+        'bDFName': 'KROONSTAD TLC',
+        'sortCode': 334536
+      },
+      {
+        'bDFID': '0000007200',
+        'bDFName': 'SABC TV LICENSE',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000007561',
+        'bDFName': 'MULTICHOICE NAMIBIA (PTY) LTD',
+        'sortCode': 82672
+      },
+      {
+        'bDFID': '0000007707',
+        'bDFName': 'LEEUWKOP GOLF CLUB',
+        'sortCode': 509955
+      },
+      {
+        'bDFID': '0000007710',
+        'bDFName': 'KYALAMI-COUNTRY-CLUB',
+        'sortCode': 168642
+      },
+      {
+        'bDFID': '0000007712',
+        'bDFName': 'DAMELIN EDUCATION GROUP',
+        'sortCode': 251405
+      },
+      {
+        'bDFID': '0000007718',
+        'bDFName': 'ST STITHIANS COLLEGE',
+        'sortCode': 18005
+      },
+      {
+        'bDFID': '0000007719',
+        'bDFName': "ST MARY'S SCHOOL FOR GIRLS",
+        'sortCode': 4005
+      },
+      {
+        'bDFID': '0000007721',
+        'bDFName': 'RANDSE AFRIKAANSE UNIVERSITEIT',
+        'sortCode': 335105
+      },
+      {
+        'bDFID': '0000007725',
+        'bDFName': 'REDHILL SCHOOL TRUST',
+        'sortCode': 18105
+      },
+      {
+        'bDFID': '0000007726',
+        'bDFName': 'COTLANDS BABY SANCTUARY',
+        'sortCode': 6005
+      },
+      {
+        'bDFID': '0000007755',
+        'bDFName': 'COUNTRY CLUB JOHANNESBURG THE',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000007762',
+        'bDFName': "BUSINESS WOMEN'S ASSOCIATION",
+        'sortCode': 194405
+      },
+      {
+        'bDFID': '0000007763',
+        'bDFName': 'VODACOM (PTY) LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000007764',
+        'bDFName': 'MWEB-HOME',
+        'sortCode': 145209
+      },
+      {
+        'bDFID': '0000007775',
+        'bDFName': 'WOOLWORTHS VISA',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000007782',
+        'bDFName': 'EMFULENI LOCAL COUNCIL',
+        'sortCode': 630237
+      },
+      {
+        'bDFID': '0000007791',
+        'bDFName': 'SA GUIDE DOGS ASS 4 THE BLIND',
+        'sortCode': 152205
+      },
+      {
+        'bDFID': '0000007793',
+        'bDFName': 'LUKANJI MUNICIPALITY',
+        'sortCode': 334420
+      },
+      {
+        'bDFID': '0000007823',
+        'bDFName': 'JHB WATER',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000007842',
+        'bDFName': 'TRIDENT',
+        'sortCode': 528628
+      },
+      {
+        'bDFID': '0000007843',
+        'bDFName': 'ABC TELESALES',
+        'sortCode': 528628,
+        'existing': true
+      },
+      {
+        'bDFID': '0000007853',
+        'bDFName': 'SAB EFT DEBTORS',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000007864',
+        'bDFName': 'EXACTMOBILE.CO.ZA',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000007877',
+        'bDFName': 'OPERATION SNOWBALL',
+        'sortCode': 190805
+      },
+      {
+        'bDFID': '0000007878',
+        'bDFName': 'CITY OF JOHANNESBURG',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000007896',
+        'bDFName': 'VIRGIN ACTIVE SOUTH AFRICA PTY',
+        'sortCode': 145209
+      },
+      {
+        'bDFID': '0000007936',
+        'bDFName': 'OLD MUTUAL EB ORION',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000007938',
+        'bDFName': 'CITY  OF  CAPE TOWN',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000007946',
+        'bDFName': 'ARTS & CULTURE TRUST',
+        'sortCode': 190805
+      },
+      {
+        'bDFID': '0000007947',
+        'bDFName': 'THE SPORTS TRUST',
+        'sortCode': 191505
+      },
+      {
+        'bDFID': '0000007951',
+        'bDFName': 'BP SOUTHERN AFRICA (PTY) LTD',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000007954',
+        'bDFName': 'UNEMPLOYMENT INS FUND (UIF)',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000007960',
+        'bDFName': 'THE GREEN TRUST',
+        'sortCode': 107110
+      },
+      {
+        'bDFID': '0000007978',
+        'bDFName': 'VENN NEMETH AND HART INC',
+        'sortCode': 57525
+      },
+      {
+        'bDFID': '0000008019',
+        'bDFName': 'SAMBA KOOP BEPERK',
+        'sortCode': 166234
+      },
+      {
+        'bDFID': '0000008023',
+        'bDFName': 'MINT CARD',
+        'sortCode': 194905
+      },
+      {
+        'bDFID': '0000008084',
+        'bDFName': 'CASTROL S.A',
+        'sortCode': 12342
+      },
+      {
+        'bDFID': '0000008085',
+        'bDFName': 'BPSA (LUBRICANTS)',
+        'sortCode': 12342
+      },
+      {
+        'bDFID': '0000008124',
+        'bDFName': 'CELL C SERVICE PROVIDER PTY LT',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008202',
+        'bDFName': 'RSA RETAIL BOND',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008350',
+        'bDFName': 'YOUNG DESIGNERS EMPORIUM',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008351',
+        'bDFName': 'IDENTITY RETAILING',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008361',
+        'bDFName': 'CONSTANTIA SECTIONAL TITLE MAN',
+        'sortCode': 198341
+      },
+      {
+        'bDFID': '0000008364',
+        'bDFName': 'BEELD VOORUITINTEKENARE',
+        'sortCode': 514805
+      },
+      {
+        'bDFID': '0000008385',
+        'bDFName': 'TRAUMA LINK (PTY) LTD T/A NETC',
+        'sortCode': 193305
+      },
+      {
+        'bDFID': '0000008409',
+        'bDFName': 'DISCOVERY CREDIT CARD',
+        'sortCode': 250755
+      },
+      {
+        'bDFID': '0000008410',
+        'bDFName': 'WESBANK CREDIT CARD',
+        'sortCode': 250755
+      },
+      {
+        'bDFID': '0000008411',
+        'bDFName': 'DISCOVERY HEALTH MEDICAL SCHEM',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000008412',
+        'bDFName': 'DISCOVERY LIFE LTD',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000008464',
+        'bDFName': 'SAB EFT DEBTORS NEW ACCOUNT NO',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008507',
+        'bDFName': 'SARS-VAT-VALUE ADDED TAX',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008508',
+        'bDFName': 'SARS-WHT',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008509',
+        'bDFName': 'SARS-ITA-ASSESSED TAX',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008510',
+        'bDFName': 'SARS-PAYE-PAY AS YOU EARN',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008511',
+        'bDFName': 'SARS-PROV-PROVISIONAL TAX',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008514',
+        'bDFName': 'SARS CUSTOMS',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008515',
+        'bDFName': 'SARS-APT-AIR PASSENGER TAX',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008573',
+        'bDFName': 'GO BANKING CREDIT CARD',
+        'sortCode': 194905
+      },
+      {
+        'bDFID': '0000008575',
+        'bDFName': 'OLD MUTUAL - GENERAL POLICY PA',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008590',
+        'bDFName': 'LIBERTY GROUP LTD - PREMIUMS',
+        'sortCode': 1305
+      },
+      {
+        'bDFID': '0000008596',
+        'bDFName': 'MEDSCHEME - BONITAS MEDICAL FU',
+        'sortCode': 198405
+      },
+      {
+        'bDFID': '0000008615',
+        'bDFName': 'OLD MUTUAL BANK CREDIT CARD',
+        'sortCode': 194905
+      },
+      {
+        'bDFID': '0000008616',
+        'bDFName': 'STANLIB COLLECTIVE INVESTMENTS',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000008637',
+        'bDFName': 'UNIVERSITY OF S.AFRICA (UNISA)',
+        'sortCode': 10645
+      },
+      {
+        'bDFID': '0000008661',
+        'bDFName': 'MWEB-BUSINESS',
+        'sortCode': 145209
+      },
+      {
+        'bDFID': '0000008662',
+        'bDFName': 'POLKA',
+        'sortCode': 6605
+      },
+      {
+        'bDFID': '0000008670',
+        'bDFName': 'KULULA CARD',
+        'sortCode': 250755
+      },
+      {
+        'bDFID': '0000008688',
+        'bDFName': 'OLD MUTUAL - GROUP SCHEMES POL',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008689',
+        'bDFName': 'CLICKS CREDIT CARD',
+        'sortCode': 258905
+      },
+      {
+        'bDFID': '0000008693',
+        'bDFName': 'STUTTAFORDS STORES',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008701',
+        'bDFName': 'MANGO AIRLINES PTY LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008702',
+        'bDFName': 'CRESCENT BALANCED PROGRESSIVE',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008703',
+        'bDFName': 'OASIS BALANCED STABLE OF FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008704',
+        'bDFName': 'OASIS INTERNATIONAL FEEDER FUN',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008705',
+        'bDFName': 'OASIS BOND FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008706',
+        'bDFName': 'OASIS MONEY MARKET FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008707',
+        'bDFName': 'OASIS GENERAL EQUITY FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008708',
+        'bDFName': 'OASIS CRESCENT INTERNATIONAL F',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008709',
+        'bDFName': 'OASIS BALANCED UNIT TRUST FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008710',
+        'bDFName': 'OASIS CRESCENT EQUITY FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008711',
+        'bDFName': 'OASIS PROPERTY EQUITY FUND',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008713',
+        'bDFName': 'SAA VOYAGER CARD (VISA)',
+        'sortCode': 194905
+      },
+      {
+        'bDFID': '0000008715',
+        'bDFName': 'SAA VOYAGER CARD (AMEX)',
+        'sortCode': 190105
+      },
+      {
+        'bDFID': '0000008720',
+        'bDFName': 'SARS OTHER',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008723',
+        'bDFName': 'VODACOM CREDIT CARD',
+        'sortCode': 250755
+      },
+      {
+        'bDFID': '0000008726',
+        'bDFName': 'EDGARS CREDIT CARD',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000008727',
+        'bDFName': 'MTN CREDIT CARD',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000008735',
+        'bDFName': 'MERAFONG - MAIN ACCOUNT',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008736',
+        'bDFName': 'MERAFONG - TRAFFIC FINES ACCOU',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008737',
+        'bDFName': 'MERAFONG - DISASTER MANAGEMENT',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008738',
+        'bDFName': 'MERAFONG - DONATIONS ACCOUNT',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008739',
+        'bDFName': 'MERAFONG - SPECIAL OCCASSIONS',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008742',
+        'bDFName': 'LION OF AFRICA',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008745',
+        'bDFName': 'MUNICIPALITY KNYSNA',
+        'sortCode': 162645
+      },
+      {
+        'bDFID': '0000008753',
+        'bDFName': 'EDGARS PERSONAL LOANS (FNB)',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000008755',
+        'bDFName': 'ADCOCK INGRAM PHARMA',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008756',
+        'bDFName': 'UTHUNGULU DM - MUNICIPAL ACC',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008757',
+        'bDFName': 'UTHUNGULU DM - PRIMARY ACCOUNT',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008769',
+        'bDFName': 'DRAKENSTEIN MUNICIPALITY',
+        'sortCode': 149821
+      },
+      {
+        'bDFID': '0000008770',
+        'bDFName': 'MUNICIPALITY DRAKENSTEIN',
+        'sortCode': 149821
+      },
+      {
+        'bDFID': '0000008789',
+        'bDFName': 'MOSSEL BAY MUN.(UTILITY BILLS)',
+        'sortCode': 50414
+      },
+      {
+        'bDFID': '0000008793',
+        'bDFName': 'UJ SUNDRY DEBTORS',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008794',
+        'bDFName': 'AFRICAN OXYGEN LIMITED',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008796',
+        'bDFName': 'CHRIS DREYER MANAGEMENT TRUST',
+        'sortCode': 16641
+      },
+      {
+        'bDFID': '0000008799',
+        'bDFName': 'UZZI (PTY) LTD',
+        'sortCode': 20009
+      },
+      {
+        'bDFID': '0000008808',
+        'bDFName': 'FINANCIAL SERVICES BOARD FAIS',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008811',
+        'bDFName': 'FINANCIAL SERVICE BOARD FAIS A',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008818',
+        'bDFName': 'NWU STUDENT (NORTH-WEST UNIVER',
+        'sortCode': 171338
+      },
+      {
+        'bDFID': '0000008819',
+        'bDFName': 'NWU VENDING (NORTH WEST UNIV',
+        'sortCode': 171338
+      },
+      {
+        'bDFID': '0000008833',
+        'bDFName': 'BOE STOCKBROKERS (PTY) LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008834',
+        'bDFName': 'GROWTHPOINT MANAGEMENT SERVICE',
+        'sortCode': 190605
+      },
+      {
+        'bDFID': '0000008851',
+        'bDFName': 'AXXESS DSL (PTY) LTD',
+        'sortCode': 126317
+      },
+      {
+        'bDFID': '0000008855',
+        'bDFName': 'BLUEBEAN CREDIT CARD',
+        'sortCode': 105
+      },
+      {
+        'bDFID': '0000008860',
+        'bDFName': 'NEOTEL (PTY) LTD - CONSUMER',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008861',
+        'bDFName': 'NEOTEL (PTY) LTD - ENTERPRISE',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008863',
+        'bDFName': 'NEOTEL (PTY) LTD - WHOLESALE',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008898',
+        'bDFName': 'BONITAS MEDICAL FUND',
+        'sortCode': 198405
+      },
+      {
+        'bDFID': '0000008900',
+        'bDFName': 'NATELA IMPORTERS (PTY) LTD - T',
+        'sortCode': 128842
+      },
+      {
+        'bDFID': '0000008905',
+        'bDFName': 'BRITISH AMERICAN TOBACCO SA',
+        'sortCode': 145209
+      },
+      {
+        'bDFID': '0000008910',
+        'bDFName': 'IBURST WIRELESS BUSINESS SOLUT',
+        'sortCode': 128405
+      },
+      {
+        'bDFID': '0000008933',
+        'bDFName': 'BDB DATA BUREAU PTY LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000008934',
+        'bDFName': 'MUNICIPALITY KNYSNATRAFFICFINE',
+        'sortCode': 162645
+      },
+      {
+        'bDFID': '0000008979',
+        'bDFName': 'UPS SCS SOUTH AFRICA (PTY) LTD',
+        'sortCode': 187505
+      },
+      {
+        'bDFID': '0000009014',
+        'bDFName': 'SAICA',
+        'sortCode': 128405
+      },
+      {
+        'bDFID': '0000009068',
+        'bDFName': 'LANCET LABORATORIES',
+        'sortCode': 146905
+      },
+      {
+        'bDFID': '0000009069',
+        'bDFName': 'PROPELL',
+        'sortCode': 123209
+      },
+      {
+        'bDFID': '0000009085',
+        'bDFName': 'JAMMING REWARDS PROGRAM PTY',
+        'sortCode': 198841
+      },
+      {
+        'bDFID': '0000009086',
+        'bDFName': 'BAEDEX FINANCIAL CORPORATION',
+        'sortCode': 103902
+      },
+      {
+        'bDFID': '0000009087',
+        'bDFName': 'ICASA',
+        'sortCode': 146245
+      },
+      {
+        'bDFID': '0000009108',
+        'bDFName': 'METROPOLITAN LIFE SINGLE PREM',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009109',
+        'bDFName': 'METROPOLITAN LOAN REPAYMENT',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009110',
+        'bDFName': 'METROPOLITAN ODYSSEY PREMIUM',
+        'sortCode': 100909
+      },
+      {
+        'bDFID': '0000009111',
+        'bDFName': 'METROPOLITAN STOP ORDER WEEKLY',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009112',
+        'bDFName': 'METROPOLITAN FUTURE CHOICE',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009113',
+        'bDFName': 'METROPOLITAN GUARANTEED ENDOWM',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009114',
+        'bDFName': 'METROPOLITAN PREMIUM',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009115',
+        'bDFName': 'METROPOLITAN STOP ORDER AGENCY',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009116',
+        'bDFName': 'METROPOLITAN GROUP SCHEME PREM',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009123',
+        'bDFName': 'REDEFINE PROPERTIES LIMITED',
+        'sortCode': 4305
+      },
+      {
+        'bDFID': '0000009124',
+        'bDFName': 'TLOKWE CITY COUNCIL DAM',
+        'sortCode': 149745
+      },
+      {
+        'bDFID': '0000009125',
+        'bDFName': 'TLOKWE CITY COUNCIL LICENSING',
+        'sortCode': 149745
+      },
+      {
+        'bDFID': '0000009126',
+        'bDFName': 'TLOKWE CITY COUNCIL TRAFFIC',
+        'sortCode': 149745
+      },
+      {
+        'bDFID': '0000009127',
+        'bDFName': 'TLOKWE CITY COUNCIL VOTE',
+        'sortCode': 149745
+      },
+      {
+        'bDFID': '0000009128',
+        'bDFName': 'TLOKWE CITY COUNCIL RATE/ELEC',
+        'sortCode': 149745
+      },
+      {
+        'bDFID': '0000009132',
+        'bDFName': 'HYPHEN PDA',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009133',
+        'bDFName': 'NBCRFI',
+        'sortCode': 250655
+      },
+      {
+        'bDFID': '0000009134',
+        'bDFName': 'THE HOLIDAY CLUB',
+        'sortCode': 220228
+      },
+      {
+        'bDFID': '0000009136',
+        'bDFName': 'DREHMO AFRICA PTY LTD',
+        'sortCode': 146905
+      },
+      {
+        'bDFID': '0000009149',
+        'bDFName': 'N.B.C.E.I (SA) -REGION A',
+        'sortCode': 251905
+      },
+      {
+        'bDFID': '0000009150',
+        'bDFName': 'N.B.C.E.I (SA) -REGION B',
+        'sortCode': 261050
+      },
+      {
+        'bDFID': '0000009151',
+        'bDFName': 'N.B.C.E.I (SA) REGION C',
+        'sortCode': 220126
+      },
+      {
+        'bDFID': '0000009152',
+        'bDFName': 'N.B.C.E.I (SA) -REGION D',
+        'sortCode': 200809
+      },
+      {
+        'bDFID': '0000009153',
+        'bDFName': 'NUDEBT MANAGEMENT PTY LTD',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009157',
+        'bDFName': 'WILEC',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009158',
+        'bDFName': 'ESCAPE PREMIUM ANNUAL ACC',
+        'sortCode': 250655
+      },
+      {
+        'bDFID': '0000009159',
+        'bDFName': 'ESCAPE PREMIUM GENERAL FUND',
+        'sortCode': 250655
+      },
+      {
+        'bDFID': '0000009162',
+        'bDFName': 'SA TOURISM GRADING COUNCIL',
+        'sortCode': 146905
+      },
+      {
+        'bDFID': '0000009163',
+        'bDFName': 'TNT EXPRESS WORLDWIDE SA (PTY)',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009164',
+        'bDFName': 'SA HOME LOANS (PTY) LTD',
+        'sortCode': 42826
+      },
+      {
+        'bDFID': '0000009166',
+        'bDFName': 'TRAVELSTART ONLINE TRAVEL OPER',
+        'sortCode': 123209
+      },
+      {
+        'bDFID': '0000009169',
+        'bDFName': 'GREYDOT TELECOMS (PTY) LTD',
+        'sortCode': 251141
+      },
+      {
+        'bDFID': '0000009170',
+        'bDFName': 'AUTO HOLIDAYS (PTY) LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000009171',
+        'bDFName': 'THE ESTATE AGENCY AFFAIRS BOAR',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009175',
+        'bDFName': 'TENACITY FINANCIAL SERVICES',
+        'sortCode': 145209
+      },
+      {
+        'bDFID': '0000009176',
+        'bDFName': 'CINPF',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000009226',
+        'bDFName': 'S.A.C.A.P',
+        'sortCode': 254005
+      },
+      {
+        'bDFID': '0000009229',
+        'bDFName': 'SANRAL TCH',
+        'sortCode': 250655
+      },
+      {
+        'bDFID': '0000009230',
+        'bDFName': 'SANRAL VPC',
+        'sortCode': 250655
+      },
+      {
+        'bDFID': '0000009233',
+        'bDFName': 'VIRGIN MOBILE SA',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000009235',
+        'bDFName': 'MPACT LTD SPRINGS',
+        'sortCode': 12142
+      },
+      {
+        'bDFID': '0000009236',
+        'bDFName': 'MPACT LTD CORRUGATING',
+        'sortCode': 12142
+      },
+      {
+        'bDFID': '0000009252',
+        'bDFName': 'JET MART',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009253',
+        'bDFName': 'EDCON',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009254',
+        'bDFName': 'RED SQUARE',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009255',
+        'bDFName': 'BOARDMANS',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009256',
+        'bDFName': 'CNA',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009257',
+        'bDFName': 'LEGIT',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009258',
+        'bDFName': 'EDGARS ACTIVE',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009266',
+        'bDFName': 'DSTV BOX OFFICE',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000009277',
+        'bDFName': 'DEALER FUNDING SOLUTIONS TFS',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009278',
+        'bDFName': 'DEALER FUNDING SOLUTIONS WB',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009286',
+        'bDFName': 'MFC DIV OF NEDBANK-COLLECTIONS',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009287',
+        'bDFName': 'MFC DIVISION OF NEDBANK',
+        'sortCode': 195705
+      },
+      {
+        'bDFID': '0000009288',
+        'bDFName': 'INFINITI INSURANCE LTD',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000009301',
+        'bDFName': 'THE PEKAY GROUP (PTY) LTD',
+        'sortCode': 5005
+      },
+      {
+        'bDFID': '0000009302',
+        'bDFName': 'AGRINET LTD',
+        'sortCode': 128805
+      },
+      {
+        'bDFID': '0000009303',
+        'bDFName': 'PSIRA',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009305',
+        'bDFName': 'CTPAYSERV',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009306',
+        'bDFName': 'CYBERVENDIT',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009315',
+        'bDFName': 'TRAFALGAR PROPERTY MANAGEMENT.',
+        'sortCode': 51001
+      },
+      {
+        'bDFID': '0000009329',
+        'bDFName': 'BUILDERS CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009330',
+        'bDFName': 'RCS VIP CARDS',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009331',
+        'bDFName': 'RCS XPRESS CREDIT CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009332',
+        'bDFName': 'RCS GALAXY AND CO CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009333',
+        'bDFName': 'MAKRO ACCOUNT CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009334',
+        'bDFName': 'RCS CAPE UNION MART CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009335',
+        'bDFName': 'RCS CORI-TERMS CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009336',
+        'bDFName': 'TEKKIE TOWN CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009337',
+        'bDFName': 'RCS CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009338',
+        'bDFName': 'QUEENSPARK CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009339',
+        'bDFName': 'SPITZ GROUP CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009340',
+        'bDFName': 'RCS CTM CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009341',
+        'bDFName': 'RCS NWJ CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009342',
+        'bDFName': 'RCS VERIMARK CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009343',
+        'bDFName': 'DION WIRED LOANS',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009344',
+        'bDFName': 'GAME LOANS',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009345',
+        'bDFName': 'NATIONAL UNION OF METALWORKERS',
+        'sortCode': 250205
+      },
+      {
+        'bDFID': '0000009346',
+        'bDFName': 'MUNNIK BASSON DAGAMA INC',
+        'sortCode': 51001
+      },
+      {
+        'bDFID': '0000009347',
+        'bDFName': 'MBD CREDIT SOLUTIONS (PTY) LTD',
+        'sortCode': 51001
+      },
+      {
+        'bDFID': '0000009348',
+        'bDFName': 'HEYNS & PARTNERS INC.NORTHERN',
+        'sortCode': 187805
+      },
+      {
+        'bDFID': '0000009349',
+        'bDFName': 'HEYNS & PARTNERS INC.SOUTHERN',
+        'sortCode': 187805
+      },
+      {
+        'bDFID': '0000009350',
+        'bDFName': 'CPUT',
+        'sortCode': 312109
+      },
+      {
+        'bDFID': '0000009365',
+        'bDFName': 'MR PRICE T/A MR PRICE MONEY',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009366',
+        'bDFName': 'MR PRICE T/A SHEET STREET',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009367',
+        'bDFName': 'MR PRICE T/A MILADYS',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009372',
+        'bDFName': 'HIBISCUS C MUN-RATES /ELEC',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009373',
+        'bDFName': 'HIBISCUS C MUN-OTHER SERVICE',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009374',
+        'bDFName': 'HIBISCUS C MUN-TRAFFIC FINES',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009375',
+        'bDFName': 'HIBISCUS C MUN-GOVT PAYMENT',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009376',
+        'bDFName': 'G4S CASH - BRYANSTON (HQ)',
+        'sortCode': 198705
+      },
+      {
+        'bDFID': '0000009377',
+        'bDFName': 'G4S CASH - NORTH WEST GAUTENG',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009378',
+        'bDFName': 'G4S CASH - KZN REGION',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009379',
+        'bDFName': 'G4S CASH - LIMPOPO REGION',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009380',
+        'bDFName': 'G4S CASH - CAPE REGION',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009381',
+        'bDFName': 'G4S CASH - CENTRAL REGION',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009382',
+        'bDFName': 'G4S CASH - SOUTH EAST GAUTENG',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009432',
+        'bDFName': 'PAY TRADER',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009433',
+        'bDFName': 'WESTERN CAPE LIQUOR AUTHORITY',
+        'sortCode': 145209
+      },
+      {
+        'bDFID': '0000009440',
+        'bDFName': 'ALLAN GRAY PLATFORM',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000009441',
+        'bDFName': 'ALLAN GRAY ENDOWMENT',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000009442',
+        'bDFName': 'ALLAN GRAY RETIREMENT',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000009443',
+        'bDFName': 'ALLAN GRAY UNIT TRUST',
+        'sortCode': 204109
+      },
+      {
+        'bDFID': '0000009446',
+        'bDFName': 'AFRICAN BANK PAYROLL',
+        'sortCode': 430000
+      },
+      {
+        'bDFID': '0000009447',
+        'bDFName': 'AFRICAN BANK LEGAL',
+        'sortCode': 430000
+      },
+      {
+        'bDFID': '0000009448',
+        'bDFName': 'AFRICAN BANK ADMIN ORDERS',
+        'sortCode': 430000
+      },
+      {
+        'bDFID': '0000009449',
+        'bDFName': 'AFRICAN BANK INVESTMENTS',
+        'sortCode': 430000
+      },
+      {
+        'bDFID': '0000009450',
+        'bDFName': 'AFRICAN BANK CREDIT CARDS',
+        'sortCode': 430000
+      },
+      {
+        'bDFID': '0000009451',
+        'bDFName': 'AFRICAN BANK LOANS',
+        'sortCode': 430000
+      },
+      {
+        'bDFID': '0000009454',
+        'bDFName': 'SALDANHA BAY MUNICIPALITY',
+        'sortCode': 50511
+      },
+      {
+        'bDFID': '0000009455',
+        'bDFName': 'SARS-EXCISE',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000009470',
+        'bDFName': 'MSC CRUISES',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009477',
+        'bDFName': 'SCB TWALA GLOBAL CARGO',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009478',
+        'bDFName': 'SCB TOLL GLOBAL FORWARDING',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009488',
+        'bDFName': 'MUKURU (INTER AFRICA)',
+        'sortCode': 52640
+      },
+      {
+        'bDFID': '0000009491',
+        'bDFName': 'THULAMELA MUNICIPALITY',
+        'sortCode': 260549
+      },
+      {
+        'bDFID': '0000009492',
+        'bDFName': 'ABSA VEHICLE & ASSET FINANCE',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009505',
+        'bDFName': 'WIREIT',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009506',
+        'bDFName': 'PAYIT MAPS',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009507',
+        'bDFName': 'WIREIT-EMNAMBITHI',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009508',
+        'bDFName': 'WIREIT-MSUNDUZI',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009509',
+        'bDFName': 'WIREIT-NMBM',
+        'sortCode': 164826
+      },
+      {
+        'bDFID': '0000009513',
+        'bDFName': 'M-PESA CUSTOMER PAYMENTS',
+        'sortCode': 462005
+      },
+      {
+        'bDFID': '0000009514',
+        'bDFName': 'M-PESA BUSINESS PAYMENTS',
+        'sortCode': 462005
+      },
+      {
+        'bDFID': '0000009527',
+        'bDFName': 'RCS SUNGLASS HUT CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009528',
+        'bDFName': 'RCS CONTEMPO CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009529',
+        'bDFName': 'TRANSUNION AIS',
+        'sortCode': 254405
+      },
+      {
+        'bDFID': '0000009530',
+        'bDFName': 'TRANSUNION CB',
+        'sortCode': 251705
+      },
+      {
+        'bDFID': '0000009531',
+        'bDFName': 'WESTRAND HONDA',
+        'sortCode': 145405
+      },
+      {
+        'bDFID': '0000009532',
+        'bDFName': 'SUN COURIERS',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009535',
+        'bDFName': 'RCS PRODFIN CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009538',
+        'bDFName': 'BEAUFORT WEST MUN TRAFFIC FINE',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009539',
+        'bDFName': 'BEAUFORT WEST MUN UTILITY BILL',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009540',
+        'bDFName': 'SEMBCORP SIZA WATER (PTY) LTD',
+        'sortCode': 250102
+      },
+      {
+        'bDFID': '0000009541',
+        'bDFName': 'ABAQULUSI MUNICIPALITY',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009542',
+        'bDFName': 'JUST PARK',
+        'sortCode': 255005
+      },
+      {
+        'bDFID': '0000009543',
+        'bDFName': 'VODACOM DEBTORS',
+        'sortCode': 19205
+      },
+      {
+        'bDFID': '0000009544',
+        'bDFName': 'GET BUCKS PTY LTD',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009545',
+        'bDFName': 'Q PHOTO (PTY) LTD',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009546',
+        'bDFName': 'OASIS CRESCENT INCOME FUND',
+        'sortCode': 20909
+      },
+      {
+        'bDFID': '0000009547',
+        'bDFName': 'OASIS CRESC INT PROP EQ FF',
+        'sortCode': 20909
+      },
+      {
+        'bDFID': '0000009548',
+        'bDFName': 'OASIS CRESC BALANCED PROG FCF',
+        'sortCode': 20909
+      },
+      {
+        'bDFID': '0000009549',
+        'bDFName': 'OASIS CRESC BALANCED STABLE FO',
+        'sortCode': 20909
+      },
+      {
+        'bDFID': '0000009550',
+        'bDFName': 'OASIS CRESC BALANCED HI EQ FOF',
+        'sortCode': 20909
+      },
+      {
+        'bDFID': '0000009554',
+        'bDFName': 'KZN LIQUOR AUTHORITY',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009555',
+        'bDFName': 'SIMBA PROPRIETARY LIMITED',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009556',
+        'bDFName': 'COTTONON GROUP CARD',
+        'sortCode': 31110
+      },
+      {
+        'bDFID': '0000009557',
+        'bDFName': 'MILPARK  EDUCATION PTY LTD',
+        'sortCode': 123209
+      },
+      {
+        'bDFID': '0000009558',
+        'bDFName': 'SIMBA PTY LTD-CASH SALES',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009559',
+        'bDFName': 'SIMBA PTY LTD-CREDIT SALES',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009560',
+        'bDFName': 'SACPCMP',
+        'sortCode': 128405
+      },
+      {
+        'bDFID': '0000009561',
+        'bDFName': 'BLUE LABEL DISTR: AIRTIME',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009562',
+        'bDFName': 'BLUE LABEL DISTR:ELECTRICITY',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009563',
+        'bDFName': 'BAYGROUP PTY LTD',
+        'sortCode': 118602
+      },
+      {
+        'bDFID': '0000009565',
+        'bDFName': 'BITOU MUNIC (TRAFFIC FINES)',
+        'sortCode': 128505
+      },
+      {
+        'bDFID': '0000009566',
+        'bDFName': 'DTI LIQUOR LICENCE DEPOSITS',
+        'sortCode': 10645
+      },
+      {
+        'bDFID': '0000009567',
+        'bDFName': 'GIBS',
+        'sortCode': 19205
+      },
+      {
+        'bDFID': '0000009568',
+        'bDFName': 'SACE',
+        'sortCode': 146245
+      },
+      {
+        'bDFID': '0000009569',
+        'bDFName': 'PROTECT PAY',
+        'sortCode': 1255
+      },
+      {
+        'bDFID': '0000009570',
+        'bDFName': 'PETERS PAPERS (PTY) LTD',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009571',
+        'bDFName': 'TSHWANE SMART PREPAID',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009572',
+        'bDFName': 'ITHUBA HOLDINGS (PTY) LTD (RF)',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000009573',
+        'bDFName': 'SAGE PAY PTY LTD',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009574',
+        'bDFName': 'GETSMARTER',
+        'sortCode': 25109
+      },
+      {
+        'bDFID': '0000009575',
+        'bDFName': 'SEMBCORP SILULUMANZI (PTY) LTD',
+        'sortCode': 632005
+      },
+      {
+        'bDFID': '0000009576',
+        'bDFName': 'MFC',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009577',
+        'bDFName': 'ITHUBA HOLDINGS',
+        'sortCode': 205
+      },
+      {
+        'bDFID': '0000009578',
+        'bDFName': 'INSTITUTE OF INTERNAL AUDITORS',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009579',
+        'bDFName': 'HOME AFFAIRS E-CHANNEL   S',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009580',
+        'bDFName': 'JNFS TPF CF',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009581',
+        'bDFName': 'JEFT PFP PIC',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009582',
+        'bDFName': 'JAFS TPF M OE & I',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009583',
+        'bDFName': 'JAFS TPF SEC DEP',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009584',
+        'bDFName': 'JAFS POENA EVS',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009585',
+        'bDFName': 'JAFS POENA ATRIUN',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009586',
+        'bDFName': 'INVESTEC NEW BDF',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009587',
+        'bDFName': 'AON UPDATED BDF',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009588',
+        'bDFName': 'MILPARK NEW BDF',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009589',
+        'bDFName': 'EKURHULENI 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009590',
+        'bDFName': 'SA NATIONAL PARKS 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009591',
+        'bDFName': 'EKURHULENI NEW 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009592',
+        'bDFName': 'MORECORP',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009593',
+        'bDFName': 'CMA',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009594',
+        'bDFName': 'SHEPHERED',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009595',
+        'bDFName': 'CAPITEC 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009596',
+        'bDFName': 'DOJ DEBITUM 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009597',
+        'bDFName': 'DOJ CONVEY 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009598',
+        'bDFName': 'DOJ PAS 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009599',
+        'bDFName': 'ADT 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009600',
+        'bDFName': 'CASHBUILD 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009601',
+        'bDFName': 'MCCTHY 2016',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009602',
+        'bDFName': 'Firzt',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009603',
+        'bDFName': 'Sheperd Fin Service',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009604',
+        'bDFName': 'Blue Label',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009606',
+        'bDFName': 'GBC',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009607',
+        'bDFName': 'BMW FINANCIAL SERVICES',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009608',
+        'bDFName': 'FIRZT',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009609',
+        'bDFName': 'SAGE PAY',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009610',
+        'bDFName': 'ITHUBA',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009611',
+        'bDFName': 'NCT',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009612',
+        'bDFName': 'CRAIG TEST',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009613',
+        'bDFName': 'TEST BDF',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009614',
+        'bDFName': 'NORTHLINK COLLEGE',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009615',
+        'bDFName': 'NPDA DEBT REVIEW',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009616',
+        'bDFName': 'NPDA',
+        'sortCode': 198765
+      },
+      {
+        'bDFID': '0000009617',
+        'bDFName': 'DSV',
+        'sortCode': 198765
+      }
+    ],
+    'metadata': {
+      'page': 1,
+      'pageSize': 462,
+      'pageLimit': 1,
+      'resultData': []
     }
   })
 }

@@ -962,6 +962,40 @@ paths:
           schema:
             $ref: '#/definitions/ServiceProviderProductsResponse'
     parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/bankdefinedbeneficiaries:
+    get:
+      operationId: getBankDefinedBeneficiariesLatest
+      x-swagger-router-controller: reference_data
+      description: Retrieves the BDF list. Alphabetically ordered
+      parameters:
+      - description: This specifies the page to view
+        in: query
+        name: page
+        type: string
+        required: false
+      - description: This specifies the amount of records per page for viewing
+        in: query
+        name: pagesize
+        type: string
+        required: false
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BDFResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BDFResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BDFResponse'
+    parameters:
     - $ref: '#/parameters/Authorization'  
 definitions:
   BanksResponse:

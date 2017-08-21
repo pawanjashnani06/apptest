@@ -319,7 +319,7 @@ paths:
     - $ref: '#/parameters/Authorization'
   /contactcards/v1/contactcard/{contactcardID}:
     get:
-      operationId: contactCardGet
+      operationId: contactCardGetLatest
       x-swagger-router-controller: contact_cards
       description: Get a single saved multi-dimentional beneficiary
       parameters:
