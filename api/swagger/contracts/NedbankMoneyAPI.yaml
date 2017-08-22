@@ -1,0 +1,532 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: NedbankMoney.API
+host: 'localhost:17248'
+schemes:
+  - http
+paths:
+  /nedapp/devices/disconnect:
+    post:
+      tags:
+        - NedApp
+      summary: Store and audit addition device information
+      operationId: NedApp_NedAppDevicesDisconnect
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedAppDevicesDisconnectRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedapp/devices/info:
+    post:
+      tags:
+        - NedApp
+      summary: Store and audit addition device information
+      operationId: NedApp_NedAppDevicesInfo
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedAppDevicesInfoRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  '/nedapp/termsandconditions/{version}':
+    get:
+      tags:
+        - NedApp
+      summary: Get latest terms and conditions
+      operationId: NedApp_NedAppTermsAndConditions
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: version
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedapp/termsandconditions/accept:
+    post:
+      tags:
+        - NedApp
+      summary: Accept Nedbank Money terms and conditions
+      operationId: NedApp_NedAppTermsAndConditionsAccept
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedAppTermsAndConditionsAcceptRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedAppTermsAndConditionsAcceptRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials/username:
+    post:
+      tags:
+        - NedbankId
+      summary: Validate Nedbank ID Username
+      operationId: NedbankId_NedbankIdCredentialsUsername
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsUsernameRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsUsernameRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials:
+    post:
+      tags:
+        - NedbankId
+      summary: Validate Nedbank ID Username/Password
+      operationId: NedbankId_NedbankIdCredentials
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsUsernameRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials/profile:
+    post:
+      tags:
+        - NedbankId
+      summary: Validate Pin Profile Password/Password
+      operationId: NedbankId_NedbankIdCredentialsProfile
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsProfileRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials/profile/card:
+    post:
+      tags:
+        - NedbankId
+      summary: Validate PAN and PIN
+      operationId: NedbankId_NedbankIdCredentialsProfileCard
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsProfileCardRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileCardRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials/auth:
+    post:
+      tags:
+        - NedbankId
+      summary: Initiate Approve-IT
+      operationId: NedbankId_NedbankIdCredentialsAuth
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsAuthRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials/auths/otp:
+    post:
+      tags:
+        - NedbankId
+      summary: Verify OTP
+      operationId: NedbankId_NedbankIdCredentialsAuthsOtp
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsAuthRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsOtpRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/credentials/auths/pin:
+    post:
+      tags:
+        - NedbankId
+      summary: Initiate Approve-IT
+      operationId: NedbankId_NedbankIdCredentialsAuthsPin
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsAuthRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsPinRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/enrolments:
+    post:
+      tags:
+        - NedbankId
+      summary: Enrol using Nedbank ID Username and Password
+      operationId: NedbankId_NedbankIdEnrolments
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdEnrolmentsUsernameRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdEnrolmentsRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/enrolments/profile:
+    post:
+      tags:
+        - NedbankId
+      summary: Enrol using Pin Profile Password
+      operationId: NedbankId_NedbankIdEnrolmentsProfile
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdEnrolmentsProfileRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+  /nedbankid/enrolments/profile/card:
+    post:
+      tags:
+        - NedbankId
+      summary: Enrol using Card and PIN
+      operationId: NedbankId_NedbankIdEnrolmentsProfileCard
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdEnrolmentsProfileCardRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileCardRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+definitions:
+  NedbankMoney.API.Models.Request.NedAppDevicesDisconnectRequest:
+    type: object
+    properties:
+      reason:
+        type: string
+      modifiedBy:
+        type: string
+  NedbankMoney.API.Models.Response.ServiceResponse:
+    type: object
+    properties:
+      name:
+        type: string
+      response:
+        type: object
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Result:
+    type: object
+    properties:
+      resultCode:
+        type: string
+      resultMessage:
+        type: string
+  NedbankMoney.API.Models.Request.NedAppDevicesInfoRequest:
+    type: object
+    properties:
+      cpu:
+        type: string
+      hardwareSerial:
+        type: string
+      ipAddress:
+        type: string
+      gpsAccuracy:
+        type: string
+      gpsLatitude:
+        type: string
+      gpsLongiture:
+        type: string
+  NedbankMoney.API.Models.Request.NedAppTermsAndConditionsAcceptRequest:
+    type: object
+    properties:
+      version:
+        format: int32
+        type: integer
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsUsernameRequest:
+    type: object
+    properties:
+      username:
+        type: string
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsRequest:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileRequest:
+    type: object
+    properties:
+      pin:
+        type: string
+      profile:
+        type: string
+      password:
+        type: string
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileCardRequest:
+    type: object
+    properties:
+      idNumber:
+        type: string
+      pan:
+        type: string
+      pin:
+        type: string
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthRequest:
+    type: object
+    properties:
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      stepId:
+        type: string
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsOtpRequest:
+    type: object
+    properties:
+      otp:
+        type: string
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsPinRequest:
+    type: object
+    properties: {}
+  NedbankMoney.API.Models.Request.NedbankIdEnrolmentsRequest:
+    type: object
+    properties:
+      nedbankIdExists:
+        type: boolean
+      nedbankIdUsername:
+        type: string
+      nedbankIdPassword:
+        type: string
+      enrolmentProfile:
+        type: boolean
+      pin:
+        type: string
+      profile:
+        type: string
+      password:
+        type: string
+      enrolmentCard:
+        type: boolean
+      token:
+        type: string
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+  NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileRequest:
+    type: object
+    properties: {}
+  NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileCardRequest:
+    type: object
+    properties: {}
