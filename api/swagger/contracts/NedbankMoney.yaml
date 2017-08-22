@@ -144,6 +144,7 @@ paths:
       tags:
         - NedbankId
       summary: Validate Nedbank ID Username/Password
+      x-swagger-router-controller: nedbank_money
       operationId: NedbankId_NedbankIdCredentials
       consumes:
         - application/json
