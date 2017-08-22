@@ -203,6 +203,7 @@ paths:
       tags:
         - NedbankId
       summary: Validate PAN and PIN
+      x-swagger-router-controller: nedbank_money
       operationId: NedbankId_NedbankIdCredentialsProfileCard
       consumes:
         - application/json
