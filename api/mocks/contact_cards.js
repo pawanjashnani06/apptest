@@ -22,7 +22,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2010155092',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -89,7 +89,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'TswaneFBEMeterzzz',
             'accountNumber': '01050020008',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'FBE',
             'beneficiaryReference': '',
             'valid': true
@@ -125,7 +125,7 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 7,
-        'contactCardName': 'heinTEST_PPD',
+        'contactCardName': 'heinTEST_BDF',
         'contactCardDetails': [
           {
             'accountType': 'SA',
@@ -142,12 +142,12 @@ function contactCardsDetailsGet (req, res, next) {
           {
             'accountType': 'U0',
             'beneficiaryID': 4,
-            'beneficiaryName': 'heinTEST_PPD',
+            'beneficiaryName': 'heinTEST_BDF',
             'accountNumber': '0829806622',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'heinTEST_PPD',
-            'beneficiaryReference': 'heinTEST_PPD',
+            'beneficiaryType': 'BDF',
+            'myReference': 'heinTEST_BDF',
+            'beneficiaryReference': 'heinTEST_BDF',
             'valid': true
           }
         ],
@@ -157,7 +157,7 @@ function contactCardsDetailsGet (req, res, next) {
             'paymentDate': '2017-04-05T00:00:00',
             'paymentAmount': 50,
             'acctNumber': '1009087231',
-            'paymentDRNarration': 'heinTEST_PPD',
+            'paymentDRNarration': 'heinTEST_BDF',
             'paymentCRNarration': '00829806622 178910 29178910 N',
             'execEngineRef': '000000489031737395'
           },
@@ -165,7 +165,7 @@ function contactCardsDetailsGet (req, res, next) {
             'paymentDate': '2016-08-24T00:00:00',
             'paymentAmount': 50,
             'acctNumber': '1012108910',
-            'paymentDRNarration': 'heinTEST_PPD',
+            'paymentDRNarration': 'heinTEST_BDF',
             'paymentCRNarration': '0829806622',
             'execEngineRef': '000000489025563015'
           }
@@ -182,7 +182,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Absa_MySelf_EXT',
             'beneficiaryReference': 'Absa_MySelf_EXT',
             'instantPaymentAvailable': true,
@@ -197,7 +197,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 4,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614754
               }
             ]
@@ -225,7 +225,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'absa123',
             'beneficiaryReference': '321absa',
             'instantPaymentAvailable': true,
@@ -240,7 +240,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 5,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614764
               }
             ]
@@ -252,7 +252,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 5,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614763
               }
             ]
@@ -269,8 +269,8 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Vodacom',
             'accountNumber': '0829806621',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'VodacomPPD',
+            'beneficiaryType': 'BDF',
+            'myReference': 'VodacomBDF',
             'beneficiaryReference': '',
             'valid': true
           }
@@ -283,7 +283,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 5,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16766
               }
             ]
@@ -294,7 +294,7 @@ function contactCardsDetailsGet (req, res, next) {
             'paymentDate': '2016-06-28T00:00:00',
             'paymentAmount': 87,
             'acctNumber': '1012108910',
-            'paymentDRNarration': 'VodacomPPD',
+            'paymentDRNarration': 'VodacomBDF',
             'paymentCRNarration': '00829806621 177633 29177633 Y',
             'execEngineRef': '000000489024147605'
           }
@@ -311,7 +311,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'absa123',
             'beneficiaryReference': '321absa',
             'instantPaymentAvailable': true,
@@ -326,7 +326,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 6,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20738
               }
             ]
@@ -338,7 +338,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 6,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20737
               }
             ]
@@ -373,7 +373,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'PrepaidforIgor555',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly',
             'beneficiaryReference': '',
             'valid': true
@@ -387,7 +387,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 6,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20734
               }
             ]
@@ -399,7 +399,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 6,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20733
               }
             ]
@@ -416,7 +416,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'PrepaidforIgor2555',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -430,7 +430,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 7,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20736
               }
             ]
@@ -442,7 +442,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 7,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20735
               }
             ]
@@ -459,7 +459,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f4',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -473,7 +473,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 8,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614758
               }
             ]
@@ -485,7 +485,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 8,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614757
               }
             ]
@@ -502,7 +502,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f5',
             'accountNumber': '01050020003',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'MeterFBETsswane',
             'beneficiaryReference': '',
             'valid': true
@@ -516,7 +516,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 9,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614760
               }
             ]
@@ -528,7 +528,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 9,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614759
               }
             ]
@@ -546,7 +546,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'capitec123',
             'beneficiaryReference': '321capitec',
             'instantPaymentAvailable': true,
@@ -561,7 +561,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 9,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615455
               }
             ]
@@ -573,7 +573,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 9,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615456
               }
             ]
@@ -590,7 +590,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaid20Jan17',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly',
             'beneficiaryReference': '',
             'valid': true
@@ -604,7 +604,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 10,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613440
               }
             ]
@@ -616,7 +616,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 10,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613439
               }
             ]
@@ -634,7 +634,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'ned123',
             'beneficiaryReference': 'NED_CA',
             'valid': true
@@ -648,7 +648,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 10,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613452
               }
             ]
@@ -660,7 +660,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 10,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613451
               }
             ]
@@ -677,7 +677,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaid20Jan172',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -691,7 +691,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 11,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613442
               }
             ]
@@ -703,7 +703,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 11,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613441
               }
             ]
@@ -721,7 +721,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '33600639996',
             'bankName': 'NEDBANK',
             'branchCode': '138537',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'string',
             'beneficiaryReference': 'string',
             'valid': true
@@ -735,7 +735,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 11,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 20555
               }
             ]
@@ -752,9 +752,9 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'MTN',
             'accountNumber': '0839000128',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'MTN PPD',
-            'beneficiaryReference': 'MTN PPD',
+            'beneficiaryType': 'BDF',
+            'myReference': 'MTN BDF',
+            'beneficiaryReference': 'MTN BDF',
             'valid': true
           }
         ],
@@ -770,7 +770,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': '20Jan17',
             'accountNumber': '62003019503',
             'branchCode': '222726',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'FNB123',
             'beneficiaryReference': '321fnb234',
             'valid': false
@@ -784,7 +784,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 12,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613453
               }
             ]
@@ -796,7 +796,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 12,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613454
               }
             ]
@@ -813,7 +813,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f6',
             'accountNumber': '01050020009',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'MeterEskom',
             'beneficiaryReference': '',
             'valid': true
@@ -827,7 +827,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 13,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614762
               }
             ]
@@ -839,7 +839,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 13,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614761
               }
             ]
@@ -867,7 +867,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Ned_MyDesc',
             'beneficiaryReference': 'FNed_YourDesc',
             'valid': true
@@ -881,7 +881,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 14,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613577
               }
             ]
@@ -924,7 +924,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Telkom mobile',
             'accountNumber': '0614991507',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Telkome Mobile',
             'beneficiaryReference': '',
             'valid': true
@@ -943,7 +943,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'RisteQA',
             'beneficiaryReference': 'RisteQA',
             'instantPaymentAvailable': true,
@@ -958,7 +958,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 15,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 21015
               }
             ]
@@ -975,9 +975,9 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Testing PUT',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'PPD_Benef',
-            'beneficiaryReference': 'PPD_IBR_L',
+            'beneficiaryType': 'BDF',
+            'myReference': 'BDF_Benef',
+            'beneficiaryReference': 'BDF_IBR_L',
             'valid': true
           }
         ],
@@ -985,17 +985,17 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 32,
-        'contactCardName': 'PPD_IBR',
+        'contactCardName': 'BDF_IBR',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 16,
-            'beneficiaryName': 'PPD_IBR',
+            'beneficiaryName': 'BDF_IBR',
             'accountNumber': '0715712967',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'PPD_IBR_H',
-            'beneficiaryReference': 'PPD_IBR_H',
+            'beneficiaryType': 'BDF',
+            'myReference': 'BDF_IBR_H',
+            'beneficiaryReference': 'BDF_IBR_H',
             'valid': true
           }
         ],
@@ -1007,7 +1007,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 16,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16957
               }
             ]
@@ -1025,7 +1025,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1009959939',
             'bankName': 'NEDBANK',
             'branchCode': '106012',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'DS_DEL',
             'beneficiaryReference': 'DS_DEL',
             'valid': true
@@ -1035,17 +1035,17 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 34,
-        'contactCardName': 'PPD_IBR',
+        'contactCardName': 'BDF_IBR',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 17,
-            'beneficiaryName': 'PPD_IBR',
+            'beneficiaryName': 'BDF_IBR',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'PPD_IBR_L',
-            'beneficiaryReference': 'PPD_IBR_L',
+            'beneficiaryType': 'BDF',
+            'myReference': 'BDF_IBR_L',
+            'beneficiaryReference': 'BDF_IBR_L',
             'valid': true
           }
         ],
@@ -1061,7 +1061,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'HeinTestQAEskom',
             'accountNumber': '01050020009',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'azerty',
             'beneficiaryReference': '',
             'valid': true
@@ -1090,7 +1090,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'absa123',
             'beneficiaryReference': '321absa',
             'instantPaymentAvailable': true,
@@ -1105,7 +1105,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 18,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612991
               }
             ]
@@ -1117,7 +1117,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 18,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612990
               }
             ]
@@ -1134,7 +1134,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Agnes Review',
             'accountNumber': '01050020009',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'beneficiaryReference': 'Agnes Review',
             'valid': true
           }
@@ -1147,7 +1147,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 19,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 17155
               }
             ]
@@ -1191,7 +1191,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'capitec123',
             'beneficiaryReference': '321capitec',
             'instantPaymentAvailable': true,
@@ -1206,7 +1206,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 19,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612993
               }
             ]
@@ -1218,7 +1218,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 19,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612992
               }
             ]
@@ -1235,7 +1235,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'AlphaNumericMeter',
             'accountNumber': 'ABC20035',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'Alpha Numeric Meter',
             'beneficiaryReference': '',
             'valid': true
@@ -1272,7 +1272,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Kristijan payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1282,17 +1282,17 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 41,
-        'contactCardName': 'heinTEST_PPD1231',
+        'contactCardName': 'heinTEST_BDF1231',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 21,
-            'beneficiaryName': 'heinTEST_PPD1231',
+            'beneficiaryName': 'heinTEST_BDF1231',
             'accountNumber': '0829806622',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'heinTEST_PPD1',
-            'beneficiaryReference': 'heinTEST_PPD1',
+            'beneficiaryType': 'BDF',
+            'myReference': 'heinTEST_BDF1',
+            'beneficiaryReference': 'heinTEST_BDF1',
             'valid': true
           }
         ],
@@ -1309,7 +1309,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Austin payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1327,7 +1327,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Ambros Best FBE',
             'accountNumber': '01050020008',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'Ambros Best FBE',
             'beneficiaryReference': '',
             'valid': true
@@ -1341,7 +1341,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 22,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 17121
               }
             ]
@@ -1385,7 +1385,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '13213123',
             'bankName': 'BNP PARIBAS',
             'branchCode': '688000',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Petko payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1404,7 +1404,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Branko payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1422,7 +1422,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'CellCPrepaid',
             'accountNumber': '0622210987',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'asd',
             'beneficiaryReference': '',
             'valid': true
@@ -1467,7 +1467,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Nikola payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1485,7 +1485,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'test money',
             'accountNumber': '0788216968',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'test money',
             'beneficiaryReference': '',
             'valid': true
@@ -1504,7 +1504,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'NedbankTestAccount payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1533,7 +1533,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Luchos payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1551,7 +1551,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': '4321',
             'accountNumber': '0712345679',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'beneficiaryReference': '',
             'valid': true
           }
@@ -1569,7 +1569,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact payment',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -1584,7 +1584,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 27,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613153
               }
             ]
@@ -1601,7 +1601,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaidfordora2',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -1615,7 +1615,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 27,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613470
               }
             ]
@@ -1627,7 +1627,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 27,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613469
               }
             ]
@@ -1645,7 +1645,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '8000026000101',
             'bankName': 'NEDBANK',
             'branchCode': '760005',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Post beneficiary for saving ac',
             'beneficiaryReference': 'Post for beneficiary2',
             'valid': true
@@ -1659,7 +1659,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 28,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16878
               }
             ]
@@ -1671,7 +1671,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 28,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 19416
               }
             ]
@@ -1680,17 +1680,17 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 56,
-        'contactCardName': 'PPD_IBR123',
+        'contactCardName': 'BDF_IBR123',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 28,
-            'beneficiaryName': 'PPD_IBR123',
+            'beneficiaryName': 'BDF_IBR123',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'PPD_IBR_L',
-            'beneficiaryReference': 'PPD_IBR_L',
+            'beneficiaryType': 'BDF',
+            'myReference': 'BDF_IBR_L',
+            'beneficiaryReference': 'BDF_IBR_L',
             'valid': true
           }
         ],
@@ -1706,7 +1706,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f4',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -1720,7 +1720,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 29,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614770
               }
             ]
@@ -1732,7 +1732,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 29,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614769
               }
             ]
@@ -1750,7 +1750,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact payment',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -1765,7 +1765,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 29,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613154
               }
             ]
@@ -1783,7 +1783,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -1797,7 +1797,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 30,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613155
               }
             ]
@@ -1814,7 +1814,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'DELETETshwaneFBE',
             'accountNumber': '01050020003',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'DELETETshwaneFBE',
             'beneficiaryReference': '',
             'valid': true
@@ -1850,7 +1850,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f5',
             'accountNumber': '01050020003',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'MeterFBETsswane',
             'beneficiaryReference': '',
             'valid': true
@@ -1864,7 +1864,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 31,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614772
               }
             ]
@@ -1876,7 +1876,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 31,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614771
               }
             ]
@@ -1894,7 +1894,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact1 payment',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -1914,7 +1914,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -1925,17 +1925,17 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 64,
-        'contactCardName': 'PPD_IBR123',
+        'contactCardName': 'BDF_IBR123',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 32,
-            'beneficiaryName': 'PPD_IBR123',
+            'beneficiaryName': 'BDF_IBR123',
             'accountNumber': '0715712967',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'PPD_IBR_H',
-            'beneficiaryReference': 'PPD_IBR_H',
+            'beneficiaryType': 'BDF',
+            'myReference': 'BDF_IBR_H',
+            'beneficiaryReference': 'BDF_IBR_H',
             'valid': true
           }
         ],
@@ -1951,7 +1951,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f6',
             'accountNumber': '01050020009',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'MeterEskom',
             'beneficiaryReference': '',
             'valid': true
@@ -1965,7 +1965,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 33,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614774
               }
             ]
@@ -1977,7 +1977,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 33,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614773
               }
             ]
@@ -1995,7 +1995,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -2015,7 +2015,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -2033,7 +2033,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaidfordora24',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly',
             'beneficiaryReference': '',
             'valid': true
@@ -2047,7 +2047,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 34,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613596
               }
             ]
@@ -2059,7 +2059,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 34,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613595
               }
             ]
@@ -2077,7 +2077,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '10010038878',
             'bankName': 'INVESTEC BANK LIMITED',
             'branchCode': '580105',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Investec Bank',
             'beneficiaryReference': 'Investec',
             'instantPaymentAvailable': true,
@@ -2096,7 +2096,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaidfordora24',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -2110,7 +2110,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 35,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613598
               }
             ]
@@ -2122,7 +2122,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 35,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613597
               }
             ]
@@ -2140,7 +2140,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -2155,7 +2155,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 36,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613157
               }
             ]
@@ -2173,7 +2173,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -2187,7 +2187,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 37,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613158
               }
             ]
@@ -2205,7 +2205,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012266990',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'asdf payment',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -2223,7 +2223,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Bankee2',
             'accountNumber': '0632468910',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'MTN Prepaid',
             'beneficiaryReference': '',
             'valid': true
@@ -2237,7 +2237,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 39,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613771
               }
             ]
@@ -2249,7 +2249,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 39,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613770
               }
             ]
@@ -2261,7 +2261,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 39,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613769
               }
             ]
@@ -2279,7 +2279,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1010039288',
             'bankName': 'NEDBANK',
             'branchCode': '101009',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'test payment to Beneficiary',
             'beneficiaryReference': 'Black Tax',
             'valid': true
@@ -2293,7 +2293,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 41,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613418
               }
             ]
@@ -2320,7 +2320,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Qa_Scp_mobile Prepaid 1',
             'accountNumber': '0740033923',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Qa_Scp_mobile',
             'beneficiaryReference': 'Prepaidclc',
             'valid': true
@@ -2339,7 +2339,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1010039288',
             'bankName': 'NEDBANK',
             'branchCode': '101009',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'test payment to Beneficiary',
             'beneficiaryReference': 'Black Tax',
             'valid': true
@@ -2353,7 +2353,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 42,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613425
               }
             ]
@@ -2370,7 +2370,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Qa_Scp_imali',
             'accountNumber': '0715712967',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Qa_Scp_imali',
             'beneficiaryReference': 'Imali',
             'valid': true
@@ -2388,7 +2388,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'HeinSelf',
             'accountNumber': '0715712967',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'self',
             'beneficiaryReference': '',
             'valid': true
@@ -2433,7 +2433,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1010039288',
             'bankName': 'NEDBANK',
             'branchCode': '101009',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'test payment to Beneficiary',
             'beneficiaryReference': 'Fees',
             'valid': true
@@ -2447,7 +2447,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 43,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613426
               }
             ]
@@ -2475,7 +2475,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '50021147993',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'FNB Account',
             'beneficiaryReference': 'FNB Account',
             'instantPaymentAvailable': true,
@@ -2490,7 +2490,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 44,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16955
               }
             ]
@@ -2508,7 +2508,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Ned_MyDesc',
             'beneficiaryReference': 'FNed_YourDesc',
             'valid': true
@@ -2522,7 +2522,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 45,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613578
               }
             ]
@@ -2540,7 +2540,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Ned_MyDesc',
             'beneficiaryReference': 'FNed_YourDesc',
             'valid': true
@@ -2554,7 +2554,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 46,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613581
               }
             ]
@@ -2571,7 +2571,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'f4',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -2585,7 +2585,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 48,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614596
               }
             ]
@@ -2597,7 +2597,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 48,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614595
               }
             ]
@@ -2615,7 +2615,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1725156903',
             'bankName': 'NEDBANK',
             'branchCode': '192405',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'My desc',
             'beneficiaryReference': 'Beneficiary state',
             'valid': true
@@ -2635,17 +2635,17 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 92,
-        'contactCardName': 'RisstePPD_QA',
+        'contactCardName': 'RissteBDF_QA',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 50,
-            'beneficiaryName': 'RisstePPD_QA',
+            'beneficiaryName': 'RissteBDF_QA',
             'accountNumber': '38970833334',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'RisstePPD_QA',
-            'beneficiaryReference': 'RisstePPD_QA',
+            'beneficiaryType': 'BDF',
+            'myReference': 'RissteBDF_QA',
+            'beneficiaryReference': 'RissteBDF_QA',
             'valid': true
           }
         ],
@@ -2655,7 +2655,7 @@ function contactCardsDetailsGet (req, res, next) {
             'paymentDate': '2016-12-09T00:00:00',
             'paymentAmount': 100,
             'acctNumber': '1012108910',
-            'paymentDRNarration': 'RisstePPD_QA',
+            'paymentDRNarration': 'RissteBDF_QA',
             'paymentCRNarration': '38970833334',
             'execEngineRef': '000000489028722242'
           }
@@ -2672,7 +2672,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'EXT_Acc Capitec BNF',
             'beneficiaryReference': ' EXT Account Capitec Bnf',
             'instantPaymentAvailable': true,
@@ -2687,7 +2687,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 51,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613777
               }
             ]
@@ -2699,7 +2699,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 51,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613776
               }
             ]
@@ -2711,7 +2711,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 51,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613775
               }
             ]
@@ -2728,7 +2728,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'PrepaidforPSST1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly',
             'beneficiaryReference': '',
             'valid': true
@@ -2742,7 +2742,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 51,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612983
               }
             ]
@@ -2754,7 +2754,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 51,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612982
               }
             ]
@@ -2771,7 +2771,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'PrepaidforPSST2',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -2785,7 +2785,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 52,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612985
               }
             ]
@@ -2797,7 +2797,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 52,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5612984
               }
             ]
@@ -2815,7 +2815,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2043019422',
             'bankName': 'NEDBANK',
             'branchCode': '104309',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'My State Edit',
             'beneficiaryReference': 'Benf state edit',
             'valid': true
@@ -2834,7 +2834,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '33600639996',
             'bankName': 'NEDBANK',
             'branchCode': '138537',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'investTestIBR2',
             'beneficiaryReference': 'investTestIBR2',
             'valid': true
@@ -2853,7 +2853,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'onceoff_pay_ext',
             'beneficiaryReference': 'onceoff_pay_ext',
             'instantPaymentAvailable': true,
@@ -2868,7 +2868,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 54,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615393
               }
             ]
@@ -2880,7 +2880,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 54,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615394
               }
             ]
@@ -2924,7 +2924,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1940062772',
             'bankName': 'NEDBANK',
             'branchCode': '194037',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'INT BNF',
             'beneficiaryReference': 'INT Account ABSA Bnf',
             'valid': true
@@ -2938,7 +2938,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 55,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613780
               }
             ]
@@ -2950,7 +2950,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 55,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613779
               }
             ]
@@ -2962,7 +2962,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 55,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613778
               }
             ]
@@ -2979,7 +2979,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Im Prepaid 1',
             'accountNumber': '123123123',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Im payment',
             'beneficiaryReference': '',
             'valid': true
@@ -2993,7 +2993,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 55,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613144
               }
             ]
@@ -3010,7 +3010,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Im Prepaid 1',
             'accountNumber': '123123123',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Im payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3024,7 +3024,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 56,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613145
               }
             ]
@@ -3042,7 +3042,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2504014',
             'bankName': 'STANDARD BANK SOUTH AFRICA',
             'branchCode': '051001',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'STANDARD BANK',
             'beneficiaryReference': 'STANDARD BANK',
             'instantPaymentAvailable': true,
@@ -3115,7 +3115,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Im Prepaid 1',
             'accountNumber': '123123123',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Im payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3129,7 +3129,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 57,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613146
               }
             ]
@@ -3190,7 +3190,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Im Prepaid 1',
             'accountNumber': '123123123',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Im payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3204,7 +3204,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 58,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613147
               }
             ]
@@ -3221,7 +3221,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Im Prepaid 1',
             'accountNumber': '123123123',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Im payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3235,7 +3235,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 59,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613148
               }
             ]
@@ -3252,7 +3252,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Jazz Prepaid 1',
             'accountNumber': '123123123',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Jazz payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3266,7 +3266,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 60,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613149
               }
             ]
@@ -3284,7 +3284,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2970727072',
             'bankName': 'NEDBANK',
             'branchCode': '197005',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'test',
             'beneficiaryReference': 'test',
             'valid': true
@@ -3302,7 +3302,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Arthurany Prepaid 1',
             'accountNumber': '321321321',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Arthurany payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3316,7 +3316,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 61,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613150
               }
             ]
@@ -3334,7 +3334,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1348019001',
             'bankName': 'BIDVEST BANK',
             'branchCode': '462005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Bidvest',
             'beneficiaryReference': 'Bidvest',
             'instantPaymentAvailable': true,
@@ -3353,7 +3353,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Luchos Prepaid 1',
             'accountNumber': '423432',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Luchos payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3372,7 +3372,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '62003019503',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'TestPMRAdd',
             'beneficiaryReference': 'TestPMRAdd',
             'instantPaymentAvailable': true,
@@ -3387,7 +3387,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 62,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16326
               }
             ]
@@ -3399,7 +3399,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 62,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16327
               }
             ]
@@ -3411,7 +3411,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 62,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 16325
               }
             ]
@@ -3454,7 +3454,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'AngularJS Prepaid 1',
             'accountNumber': '432432432',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'AngularJS payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3473,7 +3473,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '62003019503',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Qa_scp_extAcc',
             'beneficiaryReference': 'Fnb',
             'instantPaymentAvailable': true,
@@ -3488,7 +3488,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 63,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614127
               }
             ]
@@ -3500,7 +3500,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 63,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614126
               }
             ]
@@ -3518,7 +3518,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1009959939',
             'bankName': 'NEDBANK',
             'branchCode': '106012',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'asd',
             'beneficiaryReference': 'asd',
             'valid': true
@@ -3536,7 +3536,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'ReactJS Prepaid 1',
             'accountNumber': '423432324',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'ReactJS payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3554,7 +3554,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Apple Prepaid 1',
             'accountNumber': '323232',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Apple payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3572,7 +3572,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Master Credit card',
             'accountNumber': '5412830000253295',
             'branchCode': '000000',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'STANDARD BANK',
             'beneficiaryReference': 'STANDARD BANK',
             'valid': true
@@ -3590,7 +3590,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_contact Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3604,7 +3604,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 66,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613151
               }
             ]
@@ -3621,7 +3621,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Morkels',
             'accountNumber': '2849933',
             'branchCode': '016641',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'CouchPay',
             'beneficiaryReference': 'ONCE-OFF ADD AS BENEFICIARY PR',
             'valid': false
@@ -3665,7 +3665,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_contact Prepaid 2',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3679,7 +3679,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 67,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613152
               }
             ]
@@ -3697,7 +3697,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1009959939',
             'bankName': 'NEDBANK',
             'branchCode': '106012',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Invest321',
             'beneficiaryReference': 'Shdhhdud',
             'valid': true
@@ -3715,7 +3715,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_contactprepaid1 Prepaid 1',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contactprepaid1 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3769,7 +3769,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_contact3 Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact3 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3788,7 +3788,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '8001951300101',
             'bankName': 'NEDBANK - PEOPLES MORTGAGE LTD',
             'branchCode': '760005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Home loan',
             'beneficiaryReference': 'HOMELOAN',
             'valid': true
@@ -3806,7 +3806,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_contact3 Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact3 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3825,7 +3825,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'testbenef',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -3869,7 +3869,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_contact5 Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_contact5 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3887,7 +3887,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_ctaont8 Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3906,7 +3906,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2010155092',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SA Nedbank',
             'beneficiaryReference': 'SAVINGS account',
             'valid': true
@@ -3924,7 +3924,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_ctaont8 Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3942,7 +3942,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Natasha Galloway',
             'accountNumber': '2849933',
             'branchCode': '016641',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Natasha Galloway',
             'beneficiaryReference': 'ONCE-OFF ADD AS BENEFICIARY PR',
             'valid': false
@@ -3960,7 +3960,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'kiko_ctaont8 Prepaid 1',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'kiko_ctaont8 payment',
             'beneficiaryReference': '',
             'valid': true
@@ -3974,7 +3974,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 74,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613156
               }
             ]
@@ -3992,7 +3992,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '21000020092',
             'bankName': 'NEDBANK LESOTHO LIMITED',
             'branchCode': '390261',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'LESOTHO TEST',
             'beneficiaryReference': 'LESOTHO',
             'valid': true
@@ -4011,7 +4011,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1009959939',
             'bankName': 'NEDBANK',
             'branchCode': '106012',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Inest456',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -4039,7 +4039,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaidfordora',
             'accountNumber': '0821112234',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly',
             'beneficiaryReference': '',
             'valid': true
@@ -4053,7 +4053,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 75,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613294
               }
             ]
@@ -4065,7 +4065,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 75,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613293
               }
             ]
@@ -4082,7 +4082,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Prepaidfordora',
             'accountNumber': '0827778790',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'prepaidDRRefonly1',
             'beneficiaryReference': '',
             'valid': true
@@ -4096,7 +4096,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 76,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613296
               }
             ]
@@ -4108,7 +4108,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 76,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5613295
               }
             ]
@@ -4126,7 +4126,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1009035940',
             'bankName': 'NEDBANK',
             'branchCode': '100909',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'My Desv',
             'beneficiaryReference': 'My Cr',
             'valid': true
@@ -4155,7 +4155,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '21000020092',
             'bankName': 'NEDBANK LESOTHO LIMITED',
             'branchCode': '390261',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'LESOTHO TEST',
             'beneficiaryReference': 'LESOTHO',
             'valid': true
@@ -4191,7 +4191,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'NedCC',
             'accountNumber': '5412830000570821',
             'branchCode': '000000',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'NedCC',
             'beneficiaryReference': 'NedCC',
             'valid': true
@@ -4336,7 +4336,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'capitec123',
             'beneficiaryReference': '321capitec',
             'instantPaymentAvailable': true,
@@ -4351,7 +4351,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 85,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614616
               }
             ]
@@ -4363,7 +4363,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 85,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614615
               }
             ]
@@ -4453,7 +4453,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1001004345',
             'bankName': 'NEDBANK',
             'branchCode': '151644',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'onceoff_pay_ext',
             'beneficiaryReference': 'onceoff_pay_ext',
             'valid': true
@@ -4467,7 +4467,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 90,
-                'beneficiaryType': 'BNFINT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614652
               }
             ]
@@ -4495,7 +4495,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1233862365',
             'bankName': 'CAPITEC BANK',
             'branchCode': '470010',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'capitec123',
             'beneficiaryReference': '321capitec',
             'instantPaymentAvailable': true,
@@ -4510,7 +4510,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 92,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614778
               }
             ]
@@ -4522,7 +4522,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 92,
-                'beneficiaryType': 'BNFEXT',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614777
               }
             ]
@@ -4540,7 +4540,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4559,7 +4559,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4578,7 +4578,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '1012108910',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4596,7 +4596,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Nikola_Prepaid',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Nikola_Prepaid_BUY',
             'beneficiaryReference': '',
             'valid': true
@@ -4610,7 +4610,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 36,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614959
               }
             ]
@@ -4622,7 +4622,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 36,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614958
               }
             ]
@@ -4639,7 +4639,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Nikola_Electricity_Meter',
             'accountNumber': '01050020009',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'Nikola_Meter_BUY',
             'beneficiaryReference': '',
             'valid': true
@@ -4653,7 +4653,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 37,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614961
               }
             ]
@@ -4665,7 +4665,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 37,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5614960
               }
             ]
@@ -4683,7 +4683,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2010155092',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4701,7 +4701,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Nikola_Prepaidzzz',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Nikola_Prepaid_BUY',
             'beneficiaryReference': '',
             'valid': true
@@ -4719,7 +4719,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Nikola_Prepaidzzz',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Nikola_Prepaid_BUY',
             'beneficiaryReference': '',
             'valid': true
@@ -4737,7 +4737,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Nikola_Prepaidzzz',
             'accountNumber': '0796317907',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'Nikola_Prepaid_BUY',
             'beneficiaryReference': '',
             'valid': true
@@ -4756,7 +4756,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '553588559998',
             'bankName': 'NEDBANK',
             'branchCode': '171338',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'asd',
             'beneficiaryReference': 'asd',
             'valid': true
@@ -4775,7 +4775,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '62003019503',
             'bankName': 'FIRST NATIONAL BANK',
             'branchCode': '280061',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'out',
             'beneficiaryReference': 'out',
             'valid': true
@@ -4793,7 +4793,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Ambros Best FBE',
             'accountNumber': '01050020020',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'Ambros Best FBE',
             'beneficiaryReference': '',
             'valid': true
@@ -4807,7 +4807,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 45,
-                'beneficiaryType': 'PEL',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615266
               }
             ]
@@ -4824,7 +4824,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'eeeee',
             'accountNumber': '01050020023',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'ssss',
             'beneficiaryReference': 'sss',
             'valid': true
@@ -4842,7 +4842,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'eeeee',
             'accountNumber': '01050020020',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'ssss',
             'beneficiaryReference': 'sss',
             'valid': true
@@ -4861,7 +4861,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2010155092',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4880,7 +4880,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2010155092',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4899,7 +4899,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '2010155092',
             'bankName': 'NEDBANK',
             'branchCode': '170205',
-            'beneficiaryType': 'BNFINT',
+            'beneficiaryType': 'BDF',
             'myReference': 'SwaDRChnaged1',
             'beneficiaryReference': 'SwaCRChanged1',
             'valid': true
@@ -4918,7 +4918,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '50930132986',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': '3011265806',
             'beneficiaryReference': 'FNB_PROD_ISSUE',
             'instantPaymentAvailable': true,
@@ -4955,7 +4955,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'FNB_PRODISSUE2',
             'accountNumber': '50930132986',
             'branchCode': '221425',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': '3011265806',
             'beneficiaryReference': 'FNB_PISSUE2',
             'valid': false
@@ -4983,7 +4983,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'michael scott',
             'accountNumber': '4922130000491532',
             'branchCode': '000000',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'absa CC',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -5002,7 +5002,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '62008437859',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'Gdftgg',
             'beneficiaryReference': 'payment',
             'instantPaymentAvailable': true,
@@ -5021,7 +5021,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Rere Prepaid',
             'accountNumber': '0723273226',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
+            'beneficiaryType': 'BDF',
             'myReference': 'capitec123',
             'beneficiaryReference': '',
             'valid': true
@@ -5035,7 +5035,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 53,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615453
               }
             ]
@@ -5047,7 +5047,7 @@ function contactCardsDetailsGet (req, res, next) {
             'notificationParents': [
               {
                 'beneficiaryID': 53,
-                'beneficiaryType': 'PPD',
+                'beneficiaryType': 'BDF',
                 'notificationID': 5615454
               }
             ]
@@ -5064,7 +5064,7 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'CC',
             'accountNumber': '4314620000216422',
             'branchCode': '000000',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'asdfa',
             'beneficiaryReference': 'payment',
             'valid': true
@@ -5082,8 +5082,8 @@ function contactCardsDetailsGet (req, res, next) {
             'beneficiaryName': 'Heineken_Prepaid',
             'accountNumber': '0715712967',
             'branchCode': '000000',
-            'beneficiaryType': 'PPD',
-            'myReference': 'Heineken_PPD',
+            'beneficiaryType': 'BDF',
+            'myReference': 'Heineken_BDF',
             'beneficiaryReference': '',
             'valid': true
           }
@@ -5101,7 +5101,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'blabsa',
             'beneficiaryReference': 'blabsa',
             'instantPaymentAvailable': true,
@@ -5112,15 +5112,15 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 188,
-        'contactCardName': 'Heineken_PEL_Meter',
+        'contactCardName': 'Heineken_BDF_Meter',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 77,
-            'beneficiaryName': 'Heineken_PEL_Meter',
+            'beneficiaryName': 'Heineken_BDF_Meter',
             'accountNumber': '01050020009',
             'branchCode': '000000',
-            'beneficiaryType': 'PEL',
+            'beneficiaryType': 'BDF',
             'myReference': 'Heineken_Meter_BUY',
             'beneficiaryReference': '',
             'valid': true
@@ -5139,7 +5139,7 @@ function contactCardsDetailsGet (req, res, next) {
             'accountNumber': '62003019503',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
-            'beneficiaryType': 'BNFEXT',
+            'beneficiaryType': 'BDF',
             'myReference': 'WesHein',
             'beneficiaryReference': 'WESHein',
             'instantPaymentAvailable': true,
