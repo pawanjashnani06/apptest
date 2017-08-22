@@ -16,6 +16,7 @@
   api/swagger/contracts/Beneficiary.yaml \
   api/swagger/contracts/Test.yaml \
   api/swagger/contracts/NedbankID.yaml \
+  api/swagger/contracts/NedbankMoney.yaml \
   api/swagger/contracts/FicaMe.yaml \
   api/swagger/contracts/SCPExpenses.yaml \
   api/swagger/contracts/SCPBudgets.yaml \
