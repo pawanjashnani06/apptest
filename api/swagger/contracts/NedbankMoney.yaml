@@ -2,9 +2,6 @@ swagger: '2.0'
 info:
   version: v1
   title: NedbankMoney.API
-host: 'localhost:17248'
-schemes:
-  - http
 paths:
   /nedapp/devices/disconnect:
     post:
