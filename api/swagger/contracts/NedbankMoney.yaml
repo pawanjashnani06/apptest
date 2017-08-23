@@ -168,7 +168,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentials'
   /nedbankid/credentials/profile:
     post:
       tags:
@@ -320,6 +320,7 @@ paths:
       tags:
         - NedbankId
       summary: Enrol using Nedbank ID Username and Password
+      x-swagger-router-controller: nedbank_money
       operationId: NedbankId_NedbankIdEnrolments
       consumes:
         - application/json
@@ -410,6 +411,19 @@ definitions:
         type: string
       modifiedBy:
         type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentials:
+    type: object
+    properties:
+      createAlias:
+        type: boolean
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      authenticated:
+        type: boolean
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Response.ServiceResponse:
     type: object
     properties:
@@ -423,7 +437,7 @@ definitions:
     type: object
     properties:
       resultCode:
-        type: string
+        type: integer
       resultMessage:
         type: string
   NedbankMoney.API.Models.Request.NedAppDevicesInfoRequest:
