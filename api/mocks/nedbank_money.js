@@ -2,6 +2,7 @@
 
 module.exports = {
   NedbankId_NedbankIdCredentials: validateNedbankIdUserNameAndPassword,
+  NedbankId_NedbankIdEnrolments: enrollByNedbankIdUserNameAndPassword,
   NedbankId_NedbankIdCredentialsProfileCard: loginByCardAndPin
 }
 
@@ -9,6 +10,10 @@ function validateNedbankIdUserNameAndPassword (req, res) {
   response.createAlias = false
   response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
   response.authenticated = true
+  res.json(response)
+}
+
+function enrollByNedbankIdUserNameAndPassword (req, res) {
   res.json(response)
 }
 
