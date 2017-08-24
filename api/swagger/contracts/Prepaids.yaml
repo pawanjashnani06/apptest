@@ -1183,6 +1183,7 @@ definitions:
       accountNumber:
         type: string
         description: The account number
+
       isOpen:
         type: boolean
         description: indicates if the account is currently open
@@ -1416,7 +1417,7 @@ definitions:
           mapped to TrxRequestDate (or ReoccurrenceFromDate for recurring transactions).
           For FBE map this to ValueDate
         type: string
-        format: date
+        format: date    
       nextTransDate:
         description: Date of the next transaction - on contract mapped to ValueDate
           (not used for any front-end controls (except FBE electricity) but required
@@ -1438,7 +1439,7 @@ definitions:
         description: my transaction description. IF FBE, hardcode 'Free Based Electricity'
         type: string
       fromAccount:
-        $ref: '#/definitions/Account'
+        $ref: '#/definitions/PrepaidAccount'
       destinationNumber:
         description: cell, telephone or municipality number (if this has an asterix
           (*) in it we know by default this is a PrepaidOwnNum=Y else PrepaidOwnNum=N)
