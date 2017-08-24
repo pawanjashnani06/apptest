@@ -1416,8 +1416,7 @@ definitions:
         description: Date the client want the transaction to take place - on contract
           mapped to TrxRequestDate (or ReoccurrenceFromDate for recurring transactions).
           For FBE map this to ValueDate
-        type: string
-        format: date    
+        type: string    
       nextTransDate:
         description: Date of the next transaction - on contract mapped to ValueDate
           (not used for any front-end controls (except FBE electricity) but required
