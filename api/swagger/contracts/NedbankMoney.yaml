@@ -174,6 +174,7 @@ paths:
       tags:
         - NedbankId
       summary: Validate Pin Profile Password/Password
+      x-swagger-router-controller: nedbank_money
       operationId: NedbankId_NedbankIdCredentialsProfile
       consumes:
         - application/json
