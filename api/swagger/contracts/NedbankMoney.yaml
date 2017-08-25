@@ -30,7 +30,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedAppDevicesDisconnect'
   /nedapp/devices/info:
     post:
       tags:
@@ -58,7 +58,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedAppDevicesInfo'
   '/nedapp/termsandconditions/{version}':
     get:
       tags:
@@ -80,7 +80,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedAppTermsAndConditions'
   /nedapp/termsandconditions/accept:
     post:
       tags:
@@ -109,7 +109,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedAppTermsAndConditionsAccept'
   /nedbankid/credentials/username:
     post:
       tags:
@@ -138,7 +138,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsUsername'
   /nedbankid/credentials:
     post:
       tags:
@@ -197,7 +197,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsProfile'
   /nedbankid/credentials/profile/card:
     post:
       tags:
@@ -227,7 +227,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsProfileCard'
   /nedbankid/credentials/auth:
     post:
       tags:
@@ -256,7 +256,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuth'
   /nedbankid/credentials/auths/otp:
     post:
       tags:
@@ -285,7 +285,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtp'
   /nedbankid/credentials/auths/pin:
     post:
       tags:
@@ -314,7 +314,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsPin'
   /nedbankid/enrolments:
     post:
       tags:
@@ -344,7 +344,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdEnrolments'
   /nedbankid/enrolments/profile:
     post:
       tags:
@@ -411,35 +411,30 @@ definitions:
         type: string
       modifiedBy:
         type: string
-  NedbankMoney.API.Models.Response.NedbankIdCredentials:
+  NedbankMoney.API.Models.Response.NedAppDevicesDisconnect:
     type: object
     properties:
-      createAlias:
-        type: boolean
-      authReference:
-        format: uuid
+      reason:
         type: string
-        example: 00000000-0000-0000-0000-000000000000
-      authenticated:
-        type: boolean
-      result:
-        $ref: '#/definitions/NedbankMoney.API.Models.Result'
-  NedbankMoney.API.Models.Response.ServiceResponse:
-    type: object
-    properties:
-      name:
-        type: string
-      response:
-        type: object
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Result:
     type: object
     properties:
       resultCode:
+        format: int32
         type: integer
       resultMessage:
         type: string
+  NedbankMoney.API.Models.Response.ServiceResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        response:
+          type: object
+        result:
+          $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedAppDevicesInfoRequest:
     type: object
     properties:
@@ -455,17 +450,43 @@ definitions:
         type: string
       gpsLongiture:
         type: string
+  NedbankMoney.API.Models.Response.NedAppDevicesInfo:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Response.NedAppTermsAndConditions:
+    type: object
+    properties:
+      title:
+        type: string
+      wording:
+        type: string
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedAppTermsAndConditionsAcceptRequest:
     type: object
     properties:
       version:
         format: int32
         type: integer
+  NedbankMoney.API.Models.Response.NedAppTermsAndConditionsAccept:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsUsernameRequest:
     type: object
     properties:
       username:
         type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsUsername:
+    type: object
+    properties:
+      available:
+        type: boolean
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsRequest:
     type: object
     properties:
@@ -473,6 +494,19 @@ definitions:
         type: string
       password:
         type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentials:
+    type: object
+    properties:
+      createAlias:
+        type: boolean
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      authenticated:
+        type: boolean
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileRequest:
     type: object
     properties:
@@ -482,6 +516,45 @@ definitions:
         type: string
       password:
         type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsProfile:
+    type: object
+    properties:
+      nedbankIdExist:
+        type: boolean
+      oneTimePassword:
+        type: string
+      enterpriseCustomerNumber:
+        format: int64
+        type: integer
+      tempId:
+        format: int64
+        type: integer
+      token:
+        type: string
+      identificationNumber:
+        type: string
+      identificationType:
+        type: string
+      countryCode:
+        type: string
+      dateOfBirth:
+        type: string
+      title:
+        type: string
+      emailAddress:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      authenticated:
+        type: boolean
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileCardRequest:
     type: object
     properties:
@@ -491,6 +564,21 @@ definitions:
         type: string
       pin:
         type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsProfileCard:
+    type: object
+    properties:
+      nedbankIdExist:
+        type: boolean
+      token:
+        type: string
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      authenticated:
+        type: boolean
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthRequest:
     type: object
     properties:
@@ -500,6 +588,13 @@ definitions:
         example: 00000000-0000-0000-0000-000000000000
       stepId:
         type: string
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsAuth:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsOtpRequest:
     type: object
     properties:
@@ -509,34 +604,113 @@ definitions:
         format: uuid
         type: string
         example: 00000000-0000-0000-0000-000000000000
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtp:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsPinRequest:
     type: object
     properties: {}
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsPin:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdEnrolmentsRequest:
+    type: object
+    properties:
+      nedbankIdEnrolment:
+        $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdEnrolment'
+      profileEnrolment:
+        $ref: '#/definitions/NedbankMoney.API.Models.Request.ProfileEnrolment'
+      cardEnrolment:
+        $ref: '#/definitions/NedbankMoney.API.Models.Request.CardEnrolment'
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+  NedbankMoney.API.Models.Request.NedbankIdEnrolment:
     type: object
     properties:
       nedbankIdExists:
         type: boolean
-      nedbankIdUsername:
-        type: string
-      nedbankIdPassword:
-        type: string
-      enrolmentProfile:
-        type: boolean
-      pin:
-        type: string
-      profile:
+      username:
         type: string
       password:
         type: string
-      enrolmentCard:
-        type: boolean
+  NedbankMoney.API.Models.Request.ProfileEnrolment:
+    type: object
+    properties:
+      profile:
+        type: string
+      oneTimePassword:
+        type: string
+      enterpriseCustomerNumber:
+        format: int64
+        type: integer
+      tempId:
+        format: int64
+        type: integer
       token:
+        type: string
+      identificationNumber:
+        type: string
+      identificationType:
+        type: string
+      countryCode:
+        type: string
+      dateOfBirth:
+        format: date-time
+        type: string
+      title:
+        type: string
+      emailAddress:
+        type: string
+      firstName:
+        type: string
+      lastName:
         type: string
       authReference:
         format: uuid
         type: string
         example: 00000000-0000-0000-0000-000000000000
+  NedbankMoney.API.Models.Request.CardEnrolment:
+    type: object
+    properties:
+      token:
+        type: string
+      accountType:
+        type: string
+      accountNumber:
+        type: string
+      profileNUmber:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      identificationNumber:
+        type: string
+      identificationType:
+        type: string
+      countryCode:
+        type: string
+      dateOfBirth:
+        format: date-time
+        type: string
+      title:
+        type: string
+      emailAddress:
+        type: string
+      enterpriseCustomerNumber:
+        format: int64
+        type: integer
+  NedbankMoney.API.Models.Response.NedbankIdEnrolments:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileRequest:
     type: object
     properties: {}
