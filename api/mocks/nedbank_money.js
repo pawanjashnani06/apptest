@@ -2,9 +2,9 @@
 
 module.exports = {
   NedbankId_NedbankIdCredentials: validateNedbankIdUserNameAndPassword,
-  NedbankId_NedbankIdEnrolments: enroll,
   NedbankId_NedbankIdCredentialsProfile: validatePinProfilePassword,
-  NedbankId_NedbankIdCredentialsProfileCard: validateCardAndPin
+  NedbankId_NedbankIdCredentialsProfileCard: validateCardAndPin,
+  NedbankId_NedbankIdEnrolments: enroll
 }
 
 function validateNedbankIdUserNameAndPassword (req, res) {
@@ -13,10 +13,6 @@ function validateNedbankIdUserNameAndPassword (req, res) {
   response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
   response.authenticated = true
   res.json(response)
-}
-
-function enroll (req, res) {
-  res.json(new Response())
 }
 
 function validatePinProfilePassword (req, res) {
@@ -46,6 +42,10 @@ function validateCardAndPin (req, res) {
   response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
   response.authenticated = true
   res.json(response)
+}
+
+function enroll (req, res) {
+  res.json(new Response())
 }
 
 function Response () {
