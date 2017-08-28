@@ -4,7 +4,7 @@ module.exports = {
   NedbankId_NedbankIdCredentials: validateNedbankIdUserNameAndPassword,
   NedbankId_NedbankIdEnrolments: enroll,
   NedbankId_NedbankIdCredentialsProfile: validatePinProfilePassword,
-  NedbankId_NedbankIdCredentialsProfileCard: loginByCardAndPin
+  NedbankId_NedbankIdCredentialsProfileCard: validateCardAndPin
 }
 
 function validateNedbankIdUserNameAndPassword (req, res) {
@@ -39,13 +39,13 @@ function validatePinProfilePassword (req, res) {
   res.json(response)
 }
 
-function loginByCardAndPin (req, res) {
-  sendResponse('NedbankIdCredentialsProfileCard', res)
-}
-
-function sendResponse (respondName, res) {
-  Response.name = respondName
-  res.json(Response)
+function validateCardAndPin (req, res) {
+  var response = new Response()
+  response.nedbankIdExist = true
+  response.token = 'jas987adsuyhj2hjasd89sdjhdsaljkasd9sadjsadkj3'
+  response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
+  response.authenticated = true
+  res.json(response)
 }
 
 function Response () {
