@@ -9,7 +9,7 @@ module.exports = {
 
 function validateNedbankIdUserNameAndPassword (req, res) {
   var response = new Response()
-  response.createAlias = false
+  response.createAlias = req.swagger.params.request.value.username === 'notFederated'
   response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
   response.authenticated = true
   res.json(response)
