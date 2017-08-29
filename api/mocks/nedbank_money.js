@@ -4,19 +4,22 @@ module.exports = {
   NedbankId_NedbankIdCredentials: validateNedbankIdUserNameAndPassword,
   NedbankId_NedbankIdCredentialsProfile: validatePinProfilePassword,
   NedbankId_NedbankIdCredentialsProfileCard: validateCardAndPin,
+  NedbankId_NedbankIdCredentialsAuth: initiateApproveIT,
   NedbankId_NedbankIdEnrolments: enroll
 }
 
+const authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
+
 function validateNedbankIdUserNameAndPassword (req, res) {
-  var response = new Response()
+  let response = new Response()
   response.createAlias = req.swagger.params.request.value.username === 'notFederated'
-  response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
+  response.authReference = authReference
   response.authenticated = true
   res.json(response)
 }
 
 function validatePinProfilePassword (req, res) {
-  var response = new Response()
+  let response = new Response()
   response.nedbankIdExist = true
   response.oneTimePassword = '12345abc'
   response.enterpriseCustomerNumber = 12345
@@ -30,17 +33,25 @@ function validatePinProfilePassword (req, res) {
   response.emailAddress = 'test@test.com'
   response.firstName = 'Stephan'
   response.lastName = 'van Heerden'
-  response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
+  response.authReference = authReference
   response.authenticated = true
   res.json(response)
 }
 
 function validateCardAndPin (req, res) {
-  var response = new Response()
+  let response = new Response()
   response.nedbankIdExist = true
   response.token = 'jas987adsuyhj2hjasd89sdjhdsaljkasd9sadjsadkj3'
-  response.authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
+  response.authReference = authReference
   response.authenticated = true
+  res.json(response)
+}
+
+function initiateApproveIT (req, res) {
+  let response = new Response()
+  if (req.swagger.params.request.value.authReference !== authReference) {
+    response = new Response(1, 'Not valid authReference')
+  }
   res.json(response)
 }
 
@@ -48,9 +59,9 @@ function enroll (req, res) {
   res.json(new Response())
 }
 
-function Response () {
+function Response (resultCode = 0, resultMessage = 'success') {
   this.result = {
-    'resultCode': 0,
-    'resultMessage': 'string'
+    'resultCode': resultCode,
+    'resultMessage': resultMessage
   }
 }
