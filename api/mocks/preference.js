@@ -3,7 +3,14 @@
 module.exports = {
   getLimits: getLimits,
   getLimitsLatest: getLimitsLatest,
-  getSortOrder: getSortOrder
+  getSortOrder: getSortOrder,
+  getTransferLimit: getTransferLimit,
+  getPaymentLimit: getPaymentLimit,
+  getLottoLimit: getLottoLimit,
+  getSendIMALILimit: getSendIMALILimit,
+  getPrepaidLimit: getPrepaidLimit,
+  getInstantPaymentLimit: getInstantPaymentLimit,
+  getVisaPaymentLimit: getVisaPaymentLimit
 }
 
 function getLimits (req, res, next) {
@@ -284,6 +291,96 @@ function getSortOrder (req, res, next) {
           ]
         }
       ]
+    }
+  })
+}
+
+function getTransferLimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'transfer',
+      'dailyLimit': 150000,
+      'userAvailableDailyLimit': 150000,
+      'maxDailyLimit': 150000,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
+}
+
+function getPaymentLimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'payment',
+      'dailyLimit': 148000,
+      'userAvailableDailyLimit': 148000,
+      'maxDailyLimit': 150000,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
+}
+
+function getLottoLimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'lotto',
+      'dailyLimit': 1000,
+      'userAvailableDailyLimit': 1000,
+      'maxDailyLimit': 1000,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
+}
+
+function getSendIMALILimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'sendimali',
+      'dailyLimit': 1000,
+      'userAvailableDailyLimit': 1000,
+      'maxDailyLimit': 2500,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
+}
+
+function getPrepaidLimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'prepaid',
+      'dailyLimit': 1000,
+      'userAvailableDailyLimit': 1000,
+      'maxDailyLimit': 3000,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
+}
+
+function getInstantPaymentLimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'instantpayment',
+      'dailyLimit': 5000,
+      'userAvailableDailyLimit': 5000,
+      'maxDailyLimit': 10000,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
+}
+
+function getVisaPaymentLimit (req, res, next) {
+  res.json({
+    'data': {
+      'limitType': 'visapayment',
+      'dailyLimit': 80000,
+      'userAvailableDailyLimit': 80000,
+      'maxMonthlyLimit': 80000,
+      'isTempLimit': false
     }
   })
 }

@@ -112,6 +112,153 @@ paths:
           schema:
             $ref: '#/definitions/LimitsResponse'
     parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/transfer:
+    get:
+      operationId: getTransferLimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/payment:
+    get:
+      operationId: getPaymentLimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/lotto:
+    get:
+      operationId: getLottoLimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/sendimali:
+    get:
+      operationId: getSendIMALILimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/prepaid:
+    get:
+      operationId: getPrepaidLimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/instantpayment:
+    get:
+      operationId: getInstantPaymentLimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /preferences/v1/limits/visapayment:
+    get:
+      operationId: getVisaPaymentLimit
+      x-swagger-router-controller: preference
+      description: Retrieves the profile's transaction limits
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the Metadata object
+          schema:
+            $ref: '#/definitions/LimitsResponse'
+    parameters:
     - $ref: '#/parameters/Authorization'  
 definitions:
   LimitsResponse:
