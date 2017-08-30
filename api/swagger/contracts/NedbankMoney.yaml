@@ -86,6 +86,7 @@ paths:
       tags:
         - NedApp
       summary: Accept Nedbank Money terms and conditions
+      x-swagger-router-controller: nedbank_money
       operationId: NedApp_NedAppTermsAndConditionsAccept
       consumes:
         - application/json
