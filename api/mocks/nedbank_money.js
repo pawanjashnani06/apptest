@@ -44,11 +44,17 @@ function validatePinProfilePassword (req, res) {
 }
 
 function validateCardAndPin (req, res) {
-  let response = new Response()
-  response.nedbankIdExist = req.swagger.params.request.value.pan !== '1234123412341234'
-  response.token = 'jas987adsuyhj2hjasd89sdjhdsaljkasd9sadjsadkj3'
-  response.authReference = authReference
-  response.authenticated = true
+  let response
+  if (req.swagger.params.request.value.pin === '12345') {
+    response = new Response(1, 'Invalid PIN')
+    response.authenticated = false
+  } else {
+    response = new Response()
+    response.nedbankIdExist = req.swagger.params.request.value.pan !== '1234123412341234'
+    response.token = 'jas987adsuyhj2hjasd89sdjhdsaljkasd9sadjsadkj3'
+    response.authReference = authReference
+    response.authenticated = true
+  }
   res.json(response)
 }
 
