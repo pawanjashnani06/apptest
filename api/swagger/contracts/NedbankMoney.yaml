@@ -294,6 +294,7 @@ paths:
       tags:
         - NedbankId
       summary: Initiate Approve-IT
+      x-swagger-router-controller: nedbank_money
       operationId: NedbankId_NedbankIdCredentialsAuthsPin
       consumes:
         - application/json

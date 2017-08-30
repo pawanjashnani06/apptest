@@ -6,6 +6,7 @@ module.exports = {
   NedbankId_NedbankIdCredentialsProfile: validatePinProfilePassword,
   NedbankId_NedbankIdCredentialsProfileCard: validateCardAndPin,
   NedbankId_NedbankIdCredentialsAuth: initiateApproveIT,
+  NedbankId_NedbankIdCredentialsAuthsPin: initiateApproveITWithPin,
   NedbankId_NedbankIdEnrolments: enroll
 }
 
@@ -64,6 +65,10 @@ function initiateApproveIT (req, res) {
     response = new Response(1, 'Not valid authReference')
   }
   res.json(response)
+}
+
+function initiateApproveITWithPin (req, res) {
+  res.json(new Response())
 }
 
 function enroll (req, res) {
