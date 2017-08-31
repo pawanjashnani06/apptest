@@ -1743,11 +1743,13 @@ function transfersTransactionsPostLatest (req, res, next) {
     'metadata': {
       'resultData': [
         {
-          'transactionID': '1867519021392',
+		  'execEngineRef' : '489044960821',
+          'transactionID' : '28959863',
+          'batchID' : '2056693',
           'resultDetail': [
             {
               'operationReference': 'TRANSACTION',
-              'result': 'OK',
+              'result': 'SOK',
               'status': 'SUCCESS'
             }
           ]
