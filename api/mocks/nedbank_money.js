@@ -52,8 +52,7 @@ function validateCardAndPin (req, res) {
   } else if (req.swagger.params.request.value.pan === '4321432143214321') {
     response = new Response(2, 'Invalid PAN')
     response.authenticated = false
-  }
-  else {
+  } else {
     response = new Response()
     response.nedbankIdExist = req.swagger.params.request.value.pan !== '1234123412341234'
     response.token = 'jas987adsuyhj2hjasd89sdjhdsaljkasd9sadjsadkj3'
