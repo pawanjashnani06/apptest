@@ -46,8 +46,8 @@ function validatePinProfilePassword (req, res) {
 
 function validateCardAndPin (req, res) {
   let response
-  if (req.swagger.params.request.value.pin === '12345') {
-    response = new Response(1, 'Invalid PIN')
+  if (req.swagger.params.request.value.pan === '432143214321') {
+    response = new Response(1, 'Invalid PAN')
     response.authenticated = false
   } else {
     response = new Response()
