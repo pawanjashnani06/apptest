@@ -5192,6 +5192,37 @@ function contactCardsDetailsPost (req, res, next) {
         }
       ]
     },
+    'ContactCardName': 'Hein_Self_Absa3',
+    'mySelf': true,
+    'ContactCardDetails': [
+      {
+        'BeneficiaryName': 'Hein_Self_Absa',
+        'AccountNumber': '4047050967',
+        'BankName': 'ABSA BANK',
+        'branchCode': 632005,
+        'AccountType': 'U0',
+        'beneficiaryType': 'BNFEXT',
+        'MyReference': 'Absa_MySelf_EXT2',
+        'BeneficiaryReference': 'Absa_MySelf_EXT2'
+      },
+      {
+        'accountType': 'U0',
+        'beneficiaryID': 17,
+        'beneficiaryName': 'Hein_Self_Prepaid',
+        'accountNumber': '0796317907',
+        'branchCode': '000000',
+        'beneficiaryType': 'PPD',
+        'myReference': 'Nikola_Prepaid_BUY'
+      }
+    ],
+    'ContactCardNotifications': [
+      {
+        'NotificationAddress': '0715712967',
+        'NotificationType': 'SMS',
+        'NotificationDefault': true
+      }
+    ],
+
     'metadata': {
       'page': 1,
       'pageSize': 1,
