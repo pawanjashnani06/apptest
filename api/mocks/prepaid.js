@@ -1532,95 +1532,35 @@ function prepaidElectricitymetervoucherGet (req, res, next) {
   res.json({
     'data': [
       {
-        'myDescription': 'Electricity Voucher',
-        'purchaseDate': '2017-07-12',
-        'fromAcctDetails': '787970102030',
-        'meterNumber': '5643217890',
+        'myDescription': 'Alpha Numeric Meter Input',
+        'purchaseDate': '2017-08-08T00:00:00',
+        'meterNumber': '01050020009',
         'distributor': 'Eskom',
-        'customerName': 'Mark Twain',
-        'customerAddress': 'Model town',
-        'serviceProvider': 'Eskom inc.',
-        'nedbankReferenceNr': '20170712/GB/110110',
-        'amount': 1000,
-        'globalReceiptNr': 'SPAC//010101/0123/01',
-        'taxInvoiceNr': 'INV0000000012',
-        'supplyGroupCode': 567789012,
-        'keyRevisionNr': 774589029,
-        'tarrifIndexCode': 689067,
-        'algorithmCode': 43567909,
-        'tokenTechnologyCode': 232456643,
+        'customerName': '',
+        'customerAddress': '',
+        'serviceProvider': 'BLT',
+        'nedbankReferenceNr': '20170523/Nedbank/000000489035291992',
+        'amount': 700,
+        'globalReceiptNr': 'CIGIC2A95523708',
+        'taxInvoiceNr': '',
+        'supplyGroupCode': 100646,
+        'keyRevisionNr': 1,
+        'tarrifIndexCode': 4,
+        'algorithmCode': 7,
+        'tokenTechnologyCode': 2,
         'tokenDetail': [
           {
-            'normalSaleToken': 'Electricity voucher',
-            'electricityAmount': 1000,
-            'vat': '5',
-            'electricityUnits': 200,
-            'receipt': '',
-            'tarrif': [
-              {
-                'amount': 1000,
-                'unitCost': 50,
-                'units': '200'
-              }
-            ]
+            'normalSaleToken': '09150820170523091508',
+            'electricityAmount': 700,
+            'vat': '0',
+            'electricityUnits': 987,
+            'receipt': 'CIGIC2A95523708',
+            'tarrif': []
           }
         ],
-        'enquiries': '9876567990'
+        'enquiries': 'Megawatt Park, Contact Centre tel 086-003-7566'
       }
-    ],
-    'metadata': {
-      'page': 1,
-      'pageSize': 1,
-      'pageLimit': 1,
-      'resultData': [
-        {
-          'batchID': '',
-          'transactionID': '',
-          'recInstrID': '',
-          'resultDetail': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ],
-          'execEngineRef': '',
-          'resultDetails': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ]
-        }
-      ],
-      'resultSets': [
-        {
-          'batchID': '',
-          'transactionID': '',
-          'recInstrID': '',
-          'resultDetail': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ],
-          'execEngineRef': '',
-          'resultDetails': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ]
-        }
-      ]
-    }
+    ]
   })
 }
 
@@ -1628,151 +1568,36 @@ function prepaidElectricitymetervouchersGet (req, res, next) {
   res.json({
     'data': [
       {
-        'batchID': 1,
-        'transactionID': 1,
-        'capturedDate': '2017-07-12',
-        'startDate': '2017-07-12',
-        'nextTransDate': '2017-07-12',
-        'beneficiaryID': 1,
-        'bfName': {},
-        'myDescription': {},
+        'batchID': 2053296,
+        'transactionID': 28949883,
+        'capturedDate': '2017-08-08T00:00:00',
+        'startDate': '2017-08-08T00:00:00',
+        'nextTransDate': '2017-08-08T00:00:00',
+        'beneficiaryID': 0,
         'fromAccount': {
-          'accountName': 'Mark Twain',
-          'accountNumber': '787970102030',
-          'isOpen': true,
-          'productCode': '110',
-          'productDescription': 'internal account',
-          'relationshipCode': '210',
-          'statusCode': '787970102030',
-          'subProductCode': '',
-          'containerId': 1,
-          'containerName': 'bank',
-          'isIncluded': true,
-          'isPlastic': true,
-          'accountType': 'current',
-          'nickname': 'mark',
-          'sourceSystem': 'bankSystem',
-          'interestRate': '9',
-          'repaymentAmount': 1000,
-          'accountHolder': 'Mark Twain',
-          'actions': 'Prepaid transaction',
-          'transactions': [
-            {
-              'transactionId': '9867519021392',
-              'description': 'Prepaid transfer',
-              'amount': 1000,
-              'runningBalance': 10000,
-              'debit': true,
-              'account': '9867452381',
-              'postedDate': '2017-07-12',
-              'categoryId': 1,
-              'childTransactions': [
-                            {}
-              ],
-              'originalCategoryId': 1
-            }
-          ],
-          'currency': 'RAND',
-          'availableBalance': 10000,
-          'currentBalance': 10000,
-          'amountDue': 1000,
-          'dueDate': '2017-07-26',
-          'loanAmmount': 1000,
-          'outstandingAmount': 1000,
-          'profileAccountState': 'Active',
-          'accountLevel': 'Internal',
-          'viewAvailBal': true,
-          'viewStmnts': true,
-          'isRestricted': true,
-          'viewCurrBal': true,
-          'viewCredLim': true,
-          'viewMinAmtDue': true,
-          'isAlternateAccount': true,
-          'allowCredits': true,
-          'allowDebits': true,
-          'accountRules': {}
+          'accountNumber': '1001005570'
         },
-        'destinationNumber': '9867452381',
-        'serviceProvider': 'Telenor',
-        'productCode': '330',
-        'amount': 1000,
-        'isVoucherAmount': true,
-        'reoccurrenceItem': {
-          'reoccurrenceFrequency': 'Monthly',
-          'recInstrID': 1,
-          'reoccurrenceOccur': 1,
-          'reoccOccurrencesLeft': 1,
-          'reoccurrenceToDate': '2017-08-12',
-          'reoccSubFreqType': '',
-          'reoccSubFreqVal': '10'
-        },
+        'destinationNumber': '01050020009',
+        'serviceProvider': 'BLT',
+        'productCode': 'PEL',
+        'amount': 400,
         'notificationDetails': [
           {
-            'notificationId': 1,
             'notificationType': 'NONE',
-            'notificationAddress': '',
-            'notificationDefaultInd': true
+            'notificationAddress': ' '
           }
         ],
-        'prepaidStatus': 'Active',
-        'electricityAmountInArrears': 1000,
-        'purchaseReferenceNumber': '6787542243',
-        'unitsInBundle': '20',
-        'favourite': true
+        'prepaidStatus': 'Success',
+        'purchaseReferenceNumber': '20170808/Nedbank/000000489043657940',
+        'bfName': 'UNKNOWN',
+        'myDescription': 'Alpha Numeric Meter Input'
       }
     ],
     'metadata': {
       'page': 1,
-      'pageSize': 1,
+      'pageSize': 20,
       'pageLimit': 1,
-      'resultData': [
-        {
-          'batchID': '',
-          'transactionID': '',
-          'recInstrID': '',
-          'resultDetail': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ],
-          'execEngineRef': '',
-          'resultDetails': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ]
-        }
-      ],
-      'resultSets': [
-        {
-          'batchID': '',
-          'transactionID': '',
-          'recInstrID': '',
-          'resultDetail': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ],
-          'execEngineRef': '',
-          'resultDetails': [
-            {
-              'operationReference': '',
-              'result': '',
-              'status': '',
-              'reason': ''
-            }
-          ]
-        }
-      ]
+      'resultData': []
     }
   })
 }

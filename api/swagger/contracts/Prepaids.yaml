@@ -359,7 +359,7 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /prepaids/electricitymetervouchers:
+  /prepaids/v1/electricitymetervouchers:
     get:
       operationId: prepaidElectricitymetervouchersGet
       x-swagger-router-controller: prepaid
@@ -436,7 +436,7 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /prepaids/electricitymetervouchers/{voucher_id}:
+  /prepaids/v1/electricitymetervouchers/{voucher_id}:
     get:
       operationId: prepaidElectricitymetervoucherGet
       x-swagger-router-controller: prepaid
@@ -473,7 +473,7 @@ paths:
             $ref: '#/definitions/ElectricityVoucherResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /prepaids/electricitymeters/{meter_id}:
+  /prepaids/v1/electricitymeters/{meter_id}:
     put:
       operationId: prepaidElectricitymeterPut
       x-swagger-router-controller: prepaid
@@ -540,7 +540,7 @@ paths:
             $ref: '#/definitions/ElectricityMeterResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /prepaids/electricitymeters:
+  /prepaids/v1/electricitymeters:
     get:
       operationId: prepaidElectricitymetersGet
       x-swagger-router-controller: prepaid

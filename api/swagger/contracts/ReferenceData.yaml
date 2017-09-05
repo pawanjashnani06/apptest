@@ -480,7 +480,7 @@ paths:
             $ref: '#/definitions/FrequencyResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /referencedata/lotto/drawresults:
+  /referencedata/v1/lotto/drawresults:
     get:
       operationId: getDrawResults
       x-swagger-router-controller: reference_data
@@ -511,7 +511,7 @@ paths:
             $ref: '#/definitions/DrawDetailsResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /referencedata/lotto/jacpot:
+  /referencedata/v1/lotto/jackpot:
     get:
       operationId: getLottoJackpot
       x-swagger-router-controller: reference_data
@@ -534,7 +534,7 @@ paths:
             $ref: '#/definitions/JackpotResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /referencedata/lotto/metadata:
+  /referencedata/v1/lotto/metadata:
     get:
       operationId: getLottoMetadata
       x-swagger-router-controller: reference_data
@@ -995,6 +995,990 @@ paths:
             Additional information may be contained in the metadata object
           schema:
             $ref: '#/definitions/BDFResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/003/branches:
+    get:
+      operationId: getNedBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/009/branches:
+    get:
+      operationId: getABSABankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/020/branches:
+    get:
+      operationId: getCAPITECBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization' 
+  /referencedata/v1/banks/001/branches:
+    get:
+      operationId: getStandardBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/016/branches:
+    get:
+      operationId: getAFRICANBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/041/branches:
+    get:
+      operationId: getALBARAKABankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/038/branches:
+    get:
+      operationId: getBIDVESTBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/048/branches:
+    get:
+      operationId: getBNPBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/035/branches:
+    get:
+      operationId: getCITIBANKBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/045/branches:
+    get:
+      operationId: getFinBondBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/039/branches:
+    get:
+      operationId: getGRINDRODBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/026/branches:
+    get:
+      operationId: getHABIBBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/023/branches:
+    get:
+      operationId: getHBZBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/040/branches:
+    get:
+      operationId: getHSBCBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/024/branches:
+    get:
+      operationId: getINVESTECBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/031/branches:
+    get:
+      operationId: getITHALABankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/044/branches:
+    get:
+      operationId: getJPMORGANBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/018/branches:
+    get:
+      operationId: getMERCANTILEBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/005/branches:
+    get:
+      operationId: getNedBankPeoplesMortgage
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/004/branches:
+    get:
+      operationId: getNedBankBondAccounts
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/032/branches:
+    get:
+      operationId: getNedBankFBC
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/007/branches:
+    get:
+      operationId: getNedbankLesotheLtd
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/017/branches:
+    get:
+      operationId: getNedbankBOE
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/013/branches:
+    get:
+      operationId: getNedbankPEP
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/036/branches:
+    get:
+      operationId: getNedbankNamibia
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/006/branches:
+    get:
+      operationId: getNedbankSwaziland
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/028/branches:
+    get:
+      operationId: getPeoplesBank
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/014/branches:
+    get:
+      operationId: getSABanks
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/999/branches:
+    get:
+      operationId: getSAReserveBank
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/019/branches:
+    get:
+      operationId: getSAPostOffice
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/058/branches:
+    get:
+      operationId: getSasfinBank
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/002/branches:
+    get:
+      operationId: getStandardBankLesothe
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/001/branches:
+    get:
+      operationId: getStandardBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/034/branches:
+    get:
+      operationId: getStandardBankSwaziland
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/029/branches:
+    get:
+      operationId: getStandardCharteredBank
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/042/branches:
+    get:
+      operationId: getSBIBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/015/branches:
+    get:
+      operationId: getUBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/033/branches:
+    get:
+      operationId: getUNIBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/043/branches:
+    get:
+      operationId: getVBSMutualBankBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/046/branches:
+    get:
+      operationId: getVBSOlympusBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/banks/021/branches:
+    get:
+      operationId: getWindhoekBranches
+      x-swagger-router-controller: reference_data
+      description: Retrieves the banks branchcodes if there is not a universal one
+        available. Should be order by branch name
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        204:
+          description: No Content
+        207:
+          description: Partial success
+          schema:
+            $ref: '#/definitions/BranchesResponse'
+        default:
+          description: Returns an error that has not been specified in the implementation.
+            Additional information may be contained in the metadata object
+          schema:
+            $ref: '#/definitions/BranchesResponse'
     parameters:
     - $ref: '#/parameters/Authorization'  
 definitions:
