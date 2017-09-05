@@ -170,6 +170,35 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentials'
+  /nedbankid/credentials/login:
+    post:
+      tags:
+        - NedbankId
+      summary: Validate Nedbank ID Password and provide pin token for login
+      operationId: NedbankId_NedbankIdCredentialsLogin
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsUsernameRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsLoginRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsLogin'
   /nedbankid/credentials/profile:
     post:
       tags:
@@ -296,24 +325,12 @@ paths:
       summary: Initiate Approve-IT
       x-swagger-router-controller: nedbank_money
       operationId: NedbankId_NedbankIdCredentialsAuthsPin
-      consumes:
-        - application/json
-        - text/json
-        - application/xml
-        - text/xml
-        - application/x-www-form-urlencoded
+      consumes: []
       produces:
         - application/json
         - text/json
         - application/xml
         - text/xml
-      parameters:
-        - name: request
-          in: body
-          description: NedbankIdCredentialsAuthRequest
-          required: true
-          schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsPinRequest'
       responses:
         '200':
           description: OK
@@ -349,64 +366,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdEnrolments'
-  /nedbankid/enrolments/profile:
-    post:
-      tags:
-        - NedbankId
-      summary: Enrol using Pin Profile Password
-      operationId: NedbankId_NedbankIdEnrolmentsProfile
-      consumes:
-        - application/json
-        - text/json
-        - application/xml
-        - text/xml
-        - application/x-www-form-urlencoded
-      produces:
-        - application/json
-        - text/json
-        - application/xml
-        - text/xml
-      parameters:
-        - name: request
-          in: body
-          description: NedbankIdEnrolmentsProfileRequest
-          required: true
-          schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileRequest'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
-  /nedbankid/enrolments/profile/card:
-    post:
-      tags:
-        - NedbankId
-      summary: Enrol using Card and PIN
-      operationId: NedbankId_NedbankIdEnrolmentsProfileCard
-      consumes:
-        - application/json
-        - text/json
-        - application/xml
-        - text/xml
-        - application/x-www-form-urlencoded
-      produces:
-        - application/json
-        - text/json
-        - application/xml
-        - text/xml
-      parameters:
-        - name: request
-          in: body
-          description: NedbankIdEnrolmentsProfileCardRequest
-          required: true
-          schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileCardRequest'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/NedbankMoney.API.Models.Response.ServiceResponse'
 definitions:
   NedbankMoney.API.Models.Request.NedAppDevicesDisconnectRequest:
     type: object
@@ -430,15 +389,6 @@ definitions:
         type: integer
       resultMessage:
         type: string
-  NedbankMoney.API.Models.Response.ServiceResponse:
-      type: object
-      properties:
-        name:
-          type: string
-        response:
-          type: object
-        result:
-          $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedAppDevicesInfoRequest:
     type: object
     properties:
@@ -457,6 +407,8 @@ definitions:
   NedbankMoney.API.Models.Response.NedAppDevicesInfo:
     type: object
     properties:
+      response:
+        type: string
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Response.NedAppTermsAndConditions:
@@ -511,6 +463,20 @@ definitions:
         type: boolean
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsLoginRequest:
+    type: object
+    properties:
+      secret:
+        type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsLogin:
+    type: object
+    properties:
+      pinToken:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileRequest:
     type: object
     properties:
@@ -562,25 +528,11 @@ definitions:
   NedbankMoney.API.Models.Request.NedbankIdCredentialsProfileCardRequest:
     type: object
     properties:
-      idNumber:
-        type: string
       pan:
-        type: string
-      pin:
         type: string
   NedbankMoney.API.Models.Response.NedbankIdCredentialsProfileCard:
     type: object
     properties:
-      nedbankIdExist:
-        type: boolean
-      token:
-        type: string
-      authReference:
-        format: uuid
-        type: string
-        example: 00000000-0000-0000-0000-000000000000
-      authenticated:
-        type: boolean
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
   NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthRequest:
@@ -613,9 +565,6 @@ definitions:
     properties:
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
-  NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsPinRequest:
-    type: object
-    properties: {}
   NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsPin:
     type: object
     properties:
@@ -713,11 +662,7 @@ definitions:
   NedbankMoney.API.Models.Response.NedbankIdEnrolments:
     type: object
     properties:
+      pinToken:
+        type: string
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
-  NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileRequest:
-    type: object
-    properties: {}
-  NedbankMoney.API.Models.Request.NedbankIdEnrolmentsProfileCardRequest:
-    type: object
-    properties: {}
