@@ -1674,12 +1674,12 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 50,
-        'contactCardName': 'Just tiffany/CSMIT',
+        'contactCardName': 'Just tiffany CSMIT',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 54,
-            'beneficiaryName': 'Just tiffany/CSMIT',
+            'beneficiaryName': 'Just tiffany CSMIT',
             'accountNumber': '134818989',
             'bankName': 'STANDARD BANK SOUTH AFRICA',
             'branchCode': '051001',
@@ -1847,12 +1847,12 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 55,
-        'contactCardName': 'ETANA/HOLLARD',
+        'contactCardName': 'ETANA HOLLARD',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 61,
-            'beneficiaryName': 'ETANA/HOLLARD',
+            'beneficiaryName': 'ETANA HOLLARD',
             'accountNumber': '62034267238',
             'bankName': 'FNB SOUTH AFRICA',
             'branchCode': '250655',
@@ -2414,12 +2414,12 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 71,
-        'contactCardName': 'Gomac -jakes',
+        'contactCardName': 'Gomac jakes',
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 79,
-            'beneficiaryName': 'Gomac -jakes',
+            'beneficiaryName': 'Gomac jakes',
             'accountNumber': '680891729',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
@@ -2759,7 +2759,7 @@ function contactCardsDetailsGet (req, res, next) {
           {
             'accountType': 'CA',
             'beneficiaryID': 3,
-            'beneficiaryName': 'Nikola_Bank',
+            'beneficiaryName': 'Nikola Bank',
             'accountNumber': '1940062772',
             'bankName': 'NEDBANK',
             'branchCode': '194037',
@@ -2941,13 +2941,13 @@ function contactCardsDetailsGet (req, res, next) {
       },
       {
         'contactCardID': 83,
-        'contactCardName': 'Hein_Self_Absa3',
+        'contactCardName': 'Hein Self Absa3',
         'mySelf': true,
         'contactCardDetails': [
           {
             'accountType': 'U0',
             'beneficiaryID': 44,
-            'beneficiaryName': 'Absa_MySelf3',
+            'beneficiaryName': 'Absa MySelf3',
             'accountNumber': '4047050967',
             'bankName': 'ABSA BANK',
             'branchCode': '632005',
@@ -3314,7 +3314,7 @@ function contactCardsDetailsGet (req, res, next) {
           {
             'accountType': 'CA',
             'beneficiaryID': 81,
-            'beneficiaryName': 'Nikola_Bank',
+            'beneficiaryName': 'Nikola Bank',
             'accountNumber': '1940062772',
             'bankName': 'NEDBANK',
             'branchCode': '194037',
@@ -3395,7 +3395,7 @@ function contactCardsDetailsPost (req, res, next) {
         }
       ]
     },
-    'ContactCardName': 'Hein_Self_Absa3',
+    'ContactCardName': 'Hein Self Absa3',
     'mySelf': true,
     'ContactCardDetails': [
       {
