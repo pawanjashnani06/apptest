@@ -3364,116 +3364,91 @@ function contactCardsDetailsGet (req, res, next) {
 function contactCardsDetailsPost (req, res, next) {
   res.json({
     'data': {
-      'contactCardID': 1001,
-      'contactCardName': 'Mark Twain',
+      'contactCardID': 103,
+      'contactCardName': 'Nikola',
       'contactCardDetails': [
         {
-          'beneficiaryID': 10101010,
-          'beneficiaryName': 'Mark Twain',
-          'accountNumber': '783421094571',
-          'bankName': 'Green Bank',
-          'branchCode': '110110',
-          'beneficiaryType': 'BDF',
-          'beneficiarySubType': 'INT',
-          'myReference': 'My debit references',
-          'beneficiaryReference': 'My creditor references'
+          'accountType': 'CA',
+          'beneficiaryName': 'Nikola_Bank',
+          'accountNumber': '1940062772',
+          'bankName': 'NEDBANK',
+          'beneficiaryType': 'BNFINT',
+          'myReference': 'ned123',
+          'beneficiaryReference': 'Nikola_Bank_PAY'
+        },
+        {
+          'beneficiaryName': 'Nikola_Bank',
+          'accountNumber': '01050020017',
+          'beneficiaryType': 'PPD',
+          'myReference': 'ned123'
+        },
+        {
+          'beneficiaryName': 'Nikola_Bank',
+          'accountNumber': '01050020009',
+          'beneficiaryType': 'PEL',
+          'myReference': 'ned123'
         }
       ],
       'contactCardNotifications': [
         {
-          'notificationAddress': '9886712834',
-          'notificationType': 'mobile',
-          'notificationDefault': true,
-          'notificationParents': [
-            {
-              'beneficiaryID': 1,
-              'beneficiaryType': 'Sample text',
-              'beneficiarySubType': 'Sample text',
-              'notificationID': 1
-            }
-          ]
+          'notificationAddress': '0712223333',
+          'notificationType': 'SMS',
+          'notificationDefault': true
+        },
+        {
+          'notificationAddress': 'doryr@http123.com',
+          'notificationType': 'EMAIL',
+          'notificationDefault': false
         }
       ]
     },
-    'ContactCardName': 'Hein Self Absa3',
-    'mySelf': true,
-    'ContactCardDetails': [
-      {
-        'BeneficiaryName': 'Hein_Self_Absa',
-        'AccountNumber': '4047050967',
-        'BankName': 'ABSA BANK',
-        'branchCode': 632005,
-        'AccountType': 'U0',
-        'beneficiaryType': 'BNFEXT',
-        'MyReference': 'Absa_MySelf_EXT2',
-        'BeneficiaryReference': 'Absa_MySelf_EXT2'
-      },
-      {
-        'accountType': 'U0',
-        'beneficiaryID': 17,
-        'beneficiaryName': 'Hein_Self_Prepaid',
-        'accountNumber': '0796317907',
-        'branchCode': '000000',
-        'beneficiaryType': 'PPD',
-        'myReference': 'Nikola_Prepaid_BUY'
-      }
-    ],
-    'ContactCardNotifications': [
-      {
-        'NotificationAddress': '0715712967',
-        'NotificationType': 'SMS',
-        'NotificationDefault': true
-      }
-    ],
-
     'metadata': {
-      'page': 1,
-      'pageSize': 1,
-      'pageLimit': 1,
       'resultData': [
         {
-          'batchID': 'Sample text',
-          'transactionID': 'Sample text',
-          'recInstrID': 'Sample text',
+          'transactionID': '90',
           'resultDetail': [
             {
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ],
-          'execEngineRef': 'Sample text',
-          'resultDetails': [
+              'operationReference': 'BENEFICIARYSAVED',
+              'result': 'R00',
+              'status': 'SUCCESS'
+            },
             {
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
+              'operationReference': 'NOTIFICATION',
+              'result': '0',
+              'status': 'SUCCESS',
+              'reason': 'Success'
             }
           ]
-        }
-      ],
-      'resultSets': [
+        },
         {
-          'batchID': 'Sample text',
-          'transactionID': 'Sample text',
-          'recInstrID': 'Sample text',
+          'transactionID': '16',
           'resultDetail': [
             {
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
-            }
-          ],
-          'execEngineRef': 'Sample text',
-          'resultDetails': [
+              'operationReference': 'BENEFICIARYSAVED',
+              'result': 'R00',
+              'status': 'SUCCESS'
+            },
             {
-              'operationReference': 'Sample text',
-              'result': 'Sample text',
-              'status': 'Sample text',
-              'reason': 'Sample text'
+              'operationReference': 'NOTIFICATION',
+              'result': '0',
+              'status': 'SUCCESS',
+              'reason': 'Success'
+            }
+          ]
+        },
+        {
+          'transactionID': '17',
+          'resultDetail': [
+            {
+              'operationReference': 'BENEFICIARYSAVED',
+              'result': 'R00',
+              'status': 'SUCCESS'
+            },
+            {
+              'operationReference': 'NOTIFICATION',
+              'result': '0',
+              'status': 'SUCCESS',
+              'reason': 'Success'
             }
           ]
         }
