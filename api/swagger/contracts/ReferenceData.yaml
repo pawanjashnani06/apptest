@@ -1765,30 +1765,6 @@ paths:
             $ref: '#/definitions/BranchesResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /referencedata/v1/banks/001/branches:
-    get:
-      operationId: getStandardBankBranches
-      x-swagger-router-controller: reference_data
-      description: Retrieves the banks branchcodes if there is not a universal one
-        available. Should be order by branch name
-      responses:
-        200:
-          description: Request successful
-          schema:
-            $ref: '#/definitions/BranchesResponse'
-        204:
-          description: No Content
-        207:
-          description: Partial success
-          schema:
-            $ref: '#/definitions/BranchesResponse'
-        default:
-          description: Returns an error that has not been specified in the implementation.
-            Additional information may be contained in the metadata object
-          schema:
-            $ref: '#/definitions/BranchesResponse'
-    parameters:
-    - $ref: '#/parameters/Authorization'
   /referencedata/v1/banks/034/branches:
     get:
       operationId: getStandardBankSwaziland
@@ -2370,7 +2346,6 @@ definitions:
         type: string
       nextDrawDate:
         type: string
-        format: date
       drawNumber:
         description: drawidentifier on contract
         type: integer
