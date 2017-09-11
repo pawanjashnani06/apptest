@@ -639,7 +639,7 @@ paths:
             $ref: '#/definitions/ElectricityMetersResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /prepaids/moneysend:
+  /prepaids/v1/moneysend:
     get:
       operationId: prepaidMoneySendGet
       x-swagger-router-controller: prepaid
@@ -751,7 +751,7 @@ paths:
             $ref: '#/definitions/PrepaidListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /prepaids/moneysend/history:
+  /prepaids/v1/moneysend/history:
     get:
       operationId: prepaidMoneySendHistoryGet
       x-swagger-router-controller: prepaid
@@ -1411,7 +1411,6 @@ definitions:
       capturedDate:
         description: ONLY used on GET - on contract mapped to ClientRef
         type: string
-        format: date
       startDate:
         description: Date the client want the transaction to take place - on contract
           mapped to TrxRequestDate (or ReoccurrenceFromDate for recurring transactions).
@@ -1424,7 +1423,6 @@ definitions:
           from host on validate = true and sent back on validate = false). Also used
           for FBE electricity.
         type: string
-        format: date
       beneficiaryID:
         description: ID of the saved beneficiary
         type: integer
