@@ -17,10 +17,15 @@ function acceptTermsAndConditions (req, res) {
 }
 
 function validateNedbankIdUserNameAndPassword (req, res) {
-  let response = new Response()
-  response.createAlias = req.swagger.params.request.value.username === 'notFederated'
-  response.authReference = authReference
-  response.authenticated = true
+  let response
+  if (req.swagger.params.request.value.username === 'blocked') {
+    response = new Response(5, 'User blocked')
+  } else {
+    response = new Response()
+    response.createAlias = req.swagger.params.request.value.username === 'notFederated'
+    response.authReference = authReference
+    response.authenticated = true
+  }
   res.json(response)
 }
 
