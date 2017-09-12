@@ -318,6 +318,64 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtp'
+  /nedbankid/credentials/auths/otps/verify:
+    post:
+      tags:
+        - NedbankId
+      summary: Verify OTP
+      operationId: NedbankId_NedbankIdCredentialsAuthsOtpsVerify
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsAuthsOtpsVerifyRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsOtpsVerifyRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtpsVerify'
+  /nedbankid/credentials/security:
+    post:
+      tags:
+        - NedbankId
+      summary: Set security mechanism for unlocking device
+      operationId: NedbankId_NedbankIdCredentialsSecurity
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsSecurityRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsSecurityRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsSecurity'
   /nedbankid/credentials/auths/pin:
     post:
       tags:
@@ -366,6 +424,94 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdEnrolments'
+  /nedbankid/recoveries/username:
+    post:
+      tags:
+        - NedbankId
+      summary: Recover Nedbank ID Username
+      x-swagger-router-controller: nedbank_money
+      operationId: NedbankId_NedbankIdRecoveriesUsername
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdRecoveriesUsernameRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdRecoveriesUsernameRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsUsername'
+  /nedbankid/recoveries/password:
+    post:
+      tags:
+        - NedbankId
+      summary: Recover Nedbank ID Username
+      operationId: NedbankId_NedbankIdRecoveriesPassword
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdRecoveriesUsernameRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdRecoveriesPasswordRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdRecoveriesPassword'
+  /nedbankid/credentials/passwords/reset:
+    post:
+      tags:
+        - NedbankId
+      summary: Reset Nedbank ID Username
+      operationId: NedbankId_NedbankIdCredentialsPasswordReset
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsPasswordResetRequest
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Request.NedbankIdCredentialsPasswordResetRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdRecoveriesPassword'
 definitions:
   NedbankMoney.API.Models.Request.NedAppDevicesDisconnectRequest:
     type: object
@@ -453,6 +599,8 @@ definitions:
   NedbankMoney.API.Models.Response.NedbankIdCredentials:
     type: object
     properties:
+      mobileNumber:
+        type: string
       createAlias:
         type: boolean
       authReference:
@@ -489,6 +637,8 @@ definitions:
   NedbankMoney.API.Models.Response.NedbankIdCredentialsProfile:
     type: object
     properties:
+      mobileNumber:
+        type: string
       nedbankIdExist:
         type: boolean
       oneTimePassword:
@@ -554,13 +704,37 @@ definitions:
   NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsOtpRequest:
     type: object
     properties:
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtp:
+    type: object
+    properties:
+      mobileNumber:
+        type: string
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsAuthsOtpsVerifyRequest:
+    type: object
+    properties:
       otp:
         type: string
       authReference:
         format: uuid
         type: string
         example: 00000000-0000-0000-0000-000000000000
-  NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtp:
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsAuthsOtpsVerify:
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsSecurityRequest:
+    type: object
+    properties:
+      type:
+        type: string
+  NedbankMoney.API.Models.Response.NedbankIdCredentialsSecurity:
     type: object
     properties:
       result:
@@ -666,3 +840,35 @@ definitions:
         type: string
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Request.NedbankIdRecoveriesUsernameRequest:
+    type: object
+    properties:
+      identificationNumber:
+        type: string
+      identificationType:
+        type: string
+      countryCode:
+        type: string
+  NedbankMoney.API.Models.Request.NedbankIdRecoveriesPasswordRequest:
+    type: object
+    properties:
+      username:
+        type: string
+  NedbankMoney.API.Models.Response.NedbankIdRecoveriesPassword:
+    type: object
+    properties:
+      mobileNumber:
+        type: string
+      authReference:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  NedbankMoney.API.Models.Request.NedbankIdCredentialsPasswordResetRequest:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string

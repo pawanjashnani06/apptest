@@ -7,7 +7,8 @@ module.exports = {
   NedbankId_NedbankIdCredentialsProfileCard: validateCardAndPin,
   NedbankId_NedbankIdCredentialsAuth: initiateApproveIT,
   NedbankId_NedbankIdCredentialsAuthsPin: initiateApproveITWithPin,
-  NedbankId_NedbankIdEnrolments: enroll
+  NedbankId_NedbankIdEnrolments: enroll,
+  NedbankId_NedbankIdRecoveriesUsername: recoverUserName
 }
 
 const authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
@@ -75,6 +76,28 @@ function initiateApproveITWithPin (req, res) {
 
 function enroll (req, res) {
   res.json(new Response())
+}
+
+function recoverUserName (req, res) {
+  let response
+  const identificationNumber = req.swagger.params.request.value.identificationNumber
+  switch (req.swagger.params.request.value.identificationType) {
+    case 'RSAIDENTITY':
+      response = new Response()
+      response.available = identificationNumber === '1234123412341'
+      break
+    case 'PASSPORT':
+      if (req.swagger.params.request.value.countryCode === 'ZA') {
+        response = new Response()
+        response.available = identificationNumber === '1'
+      } else {
+        response = new Response(2, 'Invalid countryCode')
+      }
+      break
+    default:
+      response = new Response(1, 'Invalid identificationType')
+  }
+  res.json(response)
 }
 
 function Response (resultCode = 0, resultMessage = 'success') {
