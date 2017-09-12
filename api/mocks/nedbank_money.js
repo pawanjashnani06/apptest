@@ -20,6 +20,8 @@ function validateNedbankIdUserNameAndPassword (req, res) {
   let response
   if (req.swagger.params.request.value.username === 'blocked') {
     response = new Response(5, 'User blocked')
+    response.authenticated = false
+    response.authReference = ''
   } else {
     response = new Response()
     response.createAlias = req.swagger.params.request.value.username === 'notFederated'
