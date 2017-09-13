@@ -570,8 +570,7 @@ definitions:
     type: object
     properties:
       version:
-        format: int32
-        type: integer
+        type: string
   NedbankMoney.API.Models.Response.NedAppTermsAndConditionsAccept:
     type: object
     properties:
