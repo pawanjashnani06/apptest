@@ -393,8 +393,8 @@ function paymentaccountsGetLatest (req, res, next) {
         'viewCredLim': true,
         'viewMinAmtDue': true,
         'isAlternateAccount': true,
-        'allowCredits': true,
-        'allowDebits': true,
+        'allowCredits': false,
+        'allowDebits': false,
         'accountRules': {
           'instantPayFrom': true,
           'onceOffPayFrom': false,
