@@ -22,7 +22,7 @@ parameters:
 # security:
 # - API Key: []
 paths:
-  /termsandconditionsitems:
+  /termsandconditions/v1/termsandconditionsitems:
     get:
       operationId: getItems
       x-swagger-router-controller: terms_conditions
@@ -45,7 +45,7 @@ paths:
             $ref: '#/definitions/TermsAndConditionsListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'
-  /termandcoindition/{noticeType}:
+  /termsandconditions/v1/termandcoindition/{noticeType}:
     get:
       operationId: getNoticeTypeItem
       x-swagger-router-controller: terms_conditions
@@ -130,7 +130,7 @@ definitions:
         type: string
       versionNumber:
         description: Notice version number in decmial format
-        type: integer
+        type: number
         format: double
       acceptedDateTime:
         description: Notice accepted date and time
