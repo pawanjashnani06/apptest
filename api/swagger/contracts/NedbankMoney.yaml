@@ -289,6 +289,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuth'
+
+
   /nedbankid/credentials/auths/otp:
     post:
       tags:
@@ -512,6 +514,31 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdRecoveriesPassword'
+  /clients/accounts/refresh:
+    get:
+      tags:
+        - NedbankId
+      x-swagger-router-controller: nedbank_money
+      operationId: ClientsAccountsRefresh
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              result:
+                $ref: '#/definitions/NedbankMoney.API.Models.Result'
 definitions:
   NedbankMoney.API.Models.Request.NedAppDevicesDisconnectRequest:
     type: object
