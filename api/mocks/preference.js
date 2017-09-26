@@ -309,8 +309,16 @@ function getTransferLimit (req, res, next) {
 }
 
 function getPaymentLimit (req, res, next) {
-  res.statusCode = 204
-  res.json()
+  res.json({
+    'data': {
+      'limitType': 'payment',
+      'dailyLimit': 148000,
+      'userAvailableDailyLimit': 148000,
+      'maxDailyLimit': 150000,
+      'isTempLimit': false,
+      'maxTmpDateRangeLimit': 30
+    }
+  })
 }
 
 function getLottoLimit (req, res, next) {
