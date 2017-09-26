@@ -2231,6 +2231,7 @@ function paymenttransactionsGetLatest (req, res, next) {
 }
 
 function paymenttransactionsPostLatest (req, res, next) {
+  res.statusCode = 207
   res.json({
     'data': [
       {
@@ -2266,8 +2267,9 @@ function paymenttransactionsPostLatest (req, res, next) {
           'resultDetail': [
             {
               'operationReference': 'BENEFICIARYSAVED',
-              'result': 'R00',
-              'status': 'SUCCESS'
+              'result': 'R13',
+              'status': 'FAILURE',
+              'reason': 'Maximum number of beneficiaries allowed on profile exceeded.'
             },
             {
               'operationReference': 'TRANSACTION',
