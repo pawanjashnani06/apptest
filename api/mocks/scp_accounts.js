@@ -626,42 +626,126 @@ function accountsTransactionsForPost (req, res, next) {
 
 function accountNumberTransactions (req, res, next) {
   res.json([
-    [
-      {
-        'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2e',
-        'Description': 'Travel 26 / 03 - 07 / 04',
-        'Amount': '3586',
-        'RunningBalance': '2014179',
-        'Debit': false,
-        'Account': '1025310667',
-        'PostedDate': '2016-04-08 12:00:00 AM',
-        'CategoryId': 100,
-        ChildTransactions: [
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2k',
-            'Description': 'INDIGO 26 / 01 - 07 / 17',
-            'Amount': '3586',
-            'RunningBalance': '2014179',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-01 12:00:00 AM',
-            'CategoryId': 91
-          },
-
-          {
-            'TransactionId': '058fd186-8f68-4f25-9ba8-b6dfd695fe2d',
-            'Description': 'Uber Bills 26 / 03 - 07 / 04',
-            'Amount': '3586',
-            'RunningBalance': '201179',
-            'Debit': false,
-            'Account': '1025310667',
-            'PostedDate': '2017-07-06 12:00:00 AM',
-            'CategoryId': 92
-          }
-
-        ]
-      }
-    ]
+    {
+      'TransactionId': 'fc986cad-0b73-4ccb-9575-a4a3c1fc4de9',
+      'Description': 'EARLY DEBIT ORDER',
+      'Amount': -1170.22,
+      'RunningBalance': 42250636909.72,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-28 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '67d3e87b-8e49-4da8-98c9-cb45e55d58ff',
+      'Description': 'Prepaid Airtime',
+      'Amount': -2.5,
+      'RunningBalance': 42250638079.94,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '8594ff0e-209d-40b4-bc77-84a667b3b0f1',
+      'Description': 'Nedbank Send-iMali9910556626',
+      'Amount': -6,
+      'RunningBalance': 42250638088.44,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '757a6e32-2a56-44ae-aea4-b0901d27eb6c',
+      'Description': 'Nedbank Send-iMali9910556626',
+      'Amount': -6,
+      'RunningBalance': 42250638082.44,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '05c46ecf-7d57-4f6c-8fd8-59cfa50bd3f3',
+      'Description': 'NETBANK PAYMENT FEE',
+      'Amount': -8,
+      'RunningBalance': 42250638665.14,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '47966959-40a7-4acf-b70b-48294cf376f3',
+      'Description': 'NETBANK PAYMENT FEE',
+      'Amount': -8,
+      'RunningBalance': 42250638601.54,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '23b94c4e-1ac0-4955-93c4-523a07d9e9d0',
+      'Description': 'NETBANK PAYMENT FEE',
+      'Amount': -8,
+      'RunningBalance': 42250638583.54,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': 'af55f897-d2f9-4175-aa44-f361d191eb6f',
+      'Description': 'Bene Acc with ext bank',
+      'Amount': -10,
+      'RunningBalance': 42250638591.54,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '4a4f0841-d6a1-4a1a-aeb4-ce088fadee85',
+      'Description': 'SELF SERVICE BANKING FEE',
+      'Amount': -12,
+      'RunningBalance': 42250638094.44,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    },
+    {
+      'TransactionId': '7de1f448-45cd-4f67-80bc-9a9900c50ff0',
+      'Description': 'MAINTENANCE FEE',
+      'Amount': -17,
+      'RunningBalance': 42250638106.44,
+      'Debit': true,
+      'Account': '1001004345',
+      'PostedDate': '2017-09-27 02:00:00 AM',
+      'CategoryId': 0,
+      'ChildTransactions': [],
+      'OriginalCategoryId': 0
+    }
   ])
 }
 

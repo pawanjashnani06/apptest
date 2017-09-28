@@ -492,6 +492,146 @@ paths:
               ChildTransactions: []
               OriginalCategoryId: 38
       deprecated: false
+  /clients/accounts/transactions/{accountnumber}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets 'Transaction' objects containing transaction details for a specific account
+      x-swagger-router-controller: scp_accounts
+      operationId: accountNumberTransactions
+      parameters:
+      - name: startdate
+        required: false
+        type: string
+        in: query
+      - name: numberoftransactions
+        required: false
+        type: string
+        in: query
+      - name: enddate
+        required: false
+        type: string
+        in: query
+      - description: ""
+        name: Authorization
+        type: string
+        required: true
+        in: header
+      - name: accountnumber
+        type: string
+        required: true
+        in: path
+      responses:
+        200:
+          description: Successful response
+          schema:
+            title: Transactions
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+          examples:
+            application/json:
+            - TransactionId: 058fd186-8f68-4f25-9ba8-b6dfd695fe2e
+              Description: INTEREST 26/03 - 07/04
+              Amount: "35,86"
+              RunningBalance: "201417,9"
+              Debit: false
+              Account: "1025310667"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 96
+              ChildTransactions: []
+              OriginalCategoryId: 96
+            - TransactionId: 276d44e2-5b76-4320-a7a5-8ec74e7c025e
+              Description: MAINTENANCE FEE
+              Amount: "-20"
+              RunningBalance: "201397,9"
+              Debit: true
+              Account: "1025310667"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 24
+              ChildTransactions: []
+              OriginalCategoryId: 24
+            - TransactionId: 161f4e56-b562-4007-9158-e7647d35611e
+              Description: INTEREST 26/03 - 07/04
+              Amount: "60,84"
+              RunningBalance: "170869,81"
+              Debit: false
+              Account: "1009795481"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 96
+              ChildTransactions: []
+              OriginalCategoryId: 96
+            - TransactionId: 4f9ee6a9-235f-49ec-94c9-489db85c8a16
+              Description: MAINTENANCE FEE
+              Amount: "-15"
+              RunningBalance: "170854,81"
+              Debit: true
+              Account: "1009795481"
+              PostedDate: 2016-04-08 12:00:00 AM
+              CategoryId: 24
+              ChildTransactions: []
+              OriginalCategoryId: 24
+            - TransactionId: feb7d266-8ccc-497c-b543-cc1367dbb221
+              Description: SERVICE FEE*
+              Amount: "-50,88"
+              RunningBalance: "0"
+              Debit: true
+              Account: "5898460760889527"
+              PostedDate: 2016-04-05 12:00:00 AM
+              CategoryId: 0
+              ChildTransactions: []
+              OriginalCategoryId: 0
+            - TransactionId: 23f3dbce-d89c-4464-8903-41449e16016b
+              Description: VAT ON FEE
+              Amount: "-7,12"
+              RunningBalance: "0"
+              Debit: true
+              Account: "5898460760889527"
+              PostedDate: 2016-04-05 12:00:00 AM
+              CategoryId: 0
+              ChildTransactions: []
+              OriginalCategoryId: 0
+            - TransactionId: 389de5f1-7dcc-4999-9fdc-bdbe6a0dbd9d
+              Description: Simba Test
+              Amount: "-500"
+              RunningBalance: "1109709,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 1
+              ChildTransactions: []
+              OriginalCategoryId: 1
+            - TransactionId: c2a5e05f-eeda-4254-bec9-4ad49aa5a045
+              Description: FNB CC
+              Amount: "-360"
+              RunningBalance: "1109349,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 1
+              ChildTransactions: []
+              OriginalCategoryId: 1
+            - TransactionId: 0c725265-4032-4103-81f8-54715b9d7ea7
+              Description: TELKOM
+              Amount: "-250"
+              RunningBalance: "1109099,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-04 12:00:00 AM
+              CategoryId: 38
+              ChildTransactions: []
+              OriginalCategoryId: 38
+            - TransactionId: 349a4d74-3acb-41b1-96f2-8a0d8d2d8d2d
+              Description: TELKOM
+              Amount: "-10000"
+              RunningBalance: "1110409,94"
+              Debit: true
+              Account: "1028232942"
+              PostedDate: 2016-04-01 12:00:00 AM
+              CategoryId: 38
+              ChildTransactions: []
+              OriginalCategoryId: 38
+      deprecated: false    
   /scp/accounts/metadata:
     get:
       tags: []
@@ -1378,10 +1518,12 @@ definitions:
         type: string
         description: The statement description for the transaction
       Amount:
-        type: string
+        type: number
+        format: double
         description: The amount for the transaction
       RunningBalance:
-        type: string
+        type: number
+        format: double
         description: The running balance for the account
       Debit:
         type: boolean
