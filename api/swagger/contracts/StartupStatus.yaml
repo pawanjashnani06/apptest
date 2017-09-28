@@ -1,0 +1,32 @@
+---
+swagger: '2.0'
+paths:
+  /startupStatus:
+    get:
+      x-swagger-router-controller: startup_status
+      operationId: getStartupStatus
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              mobileApiUrl:
+                type: string
+                description: The URL to connect with
+              clientId:
+                type: string
+                description: The clientId to use during communication
+              mobileApiToken:
+                type: string
+                description: The token to use during communication
+              termsAndConditionsVersion:
+                type: number
+                description: Version of terms & conditions
+              showTermsConditions:
+                type: boolean
+                description: Should terms & conditons be shown
+              showEnrolment:
+                type: boolean
+                description: Should device be enrolled
+
