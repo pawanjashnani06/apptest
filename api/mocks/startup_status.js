@@ -9,7 +9,7 @@ function getStartupStatus (req, res) {
 }
 
 function StartupStatus () {
-  this.mobileApiUrl = 'https://api-q.nedsecure.co.za/nedbank/'
+  this.mobileApiUrl = 'http://api.godigitalbank.com/api/services/v1/'
   this.clientId = '1234'
   this.mobileApiToken = ''
   this.termsAndConditionsVersion = 1
