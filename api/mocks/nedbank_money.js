@@ -1,6 +1,7 @@
 'use strict'
 
 module.exports = {
+  NedApp_NedAppTermsAndConditions: returnTermsAndConditions,
   NedApp_NedAppTermsAndConditionsAccept: acceptTermsAndConditions,
   NedbankId_NedbankIdCredentials: validateNedbankIdUserNameAndPassword,
   NedbankId_NedbankIdCredentialsProfile: validatePinProfilePassword,
@@ -13,6 +14,14 @@ module.exports = {
 }
 
 const authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
+
+function returnTermsAndConditions (req, res) {
+  let response = new Response()
+  const version = req.swagger.params.version.value
+  response.title = 'Terms&Conditions Title v' + version
+  response.wording = 'Terms&Conditions Wording v' + version
+  res.json(response)
+}
 
 function acceptTermsAndConditions (req, res) {
   res.json(new Response())
