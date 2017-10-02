@@ -64,6 +64,7 @@ paths:
       tags:
         - NedApp
       summary: Get latest terms and conditions
+      x-swagger-router-controller: nedbank_money
       operationId: NedApp_NedAppTermsAndConditions
       consumes: []
       produces:
