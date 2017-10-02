@@ -205,7 +205,7 @@ paths:
 #      - application/json
 #      produces:
 #      - application/json
-  /clientpreferences:
+  /clients/clientpreferences:
     get:
       tags: []
       summary: ""
@@ -227,7 +227,7 @@ paths:
             type: array
             items:
               title: Preferences
-              type: array
+              type: object
               items:
                 $ref: '#/definitions/UserPreference'
       deprecated: false
