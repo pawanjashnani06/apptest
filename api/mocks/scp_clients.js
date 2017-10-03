@@ -10,36 +10,50 @@ module.exports = {
 
 function clientDetails (req, res, next) {
   res.json({
-    'CisNumber': 110003663906,
-    'FirstName': 'William',
-    'SecondName': 'Jack',
-    'Surname': 'Mitchell',
-    'FullNames': 'Mr William Jack Mitchell',
-    'AdditionalCellNumber': '',
-    'CellNumber': '+27993663906',
-    'EmailAddress': 'test@test.co.za',
-    'FicaStatus': 1,
-    'BirthDate': '2017-07-12',
-    'SegmentId': 'Sample text',
-    'IdOrTaxIdNo': 1,
-    'PassportNo': 'Sample text',
-    'SecOfficerCd': 'Sample text',
+    'CisNumber': 110052140105,
+    'FirstName': 'Pamela',
+    'SecondName': 'Zoltan',
+    'Surname': 'Mackor',
+    'FullNames': 'Ms Pamela Zoltan Mackor',
+    'CellNumber': '+27745879190',
+    'EmailAddress': '',
+    'BirthDate': '1969-03-21T22:00:00Z',
+    'FicaStatus': 701,
+    'SegmentId': 'FAAZZZ',
+    'IdOrTaxIdNo': 6903220006083,
+    'SecOfficerCd': '32713',
     'AdditionalPhoneList': [
       {
-        'AdditionalPhoneType': 'Sample text',
-        'AdditionalPhoneNumber': 'Sample text'
+        'AdditionalPhoneType': 'BUS',
+        'AdditionalPhoneNumber': '(018) 2944527'
+      },
+      {
+        'AdditionalPhoneType': 'CELL',
+        'AdditionalPhoneNumber': '+27745879190'
+      },
+      {
+        'AdditionalPhoneType': 'FAX',
+        'AdditionalPhoneNumber': '(018) 2973683'
+      },
+      {
+        'AdditionalPhoneType': 'HOME',
+        'AdditionalPhoneNumber': '(018) 2943431'
       }
     ],
     'Address': {
       'AddressLines': [
         {
-          'AddressLine': 'Sample text'
+          'AddressLine': ''
+        },
+        {
+          'AddressLine': '88 DR JAMES MOROKA DRIVE'
+        },
+        {
+          'AddressLine': 'POTCHEFSTROOM'
         }
       ],
-      'AddressCity': 'Sample text',
-      'AddressPostalCode': 'Sample text',
-      'AddressProvince': 'Sample text',
-      'AddressCountry': 'Sample text'
+      'AddressPostalCode': '02531',
+      'AddressProvince': 'NORTH WEST'
     }
   })
 }

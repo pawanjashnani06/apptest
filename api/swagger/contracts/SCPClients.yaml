@@ -128,8 +128,8 @@ paths:
       operationId: getClientsCards
       x-swagger-router-controller: scp_clients
       deprecated: false
-      security:
-      - API Key: []
+#      security:
+#      - API Key: []
     post:
       tags: []
       summary: ""
@@ -155,8 +155,8 @@ paths:
       operationId: updateClientsCards
       x-swagger-router-controller: scp_clients
       deprecated: false
-      security:
-      - API Key: []
+#      security:
+#      - API Key: []
       consumes:
       - application/json
 #  /checklogin:
@@ -231,8 +231,8 @@ paths:
               items:
                 $ref: '#/definitions/UserPreference'
       deprecated: false
-      security:
-      - API Key: []
+#      security:
+#      - API Key: []
     post:
       tags: []
       summary: Updates the preferences for a user
@@ -261,8 +261,8 @@ paths:
         405:
           description: Invalid input
       deprecated: false
-      security:
-      - API Key: []
+#      security:
+#      - API Key: []
       produces:
       - application/json
 #  /yodleelogin/{siteid}:
@@ -610,7 +610,7 @@ paths:
 #      deprecated: false
 #      security:
 #      - API Key: []
-  /clientdetails:
+  /clients/clientdetails:
     get:
       tags: []
       summary: ""
@@ -639,10 +639,10 @@ paths:
       operationId: clientDetails
       x-swagger-router-controller: scp_clients
       deprecated: false
-      security:
-      - API Key: []
-      produces:
-      - application/json
+#      security:
+#      - API Key: []
+#      produces:
+#      - application/json
     put:
       description: ''
       tags:
@@ -666,10 +666,10 @@ paths:
           description: Request has been successfully executed.
           schema:
             type: object
-        default:
-          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
-          schema:
-            $ref: '#/definitions/ErrorDescription'
+#        default:
+#          description: Returns an error that has not been specified in the implementation. Additional information may be contained in the Error Description object
+#          schema:
+#            $ref: '#/definitions/ErrorDescription'
       operationId: updateClientDetails
       x-swagger-router-controller: scp_clients2
       summary: 'Used for ''ChangePassword'', ''ChangeUsername'', ''UpdateUser'''
@@ -937,9 +937,6 @@ definitions:
       FullNames:
         type: string
         description: The client full name
-      AdditionalCellNumber:
-        type: string
-        description: The client AdditionalCellNumber
       CellNumber:
         type: string
         description: The client CellNumber
@@ -948,7 +945,6 @@ definitions:
         description: The client EmailAddress
       BirthDate:
         type: string
-        format: date
         description: The client BirthDate
       FicaStatus:
         type: integer
@@ -961,9 +957,6 @@ definitions:
         type: integer
         format: int64
         description: The client IdOrTaxIdNo
-      PassportNo:
-        type: string
-        description: The client PassportNo
       SecOfficerCd:
         type: string
         description: The client SecOfficerCd
