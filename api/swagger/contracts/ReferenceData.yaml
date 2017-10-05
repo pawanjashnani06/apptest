@@ -1956,7 +1956,19 @@ paths:
           schema:
             $ref: '#/definitions/BranchesResponse'
     parameters:
-    - $ref: '#/parameters/Authorization'  
+    - $ref: '#/parameters/Authorization'
+  /referencedata/v1/sapublicholidays:
+    get:
+      operationId: getHolidayDetails
+      x-swagger-router-controller: reference_data
+      description: Public holiday list
+      responses:
+        200:
+          description: Request successful
+          schema:
+            $ref: '#/definitions/HolidayResponse'
+    parameters:
+    - $ref: '#/parameters/Authorization'    
 definitions:
   BanksResponse:
     properties:
@@ -1964,6 +1976,12 @@ definitions:
         $ref: '#/definitions/Banks'
       metadata:
         $ref: '#/definitions/Metadata'
+  HolidayResponse:
+    properties:
+      data:
+        $ref: '#/definitions/Holidays'
+      metadata:
+        $ref: '#/definitions/Metadata'      
   BranchesResponse:
     properties:
       data:
@@ -2051,6 +2069,11 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/BankDetail'
+  Holidays:
+    description: holiday details
+    type: array
+    items:
+      $ref: '#/definitions/HolidayDetail'    
   BankDetail:
     properties:
       bankCode:
@@ -2069,6 +2092,17 @@ definitions:
         type: boolean
       branchCodes:
         $ref: '#/definitions/Branches'
+  HolidayDetail:
+    properties:
+      date:
+        description: holiday date.
+        type: string
+      dayName:
+        description: This is name of the day - Monday, Tuesday....
+        type: string
+      description:
+        description: Holiday description/ description of special day.
+        type: string
   Branches:
     description: branch codes of the particular bank if more than one from aggregated
       data (hostdownloads)

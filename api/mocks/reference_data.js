@@ -63,7 +63,8 @@ module.exports = {
   getUNIBankBranches: getUNIBankBranches,
   getVBSMutualBankBranches: getVBSMutualBankBranches,
   getVBSOlympusBranches: getVBSOlympusBranches,
-  getWindhoekBranches: getWindhoekBranches
+  getWindhoekBranches: getWindhoekBranches,
+  getHolidayDetails: getHolidayDetails
 }
 
 function getBankDetails (req, res, next) {
@@ -25172,5 +25173,72 @@ function getStandardBankBranches (req, res, next) {
       'pageLimit': 1,
       'resultData': []
     }
+  })
+}
+
+function getHolidayDetails (req, res, next) {
+  res.json({
+    'data': [
+      {
+        'date': '2017-12-16',
+        'dayName': 'Saturday',
+        'description': 'Day of Reconciliation'
+      },
+      {
+        'date': '2017-12-25',
+        'dayName': 'Monday',
+        'description': 'Christmas Day'
+      },
+      {
+        'date': '2017-12-26',
+        'dayName': 'Tuesday',
+        'description': 'Day of Good Will'
+      },
+      {
+        'date': '2018-01-01',
+        'dayName': 'Monday',
+        'description': 'New Years Day'
+      },
+      {
+        'date': '2018-03-21',
+        'dayName': 'Wednesday',
+        'description': 'Human Rights Day'
+      },
+      {
+        'date': '2018-03-30',
+        'dayName': 'Friday',
+        'description': 'Good Friday'
+      },
+      {
+        'date': '2018-04-02',
+        'dayName': 'Monday',
+        'description': 'Family Day'
+      },
+      {
+        'date': '2018-04-27',
+        'dayName': 'Friday',
+        'description': 'Freedom Day'
+      },
+      {
+        'date': '2018-05-01',
+        'dayName': 'Tuesday',
+        'description': 'Workers Day'
+      },
+      {
+        'date': '2018-06-16',
+        'dayName': 'Saturday',
+        'description': 'Youth Day'
+      },
+      {
+        'date': '2018-08-09',
+        'dayName': 'Thursday',
+        'description': "National Women's Day"
+      },
+      {
+        'date': '2018-09-24',
+        'dayName': 'Monday',
+        'description': 'Heritage Day'
+      }
+    ]
   })
 }
