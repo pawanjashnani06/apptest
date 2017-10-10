@@ -8,6 +8,7 @@ paths:
       tags:
         - NedApp
       summary: Allows the consumer to leave feedback from his mobile device.
+      x-swagger-router-controller: nedbank_money
       operationId: NedApp_Feedback
       consumes:
         - application/json
