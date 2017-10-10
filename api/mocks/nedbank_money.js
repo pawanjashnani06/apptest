@@ -11,7 +11,8 @@ module.exports = {
   NedbankId_NedbankIdEnrolments: enroll,
   NedbankId_NedbankIdRecoveriesUsername: recoverUserName,
   ClientsAccountsRefresh: refreshClientsAccounts,
-  NedApp_Feedback: leaveFeedback
+  NedApp_Feedback: leaveFeedback,
+  NedApp_CallMeBack: callMeBack
 }
 
 const authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
@@ -116,6 +117,10 @@ function refreshClientsAccounts (req, res) {
 }
 
 function leaveFeedback (req, res) {
+  res.json(new Response())
+}
+
+function callMeBack (req, res) {
   res.json(new Response())
 }
 
