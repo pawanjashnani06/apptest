@@ -3,6 +3,66 @@ info:
   version: v1
   title: NedbankMoney.API
 paths:
+  /nedapp/Feedback:
+    post:
+      tags:
+        - NedApp
+      summary: Allows the consumer to leave feedback from his mobile device.
+      x-swagger-router-controller: nedbank_money
+      operationId: NedApp_Feedback
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: Feedback
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.Feedback'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.ConsumerResponse'
+  /nedapp/CallMeBack:
+    post:
+      tags:
+        - NedApp
+      summary: Customer request to be called back
+      x-swagger-router-controller: nedbank_money
+      operationId: NedApp_CallMeBack
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: callmebackRequest
+          in: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.CallMeBack'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NedbankMoney.API.Models.ConsumerResponse'
   /nedapp/devices/disconnect:
     post:
       tags:
@@ -290,8 +350,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/NedbankMoney.API.Models.Response.NedbankIdCredentialsAuth'
-
-
   /nedbankid/credentials/auths/otp:
     post:
       tags:
@@ -541,6 +599,59 @@ paths:
               result:
                 $ref: '#/definitions/NedbankMoney.API.Models.Result'
 definitions:
+  NedbankMoney.API.Models.Feedback:
+    description: request object from the consumer to leave feedback
+    required:
+      - FeedbackType
+    type: object
+    properties:
+      FeedbackType:
+        format: int32
+        description: the type of feedback left by the consumer
+        enum:
+          - 0
+          - 1
+          - 2
+        type: integer
+      Description:
+        description: the feedback from the consumer
+        type: string
+      AppVersion:
+        description: the version of the application the consumer is using
+        type: string
+  NedbankMoney.API.Models.ConsumerResponse:
+    description: Feedback Result
+    type: object
+    properties:
+      result:
+        $ref: '#/definitions/NedbankMoney.API.Models.Result'
+        description: result object
+  NedbankMoney.API.Models.Result:
+    type: object
+    properties:
+      resultCode:
+        format: int32
+        type: integer
+      resultMessage:
+        type: string
+  NedbankMoney.API.Models.CallMeBack:
+    description: Request object from the consumer
+    type: object
+    properties:
+      MobileNo:
+        description: Telephone number the consumer needs to be called back on
+        type: string
+      CallbackTime:
+        description: The preferred time the consumer needs to be called back
+        maxLength: 80
+        minLength: 0
+        type: string
+      Description:
+        description: Information supplied by the consumer what te call is about
+        type: string
+      AppVersion:
+        description: The version of the application the consumer is using.
+        type: string
   NedbankMoney.API.Models.Request.NedAppDevicesDisconnectRequest:
     type: object
     properties:
@@ -555,14 +666,6 @@ definitions:
         type: string
       result:
         $ref: '#/definitions/NedbankMoney.API.Models.Result'
-  NedbankMoney.API.Models.Result:
-    type: object
-    properties:
-      resultCode:
-        format: int32
-        type: integer
-      resultMessage:
-        type: string
   NedbankMoney.API.Models.Request.NedAppDevicesInfoRequest:
     type: object
     properties:

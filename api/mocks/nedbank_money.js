@@ -10,7 +10,9 @@ module.exports = {
   NedbankId_NedbankIdCredentialsAuthsPin: initiateApproveITWithPin,
   NedbankId_NedbankIdEnrolments: enroll,
   NedbankId_NedbankIdRecoveriesUsername: recoverUserName,
-  ClientsAccountsRefresh: refreshClientsAccounts
+  ClientsAccountsRefresh: refreshClientsAccounts,
+  NedApp_Feedback: leaveFeedback,
+  NedApp_CallMeBack: callMeBack
 }
 
 const authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
@@ -111,6 +113,14 @@ function recoverUserName (req, res) {
 }
 
 function refreshClientsAccounts (req, res) {
+  res.json(new Response())
+}
+
+function leaveFeedback (req, res) {
+  res.json(new Response())
+}
+
+function callMeBack (req, res) {
   res.json(new Response())
 }
 
