@@ -241,5 +241,7 @@ function getNoticeTypeItem (req, res, next) {
 }
 
 function updateNoticeTypeItem (req, res, next) {
-  res.json({'metadata': {'resultData': [{'resultDetail': [{'operationReference': 'TRANSACTION', 'result': 'R00', 'status': 'SUCCESS'}]}]}})
+  res.statusCode = 500
+  res.json()
+  // res.json({'metadata': {'resultData': [{'resultDetail': [{'operationReference': 'TRANSACTION', 'result': 'R00', 'status': 'SUCCESS'}]}]}})
 }
