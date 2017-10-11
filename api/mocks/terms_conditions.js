@@ -129,23 +129,6 @@ function getItems (req, res, next) {
         }
       },
       {
-        'noticeTitle': 'Terms and Conditions',
-        'versionNumber': 0.35,
-        'acceptedDateTime': '0001-01-01 12:00:00 AM',
-        'versionDate': '2017-08-01 09:47:43 AM',
-        'noticeEffectiveDate': '2017-08-01 12:00:00 AM',
-        'channelID': 0,
-        'noticeType': 'LTO',
-        'newVersionNumber': 0,
-        'noticeDetails': {
-          'versionDate': '2017-08-01 09:47:43 AM',
-          'presentationTemplateType': 'PAGE_TEMPLATE',
-          'noticePresentationTemplate': '7b0HYBxJliUmL23Ke39K9UrX4HShCIBgEyTYkEAQ7MGIzeaS7B1pRyMpqyqBymVWZV1mFkDM7Z28995777333nvvvfe6O51OJ/ff/z9cZmQBbPbOStrJniGAqsgfP358Hz8i/se/9x98/Hu8W5TpZV43RbX87KPd8c5Hab6cVrNiefHZR+v2fPvgo9/j6PG7pnzUtNdl3szzvO20JwjL5hE1+eyjeduuHt29e3V1Nb66N67qi7u7Dx8+vPt7v35+902dLZvzql7YF+btYvgV/vajozTlvtt8sSqzNk8XWTudf/bRXXyj3xHM7TybztMmL/Np+9lHr/Ppui7a6xdVW0zzu/JDXtBXLrO6yCZlni6zRf7ZR23etOZ726Jc59vVuQX6MquzizpbzT9K7xpQd31Y5kPg7WBNqtm1/WsI9u/GCKSzogGg7Wrdrtbtdt5MsxVPw3XefGQ6Rbce0Md3bX+CjqHGkfnAkO5I/nSzePRr/D8=',
-          'noticeContent': '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',
-          'channelID': 0
-        }
-      },
-      {
         'noticeTitle': 'Send Imali Indemnity',
         'versionNumber': 0.49,
         'acceptedDateTime': '0001-01-01 12:00:00 AM',
@@ -241,7 +224,5 @@ function getNoticeTypeItem (req, res, next) {
 }
 
 function updateNoticeTypeItem (req, res, next) {
-  res.statusCode = 500
-  res.json()
-  // res.json({'metadata': {'resultData': [{'resultDetail': [{'operationReference': 'TRANSACTION', 'result': 'R00', 'status': 'SUCCESS'}]}]}})
+  res.json({'metadata': {'resultData': [{'resultDetail': [{'operationReference': 'TRANSACTION', 'result': 'R00', 'status': 'SUCCESS'}]}]}})
 }
