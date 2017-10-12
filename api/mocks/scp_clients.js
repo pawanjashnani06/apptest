@@ -92,7 +92,7 @@ function getClientPreferences (req, res, next) {
     },
     {
       'PreferenceKey': 'DefaultAccount',
-      'PreferenceValue': '1'
+      'PreferenceValue': '21'
     },
     {
       'PreferenceKey': 'FirstRunFinished',
