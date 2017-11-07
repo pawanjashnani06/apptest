@@ -10,50 +10,47 @@ module.exports = {
 
 function clientDetails (req, res, next) {
   res.json({
-    'CisNumber': 110052140105,
-    'FirstName': 'Pamela',
-    'SecondName': 'Zoltan',
-    'Surname': 'Mackor',
-    'FullNames': 'Ms Pamela Zoltan Mackor',
-    'CellNumber': '+27745879190',
+    'CisNumber': 110238016307,
+    'FirstName': 'Rizah',
+    'SecondName': '',
+    'Surname': 'Kodzaga',
+    'FullNames': 'Mr Rizah Kodzaga',
+    'CellNumber': '27998016307',
     'EmailAddress': '',
-    'BirthDate': '1969-03-21T22:00:00Z',
+    'BirthDate': '1968-05-31T22:00:00Z',
     'FicaStatus': 701,
-    'SegmentId': 'FAAZZZ',
-    'IdOrTaxIdNo': 6903220006083,
-    'SecOfficerCd': '32713',
+    'SegmentId': 'AAAZZZ',
+    'IdOrTaxIdNo': 6806016600086,
+    'PassportNo': '24946300000000',
+    'SecOfficerCd': '36300',
     'AdditionalPhoneList': [
       {
         'AdditionalPhoneType': 'BUS',
-        'AdditionalPhoneNumber': '(018) 2944527'
+        'AdditionalPhoneNumber': '(011) 4724050'
       },
       {
         'AdditionalPhoneType': 'CELL',
-        'AdditionalPhoneNumber': '+27745879190'
-      },
-      {
-        'AdditionalPhoneType': 'FAX',
-        'AdditionalPhoneNumber': '(018) 2973683'
+        'AdditionalPhoneNumber': '27998016307'
       },
       {
         'AdditionalPhoneType': 'HOME',
-        'AdditionalPhoneNumber': '(018) 2943431'
+        'AdditionalPhoneNumber': '(082) 8566440'
       }
     ],
     'Address': {
       'AddressLines': [
         {
-          'AddressLine': ''
+          'AddressLine': '3 EAGLE ROCK'
         },
         {
-          'AddressLine': '88 DR JAMES MOROKA DRIVE'
+          'AddressLine': 'EASTWOOD AVENUE'
         },
         {
-          'AddressLine': 'POTCHEFSTROOM'
+          'AddressLine': 'RANDPARK RIDGE'
         }
       ],
-      'AddressPostalCode': '02531',
-      'AddressProvince': 'NORTH WEST'
+      'AddressCity': 'JOHANNESBURG',
+      'AddressPostalCode': '02169'
     }
   })
 }
