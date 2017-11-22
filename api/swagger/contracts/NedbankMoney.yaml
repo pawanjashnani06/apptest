@@ -598,6 +598,72 @@ paths:
             properties:
               result:
                 $ref: '#/definitions/NedbankMoney.API.Models.Result'
+  /nedbankid/v1/users/password/update:
+    post:
+      tags:
+        - NedbankId
+      summary: Update Nedbank ID Password
+      x-swagger-router-controller: nedbank_money
+      operationId: passwordUpdate
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsAuthRequest
+          required: true
+          schema:
+            type: object
+            properties:
+              Username: {type: string}
+              OldPassword: {type: string}
+              NewPassword: {type: string}
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /nedbankid/credentials/auth/retrieve:
+    post:
+      tags:
+        - NedbankId
+      summary: retrieve auth
+      x-swagger-router-controller: nedbank_money
+      operationId: retrieveAuth
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: request
+          in: body
+          description: NedbankIdCredentialsAuthRequest
+          required: true
+          schema:
+            type: object
+            properties:
+              authReference: {type: string}
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
 definitions:
   NedbankMoney.API.Models.Feedback:
     description: request object from the consumer to leave feedback
