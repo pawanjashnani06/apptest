@@ -677,6 +677,118 @@ paths:
       - application/json
       produces:
       - application/json
+      
+  /clients/accounts/plastic/all:
+    get:
+      tags: []
+      summary: ""
+      description: Gets all the user card details
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+      operationId: clientCardDetails
+      x-swagger-router-controller: scp_clients
+      deprecated: false
+      
+  /clients/accounts/plastic/{accountId}:
+    get:
+      tags: []
+      summary: ""
+      description: Gets user card details
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      - name: accountId
+        required: true
+        type: string
+        in: path
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+      operationId: clientAccountCardsDetail
+      x-swagger-router-controller: scp_clients
+      deprecated: false
+      
+  /clients/accounts/plastic/{cardNumber}/block:
+    put:
+      tags: []
+      summary: ""
+      description: Gets user card details
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      - name: cardNumber
+        required: true
+        type: string
+        in: path
+      - description: This specifies the reason for block card
+        in: query
+        name: reasonCode
+        type: string
+        format: date
+        required: false
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+      operationId: blockCard
+      x-swagger-router-controller: scp_clients
+      deprecated: false
+
+  /clients/accounts/plastic/{cardNumber}/replace:
+    put:
+      tags: []
+      summary: ""
+      description: Gets user card details
+      parameters:
+      - description: ""
+        name: Authorization
+        required: true
+        type: string
+        in: header
+      - name: cardNumber
+        required: true
+        type: string
+        in: path
+      - description: This specifies the reason for block card
+        in: query
+        name: branchCode
+        type: string
+        format: date
+        required: false
+      - name: request
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            F2FBranch: {type: string}
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+      operationId: replaceCard
+      x-swagger-router-controller: scp_clients
+      deprecated: false
+      
 #  /recyclebin/{binItemidentifier}:
 #    delete:
 #      tags: []
