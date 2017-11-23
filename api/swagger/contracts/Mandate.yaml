@@ -1,0 +1,64 @@
+---
+swagger: '2.0'
+info:
+  version: 0.0.2
+  title: Mandate API
+  x-ibm-name: mandate-api
+  description: ""
+paths:
+  /clients/accounts/mandates:
+    get:
+      x-swagger-router-controller: mandate
+      operationId: getMandates
+      description: Get all mandates
+      parameters:
+      - name: mandateStatus
+        required: false
+        type: string
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            
+  /clients/accounts/mandatedetails/{mandateId}:
+    get:
+      x-swagger-router-controller: mandate
+      operationId: getMandateDetail
+      description: Get Mandate details
+      parameters:
+      - name: mandateId
+        required: true
+        type: string
+        in: path
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            
+  /clients/accounts/mandates/{mandateId}/authorisations:
+    post:
+      x-swagger-router-controller: mandate
+      operationId: authorizeMandate
+      description: Update mandate authorisation status
+      parameters:
+      - name: mandateId
+        required: true
+        type: string
+        in: path
+      - name: autenticationStatusInd
+        required: true
+        type: string
+        in: query
+      - name: rejectionReasonCode
+        description: Resaon code if rejected
+        required: false
+        type: string
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
