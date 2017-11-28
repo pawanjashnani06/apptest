@@ -517,17 +517,12 @@ paths:
     parameters:
     - $ref: '#/parameters/Authorization'  
     
-    payments/v2/transactions:
+  /payments/v2/transactions:
     post:
       operationId: postPaymentTransactionV2
-      x-swagger-router-controller: prepaid
+      x-swagger-router-controller: payment
       description: Gets specified prepaid details
       parameters:
-      - description: Request entities
-        in: body
-        name: request
-        type: object
-        required: true
       - description: validate
         in: query
         name: validate

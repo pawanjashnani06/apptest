@@ -1127,11 +1127,6 @@ paths:
       x-swagger-router-controller: prepaid
       description: Gets specified prepaid details
       parameters:
-      - description: Request entities
-        in: body
-        name: request
-        type: object
-        required: true
       - description: validate
         in: query
         name: validate
@@ -1145,17 +1140,12 @@ paths:
         204:
           description: No Content
 
-  prepaids/v2/moneysend:
+  /prepaids/v2/moneysend:
     post:
       operationId: postMoneySendV2
       x-swagger-router-controller: prepaid
       description: Gets specified prepaid details
       parameters:
-      - description: Request entities
-        in: body
-        name: request
-        type: object
-        required: true
       - description: validate
         in: query
         name: validate
