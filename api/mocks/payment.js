@@ -8,7 +8,8 @@ module.exports = {
   paymenttransactionsGet: paymenttransactionsGet,
   paymenttransactionsGetLatest: paymenttransactionsGetLatest,
   paymenttransactionsPost: paymenttransactionsPost,
-  paymenttransactionsPostLatest: paymenttransactionsPostLatest
+  paymenttransactionsPostLatest: paymenttransactionsPostLatest,
+  postPaymentTransactionV2: postPaymentTransactionV2
 }
 
 function paymentaccountsGet (req, res, next) {
@@ -2149,5 +2150,44 @@ function paymenttransactionsPostLatest (req, res, next) {
         }
       ]
     }
+  })
+}
+
+function postPaymentTransactionV2 (req, res, next) {
+  res.json({
+    'metadata': {
+      'resultData': {
+        'transactionID': '1234',
+        'resultDetail': [ {
+          'operationReference': 'qq23233',
+          'result': 'Done',
+          'status': 'Complete',
+          'reason': ''
+        } ]
+      }
+    },
+    'data': [ {
+      'startDate': '12323232',
+      'nextTransDate': '1233434',
+      'fromAccount': {
+        'accountName': 'tom',
+        'accountNumber': '1234',
+        'accountType': 'Saving'
+      },
+      'toAccount': {
+        'accountName': 'Harry',
+        'accountNumber': '12356',
+        'accountType': 'Saving'
+      },
+      'bfName': 'Mark Twain',
+      'bank': 'nedbank',
+      'beneficiaryID': '12323121',
+      'myDescription': {},
+      'sortCode': 'ASD',
+      'beneficiaryDescription': '',
+      'amount': 123.0,
+      'favourite': false,
+      'saveBeneficiary': true
+    } ]
   })
 }
