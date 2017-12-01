@@ -516,6 +516,26 @@ paths:
             $ref: '#/definitions/AccountsListResponse'
     parameters:
     - $ref: '#/parameters/Authorization'  
+    
+  /payments/v2/transactions:
+    post:
+      operationId: postPaymentTransactionV2
+      x-swagger-router-controller: payment
+      description: Gets specified prepaid details
+      parameters:
+      - description: validate
+        in: query
+        name: validate
+        type: string
+        required: true
+      responses:
+        200:
+          description: Request successful
+          schema:
+            type: object
+        204:
+          description: No Content
+ 
 definitions:
   PaymentResponse:
     properties:

@@ -12,7 +12,9 @@ module.exports = {
   NedbankId_NedbankIdRecoveriesUsername: recoverUserName,
   ClientsAccountsRefresh: refreshClientsAccounts,
   NedApp_Feedback: leaveFeedback,
-  NedApp_CallMeBack: callMeBack
+  NedApp_CallMeBack: callMeBack,
+  passwordUpdate: passwordUpdate,
+  retrieveAuth: retrieveAuth
 }
 
 const authReference = '76be859d-2d23-45bf-8630-b5a9f7715585'
@@ -129,4 +131,39 @@ function Response (resultCode = 0, resultMessage = 'success') {
     'resultCode': resultCode,
     'resultMessage': resultMessage
   }
+}
+
+function passwordUpdate (req, res) {
+  res.json({
+    'MetaData': {
+      'ResultCode': 'R00',
+      'Message': '',
+      'InvalidFieldList': null,
+      'result': {
+        'resultCode': 0,
+        'resultMessage': 'Replace card request recieved'
+      }
+    },
+    'Data': {
+      'ResultSet': {
+        'SecurityRequestStatus': '0',
+        'ResultCode': 'R00',
+        'InvalidFieldList': {},
+        'SecurityRequestID': '123',
+        'ResultMessage': 'password update'
+      }
+    }
+  })
+}
+
+function retrieveAuth (req, res) {
+  res.json({
+    'responseDateTime': '1234123412341',
+    'clientResponseOption': '1',
+    'clientResponseCode': 'R00',
+    'result': {
+      'resultCode': 0,
+      'resultMessage': 'Replace card request recieved'
+    }
+  })
 }

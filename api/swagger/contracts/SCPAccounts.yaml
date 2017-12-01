@@ -1272,6 +1272,131 @@ paths:
         400:
           description: Invalid input
       deprecated: false    
+
+  /clients/accounts/atmlimitcard/{cardNumber}:
+    get:
+      tags: []
+      summary: Get ATM card limit
+      x-swagger-router-controller: scp_accounts
+      operationId: getAtmCardLimit
+      parameters:
+      - name: cardNumber
+        required: true
+        type: string
+        in: path
+      - name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+        204:
+          description: ""
+      deprecated: false
+    put:
+      tags: []
+      summary: Get ATM card limit
+      x-swagger-router-controller: scp_accounts
+      operationId: putAtmCardLimit
+      parameters:
+      - name: cardNumber
+        required: true
+        type: string
+        in: path
+      - name: Authorization
+        type: string
+        required: true
+        in: header
+      - name: atmLimit
+        required: true
+        type: string
+        in: query
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+        204:
+          description: ""
+      deprecated: false
+
+  /clients/accounts/atmlimit/{accountId}:
+    get:
+      tags: []
+      summary: Get ATM card limit
+      x-swagger-router-controller: scp_accounts
+      operationId: getAtmLimit
+      parameters:
+      - name: accountId
+        required: true
+        type: string
+        in: path
+      - name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+        204:
+          description: ""
+      deprecated: false
+    put:
+      tags: []
+      summary: Get ATM card limit
+      x-swagger-router-controller: scp_accounts
+      operationId: putAtmLimit
+      parameters:
+      - name: accountId
+        required: true
+        type: string
+        in: path
+      - name: Authorization
+        type: string
+        required: true
+        in: header
+      - name: atmLimit
+        required: true
+        type: string
+        in: query
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+        204:
+          description: ""
+      deprecated: false
+
+  /clients/accounts/{accountId}:
+    get:
+      tags: []
+      summary: Get ATM card limit
+      x-swagger-router-controller: scp_accounts
+      operationId: getAccountDetails
+      parameters:
+      - name: accountId
+        required: true
+        type: string
+        in: path
+      - name: Authorization
+        type: string
+        required: true
+        in: header
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: object
+        204:
+          description: ""
+      deprecated: false
+
 definitions:
   AtmLimit:
     properties:
