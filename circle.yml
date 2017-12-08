@@ -7,12 +7,12 @@ dependencies:
     - npm install
     - ./build.sh
     - docker info
-    - docker build --rm=false -t greenbankstub .
+    - docker build --rm=false -t apptest .
     - curl -fsSL https://goss.rocks/install | GOSS_DST=./goss sh
 
 test:
   post:
-    - docker run -d -p 10010:10010 -v ${PWD}/goss:/goss --name gossed-container greenbankstub; sleep 10
+    - docker run -d -p 10010:10010 -v ${PWD}/goss:/goss --name gossed-container apptest; sleep 10
     - CID=$(docker inspect --format "{{.Id}}" gossed-container) && sudo lxc-attach -n ${CID} -f /var/lib/docker/containers/${CID}/config.lxc -- sh -c '/goss/goss -g /goss/goss.yaml validate'
 
 deployment:

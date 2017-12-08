@@ -4,12 +4,12 @@
 JQ="jq --raw-output --exit-status"
 
 
-FAMILY="greenbankstub-task"
-CLUSTER="greenbankstub"
-SERVICES="greenbank-service"
+FAMILY="apptest"
+CLUSTER="apptest"
+SERVICES="apptest"
 REGION="ap-southeast-1"
-CONTAINER_NAME="greenbankstub"
-AWS_ACCOUNT_ID="365228081331"
+CONTAINER_NAME="apptest"
+AWS_ACCOUNT_ID="223414129485"
 
 configure_aws_cli(){
 	aws --version
@@ -20,7 +20,7 @@ configure_aws_cli(){
 deploy_cluster() {
     make_task_def
     register_definition
-		# aws ecs update-service --cluster greenbankstub --service greenbank-service --task-definition ${FAMILY}:${task_revision} --desired-count 2 > /dev/null
+		# aws ecs update-service --cluster apptest --service greenbank-service --task-definition ${FAMILY}:${task_revision} --desired-count 2 > /dev/null
 		if [[ $(aws ecs update-service --cluster ${CLUSTER} --service ${SERVICES} --task-definition ${FAMILY}:${task_revision} | \
 								 $JQ '.service.taskDefinition') != $revision ]]; then
 			echo "Error updating service."
@@ -47,8 +47,8 @@ deploy_cluster() {
 make_task_def(){
 	task_template='[
 		{
-			"name": "greenbankstub-task",
-			"image": "'${AWS_ACCOUNT_ID}'.dkr.ecr.'${REGION}'.amazonaws.com/greenbankstub:'${CIRCLE_SHA1}'",
+			"name": "apptest",
+			"image": "'${AWS_ACCOUNT_ID}'.dkr.ecr.'${REGION}'.amazonaws.com/apptest:'${CIRCLE_SHA1}'",
 			"essential": true,
 			"memory": 500,
 			"cpu": 10,
@@ -82,7 +82,7 @@ register_definition() {
 }
 push_ecr_image(){
 	eval $(aws ecr get-login --region ${REGION})
-	docker tag greenbankstub $AWS_ACCOUNT_ID.dkr.ecr.${REGION}.amazonaws.com/${CONTAINER_NAME}:$CIRCLE_SHA1
+	docker tag apptest $AWS_ACCOUNT_ID.dkr.ecr.${REGION}.amazonaws.com/${CONTAINER_NAME}:$CIRCLE_SHA1
 	docker push $AWS_ACCOUNT_ID.dkr.ecr.${REGION}.amazonaws.com/${CONTAINER_NAME}:$CIRCLE_SHA1
 }
 
